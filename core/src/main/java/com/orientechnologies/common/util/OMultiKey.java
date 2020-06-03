@@ -55,7 +55,6 @@ public class OMultiKey {
    * Objects are equals if they contain the same amount of keys and these keys are equals. Order of keys does not matter.
    *
    * @param o obj the reference object with which to compare.
-   *
    * @return <code>true</code> if this object is the same as the obj
    * argument; <code>false</code> otherwise.
    */

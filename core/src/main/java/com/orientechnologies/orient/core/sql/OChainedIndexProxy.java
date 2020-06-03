@@ -74,7 +74,6 @@ public class OChainedIndexProxy<T> implements OIndexInternal {
    * of each type.
    *
    * @param longChain - property chain from the query, which should be evaluated
-   *
    * @return proxies needed to process query.
    */
   public static <T> Collection<OChainedIndexProxy<T>> createProxies(OClass iSchemaClass, OSQLFilterItemField.FieldChain longChain) {
@@ -167,7 +166,6 @@ public class OChainedIndexProxy<T> implements OIndexInternal {
    * </ul>
    *
    * @param indexes where search
-   *
    * @return the index that fits better as a base index in chain
    */
   protected static OIndex findBestIndex(Iterable<OIndex> indexes) {
@@ -229,7 +227,6 @@ public class OChainedIndexProxy<T> implements OIndexInternal {
    * </ul>
    *
    * @param index to check
-   *
    * @return true if index usage is allowed as base index.
    */
   public static boolean isAppropriateAsBase(OIndex index) {
@@ -379,7 +376,6 @@ public class OChainedIndexProxy<T> implements OIndexInternal {
    *
    * @param index - index for which keys prepared for.
    * @param keys  - which should be prepared.
-   *
    * @return keys converted to necessary type.
    */
   private static Set<Comparable> prepareKeys(OIndex index, Object keys) {

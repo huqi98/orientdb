@@ -67,7 +67,6 @@ public class CellBTreeBucketSingleValueV1SetRightSiblingPOTest {
     }
   }
 
-
   @Test
   public void testUndo() {
     final int pageSize = 64 * 1024;

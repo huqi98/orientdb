@@ -8,33 +8,33 @@ import java.util.Set;
  */
 public class CycleChild {
 
-    private String name;
+  private String name;
 
-    private CycleParent parent;
+  private CycleParent parent;
 
-    private Set<GrandChild> grandChildren = new HashSet<GrandChild>();
+  private Set<GrandChild> grandChildren = new HashSet<GrandChild>();
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public CycleParent getParent() {
-        return parent;
-    }
+  public CycleParent getParent() {
+    return parent;
+  }
 
-    public void setParent(CycleParent parent) {
-        this.parent = parent;
-    }
+  public void setParent(CycleParent parent) {
+    this.parent = parent;
+  }
 
-    public Set<GrandChild> getGrandChildren() {
-        return grandChildren;
-    }
+  public Set<GrandChild> getGrandChildren() {
+    return grandChildren;
+  }
 
-    public void setGrandChildren(Set<GrandChild> grandChildren) {
-        this.grandChildren = grandChildren;
-    }
+  public void setGrandChildren(Set<GrandChild> grandChildren) {
+    this.grandChildren = grandChildren;
+  }
 }

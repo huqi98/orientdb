@@ -14,11 +14,7 @@ public class OLuceneIndexEngineUtilsTest {
   @Test
   public void buildSortFields() throws Exception {
     ODocument metadata = new ODocument()
-        .field("sort", Arrays.asList(new ODocument()
-            .field("field", "score")
-            .field("reverse", false)
-            .field("type", "INT").toMap())
-        );
+        .field("sort", Arrays.asList(new ODocument().field("field", "score").field("reverse", false).field("type", "INT").toMap()));
 
     final List<SortField> fields = OLuceneIndexEngineUtils.buildSortFields(metadata);
 
@@ -34,10 +30,7 @@ public class OLuceneIndexEngineUtilsTest {
   @Test
   public void buildIntSortField() throws Exception {
 
-    final ODocument sortConf = new ODocument()
-        .field("field", "score")
-        .field("reverse", true)
-        .field("type", "INT");
+    final ODocument sortConf = new ODocument().field("field", "score").field("reverse", true).field("type", "INT");
 
     final SortField sortField = OLuceneIndexEngineUtils.buildSortField(sortConf);
 
@@ -50,8 +43,7 @@ public class OLuceneIndexEngineUtilsTest {
   @Test
   public void buildDocSortField() throws Exception {
 
-    final ODocument sortConf = new ODocument()
-        .field("type", "DOC");
+    final ODocument sortConf = new ODocument().field("type", "DOC");
 
     final SortField sortField = OLuceneIndexEngineUtils.buildSortField(sortConf);
 

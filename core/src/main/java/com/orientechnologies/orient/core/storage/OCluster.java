@@ -62,7 +62,6 @@ public interface OCluster {
    *
    * @param recordType      the type of record of which allocate the position.
    * @param atomicOperation
-   *
    * @return the allocated position.
    */
   OPhysicalPosition allocatePosition(byte recordType, OAtomicOperation atomicOperation) throws IOException;
@@ -75,7 +74,6 @@ public interface OCluster {
    * @param recordType        the type of the record
    * @param allocatedPosition the eventual allocated position or null if there is no allocated position.
    * @param atomicOperation
-   *
    * @return the position where the record si created.
    */
   OPhysicalPosition createRecord(byte[] content, int recordVersion, byte recordType, OPhysicalPosition allocatedPosition,

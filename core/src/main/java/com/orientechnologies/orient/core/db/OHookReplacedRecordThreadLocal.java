@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 package com.orientechnologies.orient.core.db;
 
@@ -27,7 +27,6 @@ import com.orientechnologies.orient.core.record.ORecord;
 
 /**
  * Uses Thread Local to store information used by hooks.
- *
  */
 public class OHookReplacedRecordThreadLocal extends ThreadLocal<ORecord> {
 

@@ -57,12 +57,12 @@ public class HACrashIT extends AbstractServerClusterTxTest {
           try {
             // CRASH LAST SERVER try {
             executeWhen(0, new OCallable<Boolean, ODatabaseDocument>() {
-              // CONDITION
-              @Override
-              public Boolean call(ODatabaseDocument db) {
-                return db.countClass("Person") > (count * SERVERS * writerCount + baseCount) * 1 / 3;
-              }
-            }, // ACTION
+                  // CONDITION
+                  @Override
+                  public Boolean call(ODatabaseDocument db) {
+                    return db.countClass("Person") > (count * SERVERS * writerCount + baseCount) * 1 / 3;
+                  }
+                }, // ACTION
                 new OCallable<Boolean, ODatabaseDocument>() {
                   @Override
                   public Boolean call(ODatabaseDocument db) {
@@ -141,7 +141,7 @@ public class HACrashIT extends AbstractServerClusterTxTest {
   protected String getDatabaseURL(final ServerRun server) {
     final String address = server.getBinaryProtocolAddress();
 
-    if( address == null )
+    if (address == null)
       return null;
 
     return "remote:" + address + "/" + getDatabaseName();

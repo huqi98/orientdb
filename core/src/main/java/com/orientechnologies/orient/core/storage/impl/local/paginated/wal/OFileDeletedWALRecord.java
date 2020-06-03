@@ -19,7 +19,6 @@ public class OFileDeletedWALRecord extends OOperationUnitBodyRecord {
     return fileId;
   }
 
-
   @Override
   protected void serializeToByteBuffer(ByteBuffer buffer) {
     buffer.putLong(fileId);

@@ -23,9 +23,9 @@ import com.orientechnologies.orient.core.sql.OCommandSQLParsingException;
 
 public class OQueryParsingException extends OCommandSQLParsingException {
 
-  private String            text;
-  private int               position         = -1;
-  private static final long serialVersionUID = -7430575036316163711L;
+  private              String text;
+  private              int    position         = -1;
+  private static final long   serialVersionUID = -7430575036316163711L;
 
   private static String makeMessage(int position, String text, String message) {
     StringBuilder buffer = new StringBuilder();

@@ -43,7 +43,7 @@ import com.orientechnologies.common.log.OLogManager;
 
 /**
  * Helper class to browse .class files. See also: http://forums.sun.com/thread.jspa?threadID=341935&start=15&tstart=0
- * 
+ *
  * @author Antony Stubbs
  */
 public class OReflectionHelper {
@@ -81,8 +81,8 @@ public class OReflectionHelper {
             final JarFile jar = conn.getJarFile();
             for (JarEntry e : Collections.list(jar.entries())) {
 
-              if (e.getName().startsWith(iPackageName.replace('.', '/')) && e.getName().endsWith(CLASS_EXTENSION)
-                  && !e.getName().contains("$")) {
+              if (e.getName().startsWith(iPackageName.replace('.', '/')) && e.getName().endsWith(CLASS_EXTENSION) && !e.getName()
+                  .contains("$")) {
                 final String className = e.getName().replace("/", ".").substring(0, e.getName().length() - 6);
                 classes.add(Class.forName(className, true, iClassLoader));
               }
@@ -124,11 +124,9 @@ public class OReflectionHelper {
 
   /**
    * Recursive method used to find all classes in a given directory and subdirs.
-   * 
-   * @param iDirectory
-   *          The base directory
-   * @param iPackageName
-   *          The package name for classes found inside the base directory
+   *
+   * @param iDirectory   The base directory
+   * @param iPackageName The package name for classes found inside the base directory
    * @return The classes
    * @throws ClassNotFoundException
    */
@@ -158,7 +156,7 @@ public class OReflectionHelper {
 
   /**
    * Filters discovered classes to see if they implement a given interface.
-   * 
+   *
    * @param thePackage
    * @param theInterface
    * @param iClassLoader
@@ -181,9 +179,8 @@ public class OReflectionHelper {
 
   /**
    * Returns the declared generic types of a class.
-   * 
-   * @param iClass
-   *          Class to examine
+   *
+   * @param iClass Class to examine
    * @return The array of Type if any, otherwise null
    */
   public static Type[] getGenericTypes(final Class<?> iClass) {
@@ -198,9 +195,8 @@ public class OReflectionHelper {
 
   /**
    * Returns the generic class of multi-value objects.
-   * 
-   * @param p
-   *          Field to examine
+   *
+   * @param p Field to examine
    * @return The Class<?> of generic type if any, otherwise null
    */
   public static Class<?> getGenericMultivalueType(final Field p) {
@@ -227,9 +223,8 @@ public class OReflectionHelper {
 
   /**
    * Checks if a class is a Java type: Map, Collection,arrays, Number (extensions and primitives), String, Boolean..
-   * 
-   * @param clazz
-   *          Class<?> to examine
+   *
+   * @param clazz Class<?> to examine
    * @return true if clazz is Java type, false otherwise
    */
   public static boolean isJavaType(Class<?> clazz) {

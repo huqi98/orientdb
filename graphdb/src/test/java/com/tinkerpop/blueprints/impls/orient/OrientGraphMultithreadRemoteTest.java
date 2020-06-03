@@ -18,11 +18,11 @@ import com.tinkerpop.blueprints.Vertex;
 import static org.junit.Assert.assertEquals;
 
 public class OrientGraphMultithreadRemoteTest {
-  private static final String serverPort = System.getProperty("orient.server.port", "3080");
-  private static OServer     server;
-  private static String      oldOrientDBHome;
+  private static final String  serverPort = System.getProperty("orient.server.port", "3080");
+  private static       OServer server;
+  private static       String  oldOrientDBHome;
 
-  private static String      serverHome;
+  private static String serverHome;
 
   private OrientGraphFactory graphFactory;
 

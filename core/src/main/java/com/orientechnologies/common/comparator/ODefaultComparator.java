@@ -24,10 +24,10 @@ import java.util.Comparator;
 /**
  * Comparator that calls {@link Comparable#compareTo(Object)} methods for getting results for all {@link Comparable} types.
  * Otherwise result of {@link Comparator} that returned from {@link OComparatorFactory} will be used.
- * 
+ * <p>
  * The special case is null values. Null is treated as smallest value against other values. If both arguments are null they are
  * treated as equal.
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  * @since 03.07.12
  */

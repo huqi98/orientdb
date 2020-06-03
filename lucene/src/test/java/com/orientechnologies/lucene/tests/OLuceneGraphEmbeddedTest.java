@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.lucene.tests;
@@ -64,8 +64,7 @@ public class OLuceneGraphEmbeddedTest extends OLuceneBaseTest {
 
     db.begin();
 
-    List<ODocument> docs
-        = db.query(new OSQLSynchQuery<ODocument>("SELECT from City where name = 'London / a' "));
+    List<ODocument> docs = db.query(new OSQLSynchQuery<ODocument>("SELECT from City where name = 'London / a' "));
 
     Assertions.assertThat(docs).hasSize(1);
 

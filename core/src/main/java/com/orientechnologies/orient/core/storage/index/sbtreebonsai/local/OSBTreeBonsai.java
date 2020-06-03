@@ -35,26 +35,25 @@ import java.util.Map;
 /**
  * The tree that have similar structure to {@link OSBTreeV1} and designed to store small entries. <br>
  * <br>
- * The tree algorithm is the same as in {@link OSBTreeV1}, but it have tiny buckets.<br>
- * The {@link OReadCache} could contain several buckets. That's why there is no huge resource consuming when you have lots of
- * OSBTreeBonsai that contain only few records.<br>
+ * The tree algorithm is the same as in {@link OSBTreeV1}, but it have tiny buckets.<br> The {@link OReadCache} could contain
+ * several buckets. That's why there is no huge resource consuming when you have lots of OSBTreeBonsai that contain only few
+ * records.<br>
  * <br>
  * <code>
- * +--------------------------------------------------------------------------------------------+<br>
- * | DISK CACHE PAGE                                                                            |<br>
- * |+---------------+ +---------------+ +---------------+ +---------------+ +---------------+   |<br>
- * || Bonsai Bucket | | Bonsai Bucket | | Bonsai Bucket | | Bonsai Bucket | | Bonsai Bucket |...|<br>
- * |+---------------+ +---------------+ +---------------+ +---------------+ +---------------+   |<br>
+ * +--------------------------------------------------------------------------------------------+<br> | DISK CACHE PAGE
+ *                                                               |<br> |+---------------+ +---------------+ +---------------+
+ * +---------------+ +---------------+   |<br> || Bonsai Bucket | | Bonsai Bucket | | Bonsai Bucket | | Bonsai Bucket | | Bonsai
+ * Bucket |...|<br> |+---------------+ +---------------+ +---------------+ +---------------+ +---------------+   |<br>
  * +--------------------------------------------------------------------------------------------+<br>
  * </code>
- * 
+ *
  * @author Artem Orobets (enisher-at-gmail.com)
  * @since 1.7rc1
  */
 public interface OSBTreeBonsai<K, V> extends OTreeInternal<K, V> {
   /**
    * Gets id of file where this bonsai tree is stored.
-   * 
+   *
    * @return id of file in {@link OReadCache}
    */
   long getFileId();
@@ -71,7 +70,7 @@ public interface OSBTreeBonsai<K, V> extends OTreeInternal<K, V> {
 
   /**
    * Search for entry with specific key and return its value.
-   * 
+   *
    * @param key
    * @return value associated with given key, NULL if no value is associated.
    */
@@ -81,12 +80,14 @@ public interface OSBTreeBonsai<K, V> extends OTreeInternal<K, V> {
 
   /**
    * Deletes all entries from tree.
+   *
    * @param atomicOperation
    */
   void clear(OAtomicOperation atomicOperation) throws IOException;
 
   /**
    * Deletes whole tree. After this operation tree is no longer usable.
+   *
    * @param atomicOperation
    */
   void delete(OAtomicOperation atomicOperation);
@@ -115,9 +116,8 @@ public interface OSBTreeBonsai<K, V> extends OTreeInternal<K, V> {
    * Hardcoded method for Bag to avoid creation of extra layer.
    * <p/>
    * Don't make any changes to tree.
-   * 
-   * @param changes
-   *          Bag changes
+   *
+   * @param changes Bag changes
    * @return real bag size
    */
   int getRealBagSize(Map<K, Change> changes);

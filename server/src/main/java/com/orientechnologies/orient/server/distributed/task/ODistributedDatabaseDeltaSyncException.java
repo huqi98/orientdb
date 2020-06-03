@@ -24,9 +24,8 @@ import com.orientechnologies.orient.server.distributed.ODistributedException;
 
 /**
  * Exception thrown when a delta backup is not possible.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class ODistributedDatabaseDeltaSyncException extends ODistributedException {
   public ODistributedDatabaseDeltaSyncException(final ODistributedDatabaseDeltaSyncException exception) {

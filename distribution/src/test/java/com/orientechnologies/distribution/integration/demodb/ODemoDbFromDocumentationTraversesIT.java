@@ -14,14 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ODemoDbFromDocumentationTraversesIT extends OIntegrationTestTemplate {
 
-@Test
+  @Test
   public void test_Traverses_Example_1() throws Exception {
 
-    OResultSet resultSet = db.query("TRAVERSE * FROM (\n" + "  SELECT FROM Profiles WHERE Name='Santo' and Surname='OrientDB'\n"
-        + ") MAXDEPTH 3");
+    OResultSet resultSet = db
+        .query("TRAVERSE * FROM (\n" + "  SELECT FROM Profiles WHERE Name='Santo' and Surname='OrientDB'\n" + ") MAXDEPTH 3");
 
-    assertThat(resultSet)
-        .hasSize(85);
+    assertThat(resultSet).hasSize(85);
 
     resultSet.close();
     db.close();
@@ -32,8 +31,7 @@ public class ODemoDbFromDocumentationTraversesIT extends OIntegrationTestTemplat
 
     OResultSet resultSet = db.query("TRAVERSE * FROM (\n" + "  SELECT FROM Countries WHERE Name='Italy'\n" + ") MAXDEPTH 3\n");
 
-    assertThat(resultSet)
-        .hasSize(135);
+    assertThat(resultSet).hasSize(135);
 
     resultSet.close();
     db.close();

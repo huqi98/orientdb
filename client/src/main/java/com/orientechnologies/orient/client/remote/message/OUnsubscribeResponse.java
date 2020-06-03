@@ -29,5 +29,4 @@ public class OUnsubscribeResponse implements OBinaryResponse {
     response.read(network, session);
   }
 
-
 }

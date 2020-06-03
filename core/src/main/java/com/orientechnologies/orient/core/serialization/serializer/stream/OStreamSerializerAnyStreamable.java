@@ -37,15 +37,15 @@ import com.orientechnologies.orient.core.sql.query.OLiveQuery;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 
 public class OStreamSerializerAnyStreamable {
-  private static final String                        SCRIPT_COMMAND_CLASS         = "s";
-  private static final byte[]                        SCRIPT_COMMAND_CLASS_ASBYTES = SCRIPT_COMMAND_CLASS.getBytes();
-  private static final String                        SQL_COMMAND_CLASS            = "c";
-  private static final byte[]                        SQL_COMMAND_CLASS_ASBYTES    = SQL_COMMAND_CLASS.getBytes();
-  private static final String                        QUERY_COMMAND_CLASS          = "q";
-  private static final byte[]                        QUERY_COMMAND_CLASS_ASBYTES  = QUERY_COMMAND_CLASS.getBytes();
+  private static final String SCRIPT_COMMAND_CLASS         = "s";
+  private static final byte[] SCRIPT_COMMAND_CLASS_ASBYTES = SCRIPT_COMMAND_CLASS.getBytes();
+  private static final String SQL_COMMAND_CLASS            = "c";
+  private static final byte[] SQL_COMMAND_CLASS_ASBYTES    = SQL_COMMAND_CLASS.getBytes();
+  private static final String QUERY_COMMAND_CLASS          = "q";
+  private static final byte[] QUERY_COMMAND_CLASS_ASBYTES  = QUERY_COMMAND_CLASS.getBytes();
 
-  public static final OStreamSerializerAnyStreamable INSTANCE                     = new OStreamSerializerAnyStreamable();
-  public static final String                         NAME                         = "at";
+  public static final OStreamSerializerAnyStreamable INSTANCE = new OStreamSerializerAnyStreamable();
+  public static final String                         NAME     = "at";
 
   /**
    * Re-Create any object if the class has a public constructor that accepts a String as unique parameter.
@@ -64,8 +64,7 @@ public class OStreamSerializerAnyStreamable {
       throw new OSerializationException(message);
     }
 
-
-    final String className = new String(iStream,4,classNameSize,"UTF-8");
+    final String className = new String(iStream, 4, classNameSize, "UTF-8");
 
     try {
       final OCommandRequestText stream;

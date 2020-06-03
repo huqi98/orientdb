@@ -32,7 +32,6 @@ public class ServerClusterLocalTxIT extends AbstractServerClusterTxTest {
     return "plocal:" + server.getDatabasePath(getDatabaseName());
   }
 
-
   @Override
   public String getDatabaseName() {
     return "distributed-inserttx";

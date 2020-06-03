@@ -147,14 +147,14 @@ public class OTraverseStatementExecutionTest {
     db.command("create vertex " + classPrefix + "V set name = 'd'").close();
 
     db.command(
-            "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'a') to (select from " + classPrefix
-                    + "V where name = 'b')").close();
+        "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'a') to (select from " + classPrefix
+            + "V where name = 'b')").close();
     db.command(
-            "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'b') to (select from " + classPrefix
-                    + "V where name = 'c')").close();
+        "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'b') to (select from " + classPrefix
+            + "V where name = 'c')").close();
     db.command(
-            "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'c') to (select from " + classPrefix
-                    + "V where name = 'd')").close();
+        "create edge " + classPrefix + "E from (select from " + classPrefix + "V where name = 'c') to (select from " + classPrefix
+            + "V where name = 'd')").close();
 
     OResultSet result = db.query("traverse out() from (select from " + classPrefix + "V where name = 'a') STRATEGY BREADTH_FIRST");
 
@@ -167,9 +167,8 @@ public class OTraverseStatementExecutionTest {
     result.close();
   }
 
-
   @Test
-  public void testTraverseInBatchTx(){
+  public void testTraverseInBatchTx() {
     String script = "";
     script += "";
 
@@ -178,7 +177,6 @@ public class OTraverseStatementExecutionTest {
     script += "create property testTraverseInBatchTx_V.name STRING;";
     script += "drop class testTraverseInBatchTx_E if exists unsafe;";
     script += "create class testTraverseInBatchTx_E extends E;";
-
 
     script += "begin;";
     script += "insert into testTraverseInBatchTx_V(name) values ('a'), ('b'), ('c');";
@@ -193,7 +191,7 @@ public class OTraverseStatementExecutionTest {
     OResult item = result.next();
     Object val = item.getProperty("value");
     Assert.assertTrue(val instanceof Collection);
-    Assert.assertEquals(1, ((Collection)val).size());
+    Assert.assertEquals(1, ((Collection) val).size());
     result.close();
 
   }

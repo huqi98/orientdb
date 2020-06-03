@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class OWhileBlock extends OStatement {
 
   protected OBooleanExpression condition;
-  protected List<OStatement> statements = new ArrayList<OStatement>();
+  protected List<OStatement>   statements = new ArrayList<OStatement>();
 
   public OWhileBlock(int id) {
     super(id);
@@ -47,7 +47,7 @@ public class OWhileBlock extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OUpdateExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OUpdateExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     executionPlan.executeInternal();
@@ -67,7 +67,7 @@ public class OWhileBlock extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OUpdateExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OUpdateExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     executionPlan.executeInternal();

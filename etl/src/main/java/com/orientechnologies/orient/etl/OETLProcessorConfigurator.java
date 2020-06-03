@@ -140,7 +140,8 @@ public class OETLProcessorConfigurator {
           addAll(endBlocks);
           add(loader);
           add(extractor);
-        }};
+        }
+      };
 
       components.stream().forEach(c -> c.setProcessor(processor));
 

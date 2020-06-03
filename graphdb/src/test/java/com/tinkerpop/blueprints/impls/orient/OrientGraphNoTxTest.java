@@ -157,7 +157,6 @@ public class OrientGraphNoTxTest extends GraphTest {
       dropGraph("graph");
     }
 
-
     graph = generateGraph("graph");
 
     try {
@@ -172,6 +171,5 @@ public class OrientGraphNoTxTest extends GraphTest {
     }
 
   }
-
 
 }

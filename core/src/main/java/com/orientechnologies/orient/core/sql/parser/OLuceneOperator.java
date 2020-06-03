@@ -21,19 +21,23 @@ public class OLuceneOperator extends SimpleNode implements OBinaryCompareOperato
     return "LUCENE";
   }
 
-  @Override public boolean supportsBasicCalculation() {
+  @Override
+  public boolean supportsBasicCalculation() {
     return true;
   }
 
-  @Override public OLuceneOperator copy() {
+  @Override
+  public OLuceneOperator copy() {
     return this;
   }
 
-  @Override public boolean equals(Object obj) {
+  @Override
+  public boolean equals(Object obj) {
     return obj != null && obj.getClass().equals(this.getClass());
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return getClass().hashCode();
   }
 }

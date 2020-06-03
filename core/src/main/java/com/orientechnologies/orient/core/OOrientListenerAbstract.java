@@ -23,9 +23,8 @@ import com.orientechnologies.orient.core.storage.OStorage;
 
 /**
  * Abstract implementation of OOrientListener interface.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public abstract class OOrientListenerAbstract implements OOrientListener, OOrientStartupListener, OOrientShutdownListener {
   @Override

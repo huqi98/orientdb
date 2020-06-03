@@ -30,15 +30,15 @@ import java.util.List;
 
 public class OSortedMultiIterator<T extends OIdentifiable> implements Iterator<T> {
 
-  private static final int  STATUS_INIT     = 0;
-  private static final int  STATUS_RUNNING  = 1;
+  private static final int STATUS_INIT    = 0;
+  private static final int STATUS_RUNNING = 1;
 
-  private final OOrderBy    orderBy;
+  private final OOrderBy orderBy;
 
   private List<Iterator<T>> sourceIterators = new ArrayList<Iterator<T>>();
   private List<T>           heads           = new ArrayList<T>();
 
-  private int               status          = STATUS_INIT;
+  private int status = STATUS_INIT;
 
   public OSortedMultiIterator(OOrderBy orderBy) {
     this.orderBy = orderBy;

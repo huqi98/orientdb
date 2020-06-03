@@ -149,7 +149,7 @@ public class SimpleNode implements Node {
     return value;
   }
 
-  public SimpleNode copy(){
+  public SimpleNode copy() {
     throw new UnsupportedOperationException();
   }
 }

@@ -84,7 +84,7 @@ public class OSequenceHelper {
           + ". Sequnce library should implement be derived form OSequenceLibraryAbstract");
     }
   }
-  
+
   public static long sequenceNextWithNewCurrentValueOnLocal(OSequenceCached seq, long currentValue) throws ODatabaseException {
     return seq.nextWithNewCurrentValue(currentValue, false);
   }

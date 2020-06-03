@@ -21,7 +21,8 @@ public class OSleepStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
 
     OInternalResultSet result = new OInternalResultSet();
     OResultInternal item = new OResultInternal();
@@ -40,18 +41,21 @@ public class OSleepStatement extends OSimpleExecStatement {
 
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("SLEEP ");
     millis.toString(params, builder);
   }
 
-  @Override public OSleepStatement copy() {
+  @Override
+  public OSleepStatement copy() {
     OSleepStatement result = new OSleepStatement(-1);
     result.millis = millis == null ? null : millis.copy();
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -65,7 +69,8 @@ public class OSleepStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return millis != null ? millis.hashCode() : 0;
   }
 }

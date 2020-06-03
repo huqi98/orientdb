@@ -74,10 +74,8 @@ public class OContextConfiguration implements Serializable {
 
   /**
    * @param config Global configuration parameter.
-   *
    * @return Value of configuration parameter stored in this context as enumeration if such one exists, otherwise value stored in
    * passed in {@link OGlobalConfiguration} instance.
-   *
    * @throws ClassCastException       if stored value can not be casted and parsed from string to passed in enumeration class.
    * @throws IllegalArgumentException if value associated with configuration parameter is a string bug can not be converted to
    *                                  instance of passed in enumeration class.

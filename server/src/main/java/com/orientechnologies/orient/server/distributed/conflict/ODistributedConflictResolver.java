@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed.conflict;
@@ -32,14 +32,14 @@ import java.util.Map;
  * winning result. If it's not able to do that, NULL is returned. You can configure resolver in chain, so for example you can have
  * the majority first, but in case ov even votes you can assign the winner to one data center or to a custom algorithm implemented
  * by the user. If the call chain returns NULL, no operation is done.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface ODistributedConflictResolver {
   Object NOT_FOUND = new Object();
 
   class OConflictResult {
-    public Object winner = NOT_FOUND;
+    public Object                    winner = NOT_FOUND;
     public Map<Object, List<String>> candidates;
 
     public OConflictResult(final Map<Object, List<String>> candidates) {
@@ -59,7 +59,6 @@ public interface ODistributedConflictResolver {
    * @param dManager            Current distributed manager instance
    * @param groupedServerValues All the values from the servers grouped by value. The key could also be an exception in case the
    *                            record was not found. @return The winning object
-   *
    * @return The winning result object
    */
   OConflictResult onConflict(String databaseName, String clusterName, ORecordId rid, ODistributedServerManager dManager,

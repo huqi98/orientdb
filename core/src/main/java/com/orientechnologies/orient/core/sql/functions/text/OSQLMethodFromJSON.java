@@ -24,7 +24,7 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
 /**
  * Converts a document in JSON string.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */

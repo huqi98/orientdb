@@ -1,10 +1,9 @@
 package com.orientechnologies.orient.core.sql.parser;
 
-import org.junit.Assert; import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class OStatementCacheTest {
-
-
 
   @Test
   public void testInIsNotAReservedWord() {
@@ -25,6 +24,5 @@ public class OStatementCacheTest {
     Assert.assertFalse(cache.contains("select from baz"));
 
   }
-
 
 }

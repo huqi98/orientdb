@@ -8,23 +8,23 @@ import java.util.List;
  */
 public class CycleParent {
 
-    private String name;
+  private String name;
 
-    private List<CycleChild> children = new ArrayList<CycleChild>();
+  private List<CycleChild> children = new ArrayList<CycleChild>();
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public List<CycleChild> getChildren() {
-        return children;
-    }
+  public List<CycleChild> getChildren() {
+    return children;
+  }
 
-    public void setChildren(List<CycleChild> children) {
-        this.children = children;
-    }
+  public void setChildren(List<CycleChild> children) {
+    this.children = children;
+  }
 }

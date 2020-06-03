@@ -36,9 +36,9 @@ import java.util.logging.Level;
  * Extracts data from HTTP endpoint.
  */
 public class OETLHttpSource extends OETLAbstractSource {
-  protected BufferedReader reader;
-  protected String         url;
-  protected String method = "GET";
+  protected BufferedReader    reader;
+  protected String            url;
+  protected String            method = "GET";
   protected HttpURLConnection conn;
   protected ODocument         headers;
 

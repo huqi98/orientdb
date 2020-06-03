@@ -47,5 +47,4 @@ public interface OVertex extends OElement {
 
   ORID moveTo(final String iClassName, final String iClusterName);
 
-
 }

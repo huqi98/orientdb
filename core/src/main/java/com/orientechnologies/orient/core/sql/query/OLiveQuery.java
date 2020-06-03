@@ -27,20 +27,11 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.executor.OResult;
 
 /**
- * SQL live query.
- * <br/><br/>
- * The statement syntax is the same as a normal SQL SELECT statement, but with LIVE as prefix:
- * <br/><br/>
- * LIVE SELECT FROM Foo WHERE name = 'bar'
- * <br/><br/>
- * Executing this query, the caller will subscribe to receive changes happening in the database,
- * that match this query condition. The query returns a query token in the result set. To unsubscribe,
- * the user has to execute another live query with the following syntax:
- * <br/><br/>
- * LIVE UNSUBSCRIBE &lt;token&gt;
- * <br/><br/>
- * The callback passed as second parameter will be invoked every time a record is created/updated/deleted
- * and it matches the query conditions.
+ * SQL live query. <br/><br/> The statement syntax is the same as a normal SQL SELECT statement, but with LIVE as prefix: <br/><br/>
+ * LIVE SELECT FROM Foo WHERE name = 'bar' <br/><br/> Executing this query, the caller will subscribe to receive changes happening
+ * in the database, that match this query condition. The query returns a query token in the result set. To unsubscribe, the user has
+ * to execute another live query with the following syntax: <br/><br/> LIVE UNSUBSCRIBE &lt;token&gt; <br/><br/> The callback passed
+ * as second parameter will be invoked every time a record is created/updated/deleted and it matches the query conditions.
  *
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */

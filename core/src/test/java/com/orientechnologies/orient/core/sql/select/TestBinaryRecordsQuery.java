@@ -94,7 +94,6 @@ public class TestBinaryRecordsQuery {
     doc1.field("ref", rec1);
     database.save(doc1);
 
-
     Integer res = database.command(new OCommandSQL("delete from (select expand(ref) from RecordPointer)")).execute();
     database.getLocalCache().clear();
     assertEquals(2, res.intValue());

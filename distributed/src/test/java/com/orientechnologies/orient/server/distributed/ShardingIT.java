@@ -31,10 +31,10 @@ import org.junit.Test;
 
 public class ShardingIT extends AbstractServerClusterTest {
 
-  protected final static int SERVERS = 3;
-  protected OVertex[] vertices;
-  protected int[]     versions;
-  protected long totalAmount = 0;
+  protected final static int       SERVERS     = 3;
+  protected              OVertex[] vertices;
+  protected              int[]     versions;
+  protected              long      totalAmount = 0;
 
   @Test
   @Ignore
@@ -80,7 +80,7 @@ public class ShardingIT extends AbstractServerClusterTest {
       final OVertex product;
       final OVertex fishing;
 
-      ODatabaseDocument graph = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument graph = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       graph.begin();
 
       try {
@@ -103,7 +103,7 @@ public class ShardingIT extends AbstractServerClusterTest {
       for (int i = 0; i < vertices.length; ++i) {
         final String nodeName = serverInstance.get(i).getServerInstance().getDistributedManager().getLocalNodeName();
 
-        graph = serverInstance.get(i).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        graph = serverInstance.get(i).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           vertices[i] = graph.newVertex("Client-Type");
@@ -151,7 +151,7 @@ public class ShardingIT extends AbstractServerClusterTest {
         Assert.assertTrue(versions[i] > 1);
       }
 
-      graph = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      graph = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       try {
         for (int i = 0; i < vertices.length; ++i)
           System.out.println("Created vertex " + i + ": " + vertices[i].getRecord());
@@ -161,7 +161,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       for (int i = 0; i < vertices.length; ++i) {
 
-        graph = serverInstance.get(i).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        graph = serverInstance.get(i).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           // CREATE A REGULAR EDGE
@@ -198,7 +198,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       // FOR ALL THE DATABASES QUERY THE SINGLE CLUSTER TO TEST ROUTING
       for (int server = 0; server < vertices.length; ++server) {
-        ODatabaseDocument g =serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
         System.out.println("Query from server " + server + "...");
 
@@ -225,7 +225,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
             final Iterable<OVertex> knows = v.asVertex().get().getVertices(ODirection.OUT, "Knows-Type");
 
-            final Iterable<OVertex> boughtV =  v.asVertex().get().getVertices(ODirection.OUT, "Buy-Type");
+            final Iterable<OVertex> boughtV = v.asVertex().get().getVertices(ODirection.OUT, "Buy-Type");
             Assert.assertTrue(boughtV.iterator().hasNext());
             Assert.assertEquals(boughtV.iterator().next(), product);
 
@@ -240,7 +240,7 @@ public class ShardingIT extends AbstractServerClusterTest {
       // TEST DISTRIBUTED QUERY + AGGREGATION + SUB_QUERY AGAINST ALL 3 DATABASES TO TEST MAP/REDUCE
       for (int server = 0; server < vertices.length; ++server) {
 
-        ODatabaseDocument g =serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
           // MISC QUERIES
           Iterable<OElement> result = g
@@ -267,7 +267,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       // TEST DISTRIBUTED QUERY AGAINST ALL 3 DATABASES TO TEST MAP/REDUCE
       for (int server = 0; server < vertices.length; ++server) {
-        ODatabaseDocument g =serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           Iterable<OElement> result = g.command(new OCommandSQL("select from `Client-Type`")).execute();
@@ -293,7 +293,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       // TEST DISTRIBUTED QUERY AGAINST ALL 3 DATABASES TO TEST AGGREGATION
       for (int server = 0; server < vertices.length; ++server) {
-        ODatabaseDocument g =serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           Iterable<OElement> result = g.command(new OCommandSQL("select max(amount), avg(amount), sum(amount) from `Client-Type`"))
@@ -314,7 +314,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       // TEST DISTRIBUTED QUERY AGAINST ALL 3 DATABASES TO TEST AGGREGATION + GROUP BY
       for (int server = 0; server < vertices.length; ++server) {
-        ODatabaseDocument g =serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           Iterable<OElement> result = g
@@ -337,7 +337,7 @@ public class ShardingIT extends AbstractServerClusterTest {
 
       // TEST DISTRIBUTED QUERY AGAINST ALL 3 DATABASES TO TEST AGGREGATION + ADDITIONAL FIELD
       for (int server = 0; server < vertices.length; ++server) {
-        ODatabaseDocument g =serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+        ODatabaseDocument g = serverInstance.get(server).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
         try {
 
           Iterable<OElement> result = g.command(new OCommandSQL("select `name-property`, count(*) from `Client-Type`")).execute();
@@ -360,7 +360,7 @@ public class ShardingIT extends AbstractServerClusterTest {
       testQueryWithFilter();
 
       // TEST DISTRIBUTED DELETE WITH DIRECT COMMAND AND SQL
-      ODatabaseDocument g =serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       try {
         Iterable<OElement> countResultBeforeDelete = g.command(new OCommandSQL("select from `Client-Type`")).execute();
         long totalBeforeDelete = 0;
@@ -402,7 +402,7 @@ public class ShardingIT extends AbstractServerClusterTest {
       }
 
       OVertex v1, v2;
-      ODatabaseDocument gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       gTx.begin();
       try {
         v1 = gTx.newVertex("Client-Type");
@@ -417,7 +417,7 @@ public class ShardingIT extends AbstractServerClusterTest {
         gTx.close();
       }
 
-      gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       gTx.begin();
       try {
         // DELETE IN TX
@@ -428,7 +428,7 @@ public class ShardingIT extends AbstractServerClusterTest {
         gTx.close();
       }
 
-      gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      gTx = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       gTx.begin();
       try {
         Iterable<OElement> countResultAfterFullDelete = gTx.command(new OCommandSQL("select from `Client-Type`")).execute();

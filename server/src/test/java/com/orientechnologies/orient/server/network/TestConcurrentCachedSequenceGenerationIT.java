@@ -19,10 +19,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import static org.junit.Assert.assertNotNull;
 
 public class TestConcurrentCachedSequenceGenerationIT {
-  static final int THREADS = 20;
-  static final int RECORDS = 100;
-  private OServer  server;
-  private OrientDB orientDB;
+  static final int      THREADS = 20;
+  static final int      RECORDS = 100;
+  private      OServer  server;
+  private      OrientDB orientDB;
+
   @Before
   public void before() throws Exception {
     server = new OServer(false);
@@ -30,17 +31,20 @@ public class TestConcurrentCachedSequenceGenerationIT {
     server.activate();
     orientDB = new OrientDB("remote:localhost", "root", "root", OrientDBConfig.defaultConfig());
     orientDB.create(TestConcurrentCachedSequenceGenerationIT.class.getSimpleName(), ODatabaseType.MEMORY);
-    ODatabaseSession databaseSession = orientDB.open(TestConcurrentCachedSequenceGenerationIT.class.getSimpleName(), "admin", "admin");
+    ODatabaseSession databaseSession = orientDB
+        .open(TestConcurrentCachedSequenceGenerationIT.class.getSimpleName(), "admin", "admin");
     databaseSession.execute("sql",
         "CREATE CLASS TestSequence EXTENDS V;\n" + " CREATE SEQUENCE TestSequenceIdSequence TYPE CACHED CACHE 100;\n"
             + "CREATE PROPERTY TestSequence.id LONG (MANDATORY TRUE, default \"sequence('TestSequenceIdSequence').next()\");\n"
             + "CREATE INDEX TestSequence_id_index ON TestSequence (id BY VALUE) UNIQUE;");
     databaseSession.close();
   }
+
   @Test
   public void test() throws InterruptedException {
     AtomicLong failures = new AtomicLong(0);
-    ODatabasePool pool = new ODatabasePool(orientDB, TestConcurrentCachedSequenceGenerationIT.class.getSimpleName(), "admin", "admin");
+    ODatabasePool pool = new ODatabasePool(orientDB, TestConcurrentCachedSequenceGenerationIT.class.getSimpleName(), "admin",
+        "admin");
     List<Thread> threads = new ArrayList<>();
     for (int i = 0; i < THREADS; i++) {
       Thread thread = new Thread() {
@@ -69,6 +73,7 @@ public class TestConcurrentCachedSequenceGenerationIT {
     }
     Assert.assertEquals(0, failures.get());
   }
+
   @After
   public void after() {
     orientDB.drop(TestConcurrentCachedSequenceGenerationIT.class.getSimpleName());

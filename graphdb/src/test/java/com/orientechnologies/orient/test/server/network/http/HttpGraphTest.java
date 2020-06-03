@@ -20,11 +20,13 @@ public class HttpGraphTest extends BaseHttpDatabaseTest {
   @Test
   public void updateWithEdges() throws IOException {
 
-    Assert.assertEquals(post("command/" + getDatabaseName() + "/sql/").payload("create class Foo extends V", CONTENT.TEXT)
-        .getResponse().getStatusLine().getStatusCode(), 200);
+    Assert.assertEquals(
+        post("command/" + getDatabaseName() + "/sql/").payload("create class Foo extends V", CONTENT.TEXT).getResponse()
+            .getStatusLine().getStatusCode(), 200);
 
-    Assert.assertEquals(post("command/" + getDatabaseName() + "/sql/").payload("create class FooEdge extends E", CONTENT.TEXT)
-        .getResponse().getStatusLine().getStatusCode(), 200);
+    Assert.assertEquals(
+        post("command/" + getDatabaseName() + "/sql/").payload("create class FooEdge extends E", CONTENT.TEXT).getResponse()
+            .getStatusLine().getStatusCode(), 200);
 
     String script = "begin;";
     script += "let $v1 = create vertex Foo set name = 'foo1';";

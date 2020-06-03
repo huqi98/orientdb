@@ -151,7 +151,6 @@ public class OFunctionCall extends SimpleNode {
    * @param ctx
    * @param operator
    * @param rightValue
-   *
    * @return
    */
   public Iterable<OIdentifiable> executeIndexedFunction(OFromClause target, OCommandContext ctx, OBinaryCompareOperator operator,
@@ -169,7 +168,6 @@ public class OFunctionCall extends SimpleNode {
    * @param ctx        execution context
    * @param operator   operator at the right of the function
    * @param rightValue value to compare to funciton result
-   *
    * @return the approximate number of items returned by the condition execution, -1 if the extimation cannot be executed
    */
   public long estimateIndexedFunction(OFromClause target, OCommandContext ctx, OBinaryCompareOperator operator, Object rightValue) {
@@ -188,7 +186,6 @@ public class OFunctionCall extends SimpleNode {
    * @param context  the execution context
    * @param operator
    * @param right
-   *
    * @return true if current function is an indexed funciton AND that function can also be executed without using the index, false
    * otherwise
    */
@@ -209,7 +206,6 @@ public class OFunctionCall extends SimpleNode {
    * @param context  the execution context
    * @param operator
    * @param right
-   *
    * @return true if current function is an indexed function AND that function can be used on this target, false otherwise
    */
   public boolean allowsIndexedFunctionExecutionOnTarget(OFromClause target, OCommandContext context,
@@ -229,7 +225,6 @@ public class OFunctionCall extends SimpleNode {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression is an indexed function AND the function has also to be executed after the index search.
    */
   public boolean executeIndexedFunctionAfterIndexSearch(OFromClause target, OCommandContext context,

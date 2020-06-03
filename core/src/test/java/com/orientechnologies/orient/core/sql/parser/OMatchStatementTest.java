@@ -169,7 +169,6 @@ public class OMatchStatementTest {
     checkRightSyntax("MATCH {class: 'V', as: foo}-->{} RETURN foo ORDER BY foo limit 10");
   }
 
-
   @Test
   public void testNestedProjections() {
     checkRightSyntax("MATCH {class: 'V', as: foo}-->{} RETURN foo:{name, surname}");

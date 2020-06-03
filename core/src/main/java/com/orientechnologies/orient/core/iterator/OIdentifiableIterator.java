@@ -130,7 +130,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    *
    * @param reuseSameRecord if true the same record will be used for iteration. If false new record will be created each time
    *                        iterator retrieves record from db.
-   *
    * @return @see #isReuseSameRecord()
    */
   public OIdentifiableIterator<REC> setReuseSameRecord(final boolean reuseSameRecord) {
@@ -157,7 +156,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    * Return the current limit on browsing record. -1 means no limits (default).
    *
    * @return The limit if setted, otherwise -1
-   *
    * @see #setLimit(long)
    */
   public long getLimit() {
@@ -168,7 +166,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    * Set the limit on browsing record. -1 means no limits. You can set the limit even while you're browsing.
    *
    * @param limit The current limit on browsing record. -1 means no limits (default).
-   *
    * @see #getLimit()
    */
   public OIdentifiableIterator<REC> setLimit(final long limit) {
@@ -180,7 +177,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    * Return current configuration of live updates.
    *
    * @return True to activate it, otherwise false (default)
-   *
    * @see #setLiveUpdated(boolean)
    */
   public boolean isLiveUpdated() {
@@ -192,7 +188,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    * the size of the cluster while you're browsing it. Default is false.
    *
    * @param liveUpdated True to activate it, otherwise false (default)
-   *
    * @see #isLiveUpdated()
    */
   public OIdentifiableIterator<REC> setLiveUpdated(final boolean liveUpdated) {
@@ -252,7 +247,6 @@ public abstract class OIdentifiableIterator<REC extends OIdentifiable> implement
    * Read the current record and increment the counter if the record was found.
    *
    * @param iRecord to read value from database inside it. If record is null link will be created and stored in it.
-   *
    * @return record which was read from db.
    */
   protected ORecord readCurrentRecord(ORecord iRecord, final int iMovement) {

@@ -100,7 +100,6 @@ public class OCompositeKey implements Comparable<OCompositeKey>, Serializable, O
    * contains four keys then only first two keys will be compared.
    *
    * @param otherKey Key to compare.
-   *
    * @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified
    * object.
    */

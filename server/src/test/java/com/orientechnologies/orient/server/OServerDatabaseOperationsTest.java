@@ -54,7 +54,8 @@ public class OServerDatabaseOperationsTest {
     server.startup(conf);
     server.activate();
     ODocument securityConfig = new ODocument();
-    securityConfig.fromJSON(OIOUtils.readStreamAsString(this.getClass().getClassLoader().getResourceAsStream("security.json")),"noMap");
+    securityConfig
+        .fromJSON(OIOUtils.readStreamAsString(this.getClass().getClassLoader().getResourceAsStream("security.json")), "noMap");
     server.getSecurity().reload(securityConfig);
   }
 

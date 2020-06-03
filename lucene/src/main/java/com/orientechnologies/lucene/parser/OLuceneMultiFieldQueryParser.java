@@ -27,7 +27,7 @@ public class OLuceneMultiFieldQueryParser extends MultiFieldQueryParser {
   }
 
   public OLuceneMultiFieldQueryParser(final Map<String, OType> types, final String[] fields, final Analyzer analyzer,
-                                      final Map<String, Float> boosts) {
+      final Map<String, Float> boosts) {
     super(fields, analyzer, boosts);
     this.types = types;
   }
@@ -54,13 +54,13 @@ public class OLuceneMultiFieldQueryParser extends MultiFieldQueryParser {
 
   @Override
   protected Query getRangeQuery(final String field, final String part1, final String part2, final boolean startInclusive,
-                                final boolean endInclusive) throws ParseException {
+      final boolean endInclusive) throws ParseException {
     final Optional<Query> query = getQuery(field, part1, part2, startInclusive, endInclusive);
     return query.orElse(super.getRangeQuery(field, part1, part2, startInclusive, endInclusive));
   }
 
   private Optional<Query> getQuery(final String field, final String part1, final String part2, final boolean startInclusive,
-                                   final boolean endInclusive) throws ParseException {
+      final boolean endInclusive) throws ParseException {
     int start = 0;
     int end = 0;
     if (!startInclusive) {

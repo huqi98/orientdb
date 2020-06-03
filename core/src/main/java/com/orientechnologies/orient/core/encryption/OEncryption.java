@@ -29,7 +29,7 @@ package com.orientechnologies.orient.core.encryption;
  * <li><code>OEncryptionFactory.INSTANCE.register(<instance>)</code> for stateless implementations, the same instance will be shared
  * across all the storages./li>
  * </ul>
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface OEncryption {

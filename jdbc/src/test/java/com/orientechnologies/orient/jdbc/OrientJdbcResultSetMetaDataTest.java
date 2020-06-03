@@ -1,17 +1,14 @@
 /**
  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
  * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
  * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
  * <p>
  * For more information: http://orientdb.com
  */
@@ -60,18 +57,9 @@ public class OrientJdbcResultSetMetaDataTest extends OrientJdbcDbPerClassTemplat
 
     Request req = new Request(ds, "SELECT stringKey, intKey, text, length, date, score FROM Item");
 
-    Assertions.assertThat(req)
-        .hasNumberOfRows(20)
-        .hasNumberOfColumns(6)
-        .column()
-        .isOfType(ValueType.TEXT, false)
+    Assertions.assertThat(req).hasNumberOfRows(20).hasNumberOfColumns(6).column().isOfType(ValueType.TEXT, false)
         .containsValues("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
-            "20")
-        .column(1)
-        .isOfType(ValueType.NUMBER, false)
-        .column("date")
-        .isOfType(ValueType.DATE_TIME, false)
-    ;
+            "20").column(1).isOfType(ValueType.NUMBER, false).column("date").isOfType(ValueType.DATE_TIME, false);
 
   }
 
@@ -90,8 +78,7 @@ public class OrientJdbcResultSetMetaDataTest extends OrientJdbcDbPerClassTemplat
     assertThat(rs.getInt(2)).isEqualTo(1);
     assertThat(rs.getInt("intKey")).isEqualTo(1);
 
-    assertThat(rs.getString("text"))
-        .hasSize(rs.getInt("length"));
+    assertThat(rs.getString("text")).hasSize(rs.getInt("length"));
 
     Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
     cal.add(Calendar.HOUR_OF_DAY, -1);
@@ -124,9 +111,7 @@ public class OrientJdbcResultSetMetaDataTest extends OrientJdbcDbPerClassTemplat
     ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM Author limit 10");
     int count = 0;
     while (rs.next()) {
-      assertThat(rs.getLong("uuid"))
-          .isNotNull()
-          .isInstanceOf(Long.class);
+      assertThat(rs.getLong("uuid")).isNotNull().isInstanceOf(Long.class);
       count++;
     }
     assertThat(count).isEqualTo(10);

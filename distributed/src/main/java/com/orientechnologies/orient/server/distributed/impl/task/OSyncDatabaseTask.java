@@ -122,8 +122,8 @@ public class OSyncDatabaseTask extends OAbstractSyncDatabaseTask {
               "Creating backup of database '%s' (compressionRate=%d) in directory: %s...", databaseName, compressionRate,
               backupPath);
 
-          backup = new OBackgroundBackup(this, iManager, database, resultedBackupFile, backupPath, null, dDatabase,
-              requestId, completedFile);
+          backup = new OBackgroundBackup(this, iManager, database, resultedBackupFile, backupPath, null, dDatabase, requestId,
+              completedFile);
           Thread t = new Thread(backup);
           t.setUncaughtExceptionHandler(new OUncaughtExceptionHandler());
           t.start();

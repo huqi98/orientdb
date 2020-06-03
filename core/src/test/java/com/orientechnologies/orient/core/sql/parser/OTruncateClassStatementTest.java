@@ -1,6 +1,7 @@
 package com.orientechnologies.orient.core.sql.parser;
 
 import org.junit.Test;
+
 public class OTruncateClassStatementTest extends OParserTestAbstract {
 
   @Test

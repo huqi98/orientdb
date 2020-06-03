@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -64,7 +64,7 @@ public class DistributedSchedulerIT extends AbstractServerClusterTest {
   }
 
   private void eventByAPI() throws InterruptedException {
-    final ODatabaseDocument db = serverInstance.get(0).getServerInstance().getContext().open(getDatabaseName(),"admin","admin");
+    final ODatabaseDocument db = serverInstance.get(0).getServerInstance().getContext().open(getDatabaseName(), "admin", "admin");
     OFunction func = createFunction(db);
 
     db.getMetadata().getScheduler()
@@ -83,7 +83,7 @@ public class DistributedSchedulerIT extends AbstractServerClusterTest {
 
   public void eventBySQL() throws Exception {
     OrientDB context = serverInstance.get(0).getServerInstance().getContext();
-    final ODatabaseDocument db = context.open(getDatabaseName(),"admin","admin");
+    final ODatabaseDocument db = context.open(getDatabaseName(), "admin", "admin");
     try {
       OFunction func = createFunction(db);
 

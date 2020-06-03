@@ -33,15 +33,14 @@ import java.util.Map;
 /**
  * Compute the average value for a field. Uses the context to save the last average number. When different Number class are used,
  * take the class with most precision.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFunctionAverage extends OSQLFunctionMathAbstract {
-  public static final String NAME  = "avg";
+  public static final String NAME = "avg";
 
-  private Number             sum;
-  private int                total = 0;
+  private Number sum;
+  private int    total = 0;
 
   public OSQLFunctionAverage() {
     super(NAME, 1, -1);

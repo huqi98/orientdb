@@ -807,7 +807,6 @@ public class OMathExpression extends SimpleNode {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression is an indexed funciton AND that function can also be executed without using the index, false
    * otherwise
    */
@@ -824,7 +823,6 @@ public class OMathExpression extends SimpleNode {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression is an indexed function AND that function can be used on this target, false otherwise
    */
   public boolean allowsIndexedFunctionExecutionOnTarget(OFromClause target, OCommandContext context,
@@ -842,7 +840,6 @@ public class OMathExpression extends SimpleNode {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression is an indexed function AND the function has also to be executed after the index search.
    */
   public boolean executeIndexedFunctionAfterIndexSearch(OFromClause target, OCommandContext context,

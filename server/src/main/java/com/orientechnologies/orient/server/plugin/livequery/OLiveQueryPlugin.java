@@ -34,7 +34,7 @@ import com.orientechnologies.orient.server.plugin.OServerPluginAbstract;
 
 /**
  * Created by Luigi Dell'Aquila
- *
+ * <p>
  * Not needed anymore, keeping the class for backward compatibilty
  */
 @Deprecated

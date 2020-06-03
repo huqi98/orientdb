@@ -49,8 +49,7 @@ public class RemoteGraphLiveQueryTest {
 
     session.command("create vertex FirstV set id = '1'").close();
     session.command("create vertex SecondV set id = '2'").close();
-    try (OResultSet resultSet = session
-        .command("create edge TestEdge  from (select from FirstV) to (select from SecondV)")) {
+    try (OResultSet resultSet = session.command("create edge TestEdge  from (select from FirstV) to (select from SecondV)")) {
       OResult result = resultSet.stream().iterator().next();
 
       Assert.assertEquals(true, result.isEdge());
@@ -84,7 +83,6 @@ public class RemoteGraphLiveQueryTest {
 
       }
     }, new HashMap<String, String>());
-
 
     session.command("update SecondV set id = 3");
 

@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 package com.orientechnologies.orient.test.database.consistency;
 
@@ -34,12 +34,12 @@ import java.util.Iterator;
 
 @Test
 public class GraphTransactionConsistency {
-  private OrientBaseGraph  database;
-  private boolean          txMode  = true;
-  private final static int TXNUM   = 10000;
-  private final static int TXBATCH = 50;
-  private final static int EDGENUM = 10;
-  private final static int THREADS = 8;
+  private              OrientBaseGraph database;
+  private              boolean         txMode  = true;
+  private final static int             TXNUM   = 10000;
+  private final static int             TXBATCH = 50;
+  private final static int             EDGENUM = 10;
+  private final static int             THREADS = 8;
 
   public void testTransactionConsistency() throws InterruptedException {
     final OrientGraphFactory factory = new OrientGraphFactory("plocal:target/GraphTransactionConsistency", false);
@@ -57,7 +57,7 @@ public class GraphTransactionConsistency {
 
       final ORidBag out = doc.field("out_");
       if (out != null) {
-        for (Iterator<OIdentifiable> it = out.rawIterator(); it.hasNext();) {
+        for (Iterator<OIdentifiable> it = out.rawIterator(); it.hasNext(); ) {
           final OIdentifiable edge = it.next();
           Assert.assertNotNull(edge);
 
@@ -73,7 +73,7 @@ public class GraphTransactionConsistency {
 
       final ORidBag in = doc.field("in_");
       if (in != null) {
-        for (Iterator<OIdentifiable> it = in.rawIterator(); it.hasNext();) {
+        for (Iterator<OIdentifiable> it = in.rawIterator(); it.hasNext(); ) {
           final OIdentifiable edge = it.next();
           Assert.assertNotNull(edge);
 

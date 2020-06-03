@@ -66,23 +66,22 @@ public class OMessageHelperTest {
   }
 
   @Test
-  public void testReadWriteTransactionEntry(){
+  public void testReadWriteTransactionEntry() {
     ORecordOperationRequest request = new ORecordOperationRequest();
 
     request.setType(ORecordOperation.UPDATED);
     request.setRecordType(ORecordOperation.UPDATED);
-    request.setId(new ORecordId(25,50));
-    request.setRecord(new byte[]{10, 20, 30});
+    request.setId(new ORecordId(25, 50));
+    request.setRecord(new byte[] { 10, 20, 30 });
     request.setVersion(100);
     request.setContentChanged(true);
-
 
     ByteArrayOutputStream outArray = new ByteArrayOutputStream();
     DataOutput out = new DataOutputStream(outArray);
 
     try {
       OMessageHelper.writeTransactionEntry(out, request);
-    }catch (Exception e ){
+    } catch (Exception e) {
       e.printStackTrace();
       Assert.fail();
     }
@@ -98,7 +97,7 @@ public class OMessageHelperTest {
       Assert.assertArrayEquals(request.getRecord(), result.getRecord());
       Assert.assertEquals(request.getVersion(), result.getVersion());
       Assert.assertEquals(request.isContentChanged(), result.isContentChanged());
-    }catch (Exception e ){
+    } catch (Exception e) {
       e.printStackTrace();
       Assert.fail();
     }

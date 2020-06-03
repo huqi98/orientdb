@@ -34,7 +34,7 @@ public class OLowerPhysicalPositionsResponse implements OBinaryResponse {
 
   public OLowerPhysicalPositionsResponse() {
   }
-  
+
   public OLowerPhysicalPositionsResponse(OPhysicalPosition[] previousPositions) {
     this.previousPositions = previousPositions;
   }

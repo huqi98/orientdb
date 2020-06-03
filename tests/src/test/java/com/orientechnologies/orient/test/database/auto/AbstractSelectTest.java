@@ -16,12 +16,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public abstract class AbstractSelectTest extends DocumentDBBaseTest {
 
-	@Parameters(value = "url")
-	protected AbstractSelectTest(@Optional String url) {
-		super(url);
-	}
+  @Parameters(value = "url")
+  protected AbstractSelectTest(@Optional String url) {
+    super(url);
+  }
 
-	protected List<ODocument> executeQuery(String sql, ODatabaseDocumentInternal db, Object... args) {
+  protected List<ODocument> executeQuery(String sql, ODatabaseDocumentInternal db, Object... args) {
     final List<ODocument> synchResult = db.query(new OSQLSynchQuery<ODocument>(sql), args);
     final List<ODocument> asynchResult = new ArrayList<ODocument>();
     final AtomicBoolean endWasCalled = new AtomicBoolean();

@@ -4,12 +4,12 @@ import java.util.UUID;
 
 public class ONodeConfigurationBuilder {
 
-  private int quorum = 2;
-  private String nodeName = UUID.randomUUID().toString();
-  private String groupName = "OrientDB";
-  private Integer tcpPort = null;
-  private String groupPassword = "OrientDB";
-  private OMulticastConfguration multicastConfguration;
+  private int                      quorum        = 2;
+  private String                   nodeName      = UUID.randomUUID().toString();
+  private String                   groupName     = "OrientDB";
+  private Integer                  tcpPort       = null;
+  private String                   groupPassword = "OrientDB";
+  private OMulticastConfguration   multicastConfguration;
   private OUDPUnicastConfiguration unicastConfiguration;
 
   protected ONodeConfigurationBuilder() {

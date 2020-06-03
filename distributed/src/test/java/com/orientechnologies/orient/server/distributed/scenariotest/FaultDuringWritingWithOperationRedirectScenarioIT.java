@@ -36,24 +36,21 @@ import java.util.concurrent.Future;
 import static org.junit.Assert.*;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server (quorum=2)
- * - 5 threads write 100 records on server3, meanwhile after 1/3 of to-write records server3 fault happens.
- * - after 2/3 to-write records are inserted server3 is restarted.
- * - check consistency on all servers:
- *      - all the records destined to server3 were redirected to an other server, so we must inspect consistency for all 500 records
- *      - all records on each server are consistent in the cluster
+ * It checks the consistency in the cluster with the following scenario: - 3 server (quorum=2) - 5 threads write 100 records on
+ * server3, meanwhile after 1/3 of to-write records server3 fault happens. - after 2/3 to-write records are inserted server3 is
+ * restarted. - check consistency on all servers: - all the records destined to server3 were redirected to an other server, so we
+ * must inspect consistency for all 500 records - all records on each server are consistent in the cluster
  *
  * @author Gabriele Ponzi
- * @email  <gabriele.ponzi--at--gmail.com>
+ * @email <gabriele.ponzi--at--gmail.com>
  */
 
 public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractScenarioTest {
 
-  protected Timer timer             = new Timer(true);
-  volatile boolean inserting        = true;
-  volatile int     serverStarted    = 0;
-  volatile boolean backupInProgress = false;
+  protected Timer   timer            = new Timer(true);
+  volatile  boolean inserting        = true;
+  volatile  int     serverStarted    = 0;
+  volatile  boolean backupInProgress = false;
 
   @Test
   @Ignore
@@ -69,7 +66,6 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
 
     execute();
   }
-
 
   @Override
   public void executeTest() throws Exception {    //  TO-CHANGE
@@ -91,7 +87,7 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
       Callable shutdownAndRestartTask = new ShutdownAndRestartServer(serverInstance.get(2), dbServerUrl1, "net-fault");
       final ExecutorService executor = Executors.newSingleThreadExecutor();
       Future f = executor.submit(shutdownAndRestartTask);
-      executeMultipleWrites(this.executeTestsOnServers,"remote");
+      executeMultipleWrites(this.executeTestsOnServers, "remote");
 
       f.get(); // waiting for task ending
 
@@ -107,12 +103,12 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
       // all the records destined to server3 were redirected to an other server, so we must inspect consistency for all 500 records
       checkWritesAboveCluster(serverInstance, executeTestsOnServers);
 
-    } catch(Exception e) {
+    } catch (Exception e) {
       e.printStackTrace();
       fail();
     } finally {
       dbServer3.activateOnCurrentThread();
-      if(!dbServer3.isClosed()) {
+      if (!dbServer3.isClosed()) {
         dbServer3.close();
       }
     }
@@ -121,8 +117,8 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
   protected class ShutdownAndRestartServer implements Callable<Void> {
 
     private ServerRun server;
-    private String dbServerUrl1;
-    private String faultType;
+    private String    dbServerUrl1;
+    private String    faultType;
 
     protected ShutdownAndRestartServer(ServerRun server, String dbServerUrl1, String faultType) {
       this.server = server;
@@ -142,25 +138,25 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
       try {
 
         while (true) {
-  
+
           // check inserted record amount
           long insertedRecords = dbServer1.countClass("Person");
-  
-          if(insertedRecords > totalNumberOfRecordsToInsert/3) {
+
+          if (insertedRecords > totalNumberOfRecordsToInsert / 3) {
             System.out.println("Fault on server3: " + faultType);
-            simulateServerFault(server,this.faultType);
+            simulateServerFault(server, this.faultType);
             assertFalse(server.isActive());
             break;
           }
         }
-  
+
         while (true) {
-  
+
           // check inserted record amount
-  //        ODatabaseRecordThreadLocal.instance().set(dbServer1);
+          //        ODatabaseRecordThreadLocal.instance().set(dbServer1);
           long insertedRecords = dbServer1.countClass("Person");
-  
-          if(insertedRecords > 2*totalNumberOfRecordsToInsert/3) {
+
+          if (insertedRecords > 2 * totalNumberOfRecordsToInsert / 3) {
             server.startServer(getDistributedServerConfiguration(server));
             System.out.println("Server 3 restarted.");
             assertTrue(server.isActive());
@@ -174,7 +170,6 @@ public class FaultDuringWritingWithOperationRedirectScenarioIT extends AbstractS
       return null;
     }
   }
-
 
   @Override
   protected void onAfterExecution() throws Exception {

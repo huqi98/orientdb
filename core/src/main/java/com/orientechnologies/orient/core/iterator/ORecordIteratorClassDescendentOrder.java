@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 package com.orientechnologies.orient.core.iterator;
 
@@ -25,7 +25,7 @@ import com.orientechnologies.orient.core.storage.OStorage;
 
 /**
  * Record iterator to browse records in inverse order: from last to the first.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class ORecordIteratorClassDescendentOrder<REC extends ORecord> extends ORecordIteratorClass<REC> {

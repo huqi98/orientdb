@@ -12,13 +12,15 @@ import java.io.IOException;
 import java.util.stream.Stream;
 
 public interface OCellBTreeSingleValue<K> {
-  void create(OAtomicOperation atomicOperation, OBinarySerializer<K> keySerializer, OType[] keyTypes, int keySize, OEncryption encryption) throws IOException;
+  void create(OAtomicOperation atomicOperation, OBinarySerializer<K> keySerializer, OType[] keyTypes, int keySize,
+      OEncryption encryption) throws IOException;
 
   ORID get(K key);
 
   void put(OAtomicOperation atomicOperation, K key, ORID value) throws IOException;
 
-  boolean validatedPut(OAtomicOperation atomicOperation, K key, ORID value, OBaseIndexEngine.Validator<K, ORID> validator) throws IOException;
+  boolean validatedPut(OAtomicOperation atomicOperation, K key, ORID value, OBaseIndexEngine.Validator<K, ORID> validator)
+      throws IOException;
 
   void close();
 

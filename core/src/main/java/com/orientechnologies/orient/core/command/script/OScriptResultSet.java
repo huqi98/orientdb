@@ -7,9 +7,8 @@ import com.orientechnologies.orient.core.sql.executor.OResult;
 import java.util.Iterator;
 
 /**
- * Wrapper of OIteratorResultSet
- * Used in script results with conversion to OResult for single iteration
- * Created by Enrico Risa on 27/01/17.
+ * Wrapper of OIteratorResultSet Used in script results with conversion to OResult for single iteration Created by Enrico Risa on
+ * 27/01/17.
  */
 public class OScriptResultSet extends OIteratorResultSet {
 

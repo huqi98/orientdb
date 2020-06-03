@@ -102,9 +102,9 @@ public final class OHashTableIndexEngine implements OIndexEngine {
   }
 
   @Override
-  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes, boolean nullPointerSupport,
-      OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties, OEncryption encryption)
-      throws IOException {
+  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes,
+      boolean nullPointerSupport, OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties,
+      OEncryption encryption) throws IOException {
     final OHashFunction<Object> hashFunction;
 
     if (encryption != null) {
@@ -212,7 +212,8 @@ public final class OHashTableIndexEngine implements OIndexEngine {
 
   @SuppressWarnings("unchecked")
   @Override
-  public boolean validatedPut(OAtomicOperation atomicOperation, Object key, ORID value, Validator<Object, ORID> validator) throws IOException {
+  public boolean validatedPut(OAtomicOperation atomicOperation, Object key, ORID value, Validator<Object, ORID> validator)
+      throws IOException {
     return hashTable.validatedPut(atomicOperation, key, value, (Validator) validator);
   }
 

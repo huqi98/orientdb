@@ -5,7 +5,7 @@ import org.junit.*;
 
 public class OSecuritySharedTest {
 
-  static OrientDB orient;
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -69,7 +69,8 @@ public class OSecuritySharedTest {
     security.saveSecurityPolicy(db, policy);
     security.setSecurityPolicy(db, security.getRole(db, "reader"), "database.class.Person", policy);
 
-    Assert.assertEquals("testPolicy", security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
+    Assert.assertEquals("testPolicy",
+        security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
   }
 
   @Test

@@ -451,8 +451,9 @@ public class TransactionConsistencyTest extends DocumentDBBaseTest {
       // System.out.println("populate commit");
       database.commit();
 
-      System.out.println("[testTransactionPopulateDelete] Committed chunk " + initialValue
-          + ", starting to delete all the new entries (" + v.size() + ")...");
+      System.out.println(
+          "[testTransactionPopulateDelete] Committed chunk " + initialValue + ", starting to delete all the new entries (" + v
+              .size() + ")...");
 
       // do delete
       database.begin();
@@ -688,7 +689,7 @@ public class TransactionConsistencyTest extends DocumentDBBaseTest {
   /**
    * When calling .remove(o) on a collection, the row corresponding to o is deleted and not restored when the transaction is rolled
    * back.
-   * 
+   * <p>
    * Commented code after data model change to work around this problem.
    */
   @SuppressWarnings("unused")

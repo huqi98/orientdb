@@ -51,13 +51,12 @@ public class OStatement extends SimpleNode {
     throw new UnsupportedOperationException("Unsupported command: " + getClass().getSimpleName());
   }
 
-
   public OResultSet execute(ODatabase db, Object[] args) {
     return execute(db, args, true);
   }
 
   public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentContext) {
-    return execute(db, args, parentContext,true);
+    return execute(db, args, parentContext, true);
   }
 
   public OResultSet execute(ODatabase db, Map args) {
@@ -65,7 +64,7 @@ public class OStatement extends SimpleNode {
   }
 
   public OResultSet execute(ODatabase db, Map args, OCommandContext parentContext) {
-    return execute(db, args, parentContext,true);
+    return execute(db, args, parentContext, true);
   }
 
   public OResultSet execute(ODatabase db, Object[] args, boolean usePlanCache) {
@@ -84,12 +83,10 @@ public class OStatement extends SimpleNode {
     throw new UnsupportedOperationException();
   }
 
-
   /**
    * creates an execution plan for current statement, with profiling disabled
    *
    * @param ctx the context that will be used to execute the statement
-   *
    * @return an execution plan
    */
   public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx) {
@@ -101,7 +98,6 @@ public class OStatement extends SimpleNode {
    *
    * @param ctx     the context that will be used to execute the statement
    * @param profile true to enable profiling, false to disable it
-   *
    * @return an execution plan
    */
   public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx, boolean profile) {

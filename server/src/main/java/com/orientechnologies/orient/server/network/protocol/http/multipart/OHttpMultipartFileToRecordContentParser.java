@@ -26,7 +26,6 @@ import com.orientechnologies.orient.server.network.protocol.http.OHttpRequest;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OHttpMultipartFileToRecordContentParser implements OHttpMultipartContentParser<ORID> {
 

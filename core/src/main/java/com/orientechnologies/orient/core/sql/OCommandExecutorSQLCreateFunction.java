@@ -39,12 +39,12 @@ import java.util.Map;
  * @author Claudio Tesoriero
  */
 public class OCommandExecutorSQLCreateFunction extends OCommandExecutorSQLAbstract {
-  public static final String NAME = "CREATE FUNCTION";
-  private String name;
-  private String code;
-  private String language;
-  private boolean      idempotent = false;
-  private List<String> parameters = null;
+  public static final String       NAME       = "CREATE FUNCTION";
+  private             String       name;
+  private             String       code;
+  private             String       language;
+  private             boolean      idempotent = false;
+  private             List<String> parameters = null;
 
   @SuppressWarnings("unchecked")
   public OCommandExecutorSQLCreateFunction parse(final OCommandRequest iRequest) {

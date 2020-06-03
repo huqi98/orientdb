@@ -25,9 +25,8 @@ import com.orientechnologies.orient.core.serialization.serializer.OStringSeriali
 
 /**
  * Represent one or more object fields as value in the query condition.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFilterItemFieldAny extends OSQLFilterItemFieldMultiAbstract {
   public static final String NAME      = "ANY";

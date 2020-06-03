@@ -45,10 +45,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void queryProjectionOk() {
-    List<ODocument> result = database
-        .command(
-            new OSQLSynchQuery<ODocument>(
-                " select nick, followings, followers from Profile where nick is defined and followings is defined and followers is defined"))
+    List<ODocument> result = database.command(new OSQLSynchQuery<ODocument>(
+        " select nick, followings, followers from Profile where nick is defined and followings is defined and followers is defined"))
         .execute();
 
     Assert.assertTrue(result.size() != 0);
@@ -70,8 +68,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
     OObjectDatabaseTx db = new OObjectDatabaseTx(url);
     db.open("admin", "admin");
 
-    List<ODocument> result = db.getUnderlying().query(
-        new OSQLSynchQuery<ODocument>(" select nick, followings, followers from Profile "));
+    List<ODocument> result = db.getUnderlying()
+        .query(new OSQLSynchQuery<ODocument>(" select nick, followings, followers from Profile "));
 
     Assert.assertTrue(result.size() != 0);
 
@@ -86,8 +84,9 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void queryProjectionLinkedAndFunction() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select name.toUpperCase(Locale.ENGLISH), address.city.country.name from Profile")).execute();
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select name.toUpperCase(Locale.ENGLISH), address.city.country.name from Profile"))
+        .execute();
 
     Assert.assertTrue(result.size() != 0);
 
@@ -103,8 +102,9 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void queryProjectionSameFieldTwice() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select name, name.toUpperCase(Locale.ENGLISH) from Profile where name is not null")).execute();
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select name, name.toUpperCase(Locale.ENGLISH) from Profile where name is not null"))
+        .execute();
 
     Assert.assertTrue(result.size() != 0);
 
@@ -120,10 +120,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void queryProjectionStaticValues() {
-    List<ODocument> result = database
-        .command(
-            new OSQLSynchQuery<ODocument>(
-                "select location.city.country.name, address.city.country.name from Profile where location.city.country.name is not null"))
+    List<ODocument> result = database.command(new OSQLSynchQuery<ODocument>(
+        "select location.city.country.name, address.city.country.name from Profile where location.city.country.name is not null"))
         .execute();
 
     Assert.assertTrue(result.size() != 0);
@@ -140,9 +138,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void queryProjectionPrefixAndAppend() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>(
-            "select *, name.prefix('Mr. ').append(' ').append(surname).append('!') as test from Profile where name is not null"))
+    List<ODocument> result = database.command(new OSQLSynchQuery<ODocument>(
+        "select *, name.prefix('Mr. ').append(' ').append(surname).append('!') as test from Profile where name is not null"))
         .execute();
 
     Assert.assertTrue(result.size() != 0);
@@ -256,8 +253,9 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @SuppressWarnings("unchecked")
   public void queryProjectionContextArray() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select $a[0] as a0, $a as a from V let $a = outE() where outE().size() > 0")).execute();
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select $a[0] as a0, $a as a from V let $a = outE() where outE().size() > 0"))
+        .execute();
     Assert.assertFalse(result.isEmpty());
 
     for (ODocument d : result) {
@@ -265,7 +263,7 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
       Assert.assertTrue(d.containsField("a0"));
 
       final ODocument a0doc = d.field("a0");
-      final ODocument firstADoc = (ODocument) d.<Iterable<OIdentifiable>> field("a").iterator().next();
+      final ODocument firstADoc = (ODocument) d.<Iterable<OIdentifiable>>field("a").iterator().next();
 
       Assert.assertTrue(ODocumentHelper.hasSameContentOf(a0doc, database, firstADoc, database, null));
     }
@@ -351,15 +349,15 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
       database.command(new OCommandSQL("create edge B from " + id.getIdentity() + " to " + id4.getIdentity())).execute();
       database.command(new OCommandSQL("create edge B from " + id4.getIdentity() + " to " + id.getIdentity())).execute();
 
-      List<ODocument> res = database.query(new OSQLSynchQuery<Object>("select a,b,in_B.out.exclude('out_B') from "
-          + id2.getIdentity() + " fetchplan in_B.out:1"));
+      List<ODocument> res = database.query(
+          new OSQLSynchQuery<Object>("select a,b,in_B.out.exclude('out_B') from " + id2.getIdentity() + " fetchplan in_B.out:1"));
 
       Assert.assertNotNull(res.get(0).field("a"));
       Assert.assertNotNull(res.get(0).field("b"));
       Assert.assertNull((((List<ODocument>) res.get(0).field("in_B")).get(0).field("out_B")));
 
-      res = database.query(new OSQLSynchQuery<Object>("SELECT out.exclude('in_B') FROM ( SELECT EXPAND(in_B) FROM "
-          + id2.getIdentity() + " ) FETCHPLAN out:0 "));
+      res = database.query(new OSQLSynchQuery<Object>(
+          "SELECT out.exclude('in_B') FROM ( SELECT EXPAND(in_B) FROM " + id2.getIdentity() + " ) FETCHPLAN out:0 "));
 
       Assert.assertNotNull(res.get(0).field("out"));
       Assert.assertNotNull(((ODocument) res.get(0).field("out")).field("a"));
@@ -382,8 +380,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
       database.command(new OCommandSQL("create edge B from " + id.getIdentity() + " to " + id2.getIdentity())).execute();
       database.command(new OCommandSQL("create edge C from " + id2.getIdentity() + " to " + id3.getIdentity())).execute();
 
-      List<ODocument> res = database.query(new OSQLSynchQuery<Object>("select out.exclude('in_B') from (select expand(in_C) from "
-          + id3.getIdentity() + " )"));
+      List<ODocument> res = database.query(
+          new OSQLSynchQuery<Object>("select out.exclude('in_B') from (select expand(in_C) from " + id3.getIdentity() + " )"));
       Assert.assertEquals(res.size(), 1);
       ODocument ele = res.get(0);
       Assert.assertNotNull(ele.field("out"));
@@ -399,8 +397,8 @@ public class SQLSelectProjectionsTest extends DocumentDBBaseTest {
 
   @Test
   public void testTempRIDsAreNotRecycledInResultSet() {
-    final List<OIdentifiable> resultset = database.query(new OSQLSynchQuery<ODocument>(
-        "select name, $l as l from OUser let $l = (select name from OuSer)"));
+    final List<OIdentifiable> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select name, $l as l from OUser let $l = (select name from OuSer)"));
 
     Assert.assertNotNull(resultset);
 

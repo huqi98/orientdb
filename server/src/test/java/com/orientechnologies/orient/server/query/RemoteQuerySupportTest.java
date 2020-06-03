@@ -41,11 +41,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class RemoteQuerySupportTest {
 
-  private static final String SERVER_DIRECTORY = "./target/query";
-  private OServer server;
-  private OrientDB orientDB;
-  private ODatabaseDocument session;
-  private int oldPageSize;
+  private static final String            SERVER_DIRECTORY = "./target/query";
+  private              OServer           server;
+  private              OrientDB          orientDB;
+  private              ODatabaseDocument session;
+  private              int               oldPageSize;
 
   @Before
   public void before() throws Exception {
@@ -257,8 +257,8 @@ public class RemoteQuerySupportTest {
     session.command("create vertex testScriptWithRidbagsV set name = 'a'");
     session.command("create vertex testScriptWithRidbagsV set name = 'b'");
 
-    session.command("create edge testScriptWithRidbagsE from (select from testScriptWithRidbagsV where name = 'a') TO (select from testScriptWithRidbagsV where name = 'b');");
-
+    session.command(
+        "create edge testScriptWithRidbagsE from (select from testScriptWithRidbagsV where name = 'a') TO (select from testScriptWithRidbagsV where name = 'b');");
 
     String script = "";
     script += "BEGIN;";

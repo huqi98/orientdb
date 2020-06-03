@@ -1787,7 +1787,7 @@ public abstract class ODistributedAbstractPlugin extends OServerPluginAbstract
             try (InputStream in = receiver.getInputStream()) {
 
               // IMPORT FULL DATABASE (LISTENER ONLY FOR DEBUG PURPOSE)
-              serverInstance.getDatabases().networkRestore(databaseName, in,  new Callable<Object>() {
+              serverInstance.getDatabases().networkRestore(databaseName, in, new Callable<Object>() {
                 @Override
                 public Object call() throws Exception {
                   if (uniqueClustersBackupDirectory != null && uniqueClustersBackupDirectory.exists()) {

@@ -75,7 +75,7 @@ public final class OAddClusterRequest implements OBinaryRequest<OAddClusterRespo
   public String getDescription() {
     return "Add cluster";
   }
-  
+
   public String getClusterName() {
     return clusterName;
   }
@@ -88,11 +88,10 @@ public final class OAddClusterRequest implements OBinaryRequest<OAddClusterRespo
   public OAddClusterResponse createResponse() {
     return new OAddClusterResponse();
   }
-  
+
   @Override
   public OBinaryResponse execute(OBinaryRequestExecutor executor) {
     return executor.executeAddCluster(this);
   }
-  
-  
+
 }

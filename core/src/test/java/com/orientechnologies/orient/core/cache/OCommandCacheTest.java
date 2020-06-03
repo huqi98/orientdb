@@ -59,7 +59,7 @@ public class OCommandCacheTest {
       query.setCacheableResult(true);
       List<ODocument> results = db.query(query);
 
-      OCommandCache commandCache = ((OMetadataInternal)db.getMetadata()).getCommandCache();
+      OCommandCache commandCache = ((OMetadataInternal) db.getMetadata()).getCommandCache();
       Collection cachedResults = (Collection) commandCache.get(new OUser("admin"), "select from OCommandCache", -1);
 
       Assert.assertNotNull(cachedResults);

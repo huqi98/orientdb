@@ -86,9 +86,9 @@ public class OImmutableClass implements OClass {
   private       boolean                     scheduler;
   private       boolean                     sequence;
   private       boolean                     ouser;
-  private       boolean         orole;
-  private       OIndex          autoShardingIndex;
-  private       HashSet<OIndex> indexes;
+  private       boolean                     orole;
+  private       OIndex                      autoShardingIndex;
+  private       HashSet<OIndex>             indexes;
 
   public OImmutableClass(final OClass oClass, final OImmutableSchema schema) {
     isAbstract = oClass.isAbstract();
@@ -600,14 +600,13 @@ public class OImmutableClass implements OClass {
   }
 
   @Override
-  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata,
-      String algorithm, String... fields) {
+  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata, String algorithm,
+      String... fields) {
     throw new UnsupportedOperationException();
   }
 
   @Override
-  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata,
-      String... fields) {
+  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata, String... fields) {
     throw new UnsupportedOperationException();
   }
 

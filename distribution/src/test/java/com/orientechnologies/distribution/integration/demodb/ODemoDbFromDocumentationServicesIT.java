@@ -22,12 +22,11 @@ public class ODemoDbFromDocumentationServicesIT extends OIntegrationTestTemplate
   @Test
   public void test_Services_Example_1() throws Exception {
 
-    OResultSet resultSet = db.query("MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}\n"
-            + "RETURN $pathelements");
+    OResultSet resultSet = db.query(
+        "MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Services, as: service}\n" + "RETURN $pathelements");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(8);
+    assertThat(results).hasSize(8);
 
     resultSet.close();
     db.close();
@@ -37,11 +36,10 @@ public class ODemoDbFromDocumentationServicesIT extends OIntegrationTestTemplate
   public void test_Services_Example_2() throws Exception {
 
     OResultSet resultSet = db.query("SELECT \n" + "  Name, Type, in(\"HasStayed\").size() AS NumberOfBookings \n" + "FROM Hotels \n"
-            + "ORDER BY NumberOfBookings DESC \n" + "LIMIT 3");
+        + "ORDER BY NumberOfBookings DESC \n" + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 
@@ -57,11 +55,10 @@ public class ODemoDbFromDocumentationServicesIT extends OIntegrationTestTemplate
   public void test_Services_Example_3() throws Exception {
 
     OResultSet resultSet = db.query("SELECT \n" + "  Name, Type, out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Hotels` \n"
-            + "ORDER BY ReviewNumbers DESC \n" + "LIMIT 3");
+        + "ORDER BY ReviewNumbers DESC \n" + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 
@@ -77,13 +74,12 @@ public class ODemoDbFromDocumentationServicesIT extends OIntegrationTestTemplate
   public void test_Services_Example_4() throws Exception {
 
     OResultSet resultSet = db.query("SELECT \n" + "  Name, \n" + "  count(*) as CountryCount \n" + "FROM (\n" + "  SELECT \n"
-            + "    expand(out('IsFromCountry')) AS countries \n" + "  FROM (\n" + "    SELECT \n"
-            + "      expand(in(\"HasEaten\")) AS customers \n" + "    FROM Restaurants \n" + "    WHERE Id='26' \n"
-            + "    UNWIND customers) \n" + "  UNWIND countries) \n" + "GROUP BY Name \n" + "ORDER BY CountryCount DESC \n" + "LIMIT 3");
+        + "    expand(out('IsFromCountry')) AS countries \n" + "  FROM (\n" + "    SELECT \n"
+        + "      expand(in(\"HasEaten\")) AS customers \n" + "    FROM Restaurants \n" + "    WHERE Id='26' \n"
+        + "    UNWIND customers) \n" + "  UNWIND countries) \n" + "GROUP BY Name \n" + "ORDER BY CountryCount DESC \n" + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 

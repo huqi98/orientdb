@@ -57,6 +57,5 @@ public class LuceneQeuryParserTest extends BaseLuceneTest {
     assertThat(docs).hasSize(0);
   }
 
-
 }
 

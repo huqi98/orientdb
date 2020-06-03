@@ -249,7 +249,7 @@ public class ObjectDetachingTestSchemaFull extends ObjectDBBaseTest {
 
     loaded = database.load((ORecordId) country.getId());
     Assert.assertNotSame(database.getRecordByUserObject(loaded, false), database.getRecordByUserObject(country, false));
-    Assert.assertEquals((Integer) loaded.getVersion(), (Integer)initVersion);
+    Assert.assertEquals((Integer) loaded.getVersion(), (Integer) initVersion);
     Assert.assertEquals(loaded.getName(), initialCountryName);
   }
 

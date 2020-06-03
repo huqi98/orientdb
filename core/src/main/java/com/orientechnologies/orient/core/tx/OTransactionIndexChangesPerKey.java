@@ -82,7 +82,8 @@ public class OTransactionIndexChangesPerKey {
       Iterator<OTransactionIndexEntry> iter = entries.iterator();
       while (iter.hasNext()) {
         OTransactionIndexEntry entry = iter.next();
-        if (((entry.value == iValue) || (entry.value != null && entry.value.equals(iValue))) && !entry.operation.equals(iOperation)) {
+        if (((entry.value == iValue) || (entry.value != null && entry.value.equals(iValue))) && !entry.operation
+            .equals(iOperation)) {
           iter.remove();
           return;
         }

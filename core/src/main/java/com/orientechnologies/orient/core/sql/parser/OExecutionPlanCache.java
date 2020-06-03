@@ -54,7 +54,6 @@ public class OExecutionPlanCache implements OMetadataUpdateListener {
 
   /**
    * @param statement an SQL statement
-   *
    * @return true if the corresponding executor is present in the cache
    */
   public boolean contains(String statement) {
@@ -72,7 +71,6 @@ public class OExecutionPlanCache implements OMetadataUpdateListener {
    * @param statement the SQL statement
    * @param ctx
    * @param db        the current DB instance
-   *
    * @return a statement executor from the cache
    */
   public static OExecutionPlan get(String statement, OCommandContext ctx, ODatabaseDocumentInternal db) {
@@ -123,7 +121,6 @@ public class OExecutionPlanCache implements OMetadataUpdateListener {
   /**
    * @param statement an SQL statement
    * @param ctx
-   *
    * @return the corresponding executor, taking it from the internal cache, if it exists
    */
   public OExecutionPlan getInternal(String statement, OCommandContext ctx, ODatabaseDocumentInternal db) {

@@ -51,7 +51,6 @@ public interface ORidBagDelegate
    * @param stream    to write content
    * @param offset    in stream where start to write content
    * @param ownerUuid id of delegate owner
-   *
    * @return offset where content of stream is ended
    */
   int serialize(byte[] stream, int offset, UUID ownerUuid);
@@ -64,7 +63,6 @@ public interface ORidBagDelegate
    * THIS IS VERY EXPENSIVE METHOD AND CAN NOT BE CALLED IN REMOTE STORAGE.
    *
    * @param identifiable Object to check.
-   *
    * @return true if ridbag contains at leas one instance with the same rid as passed in identifiable.
    */
   boolean contains(OIdentifiable identifiable);

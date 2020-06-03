@@ -33,16 +33,16 @@ import java.util.concurrent.ExecutionException;
  * @since 3/3/2015
  */
 public class OSequenceCached extends OSequence {
-  private static final String FIELD_CACHE = "cache";
-  private long    cacheStart;
-  private long    cacheEnd;
-  private boolean firstCache;
-  private int     increment;
-  private Long limitValue = null;
-  private Long              startValue;
-  private SequenceOrderType orderType;
-  private boolean           recyclable;
-  private String name = null;
+  private static final String            FIELD_CACHE = "cache";
+  private              long              cacheStart;
+  private              long              cacheEnd;
+  private              boolean           firstCache;
+  private              int               increment;
+  private              Long              limitValue  = null;
+  private              Long              startValue;
+  private              SequenceOrderType orderType;
+  private              boolean           recyclable;
+  private              String            name        = null;
 
   public OSequenceCached() {
     this(null, null);

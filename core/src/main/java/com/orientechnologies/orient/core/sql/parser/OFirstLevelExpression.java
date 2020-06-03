@@ -11,7 +11,8 @@ public class OFirstLevelExpression extends OMathExpression {
     super(p, id);
   }
 
-  @Override protected boolean supportsBasicCalculation() {
+  @Override
+  protected boolean supportsBasicCalculation() {
     return super.supportsBasicCalculation();
   }
 

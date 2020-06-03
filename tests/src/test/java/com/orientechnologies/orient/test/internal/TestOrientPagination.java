@@ -15,9 +15,9 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 
 public class TestOrientPagination {
-  public static final String         dbName   = "memory:/testDB";
-  public static final String         dbUser   = "admin";
-  public static final String         dbPwd    = "admin";
+  public static final String dbName = "memory:/testDB";
+  public static final String dbUser = "admin";
+  public static final String dbPwd  = "admin";
 
   private static ODatabaseDocumentTx database = null;
 

@@ -55,9 +55,9 @@ public abstract class OBaseWorkload implements OWorkload {
   public class OWorkLoadResult {
     public AtomicInteger current = new AtomicInteger();
     public int           total   = 1;
-    public long totalTime;
-    public long totalTimeOperationsNs;
-    public long throughputAvgNs;
+    public long          totalTime;
+    public long          totalTimeOperationsNs;
+    public long          throughputAvgNs;
 
     public long latencyAvgNs;
     public long latencyMinNs;

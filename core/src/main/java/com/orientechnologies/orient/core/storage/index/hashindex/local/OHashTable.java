@@ -33,8 +33,8 @@ import java.util.Comparator;
  * Created by lomak_000 on 15.04.2015.
  */
 public interface OHashTable<K, V> {
-  void create(OAtomicOperation atomicOperation, OBinarySerializer<K> keySerializer, OBinarySerializer<V> valueSerializer, OType[] keyTypes, OEncryption encryption,
-      OHashFunction<K> keyHashFunction, boolean nullKeyIsSupported) throws IOException;
+  void create(OAtomicOperation atomicOperation, OBinarySerializer<K> keySerializer, OBinarySerializer<V> valueSerializer,
+      OType[] keyTypes, OEncryption encryption, OHashFunction<K> keyHashFunction, boolean nullKeyIsSupported) throws IOException;
 
   V get(K key);
 
@@ -42,15 +42,14 @@ public interface OHashTable<K, V> {
    * Puts the given value under the given key into this hash table. Validates the operation using the provided validator.
    *
    * @param atomicOperation
-   * @param key       the key to put the value under.
-   * @param value     the value to put.
-   * @param validator the operation validator.
-   *
+   * @param key             the key to put the value under.
+   * @param value           the value to put.
+   * @param validator       the operation validator.
    * @return {@code true} if the validator allowed the put, {@code false} otherwise.
-   *
    * @see OBaseIndexEngine.Validator#validate(Object, Object, Object)
    */
-  boolean validatedPut(OAtomicOperation atomicOperation, K key, V value, OBaseIndexEngine.Validator<K, V> validator) throws IOException;
+  boolean validatedPut(OAtomicOperation atomicOperation, K key, V value, OBaseIndexEngine.Validator<K, V> validator)
+      throws IOException;
 
   void put(OAtomicOperation atomicOperation, K key, V value) throws IOException;
 

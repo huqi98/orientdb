@@ -36,7 +36,6 @@ public class OLuceneIndexWriterFactory {
     if (metadata.containsField("max_buffered_docs"))
       config.setMaxBufferedDocs(Integer.valueOf(metadata.<String>field("max_buffered_docs")));
 
-
     // TODO REMOVED
 
 //    if (metadata.containsField("max_buffered_delete_terms"))

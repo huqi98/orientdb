@@ -9,9 +9,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class DecimalKeyNormalizer implements KeyNormalizers {
-  private static final BigInteger BIG_INT_TEN   = new BigInteger("10");
-  private static final BigInteger BIG_INT_ONE   = new BigInteger("1");
-  private static final BigInteger BIG_INT_ZERO  = new BigInteger("0");
+  private static final BigInteger BIG_INT_TEN  = new BigInteger("10");
+  private static final BigInteger BIG_INT_ONE  = new BigInteger("1");
+  private static final BigInteger BIG_INT_ZERO = new BigInteger("0");
 
   private static final BigInteger TWO_COMPL_REF = BigInteger.ONE.shiftLeft(64);
 

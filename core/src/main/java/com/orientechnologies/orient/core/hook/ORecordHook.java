@@ -88,7 +88,6 @@ public interface ORecordHook {
      * Maps the {@link ORecordHook.TYPE} to {@link ORecordHook.SCOPE}.
      *
      * @param type the hook type to map.
-     *
      * @return the mapped scope.
      */
     public static SCOPE typeToScope(TYPE type) {
@@ -141,7 +140,6 @@ public interface ORecordHook {
    * directly on event's {@link ORecordHook.TYPE} and exit early, scopes are just a more handy alternative to this.
    *
    * @return the scopes of this hook.
-   *
    * @see ORecordHook.SCOPE
    */
   default SCOPE[] getScopes() {

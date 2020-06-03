@@ -80,10 +80,9 @@ import java.util.List;
  */
 public class OrientDB implements AutoCloseable {
 
-  private final ConcurrentLinkedHashMap<ODatabasePoolInternal, ODatabasePool> cachedPools =
-          new ConcurrentLinkedHashMap.Builder<ODatabasePoolInternal, ODatabasePool>()
-                  .maximumWeightedCapacity(100)
-                  .build(); // cache for links to database pools. Avoid create database pool wrapper each time when it is requested
+  private final ConcurrentLinkedHashMap<ODatabasePoolInternal, ODatabasePool> cachedPools = new ConcurrentLinkedHashMap.Builder<ODatabasePoolInternal, ODatabasePool>()
+      .maximumWeightedCapacity(100)
+      .build(); // cache for links to database pools. Avoid create database pool wrapper each time when it is requested
 
   protected OrientDBInternal internal;
   private   String           serverUser;
@@ -92,8 +91,7 @@ public class OrientDB implements AutoCloseable {
   /**
    * Create a new OrientDb instance for a specific environment
    * <p/>
-   * possible kind of urls 'embedded','remote', for the case of remote and distributed can be specified multiple nodes
-   * using comma.
+   * possible kind of urls 'embedded','remote', for the case of remote and distributed can be specified multiple nodes using comma.
    * <p>
    * Remote Example:
    * <pre>
@@ -127,8 +125,7 @@ public class OrientDB implements AutoCloseable {
   /**
    * Create a new OrientDb instance for a specific environment
    * <p/>
-   * possible kind of urls 'embedded','remote', for the case of remote and distributed can be specified multiple nodes
-   * using comma.
+   * possible kind of urls 'embedded','remote', for the case of remote and distributed can be specified multiple nodes using comma.
    * <p>
    * Remote Example:
    * <pre>
@@ -190,7 +187,6 @@ public class OrientDB implements AutoCloseable {
    * @param database the database to open
    * @param user     username of a database user or a server user allowed to open the database
    * @param password related to the specified username
-   *
    * @return the opened database
    */
   public ODatabaseSession open(String database, String user, String password) {
@@ -204,7 +200,6 @@ public class OrientDB implements AutoCloseable {
    * @param user     username of a database user or a server user allowed to open the database
    * @param password related to the specified username
    * @param config   custom configuration for current database
-   *
    * @return the opened database
    */
 
@@ -238,7 +233,6 @@ public class OrientDB implements AutoCloseable {
    *
    * @param database database name
    * @param type     can be plocal or memory
-   *
    * @return true if the database has been created, false if already exists
    */
   public boolean createIfNotExists(String database, ODatabaseType type) {
@@ -251,7 +245,6 @@ public class OrientDB implements AutoCloseable {
    * @param database database name
    * @param type     can be plocal or memory
    * @param config   custom configuration for current database
-   *
    * @return true if the database has been created, false if already exists
    */
   public boolean createIfNotExists(String database, ODatabaseType type, OrientDBConfig config) {
@@ -275,7 +268,6 @@ public class OrientDB implements AutoCloseable {
    * Check if a database exists
    *
    * @param database database name to check
-   *
    * @return boolean true if exist false otherwise.
    */
   public boolean exists(String database) {
@@ -303,7 +295,6 @@ public class OrientDB implements AutoCloseable {
   /**
    * Check if the current OrientDB context is open
    *
-   *
    * @return boolean true if is open false otherwise.
    */
   public boolean isOpen() {
@@ -320,10 +311,11 @@ public class OrientDB implements AutoCloseable {
 
   /**
    * Retrieve cached database pool with given username and password
+   *
    * @param database database name
-   * @param user user name
+   * @param user     user name
    * @param password user password
-   * @param config OrientDB config for pool if need create it (in case if there is no cached pool)
+   * @param config   OrientDB config for pool if need create it (in case if there is no cached pool)
    * @return cached {@link ODatabasePool}
    */
   public ODatabasePool cachedPool(String database, String user, String password, OrientDBConfig config) {

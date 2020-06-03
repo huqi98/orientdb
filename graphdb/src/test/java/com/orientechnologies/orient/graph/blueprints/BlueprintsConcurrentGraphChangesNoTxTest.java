@@ -51,10 +51,10 @@ public class BlueprintsConcurrentGraphChangesNoTxTest {
   protected final List<TestVertex>                          vertexes         = new ArrayList<TestVertex>();
   protected final List<TestEdge>                            edges            = new ArrayList<TestEdge>();
 
-  protected AtomicInteger  indexCollisionsCreate   = new AtomicInteger();
-  protected AtomicInteger  versionCollisionsCreate = new AtomicInteger();
-  protected CountDownLatch latchCreate             = new CountDownLatch(1);
-  protected final Random   random                  = new Random();
+  protected       AtomicInteger  indexCollisionsCreate   = new AtomicInteger();
+  protected       AtomicInteger  versionCollisionsCreate = new AtomicInteger();
+  protected       CountDownLatch latchCreate             = new CountDownLatch(1);
+  protected final Random         random                  = new Random();
 
   protected CountDownLatch latchEdgeDelete             = new CountDownLatch(1);
   protected AtomicInteger  versionCollisionsEdgeDelete = new AtomicInteger();
@@ -64,8 +64,8 @@ public class BlueprintsConcurrentGraphChangesNoTxTest {
   protected AtomicInteger  versionCollisionsVertexDelete = new AtomicInteger();
   protected AtomicInteger  notFoundVertexDelete          = new AtomicInteger();
 
-  protected long  beginTime      = 0;
-  private boolean printTempStats = false;
+  protected long    beginTime      = 0;
+  private   boolean printTempStats = false;
 
   protected OrientBaseGraph getGraph() {
     OGlobalConfiguration.SQL_GRAPH_CONSISTENCY_MODE.setValue("notx_sync_repair");
@@ -434,8 +434,9 @@ public class BlueprintsConcurrentGraphChangesNoTxTest {
                     .command(new OSQLSynchQuery<Edge>("select from TestEdge where uuid = '" + edge.uuid + "'")).execute();
 
                 if (!edges.iterator().hasNext()) {
-                  graph.command(new OCommandSQL("CREATE EDGE TestEdge FROM " + gFromVertex.getId() + " TO " + gToVertex.getId()
-                      + " SET uuid = '" + edge.uuid + "'")).execute();
+                  graph.command(new OCommandSQL(
+                      "CREATE EDGE TestEdge FROM " + gFromVertex.getId() + " TO " + gToVertex.getId() + " SET uuid = '" + edge.uuid
+                          + "'")).execute();
                 }
 
                 graph.commit();
@@ -508,9 +509,10 @@ public class BlueprintsConcurrentGraphChangesNoTxTest {
 
   protected void printStats(OrientBaseGraph g) {
     System.out.println("---------------------------------------------------------------------------------------------------------");
-    System.out.println("Graph " + (getGraph() instanceof OrientGraph ? "TX" : "NOTX") + " stats threads: " + THREADS + " TIME: "
-        + (beginTime > 0 ? System.currentTimeMillis() - beginTime : "?") + " vertexes: " + g.countVertices() + " edges: "
-        + g.countEdges());
+    System.out.println("Graph " + (getGraph() instanceof OrientGraph ? "TX" : "NOTX") + " stats threads: " + THREADS + " TIME: " + (
+        beginTime > 0 ?
+            System.currentTimeMillis() - beginTime :
+            "?") + " vertexes: " + g.countVertices() + " edges: " + g.countEdges());
     System.out.println(" create edge -    CME: " + versionCollisionsCreate.get() + " duplication: " + indexCollisionsCreate.get());
     System.out.println(" delete edge -    CME: " + versionCollisionsEdgeDelete.get() + " not found: " + notFoundEdgeDelete.get());
     System.out

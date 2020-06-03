@@ -33,7 +33,6 @@ public class BatchRemoteResultSetTest {
   private String serverHome;
   private String oldOrientDBHome;
 
-
   private OServer server;
 
   @Before

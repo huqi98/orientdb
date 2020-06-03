@@ -443,7 +443,8 @@ public class OMatchExecutionPlanner {
     return isOptionalChain(startNode, edge, neighboringNode, new HashSet<>());
   }
 
-  private boolean isOptionalChain(PatternNode startNode, PatternEdge edge, PatternNode neighboringNode, Set<PatternEdge> visitedEdges) {
+  private boolean isOptionalChain(PatternNode startNode, PatternEdge edge, PatternNode neighboringNode,
+      Set<PatternEdge> visitedEdges) {
     if (!startNode.isOptionalNode() || !neighboringNode.isOptionalNode()) {
       return false;
     }
@@ -722,7 +723,7 @@ public class OMatchExecutionPlanner {
         result.put(alias, 1L);
         continue;
       }
-      
+
       String className = aliasClasses.get(alias);
       String clusterName = aliasClusters.get(alias);
 

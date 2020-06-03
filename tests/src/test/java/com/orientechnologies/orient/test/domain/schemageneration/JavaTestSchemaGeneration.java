@@ -35,23 +35,22 @@ import com.orientechnologies.orient.test.domain.base.EnumTest;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaTestSchemaGeneration {
 
   @Id
-  private Object                                 id;
+  private Object id;
   @Version
-  private Object                                 version;
+  private Object version;
 
-  private String                                 text              = "initTest";
+  private String                                 text             = "initTest";
   private EnumTest                               enumeration;
-  private int                                    numberSimple      = 0;
-  private long                                   longSimple        = 0l;
-  private double                                 doubleSimple      = 0d;
-  private float                                  floatSimple       = 0f;
-  private byte                                   byteSimple        = 0;
-  private boolean                                flagSimple        = false;
+  private int                                    numberSimple     = 0;
+  private long                                   longSimple       = 0l;
+  private double                                 doubleSimple     = 0d;
+  private float                                  floatSimple      = 0f;
+  private byte                                   byteSimple       = 0;
+  private boolean                                flagSimple       = false;
   private Date                                   dateField;
   @Embedded
   private ODocument                              embeddedDocument;
@@ -60,22 +59,22 @@ public class JavaTestSchemaGeneration {
   private TestSchemaGenerationChild              child;
   @Embedded
   private TestSchemaGenerationChild              embeddedChild;
-  private Map<String, String>                    stringMap         = new HashMap<String, String>();
-  private Map<String, List<String>>              stringListMap     = new HashMap<String, List<String>>();
-  private List<TestSchemaGenerationChild>        list              = new ArrayList<TestSchemaGenerationChild>();
-  private Set<TestSchemaGenerationChild>         set               = new HashSet<TestSchemaGenerationChild>();
-  private Map<String, TestSchemaGenerationChild> children          = new HashMap<String, TestSchemaGenerationChild>();
-  private Map<String, Object>                    mapObject         = new HashMap<String, Object>();
-  private List<EnumTest>                         enumList          = new ArrayList<EnumTest>();
-  private Set<EnumTest>                          enumSet           = new HashSet<EnumTest>();
-  private Set<String>                            stringSet         = new HashSet<String>();
-  private Map<String, EnumTest>                  enumMap           = new HashMap<String, EnumTest>();
+  private Map<String, String>                    stringMap        = new HashMap<String, String>();
+  private Map<String, List<String>>              stringListMap    = new HashMap<String, List<String>>();
+  private List<TestSchemaGenerationChild>        list             = new ArrayList<TestSchemaGenerationChild>();
+  private Set<TestSchemaGenerationChild>         set              = new HashSet<TestSchemaGenerationChild>();
+  private Map<String, TestSchemaGenerationChild> children         = new HashMap<String, TestSchemaGenerationChild>();
+  private Map<String, Object>                    mapObject        = new HashMap<String, Object>();
+  private List<EnumTest>                         enumList         = new ArrayList<EnumTest>();
+  private Set<EnumTest>                          enumSet          = new HashSet<EnumTest>();
+  private Set<String>                            stringSet        = new HashSet<String>();
+  private Map<String, EnumTest>                  enumMap          = new HashMap<String, EnumTest>();
   @Embedded
-  private List<TestSchemaGenerationChild>        embeddedList      = new ArrayList<TestSchemaGenerationChild>();
+  private List<TestSchemaGenerationChild>        embeddedList     = new ArrayList<TestSchemaGenerationChild>();
   @Embedded
-  private Set<TestSchemaGenerationChild>         embeddedSet       = new HashSet<TestSchemaGenerationChild>();
+  private Set<TestSchemaGenerationChild>         embeddedSet      = new HashSet<TestSchemaGenerationChild>();
   @Embedded
-  private Map<String, TestSchemaGenerationChild> embeddedChildren  = new HashMap<String, TestSchemaGenerationChild>();
+  private Map<String, TestSchemaGenerationChild> embeddedChildren = new HashMap<String, TestSchemaGenerationChild>();
 
   @Transient
   private String                                 tranisentText     = "transientTest";

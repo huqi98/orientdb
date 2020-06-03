@@ -45,14 +45,14 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class OGraphShortestPathWorkload extends OBaseGraphWorkload {
 
-  static final String      INVALID_FORM_MESSAGE = "SHORTESTPATH workload must be in form of L<limit>.";
+  static final String INVALID_FORM_MESSAGE = "SHORTESTPATH workload must be in form of L<limit>.";
 
-  private int              limit                = -1;
-  private OWorkLoadResult  result               = new OWorkLoadResult();
-  private final AtomicLong totalDepth           = new AtomicLong();
-  private final AtomicLong maxDepth             = new AtomicLong();
-  private final AtomicLong notConnected         = new AtomicLong();
-  private final List<ORID> startingVertices     = new ArrayList<ORID>(limit > -1 ? limit : 1000);
+  private       int             limit            = -1;
+  private       OWorkLoadResult result           = new OWorkLoadResult();
+  private final AtomicLong      totalDepth       = new AtomicLong();
+  private final AtomicLong      maxDepth         = new AtomicLong();
+  private final AtomicLong      notConnected     = new AtomicLong();
+  private final List<ORID>      startingVertices = new ArrayList<ORID>(limit > -1 ? limit : 1000);
 
   public OGraphShortestPathWorkload() {
     connectionStrategy = OStorageRemote.CONNECTION_STRATEGY.ROUND_ROBIN_REQUEST;
@@ -139,8 +139,9 @@ public class OGraphShortestPathWorkload extends OBaseGraphWorkload {
 
   @Override
   public String getPartialResult() {
-    return String.format("%d%% [Shortest paths blocks (block size=%d) executed: %d/%d]",
-        ((100 * result.current.get() / result.total)), startingVertices.size(), result.current.get(), startingVertices.size());
+    return String
+        .format("%d%% [Shortest paths blocks (block size=%d) executed: %d/%d]", ((100 * result.current.get() / result.total)),
+            startingVertices.size(), result.current.get(), startingVertices.size());
   }
 
   @Override

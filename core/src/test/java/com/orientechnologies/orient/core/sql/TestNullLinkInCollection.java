@@ -18,7 +18,6 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-
 /**
  * Created by tglman on 02/12/15.
  */
@@ -47,7 +46,7 @@ public class TestNullLinkInCollection {
     doc.field("items", docs, OType.LINKLIST);
     db.save(doc);
     List<ODocument> res = db.query(new OSQLSynchQuery<Object>("select items from Test"));
-    assertNull(((List)res.get(0).field("items")).get(0));
+    assertNull(((List) res.get(0).field("items")).get(0));
   }
 
   @Test
@@ -58,7 +57,7 @@ public class TestNullLinkInCollection {
     doc.field("items", docs, OType.LINKSET);
     db.save(doc);
     List<ODocument> res = db.query(new OSQLSynchQuery<Object>("select items from Test"));
-    assertNull(((Set)res.get(0).field("items")).iterator().next());
+    assertNull(((Set) res.get(0).field("items")).iterator().next());
   }
 
 }

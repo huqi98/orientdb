@@ -15,16 +15,19 @@ import static com.orientechnologies.orient.core.sql.executor.ExecutionPlanPrintU
 public class OSleepStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OSleepStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testBasic() {
+  @Test
+  public void testBasic() {
     long begin = System.currentTimeMillis();
     OResultSet result = db.command("sleep 1000");
     Assert.assertTrue(System.currentTimeMillis() - begin >= 1000);

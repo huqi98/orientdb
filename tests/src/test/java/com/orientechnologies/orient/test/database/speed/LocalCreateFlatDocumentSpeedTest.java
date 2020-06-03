@@ -64,8 +64,9 @@ public class LocalCreateFlatDocumentSpeedTest extends OrientMonoThreadTest {
   public void cycle() {
     record.reset();
     record.setClassName("Account");
-    record.fromString(new String("Account@id:" + data.getCyclesDone() + ",name:'Luca',surname:'Garulli',birthDate:"
-        + date.getTime() + "d,salary:" + 3000f + data.getCyclesDone()));
+    record.fromString(new String(
+        "Account@id:" + data.getCyclesDone() + ",name:'Luca',surname:'Garulli',birthDate:" + date.getTime() + "d,salary:" + 3000f
+            + data.getCyclesDone()));
     record.save();
 
     if (data.getCyclesDone() == data.getCycles() - 1)

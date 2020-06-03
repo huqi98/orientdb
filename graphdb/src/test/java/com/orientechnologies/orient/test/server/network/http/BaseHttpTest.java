@@ -24,27 +24,27 @@ import java.io.IOException;
 
 /**
  * Base test class for HTTP protocol.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (l.garulli--at-orientdb.com)
  */
 public abstract class BaseHttpTest {
 
   private static OServer server;
 
-  private static String serverCfg    = "/com/orientechnologies/orient/server/network/orientdb-server-config-httponly.xml";
-  private String protocol     = "http";
-  private String host         = "localhost";
-  private int    port         = 2499;
-  private String realm        = "OrientDB-";
-  private String userName     = "admin";
-  private String userPassword = "admin";
-  private String databaseName;
-  private Boolean keepAlive = null;
+  private static String  serverCfg    = "/com/orientechnologies/orient/server/network/orientdb-server-config-httponly.xml";
+  private        String  protocol     = "http";
+  private        String  host         = "localhost";
+  private        int     port         = 2499;
+  private        String  realm        = "OrientDB-";
+  private        String  userName     = "admin";
+  private        String  userPassword = "admin";
+  private        String  databaseName;
+  private        Boolean keepAlive    = null;
 
   private HttpRequestBase    request;
   private AbstractHttpEntity payload;
   private HttpResponse       response;
-  private int retry = 1;
+  private int                retry = 1;
 
   public enum CONTENT {
     TEXT, JSON
@@ -63,7 +63,7 @@ public abstract class BaseHttpTest {
     }
   }
 
-  protected static  void stopServer() throws Exception {
+  protected static void stopServer() throws Exception {
     if (server != null) {
       server.shutdown();
       server = null;

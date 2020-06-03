@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -33,10 +33,10 @@ import java.util.Iterator;
  * Start 2 servers and execute query across the cluster
  */
 public class ServerClusterQueryIT extends AbstractServerClusterTest {
-  final static int SERVERS = 2;
-  private OVertex v1;
-  private OVertex v2;
-  private OVertex v3;
+  final static int     SERVERS = 2;
+  private      OVertex v1;
+  private      OVertex v2;
+  private      OVertex v3;
 
   public String getDatabaseName() {
     return "distributed-queries";
@@ -61,7 +61,7 @@ public class ServerClusterQueryIT extends AbstractServerClusterTest {
   }
 
   private void createDatabase() {
-    ODatabaseDocument g = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+    ODatabaseDocument g = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
     try {
       g.createVertexClass("V1");
@@ -89,7 +89,7 @@ public class ServerClusterQueryIT extends AbstractServerClusterTest {
 
   private void checkNestedQueryContext() {
     for (int s = 0; s < SERVERS; ++s) {
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
       try {
         final Iterable<OElement> result = g.command(new OCommandSQL("select *, $depth as d from (traverse in('E1') from ?)"))
@@ -115,7 +115,7 @@ public class ServerClusterQueryIT extends AbstractServerClusterTest {
   private void checkSum() {
     for (int s = 0; s < SERVERS; ++s) {
 
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
       try {
         final Iterable<OElement> result = g.command(new OCommandSQL("select sum(amount) as total from v"))
@@ -135,7 +135,7 @@ public class ServerClusterQueryIT extends AbstractServerClusterTest {
 
   private void checkShardedOrderBy() {
     for (int s = 0; s < SERVERS; ++s) {
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
       try {
         Iterable<OElement> result = g.command(new OCommandSQL("select amount from v order by amount asc"))
@@ -179,7 +179,7 @@ public class ServerClusterQueryIT extends AbstractServerClusterTest {
 
   private void checkShardedGroupBy() {
     for (int s = 0; s < SERVERS; ++s) {
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
       try {
         Iterable<OElement> result = g

@@ -30,11 +30,11 @@ import com.orientechnologies.orient.test.database.base.OrientMonoThreadTest;
 
 @Test(enabled = false)
 public class RemoteCreateDocumentSpeedTest extends OrientMonoThreadTest {
-  private ODatabaseDocument database;
-  private ODocument         record;
-  private Date              date  = new Date();
-  private long              beginRecords;
-  private final static long DELAY = 0;
+  private              ODatabaseDocument database;
+  private              ODocument         record;
+  private              Date              date  = new Date();
+  private              long              beginRecords;
+  private final static long              DELAY = 0;
 
   public static void main(String[] iArgs) throws InstantiationException, IllegalAccessException {
     RemoteCreateDocumentSpeedTest test = new RemoteCreateDocumentSpeedTest();

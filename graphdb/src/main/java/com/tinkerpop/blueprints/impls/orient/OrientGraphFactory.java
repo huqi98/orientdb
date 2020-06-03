@@ -38,12 +38,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Luca Garulli
  */
 public class OrientGraphFactory extends OrientConfigurableGraph {
-  private final String url;
-  private final String user;
-  private final String password;
-  private final Map<String, Object> properties = new HashMap<String, Object>();
-  private OIntent intent;
-  private AtomicBoolean used = new AtomicBoolean(false);
+  private final    String                   url;
+  private final    String                   user;
+  private final    String                   password;
+  private final    Map<String, Object>      properties = new HashMap<String, Object>();
+  private          OIntent                  intent;
+  private          AtomicBoolean            used       = new AtomicBoolean(false);
   private volatile OPartitionedDatabasePool pool;
 
   public interface OrientGraphImplFactory {
@@ -284,7 +284,6 @@ public class OrientGraphFactory extends OrientConfigurableGraph {
    *
    * @param iCreate if true automatically creates database if database with given URL does not exist
    * @param iOpen   if true automatically opens the database
-   *
    * @return database
    */
   public ODatabaseDocumentTx getDatabase(final boolean iCreate, final boolean iOpen) {
@@ -328,7 +327,6 @@ public class OrientGraphFactory extends OrientConfigurableGraph {
    *
    * @param iMin minimum size of pool
    * @param iMax maximum size of pool
-   *
    * @return this
    */
   public OrientGraphFactory setupPool(final int iMin, final int iMax) {
@@ -393,7 +391,6 @@ public class OrientGraphFactory extends OrientConfigurableGraph {
    *
    * @param iName  Property name
    * @param iValue new value to set
-   *
    * @return The previous value if any, otherwise null
    */
   public Object setProperty(final String iName, final Object iValue) {
@@ -411,7 +408,6 @@ public class OrientGraphFactory extends OrientConfigurableGraph {
    * Gets the property value.
    *
    * @param iName Property name
-   *
    * @return The previous value if any, otherwise null
    */
   public Object getProperty(final String iName) {

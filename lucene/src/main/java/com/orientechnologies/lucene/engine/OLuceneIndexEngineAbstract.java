@@ -320,8 +320,9 @@ public abstract class OLuceneIndexEngineAbstract extends OSharedResourceAdaptive
   }
 
   @Override
-  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes, boolean nullPointerSupport,
-      OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties, OEncryption encryption) {
+  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes,
+      boolean nullPointerSupport, OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties,
+      OEncryption encryption) {
   }
 
   @Override
@@ -358,8 +359,8 @@ public abstract class OLuceneIndexEngineAbstract extends OSharedResourceAdaptive
       File indexDir = new File(indexPath);
       final FileSystem fileSystem = FileSystems.getDefault();
       while (true) {
-        if (Files.isSameFile(fileSystem.getPath(baseStoragePath.getCanonicalPath()),
-                fileSystem.getPath(indexDir.getCanonicalPath()))) {
+        if (Files
+            .isSameFile(fileSystem.getPath(baseStoragePath.getCanonicalPath()), fileSystem.getPath(indexDir.getCanonicalPath()))) {
           break;
         }
         //delete only if dir is empty, otherwise stop deleting process

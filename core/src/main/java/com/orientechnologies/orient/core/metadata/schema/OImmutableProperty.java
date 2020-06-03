@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 package com.orientechnologies.orient.core.metadata.schema;
 
 import com.orientechnologies.orient.core.collate.OCollate;
@@ -32,15 +32,15 @@ import java.util.*;
  * @since 10/21/14
  */
 public class OImmutableProperty implements OProperty {
-  private final String              name;
-  private final String              fullName;
-  private final OType               type;
-  private final String              description;
+  private final String name;
+  private final String fullName;
+  private final OType  type;
+  private final String description;
 
   // do not make it volatile it is already thread safe.
-  private OClass                    linkedClass = null;
+  private OClass linkedClass = null;
 
-  private final String              linkedClassName;
+  private final String linkedClassName;
 
   private final OType               linkedType;
   private final boolean             notNull;
@@ -90,12 +90,12 @@ public class OImmutableProperty implements OProperty {
         minComparable = new ValidationStringComparable((Integer) OType.convert(min, Integer.class));
       else if (type.equals(OType.BINARY))
         minComparable = new ValidationBinaryComparable((Integer) OType.convert(min, Integer.class));
-      else if (type.equals(OType.DATE) || type.equals(OType.BYTE) || type.equals(OType.SHORT) || type.equals(OType.INTEGER)
-          || type.equals(OType.LONG) || type.equals(OType.FLOAT) || type.equals(OType.DOUBLE) || type.equals(OType.DECIMAL)
-          || type.equals(OType.DATETIME))
+      else if (type.equals(OType.DATE) || type.equals(OType.BYTE) || type.equals(OType.SHORT) || type.equals(OType.INTEGER) || type
+          .equals(OType.LONG) || type.equals(OType.FLOAT) || type.equals(OType.DOUBLE) || type.equals(OType.DECIMAL) || type
+          .equals(OType.DATETIME))
         minComparable = (Comparable<Object>) OType.convert(min, type.getDefaultJavaType());
-      else if (type.equals(OType.EMBEDDEDLIST) || type.equals(OType.EMBEDDEDSET) || type.equals(OType.LINKLIST)
-          || type.equals(OType.LINKSET))
+      else if (type.equals(OType.EMBEDDEDLIST) || type.equals(OType.EMBEDDEDSET) || type.equals(OType.LINKLIST) || type
+          .equals(OType.LINKSET))
         minComparable = new ValidationCollectionComparable((Integer) OType.convert(min, Integer.class));
       else if (type.equals(OType.LINKBAG))
         minComparable = new ValidationLinkbagComparable((Integer) OType.convert(min, Integer.class));
@@ -122,8 +122,8 @@ public class OImmutableProperty implements OProperty {
       } else if (type.equals(OType.BYTE) || type.equals(OType.SHORT) || type.equals(OType.INTEGER) || type.equals(OType.LONG)
           || type.equals(OType.FLOAT) || type.equals(OType.DOUBLE) || type.equals(OType.DECIMAL) || type.equals(OType.DATETIME))
         maxComparable = (Comparable<Object>) OType.convert(max, type.getDefaultJavaType());
-      else if (type.equals(OType.EMBEDDEDLIST) || type.equals(OType.EMBEDDEDSET) || type.equals(OType.LINKLIST)
-          || type.equals(OType.LINKSET))
+      else if (type.equals(OType.EMBEDDEDLIST) || type.equals(OType.EMBEDDEDSET) || type.equals(OType.LINKLIST) || type
+          .equals(OType.LINKSET))
         maxComparable = new ValidationCollectionComparable((Integer) OType.convert(max, Integer.class));
       else if (type.equals(OType.LINKBAG))
         maxComparable = new ValidationLinkbagComparable((Integer) OType.convert(max, Integer.class));
@@ -145,7 +145,6 @@ public class OImmutableProperty implements OProperty {
   public String getFullName() {
     return fullName;
   }
-  
 
   @Override
   public OProperty setName(String iName) {
@@ -156,7 +155,7 @@ public class OImmutableProperty implements OProperty {
   public String getDescription() {
     return description;
   }
-  
+
   @Override
   public OProperty setDescription(String iDescription) {
     throw new UnsupportedOperationException();

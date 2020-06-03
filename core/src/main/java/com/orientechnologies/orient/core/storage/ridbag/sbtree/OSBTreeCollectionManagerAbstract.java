@@ -46,7 +46,6 @@ public abstract class OSBTreeCollectionManagerAbstract
    * Generates a lock name for the given cluster ID.
    *
    * @param clusterId the cluster ID to generate the lock name for.
-   *
    * @return the generated lock name.
    */
   public static String generateLockName(int clusterId) {
@@ -150,7 +149,8 @@ public abstract class OSBTreeCollectionManagerAbstract
   }
 
   @Override
-  public OSBTreeBonsai<OIdentifiable, Integer> createAndLoadTree(OAtomicOperation atomicOperation, int clusterId) throws IOException {
+  public OSBTreeBonsai<OIdentifiable, Integer> createAndLoadTree(OAtomicOperation atomicOperation, int clusterId)
+      throws IOException {
     return loadSBTree(createSBTree(clusterId, atomicOperation, null));
   }
 
@@ -270,7 +270,8 @@ public abstract class OSBTreeCollectionManagerAbstract
     });
   }
 
-  protected abstract OSBTreeBonsai<OIdentifiable, Integer> createEdgeTree(OAtomicOperation atomicOperation, int clusterId) throws IOException;
+  protected abstract OSBTreeBonsai<OIdentifiable, Integer> createEdgeTree(OAtomicOperation atomicOperation, int clusterId)
+      throws IOException;
 
   protected abstract OSBTreeBonsai<OIdentifiable, Integer> loadTree(OBonsaiCollectionPointer collectionPointer);
 

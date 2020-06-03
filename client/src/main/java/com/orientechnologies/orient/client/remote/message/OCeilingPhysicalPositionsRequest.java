@@ -62,7 +62,7 @@ public class OCeilingPhysicalPositionsRequest implements OBinaryRequest<OCeiling
   public String getDescription() {
     return "Retrieve ceiling positions";
   }
-  
+
   @Override
   public byte getCommand() {
     return OChannelBinaryProtocol.REQUEST_POSITIONS_CEILING;

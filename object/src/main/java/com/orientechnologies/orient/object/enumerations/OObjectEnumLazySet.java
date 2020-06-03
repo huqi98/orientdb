@@ -25,18 +25,16 @@ import java.util.Set;
 import com.orientechnologies.orient.core.record.ORecord;
 
 /**
- * 
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 @SuppressWarnings("unchecked")
-public class OObjectEnumLazySet<TYPE extends Enum> extends HashSet<TYPE> implements OObjectLazyEnumSerializer<Set<TYPE>>,
-    Serializable {
+public class OObjectEnumLazySet<TYPE extends Enum> extends HashSet<TYPE>
+    implements OObjectLazyEnumSerializer<Set<TYPE>>, Serializable {
   private static final long serialVersionUID = -7698875159671927472L;
 
-  private final ORecord  sourceRecord;
+  private final ORecord     sourceRecord;
   private final Set<Object> underlying;
-  private boolean           converted        = false;
+  private       boolean     converted = false;
   private final Class<Enum> enumClass;
 
   public OObjectEnumLazySet(final Class<Enum> iEnumClass, final ORecord iSourceRecord, final Set<Object> iRecordSource) {

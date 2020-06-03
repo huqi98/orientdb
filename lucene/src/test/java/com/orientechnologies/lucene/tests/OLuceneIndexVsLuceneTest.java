@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.lucene.tests;
@@ -123,11 +123,10 @@ public class OLuceneIndexVsLuceneTest extends OLuceneBaseTest {
 
     OResultSet resultSet = db.query("select *,$score from Song where search_class('down the')=true");
 
-    resultSet.stream()
-        .forEach(r -> {
-          System.out.println("r = " + r);
-          assertThat((Object[]) r.toElement().getProperty("$score")).isNotNull();
-        });
+    resultSet.stream().forEach(r -> {
+      System.out.println("r = " + r);
+      assertThat((Object[]) r.toElement().getProperty("$score")).isNotNull();
+    });
 
 //    int i = 0;
 //    for (ScoreDoc hit : hits) {

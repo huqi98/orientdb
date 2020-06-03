@@ -45,8 +45,8 @@ public class HookInstallServerTest {
     }
   }
 
-  private static int count = 0;
-  private OServer server;
+  private static int     count = 0;
+  private        OServer server;
 
   @Before
   public void before()

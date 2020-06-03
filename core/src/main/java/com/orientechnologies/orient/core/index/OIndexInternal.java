@@ -75,7 +75,6 @@ public interface OIndexInternal extends OIndex {
    * Saves the index configuration to disk.
    *
    * @return The configuration as ODocument instance
-   *
    * @see #getConfiguration()
    */
   ODocument updateConfiguration();
@@ -84,7 +83,6 @@ public interface OIndexInternal extends OIndex {
    * Add given cluster to the list of clusters that should be automatically indexed.
    *
    * @param iClusterName Cluster to add.
-   *
    * @return Current index instance.
    */
   OIndex addCluster(final String iClusterName);
@@ -93,7 +91,6 @@ public interface OIndexInternal extends OIndex {
    * Remove given cluster from the list of clusters that should be automatically indexed.
    *
    * @param iClusterName Cluster to remove.
-   *
    * @return Current index instance.
    */
   OIndex removeCluster(final String iClusterName);
@@ -129,7 +126,6 @@ public interface OIndexInternal extends OIndex {
    * sharding.
    *
    * @param key the index key.
-   *
    * @return The index name involved
    */
   String getIndexNameByKey(Object key);
@@ -143,7 +139,6 @@ public interface OIndexInternal extends OIndex {
    * more narrow lock scope, but that is not a requirement.
    *
    * @param key the index key to lock.
-   *
    * @return {@code true} if this index was locked entirely, {@code false} if this index locking is sensitive to the provided {@code
    * key} and only some subset of this index was locked.
    */
@@ -170,7 +165,6 @@ public interface OIndexInternal extends OIndex {
    * @param toKey         Upper border of index data.
    * @param toInclusive   Indicates whether upper border should be inclusive or exclusive.
    * @param ascOrder      Flag which determines whether data iterated by stream should be in ascending or descending order.
-   *
    * @return Cursor which presents subset of index data between passed in keys.
    */
   Stream<ORawPair<Object, ORID>> streamEntriesBetween(Object fromKey, boolean fromInclusive, Object toKey, boolean toInclusive,
@@ -181,7 +175,6 @@ public interface OIndexInternal extends OIndex {
    *
    * @param keys         Keys data of which should be returned.
    * @param ascSortOrder Flag which determines whether data iterated by stream should be in ascending or descending order.
-   *
    * @return stream which presents data associated with passed in keys.
    */
   Stream<ORawPair<Object, ORID>> streamEntries(Collection<?> keys, boolean ascSortOrder);
@@ -192,7 +185,6 @@ public interface OIndexInternal extends OIndex {
    * @param fromKey       Lower border of index data.
    * @param fromInclusive Indicates whether lower border should be inclusive or exclusive.
    * @param ascOrder      Flag which determines whether data iterated by stream should be in ascending or descending order.
-   *
    * @return stream which presents subset of data which associated with key which is greater than passed in key.
    */
   Stream<ORawPair<Object, ORID>> streamEntriesMajor(Object fromKey, boolean fromInclusive, boolean ascOrder);
@@ -203,7 +195,6 @@ public interface OIndexInternal extends OIndex {
    * @param toKey       Upper border of index data.
    * @param toInclusive Indicates Indicates whether upper border should be inclusive or exclusive.
    * @param ascOrder    Flag which determines whether data iterated by stream should be in ascending or descending order.
-   *
    * @return stream which presents subset of data which associated with key which is less than passed in key.
    */
   Stream<ORawPair<Object, ORID>> streamEntriesMinor(Object toKey, boolean toInclusive, boolean ascOrder);

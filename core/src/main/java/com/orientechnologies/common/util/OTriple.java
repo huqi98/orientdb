@@ -21,9 +21,8 @@ package com.orientechnologies.common.util;
 
 /**
  * Structure to handle a triple of values configured as a key and a Pair as value.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  * @see OPair
  */
 public class OTriple<K extends Comparable<K>, V extends Comparable<V>, SV> implements Comparable<OTriple<K, V, SV>> {

@@ -52,11 +52,11 @@ public class OCommandExecutorSQLCreateClass extends OCommandExecutorSQLAbstract 
   public static final String KEYWORD_NOT      = "NOT";
   public static final String KEYWORD_EXISTS   = "EXISTS";
 
-  private String className;
+  private String       className;
   private List<OClass> superClasses = new ArrayList<OClass>();
-  private int[] clusterIds;
-  private Integer clusters    = null;
-  private boolean ifNotExists = false;
+  private int[]        clusterIds;
+  private Integer      clusters     = null;
+  private boolean      ifNotExists  = false;
 
   public OCommandExecutorSQLCreateClass parse(final OCommandRequest iRequest) {
     final OCommandRequestText textRequest = (OCommandRequestText) iRequest;
@@ -123,7 +123,7 @@ public class OCommandExecutorSQLCreateClass extends OCommandExecutorSQLAbstract 
               else if (Character.isLetterOrDigit(ch))
                 break;
               else if (ch == '`')
-                  break;
+                break;
             }
           } while (hasNext);
           if (newParser) {

@@ -27,21 +27,21 @@ import java.util.Collection;
 /**
  * Generic cache interface that should be implemented in order to plug-in custom cache. Also implementing class has to have public
  * one-arg constructor to set cache limit. For example, next class can be safely used as plug-in cache:
- * 
+ *
  * <pre>
  *   public class CustomCache implements OCache {
  *     public CustomCache(int initialLimit) {
  *       // some actions to do basic initialization of cache instance
  *       ...
  *     }
- * 
+ *
  *     //implementation of interface
  *     ...
  *   }
  * </pre>
- * 
+ * <p>
  * As reference implementation used {@link ORecordCacheWeakRefs}
- * 
+ *
  * @author Maxim Fedorov
  */
 public interface ORecordCache {
@@ -79,27 +79,24 @@ public interface ORecordCache {
 
   /**
    * Look up for record in cache by it's identifier
-   * 
-   * @param id
-   *          unique identifier of record
+   *
+   * @param id unique identifier of record
    * @return record stored in cache if any, otherwise - {@code null}
    */
   ORecord get(ORID id);
 
   /**
    * Push record to cache. Identifier of record used as access key
-   * 
-   * @param record
-   *          record that should be cached
+   *
+   * @param record record that should be cached
    * @return previous version of record
    */
   ORecord put(ORecord record);
 
   /**
    * Remove record with specified identifier
-   * 
-   * @param id
-   *          unique identifier of record
+   *
+   * @param id unique identifier of record
    * @return record stored in cache if any, otherwise - {@code null}
    */
   ORecord remove(ORID id);
@@ -111,14 +108,14 @@ public interface ORecordCache {
 
   /**
    * Total number of stored records
-   * 
+   *
    * @return non-negative number
    */
   int size();
 
   /**
    * Keys of all stored in cache records
-   * 
+   *
    * @return keys of records
    */
   Collection<ORID> keys();

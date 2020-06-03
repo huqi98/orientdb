@@ -28,7 +28,7 @@ import java.util.Base64;
 
 /**
  * Encode a string in various format (only base64 for now)
- * 
+ *
  * @author Johann Sorel (Geomatys)
  */
 public class OSQLFunctionEncode extends OSQLFunctionAbstract {

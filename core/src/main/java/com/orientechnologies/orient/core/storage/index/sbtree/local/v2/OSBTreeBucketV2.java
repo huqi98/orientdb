@@ -283,7 +283,6 @@ public final class OSBTreeBucketV2<K, V> extends ODurablePage {
    * Obtains the value stored under the given entry index in this bucket.
    *
    * @param entryIndex the value entry index.
-   *
    * @return the obtained value.
    */
   public OSBTreeValue<V> getValue(final int entryIndex, final OBinarySerializer<K> keySerializer,
@@ -571,7 +570,8 @@ public final class OSBTreeBucketV2<K, V> extends ODurablePage {
 
     @Override
     public String toString() {
-      return "CellBTreeEntry{" + "leftChild=" + leftChild + ", rightChild=" + rightChild + ", key=" + key + ", value=" + value + '}';
+      return "CellBTreeEntry{" + "leftChild=" + leftChild + ", rightChild=" + rightChild + ", key=" + key + ", value=" + value
+          + '}';
     }
 
     @Override

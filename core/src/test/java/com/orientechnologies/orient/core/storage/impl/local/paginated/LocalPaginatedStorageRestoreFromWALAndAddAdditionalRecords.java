@@ -34,7 +34,7 @@ public class LocalPaginatedStorageRestoreFromWALAndAddAdditionalRecords {
   private static File                buildDir;
   private        ODatabaseDocumentTx testDocumentTx;
   private        ODatabaseDocumentTx baseDocumentTx;
-  private ExecutorService executorService = Executors.newCachedThreadPool();
+  private        ExecutorService     executorService = Executors.newCachedThreadPool();
 
   @BeforeClass
   public static void beforeClass() {
@@ -83,7 +83,8 @@ public class LocalPaginatedStorageRestoreFromWALAndAddAdditionalRecords {
     baseDocumentTx.drop();
   }
 
-  @Test @Ignore
+  @Test
+  @Ignore
   public void testRestoreAndAddNewItems() throws Exception {
     List<Future<Void>> futures = new ArrayList<Future<Void>>();
 

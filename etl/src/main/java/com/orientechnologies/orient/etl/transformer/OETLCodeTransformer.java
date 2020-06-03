@@ -33,9 +33,9 @@ import java.util.logging.Level;
  * Executes arbitrary code in any supported language by JVM.
  */
 public class OETLCodeTransformer extends OETLAbstractTransformer {
-  private final Map<Object, Object> params   = new HashMap<Object, Object>();
-  private       String              language = "javascript";
-  private OCommandExecutorScript cmd;
+  private final Map<Object, Object>    params   = new HashMap<Object, Object>();
+  private       String                 language = "javascript";
+  private       OCommandExecutorScript cmd;
 
   @Override
   public ODocument getConfiguration() {

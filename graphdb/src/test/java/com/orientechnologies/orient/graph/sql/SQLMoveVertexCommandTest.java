@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.graph.sql;
@@ -42,7 +42,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
   private static OrientEdgeType   knows;
   private static int              customerGeniusCluster;
 
-  @Before public void setUp() throws Exception {
+  @Before
+  public void setUp() throws Exception {
     customer = graph.getVertexType("Customer");
     if (customer != null) {
       graph.command(new OCommandSQL("delete vertex Customer")).execute();
@@ -58,7 +59,7 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
 
     provider = reinitVertexType("Provider");
     provider.setClusterSelection("default");
-    
+
     knows = reinitEdgeType("Knows");
 
     reinitVertexType("testMoveSupernode_From");
@@ -70,7 +71,7 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
   private OrientVertexType reinitVertexType(String className) {
     OrientVertexType clazz = graph.getVertexType(className);
     if (clazz != null) {
-      graph.command(new OCommandSQL("delete vertex "+className)).execute();
+      graph.command(new OCommandSQL("delete vertex " + className)).execute();
       graph.dropVertexType(className);
     }
     clazz = graph.createVertexType(className);
@@ -80,14 +81,15 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
   private OrientEdgeType reinitEdgeType(String className) {
     OrientEdgeType clazz = graph.getEdgeType(className);
     if (clazz != null) {
-      graph.command(new OCommandSQL("delete edge "+className)).execute();
+      graph.command(new OCommandSQL("delete edge " + className)).execute();
       graph.dropVertexType(className);
     }
     clazz = graph.createEdgeType(className);
     return clazz;
   }
 
-  @Test public void testMoveSingleRecordToAnotherCluster() {
+  @Test
+  public void testMoveSingleRecordToAnotherCluster() {
     OrientVertex v1 = graph.addVertex("class:Customer")
         .setProperties("name", "Jay1", "test", "testMoveSingleRecordToAnotherCluster");
     OrientVertex v2 = graph.addVertex("class:Customer")
@@ -135,7 +137,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
 
   }
 
-  @Test public void testMoveSingleRecordToAnotherClass() {
+  @Test
+  public void testMoveSingleRecordToAnotherClass() {
     ODocument doc = new ODocument("Customer").field("name", "Jay").field("test", "testMoveSingleRecordToAnotherClass").save();
 
     Assert.assertEquals(doc.getIdentity().getClusterId(), customer.getDefaultClusterId());
@@ -163,7 +166,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
     Assert.assertEquals(newDocument.field("test"), "testMoveSingleRecordToAnotherClass");
   }
 
-  @Test public void testMoveMultipleRecordToAnotherCluster() {
+  @Test
+  public void testMoveMultipleRecordToAnotherCluster() {
     ODocument doc = new ODocument("Customer").field("name", "Jay").field("workedOn", "Amiga").save();
     Assert.assertEquals(doc.getIdentity().getClusterId(), customer.getDefaultClusterId());
 
@@ -203,7 +207,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
 
   }
 
-  @Test public void testMoveMultipleRecordToAnotherClass() {
+  @Test
+  public void testMoveMultipleRecordToAnotherClass() {
     new ODocument("Customer").field("name", "Luca").field("city", "Rome").save();
     new ODocument("Customer").field("name", "Jill").field("city", "Austin").save();
     new ODocument("Customer").field("name", "Marco").field("city", "Rome").save();
@@ -234,7 +239,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
     Assert.assertEquals(tot, 2);
   }
 
-  @Test public void testMoveMultipleRecordToAnotherClassInTx() {
+  @Test
+  public void testMoveMultipleRecordToAnotherClassInTx() {
     new ODocument("Customer").field("name", "Luca").field("city", "Rome").save();
     new ODocument("Customer").field("name", "Jill").field("city", "Austin").save();
     new ODocument("Customer").field("name", "Marco").field("city", "Rome").save();
@@ -265,7 +271,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
     Assert.assertEquals(tot, 2);
   }
 
-  @Test public void testMoveMultipleRecordToAnotherClassInTxSettingProperties() {
+  @Test
+  public void testMoveMultipleRecordToAnotherClassInTxSettingProperties() {
     new ODocument("Customer").field("name", "Luca").field("city", "Rome").save();
     new ODocument("Customer").field("name", "Jill").field("city", "Austin").save();
     new ODocument("Customer").field("name", "Marco").field("city", "Rome").save();
@@ -299,7 +306,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
     Assert.assertEquals(tot, 2);
   }
 
-  @Test public void testMoveSupernode() {
+  @Test
+  public void testMoveSupernode() {
 
     OrientVertex first = null;
     for (int i = 0; i < 200; i++) {
@@ -327,7 +335,8 @@ public class SQLMoveVertexCommandTest extends GraphNoTxAbstractTest {
     Assert.assertFalse(iterator.hasNext());
   }
 
-  @BeforeClass public static void init() {
+  @BeforeClass
+  public static void init() {
     init(SQLMoveVertexCommandTest.class.getSimpleName());
   }
 }

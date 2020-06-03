@@ -23,7 +23,6 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface OFetchContext {
 
@@ -34,8 +33,7 @@ public interface OFetchContext {
   public void onBeforeArray(final ODocument iRootRecord, final String iFieldName, final Object iUserObject,
       final OIdentifiable[] iArray) throws OFetchException;
 
-  public void onAfterArray(final ODocument iRootRecord, final String iFieldName, final Object iUserObject)
-      throws OFetchException;
+  public void onAfterArray(final ODocument iRootRecord, final String iFieldName, final Object iUserObject) throws OFetchException;
 
   public void onBeforeCollection(final ODocument iRootRecord, final String iFieldName, final Object iUserObject,
       final Iterable<?> iterable) throws OFetchException;
@@ -43,11 +41,9 @@ public interface OFetchContext {
   public void onAfterCollection(final ODocument iRootRecord, final String iFieldName, final Object iUserObject)
       throws OFetchException;
 
-  public void onBeforeMap(final ODocument iRootRecord, final String iFieldName, final Object iUserObject)
-      throws OFetchException;
+  public void onBeforeMap(final ODocument iRootRecord, final String iFieldName, final Object iUserObject) throws OFetchException;
 
-  public void onAfterMap(final ODocument iRootRecord, final String iFieldName, final Object iUserObject)
-      throws OFetchException;
+  public void onAfterMap(final ODocument iRootRecord, final String iFieldName, final Object iUserObject) throws OFetchException;
 
   public void onBeforeDocument(final ODocument iRecord, final ODocument iDocument, final String iFieldName,
       final Object iUserObject) throws OFetchException;

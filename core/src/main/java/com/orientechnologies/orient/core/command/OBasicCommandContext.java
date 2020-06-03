@@ -47,7 +47,7 @@ public class OBasicCommandContext implements OCommandContext {
   protected ODatabase database;
   protected Object[]  args;
 
-  protected boolean recordMetrics = false;
+  protected boolean             recordMetrics = false;
   protected OCommandContext     parent;
   protected OCommandContext     child;
   protected Map<String, Object> variables;
@@ -57,11 +57,11 @@ public class OBasicCommandContext implements OCommandContext {
   protected Set<String> declaredScriptVariables = new HashSet<>();
 
   // MANAGES THE TIMEOUT
-  private long                                                                       executionStartedOn;
-  private long                                                                       timeoutMs;
-  private com.orientechnologies.orient.core.command.OCommandContext.TIMEOUT_STRATEGY timeoutStrategy;
-  protected AtomicLong  resultsProcessed = new AtomicLong(0);
-  protected Set<Object> uniqueResult     = new HashSet<Object>();
+  private   long                                                                       executionStartedOn;
+  private   long                                                                       timeoutMs;
+  private   com.orientechnologies.orient.core.command.OCommandContext.TIMEOUT_STRATEGY timeoutStrategy;
+  protected AtomicLong                                                                 resultsProcessed = new AtomicLong(0);
+  protected Set<Object>                                                                uniqueResult     = new HashSet<Object>();
 
   public OBasicCommandContext() {
   }
@@ -376,7 +376,6 @@ public class OBasicCommandContext implements OCommandContext {
    * adds an item to the unique result set
    *
    * @param o the result item to add
-   *
    * @return true if the element is successfully added (it was not present yet), false otherwise (it was already present)
    */
   public synchronized boolean addToUniqueResult(Object o) {

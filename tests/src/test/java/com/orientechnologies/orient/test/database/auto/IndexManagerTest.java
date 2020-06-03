@@ -378,8 +378,7 @@ public class IndexManagerTest extends DocumentDBBaseTest {
   public void testGetClassInvolvedIndexesThreeProperties() {
     final OIndexManagerAbstract indexManager = database.getMetadata().getIndexManagerInternal();
 
-    final Set<OIndex> result = indexManager
-        .getClassInvolvedIndexes(database, CLASS_NAME, Arrays.asList("fTwo", "fOne", "fThree"));
+    final Set<OIndex> result = indexManager.getClassInvolvedIndexes(database, CLASS_NAME, Arrays.asList("fTwo", "fOne", "fThree"));
 
     assertEquals(result.size(), 1);
     assertEquals(result.iterator().next().getName(), "compositetwo");
@@ -390,8 +389,7 @@ public class IndexManagerTest extends DocumentDBBaseTest {
   public void testGetClassInvolvedIndexesThreePropertiesBrokenFiledNameTest() {
     final OIndexManagerAbstract indexManager = database.getMetadata().getIndexManagerInternal();
 
-    final Set<OIndex> result = indexManager
-        .getClassInvolvedIndexes(database, CLASS_NAME, Arrays.asList("fTwo", "fOne", "fThree"));
+    final Set<OIndex> result = indexManager.getClassInvolvedIndexes(database, CLASS_NAME, Arrays.asList("fTwo", "fOne", "fThree"));
 
     assertEquals(result.size(), 1);
     assertEquals(result.iterator().next().getName(), "compositetwo");

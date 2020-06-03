@@ -44,7 +44,7 @@ public class AutomaticBackupTest {
   private final static String DBNAME  = "testautobackup";
   private final static String DBNAME2 = DBNAME + "2";
   private final static String DBNAME3 = DBNAME + "3";
-  private static String BACKUPDIR;
+  private static       String BACKUPDIR;
 
   private static String            URL;
   private static String            URL2;

@@ -43,19 +43,14 @@ import java.util.Base64;
 import java.util.UUID;
 
 /**
- * Implements a symmetric key utility class that can create default keys and keys from a String, a file,
- * a KeyStore, and from the OSymmetricKeyConfig interface.
+ * Implements a symmetric key utility class that can create default keys and keys from a String, a file, a KeyStore, and from the
+ * OSymmetricKeyConfig interface.
  * <p>
- * Static creation methods are provided for each type:
- * OSymmetricKey.fromConfig()
- * OSymmetricKey.fromString()
- * OSymmetricKey.fromFile()
- * OSymmetricKey.fromStream()
- * OSymmetricKey.fromKeystore()
+ * Static creation methods are provided for each type: OSymmetricKey.fromConfig() OSymmetricKey.fromString()
+ * OSymmetricKey.fromFile() OSymmetricKey.fromStream() OSymmetricKey.fromKeystore()
  * <p>
  * The encrypt() methods return a specialized Base64-encoded JSON document with these properties (depending on the cipher
- * transform):
- * "algorithm", "transform", "iv", "payload"
+ * transform): "algorithm", "transform", "iv", "payload"
  * <p>
  * The decrypt() and decryptAsString() methods accept the Base64-encoded JSON document.
  * <p>
@@ -390,7 +385,6 @@ public class OSymmetricKey {
    * This is a convenience method that takes a String argument, encodes it as Base64, then calls encrypt(byte[]).
    *
    * @param value The String to be encoded to Base64 then encrypted.
-   *
    * @return A Base64-encoded JSON document.
    */
   public String encrypt(final String value) {
@@ -406,7 +400,6 @@ public class OSymmetricKey {
    *
    * @param transform The cipher transformation to use.
    * @param value     The String to be encoded to Base64 then encrypted.
-   *
    * @return A Base64-encoded JSON document.
    */
   public String encrypt(final String transform, final String value) {
@@ -421,7 +414,6 @@ public class OSymmetricKey {
    * This method encrypts an array of bytes.
    *
    * @param bytes The array of bytes to be encrypted.
-   *
    * @return The encrypted bytes as a Base64-encoded JSON document or null if unsuccessful.
    */
   public String encrypt(final byte[] bytes) {
@@ -433,7 +425,6 @@ public class OSymmetricKey {
    *
    * @param transform The cipher transformation to use.
    * @param bytes     The array of bytes to be encrypted.
-   *
    * @return The encrypted bytes as a Base64-encoded JSON document or null if unsuccessful.
    */
   public String encrypt(final String transform, final byte[] bytes) {
@@ -510,7 +501,6 @@ public class OSymmetricKey {
    * This method decrypts the Base64-encoded JSON document using the specified algorithm and cipher transformation.
    *
    * @param encodedJSON The Base64-encoded JSON document.
-   *
    * @return The decrypted array of bytes as a UTF8 String or null if not successful.
    */
   public String decryptAsString(final String encodedJSON) {
@@ -526,7 +516,6 @@ public class OSymmetricKey {
    * This method decrypts the Base64-encoded JSON document using the specified algorithm and cipher transformation.
    *
    * @param encodedJSON The Base64-encoded JSON document.
-   *
    * @return The decrypted array of bytes or null if unsuccessful.
    */
   public byte[] decrypt(final String encodedJSON) {

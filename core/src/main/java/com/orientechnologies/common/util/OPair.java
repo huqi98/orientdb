@@ -29,13 +29,10 @@ import java.util.Map.Entry;
 
 /**
  * Keeps a pair of values as Key/Value.
- * 
+ *
+ * @param <K> Key
+ * @param <V> Value
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
- * @param <K>
- *          Key
- * @param <V>
- *          Value
  * @see OTriple
  */
 public class OPair<K extends Comparable, V> implements Entry<K, V>, Comparable<OPair<K, V>>, Serializable {

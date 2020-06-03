@@ -2,11 +2,11 @@
 package com.orientechnologies.orient.core.sql.parser;
 
 public class JJTOrientSqlState {
-  private java.util.List<Node> nodes;
+  private java.util.List<Node>    nodes;
   private java.util.List<Integer> marks;
 
-  private int sp;        // number of nodes on stack
-  private int mk;        // current mark
+  private int     sp;        // number of nodes on stack
+  private int     mk;        // current mark
   private boolean node_created;
 
   public JJTOrientSqlState() {
@@ -48,14 +48,14 @@ public class JJTOrientSqlState {
      stack.  */
   public Node popNode() {
     if (--sp < mk) {
-      mk = marks.remove(marks.size()-1);
+      mk = marks.remove(marks.size() - 1);
     }
-    return nodes.remove(nodes.size()-1);
+    return nodes.remove(nodes.size() - 1);
   }
 
   /* Returns the node currently on the top of the stack. */
   public Node peekNode() {
-    return nodes.get(nodes.size()-1);
+    return nodes.get(nodes.size() - 1);
   }
 
   /* Returns the number of children on the stack in the current node
@@ -64,14 +64,12 @@ public class JJTOrientSqlState {
     return sp - mk;
   }
 
-
   public void clearNodeScope(Node n) {
     while (sp > mk) {
       popNode();
     }
-    mk = marks.remove(marks.size()-1);
+    mk = marks.remove(marks.size() - 1);
   }
-
 
   public void openNodeScope(Node n) {
     marks.add(mk);
@@ -79,13 +77,12 @@ public class JJTOrientSqlState {
     n.jjtOpen();
   }
 
-
   /* A definite node is constructed from a specified number of
      children.  That number of nodes are popped from the stack and
      made the children of the definite node.  Then the definite node
      is pushed on to the stack. */
   public void closeNodeScope(Node n, int num) {
-    mk = marks.remove(marks.size()-1);
+    mk = marks.remove(marks.size() - 1);
     while (num-- > 0) {
       Node c = popNode();
       c.jjtSetParent(n);
@@ -96,7 +93,6 @@ public class JJTOrientSqlState {
     node_created = true;
   }
 
-
   /* A conditional node is constructed if its condition is true.  All
      the nodes that have been pushed since the node was opened are
      made children of the conditional node, which is then pushed
@@ -105,7 +101,7 @@ public class JJTOrientSqlState {
   public void closeNodeScope(Node n, boolean condition) {
     if (condition) {
       int a = nodeArity();
-      mk = marks.remove(marks.size()-1);
+      mk = marks.remove(marks.size() - 1);
       while (a-- > 0) {
         Node c = popNode();
         c.jjtSetParent(n);
@@ -115,7 +111,7 @@ public class JJTOrientSqlState {
       pushNode(n);
       node_created = true;
     } else {
-      mk = marks.remove(marks.size()-1);
+      mk = marks.remove(marks.size() - 1);
       node_created = false;
     }
   }

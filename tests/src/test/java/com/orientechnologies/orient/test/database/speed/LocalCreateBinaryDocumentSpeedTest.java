@@ -30,10 +30,10 @@ import org.testng.annotations.Test;
 
 @Test
 public class LocalCreateBinaryDocumentSpeedTest extends OrientMonoThreadTest {
-  private static final int PAYLOAD_SIZE = 2000;
-  private ODatabaseDocumentInternal database;
-  private OBlob                     record;
-  private byte[]                    payload;
+  private static final int                       PAYLOAD_SIZE = 2000;
+  private              ODatabaseDocumentInternal database;
+  private              OBlob                     record;
+  private              byte[]                    payload;
 
   public static void main(String[] iArgs) throws InstantiationException, IllegalAccessException {
     LocalCreateBinaryDocumentSpeedTest test = new LocalCreateBinaryDocumentSpeedTest();

@@ -91,8 +91,8 @@ public class TestOrientBulkInsert {
   }
 
   static final String AB      = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  static Random       rnd     = new Random();
-  static int          counter = 0;
+  static       Random rnd     = new Random();
+  static       int    counter = 0;
 
   private String getRandomText(int len) {
 

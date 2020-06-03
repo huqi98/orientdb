@@ -131,7 +131,6 @@ public abstract class OSecurityResource {
 
   protected final String resourceString;
 
-
   public OSecurityResource(String resourceString) {
     this.resourceString = resourceString;
   }
@@ -142,8 +141,10 @@ public abstract class OSecurityResource {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OSecurityResource that = (OSecurityResource) o;
     return Objects.equals(resourceString, that.resourceString);
   }

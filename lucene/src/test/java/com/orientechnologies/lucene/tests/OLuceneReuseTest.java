@@ -60,23 +60,14 @@ public class OLuceneReuseTest extends OLuceneBaseTest {
     db.command("create index Reuse.name_surname on Reuse (name,surname) FULLTEXT ENGINE LUCENE");
 
     for (int i = 0; i < 10; i++) {
-      db.save(new ODocument("Reuse")
-          .field("name", "John")
-          .field("date", new Date())
-          .field("surname", "Reese")
-          .field("age", i));
+      db.save(new ODocument("Reuse").field("name", "John").field("date", new Date()).field("surname", "Reese").field("age", i));
     }
 
     //additional record
-    db.save(new ODocument("Reuse")
-        .field("name", "John")
-        .field("date", new Date())
-        .field("surname", "Franklin")
-        .field("age", 11));
+    db.save(new ODocument("Reuse").field("name", "John").field("date", new Date()).field("surname", "Franklin").field("age", 11));
 
     //exact query on name uses Reuse.conposite
-    OResultSet results = db
-        .command("SELECT FROM Reuse WHERE name='John' and search_class('Reese')=true");
+    OResultSet results = db.command("SELECT FROM Reuse WHERE name='John' and search_class('Reese')=true");
 
     assertThat(results).hasSize(10);
 

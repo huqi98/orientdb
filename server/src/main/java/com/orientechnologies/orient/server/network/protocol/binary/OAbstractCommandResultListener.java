@@ -33,7 +33,7 @@ import com.orientechnologies.orient.core.record.ORecord;
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
-public abstract class OAbstractCommandResultListener implements  SimpleValueFetchPlanCommandListener {
+public abstract class OAbstractCommandResultListener implements SimpleValueFetchPlanCommandListener {
   protected final OCommandResultListener wrappedResultListener;
 
   private OFetchPlan fetchPlan;
@@ -69,5 +69,5 @@ public abstract class OAbstractCommandResultListener implements  SimpleValueFetc
 
     return null;
   }
-  
+
 }

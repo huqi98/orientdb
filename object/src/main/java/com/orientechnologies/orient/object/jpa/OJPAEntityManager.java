@@ -38,14 +38,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class OJPAEntityManager implements EntityManager {
-  /** the log used by this class. */
-  private static Logger              logger    = Logger.getLogger(OJPAPersistenceProvider.class.getName());
+  /**
+   * the log used by this class.
+   */
+  private static Logger logger = Logger.getLogger(OJPAPersistenceProvider.class.getName());
 
   private final EntityManagerFactory emFactory;
   private final OObjectDatabaseTx    database;
   private final EntityTransaction    transaction;
   private final OJPAProperties       properties;
-  private FlushModeType              flushMode = FlushModeType.AUTO;
+  private       FlushModeType        flushMode = FlushModeType.AUTO;
 
   OJPAEntityManager(EntityManagerFactory entityManagerFactory, OJPAProperties properties) {
     this.properties = properties;

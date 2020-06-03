@@ -100,7 +100,8 @@ public class OUpdateStatementTest {
   @Test
   public void testTargetQuery() {
     //issue #4415
-    checkRightSyntax("update (select from (traverse References from ( select from Node WHERE Email = 'julia@local'  ) ) WHERE @class = 'Node' and $depth <= 1 and Active = true ) set Points = 0 RETURN BEFORE $current.Points");
+    checkRightSyntax(
+        "update (select from (traverse References from ( select from Node WHERE Email = 'julia@local'  ) ) WHERE @class = 'Node' and $depth <= 1 and Active = true ) set Points = 0 RETURN BEFORE $current.Points");
   }
 
   @Test
@@ -138,7 +139,6 @@ public class OUpdateStatementTest {
     OrientSql osql = getParserFor(s);
     try {
       SimpleNode result = osql.parse();
-
 
     } catch (ParseException e) {
       e.printStackTrace();

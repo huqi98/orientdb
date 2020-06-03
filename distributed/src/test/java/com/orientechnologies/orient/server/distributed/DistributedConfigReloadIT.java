@@ -40,7 +40,7 @@ import java.util.concurrent.Future;
 
 public final class DistributedConfigReloadIT {
 
-  private String dbName = "distconfigureloaddb";
+  private String   dbName = "distconfigureloaddb";
   private OrientDB orientDB;
 
   public DistributedConfigReloadIT(String dbName) {

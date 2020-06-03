@@ -55,13 +55,15 @@ public class OMultiMatchPathItem extends OMatchPathItem {
     return result;
   }
 
-  @Override public OMultiMatchPathItem copy() {
+  @Override
+  public OMultiMatchPathItem copy() {
     OMultiMatchPathItem result = (OMultiMatchPathItem) super.copy();
     result.items = items == null ? null : items.stream().map(x -> x.copy()).collect(Collectors.toList());
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -77,7 +79,8 @@ public class OMultiMatchPathItem extends OMatchPathItem {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = super.hashCode();
     result = 31 * result + (items != null ? items.hashCode() : 0);
     return result;

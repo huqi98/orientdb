@@ -10,8 +10,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
 
-public
-class OFieldMatchPathItem extends OMatchPathItem {
+public class OFieldMatchPathItem extends OMatchPathItem {
 
   protected OIdentifier field;
 
@@ -24,7 +23,6 @@ class OFieldMatchPathItem extends OMatchPathItem {
   public OFieldMatchPathItem(OrientSql p, int id) {
     super(p, id);
   }
-
 
   /**
    * Accept the visitor.
@@ -42,7 +40,7 @@ class OFieldMatchPathItem extends OMatchPathItem {
   }
 
   protected Iterable<OIdentifiable> traversePatternEdge(OMatchStatement.MatchContext matchContext, OIdentifiable startingPoint,
-                                                        OCommandContext iCommandContext) {
+      OCommandContext iCommandContext) {
 
 //    Iterable possibleResults = null;
 //    if (filter != null) {
@@ -64,15 +62,16 @@ class OFieldMatchPathItem extends OMatchPathItem {
     return (qR instanceof Iterable && !(qR instanceof ODocument)) ? (Iterable) qR : Collections.singleton((OIdentifiable) qR);
   }
 
-
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    if (!super.equals(o)) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
+    if (!super.equals(o))
+      return false;
     OFieldMatchPathItem that = (OFieldMatchPathItem) o;
-    return Objects.equals(field, that.field) &&
-            Objects.equals(exp, that.exp);
+    return Objects.equals(field, that.field) && Objects.equals(exp, that.exp);
   }
 
   @Override

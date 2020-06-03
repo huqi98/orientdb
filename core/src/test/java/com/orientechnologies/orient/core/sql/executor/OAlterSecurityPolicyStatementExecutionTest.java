@@ -9,7 +9,7 @@ import org.junit.*;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OAlterSecurityPolicyStatementExecutionTest {
-  static OrientDB orient;
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -35,13 +35,11 @@ public class OAlterSecurityPolicyStatementExecutionTest {
     this.db = null;
   }
 
-
   @Test
   public void testPlain() {
     db.command("CREATE SECURITY POLICY foo").close();
 
     db.command("ALTER SECURITY POLICY foo SET READ = (name = 'foo')").close();
-
 
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
     OSecurityPolicy policy = security.getSecurityPolicy((ODatabaseSession) db, "foo");
@@ -61,7 +59,5 @@ public class OAlterSecurityPolicyStatementExecutionTest {
     Assert.assertNull(policy.getReadRule());
 
   }
-
-
 
 }

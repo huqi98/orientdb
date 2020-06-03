@@ -29,11 +29,10 @@ import com.orientechnologies.orient.core.exception.ODatabaseException;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 @Test
 public class DatabaseThreadFactoryTest extends DocumentDBBaseTest {
-	private final OPartitionedDatabasePoolFactory poolFactory = new OPartitionedDatabasePoolFactory();
+  private final OPartitionedDatabasePoolFactory poolFactory = new OPartitionedDatabasePoolFactory();
 
   @Parameters(value = "url")
   public DatabaseThreadFactoryTest(@Optional String url) {

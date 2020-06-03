@@ -88,8 +88,8 @@ public class OCommandExecutorSQLAlterDatabase extends OCommandExecutorSQLAbstrac
       value = parserText.substring(pos + 1).trim();
 
       if (value.length() == 0)
-        throw new OCommandSQLParsingException("Missed the database's value to change for attribute '" + attribute + "'. Use "
-            + getSyntax(), parserText, oldPos);
+        throw new OCommandSQLParsingException(
+            "Missed the database's value to change for attribute '" + attribute + "'. Use " + getSyntax(), parserText, oldPos);
 
       if (value.equalsIgnoreCase("null"))
         value = null;

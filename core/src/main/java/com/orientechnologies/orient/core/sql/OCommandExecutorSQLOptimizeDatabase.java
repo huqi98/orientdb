@@ -176,10 +176,9 @@ public class OCommandExecutorSQLOptimizeDatabase extends OCommandExecutorSQLAbst
               if (verbose && (now - lastLapTime > 2000)) {
                 final long elapsed = now - lastLapTime;
 
-                OLogManager.instance().info(this, "Browsed %,d of %,d edges, transformed %,d so far (%,d edges/sec)",
-                    browsedEdges, totalEdges,
-                    transformed,
-                    (((browsedEdges - lastLapBrowsed) * 1000 / elapsed)));
+                OLogManager.instance()
+                    .info(this, "Browsed %,d of %,d edges, transformed %,d so far (%,d edges/sec)", browsedEdges, totalEdges,
+                        transformed, (((browsedEdges - lastLapBrowsed) * 1000 / elapsed)));
 
                 lastLapTime = System.currentTimeMillis();
                 lastLapBrowsed = browsedEdges;

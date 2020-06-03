@@ -972,7 +972,7 @@ public abstract class OSchemaShared implements OCloseable {
   }
 
   public void sendCommand(ODatabaseDocumentInternal database, String command) {
-    throw  new UnsupportedOperationException();
+    throw new UnsupportedOperationException();
   }
 
 }

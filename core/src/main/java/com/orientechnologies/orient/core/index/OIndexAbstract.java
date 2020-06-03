@@ -354,7 +354,6 @@ public abstract class OIndexAbstract implements OIndexInternal {
 
   /**
    * @return Indicates whether index is rebuilding at the moment.
-   *
    * @see #getRebuildVersion()
    */
   @Deprecated
@@ -738,7 +737,6 @@ public abstract class OIndexAbstract implements OIndexInternal {
    * changes.
    *
    * @param changes the changes to interpret.
-   *
    * @return the interpreted index key changes.
    */
   public Iterable<OTransactionIndexChangesPerKey.OTransactionIndexEntry> interpretTxKeyChanges(

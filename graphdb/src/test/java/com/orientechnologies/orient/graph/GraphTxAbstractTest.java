@@ -29,7 +29,7 @@ import java.util.Locale;
 
 /**
  * Base class for tests against transactional Graphs.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public abstract class GraphTxAbstractTest {

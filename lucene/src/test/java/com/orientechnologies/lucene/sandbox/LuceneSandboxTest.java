@@ -48,12 +48,10 @@ public class LuceneSandboxTest extends OLuceneBaseTest {
   @Test
   public void shouldFetchOneDocumentWithExactMatchOnLuceneIndexKeyWordAnalyzer() throws Exception {
 
-    db.command(
-        "CREATE INDEX cdr.filename ON cdr(filename) FULLTEXT ENGINE LUCENE metadata { 'allowLeadingWildcard': true}");
+    db.command("CREATE INDEX cdr.filename ON cdr(filename) FULLTEXT ENGINE LUCENE metadata { 'allowLeadingWildcard': true}");
 
     //partial match
-    OResultSet res = db.query(
-        "select from cdr WHERE SEARCH_CLASS( ' RRC.20161229193002.PROD_R4.eno.data ') = true");
+    OResultSet res = db.query("select from cdr WHERE SEARCH_CLASS( ' RRC.20161229193002.PROD_R4.eno.data ') = true");
 
     Assertions.assertThat(res).hasSize(2);
     res.close();
@@ -64,12 +62,10 @@ public class LuceneSandboxTest extends OLuceneBaseTest {
     Assertions.assertThat(res).hasSize(1);
     res.close();
     //wildcard
-    res = db.query(
-        "select from cdr WHERE SEARCH_CLASS(' MDCA* ')= true");
+    res = db.query("select from cdr WHERE SEARCH_CLASS(' MDCA* ')= true");
     res.close();
     //leadind wildcard
-    res = db.query(
-        "select from cdr WHERE SEARCH_CLASS(' *20MCR2016122* ') =true");
+    res = db.query("select from cdr WHERE SEARCH_CLASS(' *20MCR2016122* ') =true");
 
     Assertions.assertThat(res).hasSize(1);
     res.close();
@@ -99,8 +95,6 @@ public class LuceneSandboxTest extends OLuceneBaseTest {
 
     SimpleTextCodec codec = new SimpleTextCodec();
 
-
-
   }
 
   @Test
@@ -108,5 +102,6 @@ public class LuceneSandboxTest extends OLuceneBaseTest {
 
     String element = ";";
     int x = element.charAt(0);
-    System.out.println("x=" + x);  }
+    System.out.println("x=" + x);
+  }
 }

@@ -21,10 +21,10 @@ public class IndexStreamSecurityDecorator {
       return stream;
     }
     OSecurityInternal security = db.getSharedContext().getSecurity();
-    if (security instanceof OSecurityShared && !((OSecurityShared) security).couldHaveActivePredicateSecurityRoles(db, indexClass)) {
+    if (security instanceof OSecurityShared && !((OSecurityShared) security)
+        .couldHaveActivePredicateSecurityRoles(db, indexClass)) {
       return stream;
     }
-
 
     return stream.filter((pair) -> OIndexInternal.securityFilterOnRead(originalIndex, pair.second) != null);
   }
@@ -40,10 +40,10 @@ public class IndexStreamSecurityDecorator {
       return stream;
     }
     OSecurityInternal security = db.getSharedContext().getSecurity();
-    if (security instanceof OSecurityShared && !((OSecurityShared) security).couldHaveActivePredicateSecurityRoles(db, indexClass)) {
+    if (security instanceof OSecurityShared && !((OSecurityShared) security)
+        .couldHaveActivePredicateSecurityRoles(db, indexClass)) {
       return stream;
     }
-
 
     return stream.filter((rid) -> OIndexInternal.securityFilterOnRead(originalIndex, rid) != null);
   }

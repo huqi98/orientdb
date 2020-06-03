@@ -32,17 +32,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  */
 public class ComparableLockManagerTest {
-  public static final int                    THREADS         = 64;
-  public static       int                    cyclesByProcess = 10000000;
-  public static       boolean                verbose         = false;
+  public static final int                                         THREADS         = 64;
+  public static       int                                         cyclesByProcess = 10000000;
+  public static       boolean                                     verbose         = false;
   public static       OComparableLockManager<NumberedCallable<?>> lockMgr         = new OComparableLockManager<NumberedCallable<?>>(
-      OGlobalConfiguration.ENVIRONMENT_CONCURRENT
-          .getValueAsBoolean(),
-      5000, 10000);
-  protected             List<Callable<?>>         resources       = new ArrayList<Callable<?>>();
-  protected             List<Thread>              processes       = Collections.synchronizedList(new ArrayList<Thread>());
-  protected             List<Throwable>           exceptions      = Collections.synchronizedList(new ArrayList<Throwable>());
-  protected             AtomicInteger             counter         = new AtomicInteger();
+      OGlobalConfiguration.ENVIRONMENT_CONCURRENT.getValueAsBoolean(), 5000, 10000);
+  protected           List<Callable<?>>                           resources       = new ArrayList<Callable<?>>();
+  protected           List<Thread>                                processes       = Collections
+      .synchronizedList(new ArrayList<Thread>());
+  protected           List<Throwable>                             exceptions      = Collections
+      .synchronizedList(new ArrayList<Throwable>());
+  protected           AtomicInteger                               counter         = new AtomicInteger();
 
   public static class ResourceRead extends NumberedCallable<Void> {
     AtomicInteger countRead = new AtomicInteger(0);
@@ -91,8 +91,8 @@ public class ComparableLockManagerTest {
   }
 
   public static class ResourceReadWrite extends NumberedCallable<Void> {
-    AtomicInteger    countRead  = new AtomicInteger(0);
-    AtomicInteger    countWrite = new AtomicInteger(0);
+    AtomicInteger countRead  = new AtomicInteger(0);
+    AtomicInteger countWrite = new AtomicInteger(0);
     volatile boolean lastWasRead;
 
     @Override
@@ -278,8 +278,8 @@ public class ComparableLockManagerTest {
       processes.get(i).join();
     }
 
-    System.out.println("\nOk, all threads back : " + counter.get() + " in: " + ((System.currentTimeMillis() - start) / 1000f)
-        + " secs");
+    System.out
+        .println("\nOk, all threads back : " + counter.get() + " in: " + ((System.currentTimeMillis() - start) / 1000f) + " secs");
 
     // Pulish exceptions.
     if (exceptions.size() > 0) {
@@ -294,7 +294,7 @@ public class ComparableLockManagerTest {
     Assert.assertEquals(lockMgr.getCountCurrentLocks(), 0);
   }
 
-  private static abstract class NumberedCallable<V>  implements Comparable<NumberedCallable>, Callable<V> {
+  private static abstract class NumberedCallable<V> implements Comparable<NumberedCallable>, Callable<V> {
     private static int nextNumber = 0;
 
     private int number = nextNumber++;

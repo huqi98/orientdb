@@ -30,18 +30,17 @@ import java.util.Objects;
 
 /**
  * Exception thrown when MVCC is enabled and a record cannot be updated or deleted because versions don't match.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OConcurrentModificationException extends ONeedRetryException implements OHighLevelException {
 
-  private static final long   serialVersionUID       = 1L;
+  private static final long serialVersionUID = 1L;
 
-  private ORID                rid;
-  private int                 databaseVersion        = 0;
-  private int                 recordVersion          = 0;
-  private int                 recordOperation;
+  private ORID rid;
+  private int  databaseVersion = 0;
+  private int  recordVersion   = 0;
+  private int  recordOperation;
 
   public OConcurrentModificationException(OConcurrentModificationException exception) {
     super(exception, OErrorCode.MVCC_ERROR);
@@ -58,7 +57,7 @@ public class OConcurrentModificationException extends ONeedRetryException implem
 
   public OConcurrentModificationException(final ORID iRID, final int iDatabaseVersion, final int iRecordVersion,
       final int iRecordOperation) {
-    super(makeMessage(iRecordOperation, iRID, iDatabaseVersion, iRecordVersion),OErrorCode.MVCC_ERROR);
+    super(makeMessage(iRecordOperation, iRID, iDatabaseVersion, iRecordVersion), OErrorCode.MVCC_ERROR);
 
     if (OFastConcurrentModificationException.enabled())
       throw new IllegalStateException("Fast-throw is enabled. Use OFastConcurrentModificationException.instance() instead");

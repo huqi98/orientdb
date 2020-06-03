@@ -55,7 +55,7 @@ public class OutInChainTest {
     // but test fails
     resEdge = graph.command(new OCommandSQL("select expand( out('Owns').inE('Owns') ) from User")).execute();
     assertTrue(resEdge.iterator().hasNext());// assertion error here
-		graph.shutdown();
+    graph.shutdown();
   }
 
   @Test
@@ -68,13 +68,16 @@ public class OutInChainTest {
     graph.command(new OCommandSQL("create vertex V1 set name = '2'")).execute();
     graph.command(new OCommandSQL("create vertex V1 set name = '3'")).execute();
 
-    graph.command(new OCommandSQL("create edge E1 from (select from V1 where name = '1') to (select from V1 where name = '2')")).execute();
-    graph.command(new OCommandSQL("create edge E2 from (select from V1 where name = '1') to (select from V1 where name = '3')")).execute();
-
-    Iterable result = graph.command(new OSQLSynchQuery<OrientEdge>("select expand(outE('E1').out.outE('E1', 'E2')) from V1 where name = '1'"))
+    graph.command(new OCommandSQL("create edge E1 from (select from V1 where name = '1') to (select from V1 where name = '2')"))
         .execute();
-    int count =0;
-    for(Object e:result){
+    graph.command(new OCommandSQL("create edge E2 from (select from V1 where name = '1') to (select from V1 where name = '3')"))
+        .execute();
+
+    Iterable result = graph
+        .command(new OSQLSynchQuery<OrientEdge>("select expand(outE('E1').out.outE('E1', 'E2')) from V1 where name = '1'"))
+        .execute();
+    int count = 0;
+    for (Object e : result) {
       count++;
     }
 
@@ -88,4 +91,4 @@ public class OutInChainTest {
 //    assertTrue(iterator.hasNext());
   }
 
-  }
+}

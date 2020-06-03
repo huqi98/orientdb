@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.tinkerpop.blueprints.impls.orient;
@@ -32,7 +32,6 @@ import java.util.Map;
  * Base class to manage graph settings.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
- *
  */
 public abstract class OrientConfigurableGraph {
   protected Settings settings = new Settings();
@@ -492,7 +491,6 @@ public abstract class OrientConfigurableGraph {
      * </ul>
      *
      * @return Current Graph instance to allow calls in chain (fluent interface)
-     *
      * @see #setThreadMode(THREAD_MODE)
      */
 
@@ -514,9 +512,7 @@ public abstract class OrientConfigurableGraph {
      * </ul>
      *
      * @param iControl Value to set
-     *
      * @return Current Graph instance to allow calls in chain (fluent interface)
-     *
      * @see #getThreadMode()
      */
     public void setThreadMode(final THREAD_MODE iControl) {
@@ -801,7 +797,6 @@ public abstract class OrientConfigurableGraph {
    * </ul>
    *
    * @return Current Graph instance to allow calls in chain (fluent interface)
-   *
    * @see #setThreadMode(THREAD_MODE)
    */
 
@@ -820,9 +815,7 @@ public abstract class OrientConfigurableGraph {
    * </ul>
    *
    * @param iControl Value to set
-   *
    * @return Current Graph instance to allow calls in chain (fluent interface)
-   *
    * @see #getThreadMode()
    */
   public OrientConfigurableGraph setThreadMode(final THREAD_MODE iControl) {
@@ -841,7 +834,7 @@ public abstract class OrientConfigurableGraph {
   }
 
   public void setConnectionStrategy(final String connectionStrategy) {
-    this.setProperty(OGlobalConfiguration.CLIENT_CONNECTION_STRATEGY.getKey(),connectionStrategy);
+    this.setProperty(OGlobalConfiguration.CLIENT_CONNECTION_STRATEGY.getKey(), connectionStrategy);
     this.settings.setConnectionStrategy(connectionStrategy);
   }
 
@@ -983,6 +976,6 @@ public abstract class OrientConfigurableGraph {
 
   protected abstract Object getProperty(final String iName);
 
-  protected abstract Map<String,Object> getProperties();
+  protected abstract Map<String, Object> getProperties();
 
 }

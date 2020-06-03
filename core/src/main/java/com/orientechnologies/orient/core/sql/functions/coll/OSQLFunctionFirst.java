@@ -27,9 +27,8 @@ import com.orientechnologies.orient.core.sql.functions.OSQLFunctionConfigurableA
 
 /**
  * Extract the first item of multi values (arrays, collections and maps) or return the same value for non multi-value types.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFunctionFirst extends OSQLFunctionConfigurableAbstract {
   public static final String NAME = "first";

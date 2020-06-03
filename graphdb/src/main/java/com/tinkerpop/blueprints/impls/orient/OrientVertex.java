@@ -538,9 +538,7 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * Moves current vertex to another class. All edges are updated automatically.
    *
    * @param iClassName New class name to assign
-   *
    * @return New vertex's identity
-   *
    * @see #moveToCluster(String)
    * @see #moveTo(String, String)
    */
@@ -552,9 +550,7 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * Moves current vertex to another cluster. All edges are updated automatically.
    *
    * @param iClusterName Cluster name where to save the new vertex
-   *
    * @return New vertex's identity
-   *
    * @see #moveToClass(String)
    * @see #moveTo(String, String)
    */
@@ -567,14 +563,12 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param iClassName   New class name to assign
    * @param iClusterName Cluster name where to save the new vertex
-   *
    * @return New vertex's identity
-   *
    * @see #moveToClass(String)
    * @see #moveToCluster(String)
    */
   public ORID moveTo(final String iClassName, final String iClusterName) {
-    return getRecord().asVertex().get().moveTo(iClassName,iClusterName);
+    return getRecord().asVertex().get().moveTo(iClassName, iClusterName);
   }
 
   /**
@@ -582,7 +576,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param label    Edge's label or class
    * @param inVertex Outgoing target vertex
-   *
    * @return The new Edge created
    */
   @Override
@@ -601,7 +594,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * @param label      Edge's label or class
    * @param inVertex   Outgoing target vertex
    * @param iClassName Edge's class name
-   *
    * @return The new Edge created
    */
   public OrientEdge addEdge(final String label, final OrientVertex inVertex, final String iClassName) {
@@ -616,7 +608,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * @param label    Edge's label or class
    * @param inVertex Outgoing target vertex
    * @param fields   Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
-   *
    * @return The new Edge created
    */
   public OrientEdge addEdge(final String label, final OrientVertex inVertex, final Object[] fields) {
@@ -633,7 +624,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * @param fields       Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
    * @param iClassName   Edge's class name
    * @param iClusterName The cluster name where to store the edge record
-   *
    * @return The new Edge created
    */
   public OrientEdge addEdge(String label, final OrientVertex inVertex, final String iClassName, final String iClusterName,
@@ -655,7 +645,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param iDirection The direction between OUT, IN or BOTH
    * @param iLabels    Optional labels as Strings to consider
-   *
    * @return A long with the total edges found
    */
   public long countEdges(final Direction iDirection, final String... iLabels) {
@@ -702,7 +691,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param iDirection The direction between OUT, IN or BOTH
    * @param iLabels    Optional labels as Strings to consider
-   *
    * @return
    */
   @Override
@@ -716,7 +704,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * @param iDestination The target vertex
    * @param iDirection   The direction between OUT, IN or BOTH
    * @param iLabels      Optional labels as Strings to consider
-   *
    * @return
    */
   public Iterable<Edge> getEdges(final OrientVertex iDestination, final Direction iDirection, final String... iLabels) {
@@ -838,7 +825,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param iDirection Direction of connection
    * @param iFieldName Full field name
-   *
    * @return Class of the connection if any
    */
   public String getConnectionClass(final Direction iDirection, final String iFieldName) {
@@ -858,7 +844,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    * @param iDirection  Direction to check
    * @param iFieldName  Field name
    * @param iClassNames Optional array of class names
-   *
    * @return The found direction if any
    */
   protected OPair<Direction, String> getConnection(final Direction iDirection, final String iFieldName, String... iClassNames) {
@@ -920,7 +905,6 @@ public class OrientVertex extends OrientElement implements OrientExtendedVertex 
    *
    * @param iDirection  Direction to check
    * @param iClassNames Optional array of class names
-   *
    * @return The array of field names
    */
   private List<OTriple<String, Direction, String>> getConnectionFields(final Direction iDirection, String... iClassNames) {

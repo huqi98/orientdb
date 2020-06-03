@@ -34,7 +34,7 @@ public class DirtyManagerGraphTest {
       OrientEdge edge3 = (OrientEdge) vertex2.addEdge("next", vertex3);
       OrientEdge edge4 = (OrientEdge) vertex3.addEdge("next", vertex);
       graph.commit();
-      
+
       assertTrue(vertex.getIdentity().isPersistent());
       assertTrue(vertex1.getIdentity().isPersistent());
       assertTrue(vertex2.getIdentity().isPersistent());

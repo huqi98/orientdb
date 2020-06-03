@@ -18,7 +18,7 @@ public class OAESEncryptionTest {
   @Test
   public void test() {
     OAESEncryption encryption = new OAESEncryption();
-    String key = new String(Base64.getEncoder().encode(new byte[]{1,2,3,4,5,6,7,8,1,2,3,4,5,6,7,8}));
+    String key = new String(Base64.getEncoder().encode(new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8 }));
     encryption.configure(key);
 
     byte[] original = "this is a test string to encrypt".getBytes();

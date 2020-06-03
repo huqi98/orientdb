@@ -26,12 +26,12 @@ import com.orientechnologies.orient.core.sql.parser.TokenMgrError;
 
 public class OCommandSQLParsingException extends OCoreException {
 
-  private Integer line;
-  private Integer column;
-  private String  statement;
-  private String  text;
-  private int     position;
-  private static final long serialVersionUID = -7430575036316163711L;
+  private              Integer line;
+  private              Integer column;
+  private              String  statement;
+  private              String  text;
+  private              int     position;
+  private static final long    serialVersionUID = -7430575036316163711L;
 
   public OCommandSQLParsingException(ParseException e, String statement) {
     super(generateMessage(e, statement, e.currentToken.next.beginLine, e.currentToken.next.endColumn), null,

@@ -110,7 +110,6 @@ public abstract class ODatabaseWrapperAbstract<DB extends ODatabaseInternal, T> 
    * @param compressionLevel ZIP Compression level between 0 (no compression) and 9 (maximum). The bigger is the compression, the
    *                         smaller will be the final backup content, but will consume more CPU and time to execute
    * @param bufferSize       Buffer size in bytes, the bigger is the buffer, the more efficient will be the compression
-   *
    * @throws IOException
    */
   @Override
@@ -126,7 +125,6 @@ public abstract class ODatabaseWrapperAbstract<DB extends ODatabaseInternal, T> 
    * @param options   Backup options as Map<String, Object> object
    * @param callable  Callback to execute when the database is locked
    * @param iListener Listener called for backup messages
-   *
    * @throws IOException
    * @see ODatabaseImport
    */

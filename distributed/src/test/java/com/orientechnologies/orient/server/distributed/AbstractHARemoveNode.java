@@ -35,7 +35,8 @@ public abstract class AbstractHARemoveNode extends AbstractServerClusterTxTest {
         final boolean ok = db.countClass("Person") >= expected;
         if (!ok)
           System.out.println("Server 0: FOUND " + db.countClass("Person") + " people instead of expected " + expected);
-        else System.out.println("Server 0: FOUND " + db.countClass("Person") + ", expected " + expected);
+        else
+          System.out.println("Server 0: FOUND " + db.countClass("Person") + ", expected " + expected);
         return ok;
       }
     }, 10000);
@@ -48,7 +49,8 @@ public abstract class AbstractHARemoveNode extends AbstractServerClusterTxTest {
         final boolean ok = db.countClass("Person") >= node2Expected;
         if (!ok)
           System.out.println("Server 2: FOUND " + db.countClass("Person") + " people instead of expected " + node2Expected);
-        else System.out.println("Server 2: FOUND " + db.countClass("Person") + ", expected " + expected);
+        else
+          System.out.println("Server 2: FOUND " + db.countClass("Person") + ", expected " + expected);
         return ok;
       }
     }, 10000);

@@ -134,7 +134,7 @@ public class SBTreeNullBucketV1RemoveValuePOTest {
     Assert.assertEquals(24, restoredOperation.getPageIndex());
     Assert.assertEquals(1, restoredOperation.getOperationUnitId());
 
-    Assert.assertArrayEquals(new byte[] { 1, 2, 3}, restoredOperation.getValue());
+    Assert.assertArrayEquals(new byte[] { 1, 2, 3 }, restoredOperation.getValue());
     Assert.assertSame(OByteSerializer.INSTANCE, restoredOperation.getValueSerializer());
   }
 }

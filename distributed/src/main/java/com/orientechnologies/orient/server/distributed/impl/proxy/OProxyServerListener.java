@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OProxyServerListener extends Thread {
-  private final OProxyServer  server;
-  private final int           localPort;
-  private final int           remotePort;
+  private final OProxyServer server;
+  private final int          localPort;
+  private final int          remotePort;
 
   private List<OProxyChannel> channels = new ArrayList<OProxyChannel>();
   private ServerSocket        localSocket;
@@ -28,8 +28,9 @@ public class OProxyServerListener extends Thread {
   public void run() {
     // WAIT THE REMOTE SOCKET IS AVAILABLE FIRST. IN THIS WAY THE LOCAL SOCKET IS CREATED ONLY AFTER THE REMOTE SOCKET IS
     // AVAILABLE. THIS ALLOWS TO RETURN A CONNECTION REFUSED TO THE CLIENT
-    OLogManager.instance().info(this, "Proxy server: local port %d is waiting for the remote port %s:%d to be available...",
-        localPort, server.getRemoteHost(), remotePort);
+    OLogManager.instance()
+        .info(this, "Proxy server: local port %d is waiting for the remote port %s:%d to be available...", localPort,
+            server.getRemoteHost(), remotePort);
 
     if (server.isWaitUntilRemotePortsAreOpen()) {
       while (running) {
@@ -48,8 +49,8 @@ public class OProxyServerListener extends Thread {
       }
     }
 
-    OLogManager.instance().info(this, "Proxy server: remote port %s:%d is available, creating the channel...",
-        server.getRemoteHost(), remotePort);
+    OLogManager.instance()
+        .info(this, "Proxy server: remote port %s:%d is available, creating the channel...", server.getRemoteHost(), remotePort);
 
     try {
       localSocket = new ServerSocket(localPort);
@@ -67,15 +68,15 @@ public class OProxyServerListener extends Thread {
         channel.start();
 
       } catch (BindException e) {
-        OLogManager.instance().error(this, "Proxy server: error on listening port %d->%s:%d", e, localPort, server.getRemoteHost(),
-            remotePort);
+        OLogManager.instance()
+            .error(this, "Proxy server: error on listening port %d->%s:%d", e, localPort, server.getRemoteHost(), remotePort);
         break;
       } catch (SocketException e) {
         OLogManager.instance().debug(this, "Proxy server: listening port %d is closed", e, localPort);
         break;
       } catch (Exception e) {
-        OLogManager.instance().error(this, "Proxy server: closing proxy server %d->%s:%d", e, localPort, server.getRemoteHost(),
-            remotePort);
+        OLogManager.instance()
+            .error(this, "Proxy server: closing proxy server %d->%s:%d", e, localPort, server.getRemoteHost(), remotePort);
         break;
       }
 

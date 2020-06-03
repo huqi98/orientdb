@@ -28,9 +28,8 @@ import java.util.regex.Pattern;
 
 /**
  * MATCHES operator. Matches the left value against the regular expression contained in the second one.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OQueryOperatorMatches extends OQueryOperatorEqualityNotNulls {
 

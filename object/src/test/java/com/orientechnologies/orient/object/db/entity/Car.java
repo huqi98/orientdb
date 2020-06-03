@@ -3,7 +3,7 @@ package com.orientechnologies.orient.object.db.entity;
 public class Car {
 
   private String name;
-  private int year;
+  private int    year;
 
   public Car() {
     this.name = "Unknown";
@@ -33,12 +33,15 @@ public class Car {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Car)) return false;
+    if (this == o)
+      return true;
+    if (!(o instanceof Car))
+      return false;
 
     Car car = (Car) o;
 
-    if (year != car.year) return false;
+    if (year != car.year)
+      return false;
     return name.equals(car.name);
 
   }
@@ -52,9 +55,6 @@ public class Car {
 
   @Override
   public String toString() {
-    return "Car{" +
-             "name='" + name + '\'' +
-             ", year=" + year +
-             '}';
+    return "Car{" + "name='" + name + '\'' + ", year=" + year + '}';
   }
 }

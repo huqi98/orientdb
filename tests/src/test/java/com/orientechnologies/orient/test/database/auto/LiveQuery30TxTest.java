@@ -40,13 +40,13 @@ import java.util.concurrent.TimeUnit;
 @Test(groups = "Query")
 public class LiveQuery30TxTest extends DocumentDBBaseTest implements OCommandOutputListener {
 
-  private final CountDownLatch latch = new CountDownLatch(2);
-  private CountDownLatch unLatch = new CountDownLatch(1);
+  private final CountDownLatch latch   = new CountDownLatch(2);
+  private       CountDownLatch unLatch = new CountDownLatch(1);
 
   class MyLiveQueryListener implements OLiveQueryResultListener {
 
     public List<OPair<String, OResult>> ops = new ArrayList<>();
-    public int unsubscribe;
+    public int                          unsubscribe;
 
     @Override
     public void onCreate(ODatabaseDocument database, OResult data) {
@@ -83,14 +83,12 @@ public class LiveQuery30TxTest extends DocumentDBBaseTest implements OCommandOut
     super(url);
   }
 
-
   @Test
   public void checkLiveQueryTx() throws IOException, InterruptedException {
     final String className1 = "LiveQuery30Test_checkLiveQueryTx_1";
     final String className2 = "LiveQuery30Test_checkLiveQueryTx_2";
     database.getMetadata().getSchema().createClass(className1);
     database.getMetadata().getSchema().createClass(className2);
-
 
     MyLiveQueryListener listener = new MyLiveQueryListener();
 

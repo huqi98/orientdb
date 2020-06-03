@@ -31,7 +31,7 @@ public class OServerNetworkConfiguration {
   @XmlElementWrapper
   @XmlAnyElement
   @XmlElementRef(type = OServerSocketFactoryConfiguration.class)
-  public List<OServerSocketFactoryConfiguration>   sockets;
+  public List<OServerSocketFactoryConfiguration> sockets;
 
   @XmlElementWrapper
   @XmlAnyElement

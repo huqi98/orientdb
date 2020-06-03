@@ -40,7 +40,6 @@ import com.orientechnologies.orient.core.sql.OCommandExecutorSQLSelect;
  * Comparator implementation class used by ODocumentSorter class to sort documents following dynamic criteria.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class ODocumentComparator implements Comparator<OIdentifiable> {
   private List<OPair<String, String>> orderCriteria;
@@ -51,8 +50,8 @@ public class ODocumentComparator implements Comparator<OIdentifiable> {
     this.orderCriteria = iOrderCriteria;
     this.context = iContext;
     ODatabaseDocumentInternal internal = ODatabaseRecordThreadLocal.instance().get();
-    collator = Collator.getInstance(new Locale(internal.get(ATTRIBUTES.LOCALECOUNTRY) + "_"
-        + internal.get(ATTRIBUTES.LOCALELANGUAGE)));
+    collator = Collator
+        .getInstance(new Locale(internal.get(ATTRIBUTES.LOCALECOUNTRY) + "_" + internal.get(ATTRIBUTES.LOCALELANGUAGE)));
   }
 
   @SuppressWarnings("unchecked")

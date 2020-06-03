@@ -19,7 +19,7 @@ import com.orientechnologies.common.factory.OConfigurableStatelessFactory;
 
 /**
  * Factory to manage the record conflict strategy implementations.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class ORecordConflictStrategyFactory extends OConfigurableStatelessFactory<String, ORecordConflictStrategy> {

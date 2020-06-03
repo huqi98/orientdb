@@ -33,11 +33,11 @@ import java.util.stream.Stream;
 public class SBTreeV2TestIT {
   private int keysCount = 1_000_000;
   OSBTreeV2<Integer, OIdentifiable> sbTree;
-  protected ODatabaseSession databaseDocumentTx;
-  protected String buildDirectory;
-  protected OrientDB orientDB;
+  protected ODatabaseSession          databaseDocumentTx;
+  protected String                    buildDirectory;
+  protected OrientDB                  orientDB;
   protected OAbstractPaginatedStorage storage;
-  protected OAtomicOperationsManager atomicOperationsManager;
+  protected OAtomicOperationsManager  atomicOperationsManager;
 
   private String dbName;
 
@@ -148,22 +148,21 @@ public class SBTreeV2TestIT {
 
         final int rollbackCounter = n;
         try {
-          atomicOperationsManager.executeInsideAtomicOperation(null,
-              atomicOperation -> {
-                for (int i = 0; i < rollbackRange; i++) {
-                  int key = random.nextInt(Integer.MAX_VALUE);
+          atomicOperationsManager.executeInsideAtomicOperation(null, atomicOperation -> {
+            for (int i = 0; i < rollbackRange; i++) {
+              int key = random.nextInt(Integer.MAX_VALUE);
 
-                  sbTree.put(atomicOperation, key, new ORecordId(key % 32000, key));
+              sbTree.put(atomicOperation, key, new ORecordId(key % 32000, key));
 
-                  if (rollbackCounter == 1) {
-                    keys.add(key);
-                  }
-                  Assert.assertEquals(sbTree.get(key), new ORecordId(key % 32000, key));
-                }
-                if (rollbackCounter == 0) {
-                  throw new RollbackException();
-                }
-              });
+              if (rollbackCounter == 1) {
+                keys.add(key);
+              }
+              Assert.assertEquals(sbTree.get(key), new ORecordId(key % 32000, key));
+            }
+            if (rollbackCounter == 0) {
+              throw new RollbackException();
+            }
+          });
         } catch (RollbackException ignore) {
         }
       }
@@ -851,7 +850,7 @@ public class SBTreeV2TestIT {
   }
 
   private void assertIterateMajorEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     for (int i = 0; i < 100; i++) {
       int upperBorder = keyValues.lastKey() + 5000;
       int fromKey;
@@ -892,7 +891,7 @@ public class SBTreeV2TestIT {
   }
 
   private void assertIterateMinorEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     for (int i = 0; i < 100; i++) {
       int upperBorder = keyValues.lastKey() + 5000;
       int toKey;
@@ -933,7 +932,7 @@ public class SBTreeV2TestIT {
   }
 
   private void assertIterateBetweenEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean fromInclusive,
-                                           boolean toInclusive, boolean ascSortOrder) {
+      boolean toInclusive, boolean ascSortOrder) {
     long totalTime = 0;
     long totalIterations = 0;
 

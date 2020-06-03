@@ -41,7 +41,7 @@ public class OCommandExecutorSQLCreateCluster extends OCommandExecutorSQLAbstrac
   public static final String KEYWORD_CLUSTER = "CLUSTER";
   public static final String KEYWORD_ID      = "ID";
 
-  private String clusterName;
+  private String  clusterName;
   private int     requestedId = -1;
   private boolean blob        = false;
 

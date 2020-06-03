@@ -2,9 +2,7 @@ package com.orientechnologies.orient.core.sql.parser;
 
 import org.junit.Test;
 
-public class OMoveVertexStatementTest extends OParserTestAbstract{
-
-
+public class OMoveVertexStatementTest extends OParserTestAbstract {
 
   @Test
   public void test() {
@@ -16,6 +14,5 @@ public class OMoveVertexStatementTest extends OParserTestAbstract{
 
     checkWrongSyntax("move vertex (select from V) to newposition");
   }
-
 
 }

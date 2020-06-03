@@ -14,7 +14,7 @@ import com.tinkerpop.blueprints.impls.orient.OrientVertex;
 @RunWith(JUnit4.class)
 public class VertexPredicateTest {
 
-  private static OrientGraph  graph;
+  private static OrientGraph graph;
 
   private static OrientVertex luca;
   private static OrientVertex bill;

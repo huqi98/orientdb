@@ -166,7 +166,7 @@ public class PushMessageUnitTest {
     thread.start();
     binary.start();
     assertTrue(requestWritten.await(10, TimeUnit.SECONDS));
-    OStorageRemotePushThread pushThread = new OStorageRemotePushThread(remote, "none", 10, 1000 );
+    OStorageRemotePushThread pushThread = new OStorageRemotePushThread(remote, "none", 10, 1000);
     pushThread.start();
 
     assertTrue(executed.await(10, TimeUnit.SECONDS));

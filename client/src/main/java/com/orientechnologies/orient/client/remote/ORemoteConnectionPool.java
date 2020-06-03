@@ -89,5 +89,5 @@ public class ORemoteConnectionPool implements OResourcePoolListener<String, OCha
       final OContextConfiguration clientConfiguration) {
     return pool.getResource(iServerURL, timeout, clientConfiguration);
   }
-  
+
 }

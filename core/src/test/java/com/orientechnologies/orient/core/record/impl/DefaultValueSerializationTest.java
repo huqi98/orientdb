@@ -1,6 +1,5 @@
 package com.orientechnologies.orient.core.record.impl;
 
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

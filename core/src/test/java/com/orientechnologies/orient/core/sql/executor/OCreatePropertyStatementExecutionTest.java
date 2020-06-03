@@ -20,25 +20,27 @@ import static org.junit.Assert.assertTrue;
 public class OCreatePropertyStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OCreatePropertyStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  private static final String PROP_NAME          = "name";
+  private static final String PROP_NAME = "name";
 
-  private static final String PROP_DIVISION      = "division";
+  private static final String PROP_DIVISION = "division";
 
-  private static final String PROP_OFFICERS      = "officers";
+  private static final String PROP_OFFICERS = "officers";
 
-  private static final String PROP_ID            = "id";
+  private static final String PROP_ID = "id";
 
-
-  @Test public void testBasicCreateProperty() throws Exception {
+  @Test
+  public void testBasicCreateProperty() throws Exception {
     db.command("CREATE class testBasicCreateProperty").close();
     db.command("CREATE property testBasicCreateProperty.name STRING").close();
 
@@ -53,7 +55,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testBasicUnsafeCreateProperty() throws Exception {
+  @Test
+  public void testBasicUnsafeCreateProperty() throws Exception {
     db.command("CREATE class testBasicUnsafeCreateProperty").close();
     db.command("CREATE property testBasicUnsafeCreateProperty.name STRING UNSAFE").close();
 
@@ -68,7 +71,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreatePropertyWithLinkedClass() throws Exception {
+  @Test
+  public void testCreatePropertyWithLinkedClass() throws Exception {
     db.command("CREATE class testCreatePropertyWithLinkedClass_1").close();
     db.command("CREATE class testCreatePropertyWithLinkedClass_2").close();
     db.command("CREATE property testCreatePropertyWithLinkedClass_2.division LINK testCreatePropertyWithLinkedClass_1").close();
@@ -85,7 +89,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreatePropertyWithEmbeddedType() throws Exception {
+  @Test
+  public void testCreatePropertyWithEmbeddedType() throws Exception {
     db.command("CREATE Class testCreatePropertyWithEmbeddedType").close();
     db.command("CREATE Property testCreatePropertyWithEmbeddedType.officers EMBEDDEDLIST STRING").close();
 
@@ -101,7 +106,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateMandatoryProperty() throws Exception {
+  @Test
+  public void testCreateMandatoryProperty() throws Exception {
     db.command("CREATE class testCreateMandatoryProperty").close();
     db.command("CREATE property testCreateMandatoryProperty.name STRING (MANDATORY)").close();
 
@@ -115,7 +121,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateNotNullProperty() throws Exception {
+  @Test
+  public void testCreateNotNullProperty() throws Exception {
     db.command("CREATE class testCreateNotNullProperty").close();
     db.command("CREATE property testCreateNotNullProperty.name STRING (NOTNULL)").close();
 
@@ -129,7 +136,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateReadOnlyProperty() throws Exception {
+  @Test
+  public void testCreateReadOnlyProperty() throws Exception {
     db.command("CREATE class testCreateReadOnlyProperty").close();
     db.command("CREATE property testCreateReadOnlyProperty.name STRING (READONLY)").close();
 
@@ -143,7 +151,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertTrue(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateReadOnlyFalseProperty() throws Exception {
+  @Test
+  public void testCreateReadOnlyFalseProperty() throws Exception {
     db.command("CREATE class testCreateReadOnlyFalseProperty").close();
     db.command("CREATE property testCreateReadOnlyFalseProperty.name STRING (READONLY false)").close();
 
@@ -155,10 +164,10 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateMandatoryPropertyWithEmbeddedType() throws Exception {
+  @Test
+  public void testCreateMandatoryPropertyWithEmbeddedType() throws Exception {
     db.command("CREATE Class testCreateMandatoryPropertyWithEmbeddedType").close();
-    db.command(
-        "CREATE Property testCreateMandatoryPropertyWithEmbeddedType.officers EMBEDDEDLIST STRING (MANDATORY)").close();
+    db.command("CREATE Property testCreateMandatoryPropertyWithEmbeddedType.officers EMBEDDEDLIST STRING (MANDATORY)").close();
 
     OClass companyClass = db.getMetadata().getSchema().getClass("testCreateMandatoryPropertyWithEmbeddedType");
     OProperty nameProperty = companyClass.getProperty(PROP_OFFICERS);
@@ -172,7 +181,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(nameProperty.isReadonly());
   }
 
-  @Test public void testCreateUnsafePropertyWithEmbeddedType() throws Exception {
+  @Test
+  public void testCreateUnsafePropertyWithEmbeddedType() throws Exception {
     db.command("CREATE Class testCreateUnsafePropertyWithEmbeddedType").close();
     db.command("CREATE Property testCreateUnsafePropertyWithEmbeddedType.officers EMBEDDEDLIST STRING UNSAFE").close();
 
@@ -185,10 +195,11 @@ public class OCreatePropertyStatementExecutionTest {
     assertEquals(nameProperty.getLinkedType(), OType.STRING);
   }
 
-  @Test public void testComplexCreateProperty() throws Exception {
+  @Test
+  public void testComplexCreateProperty() throws Exception {
     db.command("CREATE Class testComplexCreateProperty").close();
-    db.command(
-        "CREATE Property testComplexCreateProperty.officers EMBEDDEDLIST STRING (MANDATORY, READONLY, NOTNULL) UNSAFE").close();
+    db.command("CREATE Property testComplexCreateProperty.officers EMBEDDEDLIST STRING (MANDATORY, READONLY, NOTNULL) UNSAFE")
+        .close();
 
     OClass companyClass = db.getMetadata().getSchema().getClass("testComplexCreateProperty");
     OProperty nameProperty = companyClass.getProperty(PROP_OFFICERS);
@@ -202,10 +213,12 @@ public class OCreatePropertyStatementExecutionTest {
     assertTrue(nameProperty.isReadonly());
   }
 
-  @Test public void testLinkedTypeDefaultAndMinMaxUnsafeProperty() throws Exception {
+  @Test
+  public void testLinkedTypeDefaultAndMinMaxUnsafeProperty() throws Exception {
     db.command("CREATE CLASS testLinkedTypeDefaultAndMinMaxUnsafeProperty").close();
     db.command(
-        "CREATE PROPERTY testLinkedTypeDefaultAndMinMaxUnsafeProperty.id EMBEDDEDLIST Integer (DEFAULT 5, MIN 1, MAX 10) UNSAFE").close();
+        "CREATE PROPERTY testLinkedTypeDefaultAndMinMaxUnsafeProperty.id EMBEDDEDLIST Integer (DEFAULT 5, MIN 1, MAX 10) UNSAFE")
+        .close();
 
     OClass companyClass = db.getMetadata().getSchema().getClass("testLinkedTypeDefaultAndMinMaxUnsafeProperty");
     OProperty idProperty = companyClass.getProperty(PROP_ID);
@@ -222,7 +235,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertEquals(idProperty.getMax(), "10");
   }
 
-  @Test public void testDefaultAndMinMaxUnsafeProperty() throws Exception {
+  @Test
+  public void testDefaultAndMinMaxUnsafeProperty() throws Exception {
     db.command("CREATE CLASS testDefaultAndMinMaxUnsafeProperty").close();
     db.command("CREATE PROPERTY testDefaultAndMinMaxUnsafeProperty.id INTEGER (DEFAULT 5, MIN 1, MAX 10) UNSAFE").close();
 
@@ -241,7 +255,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertEquals(idProperty.getMax(), "10");
   }
 
-  @Test public void testExtraSpaces() throws Exception {
+  @Test
+  public void testExtraSpaces() throws Exception {
     db.command("CREATE CLASS testExtraSpaces").close();
     db.command("CREATE PROPERTY testExtraSpaces.id INTEGER  ( DEFAULT  5 ,  MANDATORY  )  UNSAFE ").close();
 
@@ -256,17 +271,20 @@ public class OCreatePropertyStatementExecutionTest {
     assertEquals(idProperty.getDefaultValue(), "5");
   }
 
-  @Test(expected = OCommandExecutionException.class) public void testInvalidAttributeName() throws Exception {
+  @Test(expected = OCommandExecutionException.class)
+  public void testInvalidAttributeName() throws Exception {
     db.command("CREATE CLASS OCommandExecutionException").close();
     db.command("CREATE PROPERTY OCommandExecutionException.id INTEGER (MANDATORY, INVALID, NOTNULL)  UNSAFE").close();
   }
 
-  @Test(expected = OCommandExecutionException.class) public void testMissingAttributeValue() throws Exception {
+  @Test(expected = OCommandExecutionException.class)
+  public void testMissingAttributeValue() throws Exception {
     db.command("CREATE CLASS testMissingAttributeValue").close();
     db.command("CREATE PROPERTY testMissingAttributeValue.id INTEGER (DEFAULT)  UNSAFE").close();
   }
 
-  @Test public void testMandatoryAsLinkedName() throws Exception {
+  @Test
+  public void testMandatoryAsLinkedName() throws Exception {
     db.command("CREATE CLASS testMandatoryAsLinkedName").close();
     db.command("CREATE CLASS testMandatoryAsLinkedName_2").close();
     db.command("CREATE PROPERTY testMandatoryAsLinkedName.id EMBEDDEDLIST testMandatoryAsLinkedName_2 UNSAFE").close();
@@ -282,7 +300,8 @@ public class OCreatePropertyStatementExecutionTest {
     assertFalse(idProperty.isMandatory());
   }
 
-  @Test public void testIfNotExists() throws Exception {
+  @Test
+  public void testIfNotExists() throws Exception {
     db.command("CREATE class testIfNotExists").close();
     db.command("CREATE property testIfNotExists.name if not exists STRING").close();
 

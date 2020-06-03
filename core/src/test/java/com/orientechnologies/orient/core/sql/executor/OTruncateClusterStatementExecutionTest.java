@@ -20,12 +20,14 @@ import java.util.List;
 public class OTruncateClusterStatementExecutionTest {
   static ODatabaseDocument database;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     database = new ODatabaseDocumentTx("memory:OTruncateClusterStatementExecutionTest");
     database.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     database.close();
   }
 

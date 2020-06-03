@@ -22,7 +22,8 @@ public class OCreatePropertyAttributeStatement extends SimpleNode {
     super(p, id);
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     settingName.toString(params, builder);
     if (settingValue != null) {
       builder.append(" ");
@@ -37,7 +38,8 @@ public class OCreatePropertyAttributeStatement extends SimpleNode {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -53,7 +55,8 @@ public class OCreatePropertyAttributeStatement extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = settingName != null ? settingName.hashCode() : 0;
     result = 31 * result + (settingValue != null ? settingValue.hashCode() : 0);
     return result;
@@ -74,7 +77,7 @@ public class OCreatePropertyAttributeStatement extends SimpleNode {
       } else if (attrName.equalsIgnoreCase("min")) {
         internalProp.setMin("" + attrValue);
       } else if (attrName.equalsIgnoreCase("default")) {
-        if(this.settingValue==null){
+        if (this.settingValue == null) {
           throw new OCommandExecutionException("");
         }
         internalProp.setDefaultValue("" + attrValue);

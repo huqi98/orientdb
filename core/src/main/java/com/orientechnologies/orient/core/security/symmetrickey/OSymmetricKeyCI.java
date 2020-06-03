@@ -28,11 +28,9 @@ import com.orientechnologies.orient.core.security.OCredentialInterceptor;
 /**
  * Provides a symmetric key credential interceptor.
  * <p>
- * The "password" parameter should be a JSON document specifying "keyAlgorithm" and
- * "key", "keyFile", or "keyStore".
+ * The "password" parameter should be a JSON document specifying "keyAlgorithm" and "key", "keyFile", or "keyStore".
  * <p>
- * The method getPassword() will return a Base64-encoded JSON document with the encrypted
- * "username" as its payload.
+ * The method getPassword() will return a Base64-encoded JSON document with the encrypted "username" as its payload.
  *
  * @author S. Colin Leister
  */

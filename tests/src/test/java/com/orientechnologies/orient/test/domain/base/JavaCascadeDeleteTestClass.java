@@ -35,88 +35,87 @@ import com.orientechnologies.orient.test.domain.business.Child;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaCascadeDeleteTestClass {
-	@Id
-	private String							id;
-	@Version
-	private Object							version;
+  @Id
+  private String id;
+  @Version
+  private Object version;
 
-	@OneToOne(orphanRemoval = true)
-	private JavaSimpleTestClass simpleClass;
-	@OneToOne(orphanRemoval = true)
-	private OBlob               byteArray;
-	private String              name;
-	@ManyToMany(cascade = { CascadeType.REMOVE })
-	private Map<String, Child>	children	= new HashMap<String, Child>();
-	@OneToMany(orphanRemoval = true)
-	private List<Child>					list			= new ArrayList<Child>();
-	@OneToMany(orphanRemoval = true)
-	private Set<Child>					set				= new HashSet<Child>();
+  @OneToOne(orphanRemoval = true)
+  private JavaSimpleTestClass simpleClass;
+  @OneToOne(orphanRemoval = true)
+  private OBlob               byteArray;
+  private String              name;
+  @ManyToMany(cascade = { CascadeType.REMOVE })
+  private Map<String, Child>  children = new HashMap<String, Child>();
+  @OneToMany(orphanRemoval = true)
+  private List<Child>         list     = new ArrayList<Child>();
+  @OneToMany(orphanRemoval = true)
+  private Set<Child>          set      = new HashSet<Child>();
 
-	public String getName() {
-		return name;
-	}
+  public String getName() {
+    return name;
+  }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+  public void setName(String name) {
+    this.name = name;
+  }
 
-	public Map<String, Child> getChildren() {
-		return children;
-	}
+  public Map<String, Child> getChildren() {
+    return children;
+  }
 
-	public void setChildren(Map<String, Child> children) {
-		this.children = children;
-	}
+  public void setChildren(Map<String, Child> children) {
+    this.children = children;
+  }
 
-	public String getId() {
-		return id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+  public void setId(String id) {
+    this.id = id;
+  }
 
-	public Object getVersion() {
-		return version;
-	}
+  public Object getVersion() {
+    return version;
+  }
 
-	public void setVersion(Object version) {
-		this.version = version;
-	}
+  public void setVersion(Object version) {
+    this.version = version;
+  }
 
-	public Set<Child> getSet() {
-		return set;
-	}
+  public Set<Child> getSet() {
+    return set;
+  }
 
-	public void setSet(Set<Child> enumSet) {
-		this.set = enumSet;
-	}
+  public void setSet(Set<Child> enumSet) {
+    this.set = enumSet;
+  }
 
-	public OBlob getByteArray() {
-		return byteArray;
-	}
+  public OBlob getByteArray() {
+    return byteArray;
+  }
 
-	public void setByteArray(OBlob byteArray) {
-		this.byteArray = byteArray;
-	}
+  public void setByteArray(OBlob byteArray) {
+    this.byteArray = byteArray;
+  }
 
-	public JavaSimpleTestClass getSimpleClass() {
-		return simpleClass;
-	}
+  public JavaSimpleTestClass getSimpleClass() {
+    return simpleClass;
+  }
 
-	public void setSimpleClass(JavaSimpleTestClass simpleClass) {
-		this.simpleClass = simpleClass;
-	}
+  public void setSimpleClass(JavaSimpleTestClass simpleClass) {
+    this.simpleClass = simpleClass;
+  }
 
-	public List<Child> getList() {
-		return list;
-	}
+  public List<Child> getList() {
+    return list;
+  }
 
-	public void setList(List<Child> list) {
-		this.list = list;
-	}
+  public void setList(List<Child> list) {
+    this.list = list;
+  }
 
 }

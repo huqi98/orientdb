@@ -50,7 +50,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * instance starts from record id with position 0 until the end. Base classes are worked at first.
    *
    * @param iClassName Class name to iterate
-   *
    * @return Iterator of ODocument instances
    */
   ORecordIteratorClass<ODocument> browseClass(String iClassName);
@@ -62,7 +61,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param iClassName   Class name to iterate
    * @param iPolymorphic Consider also the instances of the subclasses or not
-   *
    * @return Iterator of ODocument instances
    */
   ORecordIteratorClass<ODocument> browseClass(String iClassName, boolean iPolymorphic);
@@ -78,7 +76,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Create a new instance of a blob containing the given bytes.
    *
    * @param bytes content of the OBlob
-   *
    * @return the OBlob instance.
    */
   OBlob newBlob(byte[] bytes);
@@ -94,7 +91,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Counts the entities contained in the specified class and sub classes (polymorphic).
    *
    * @param iClassName Class name
-   *
    * @return Total entities
    */
   long countClass(String iClassName);
@@ -104,7 +100,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param iClassName   Class name
    * @param iPolymorphic True if consider also the sub classes, otherwise false
-   *
    * @return Total entities
    */
   long countClass(String iClassName, final boolean iPolymorphic);
@@ -146,7 +141,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Browses all the records of the specified cluster.
    *
    * @param iClusterName Cluster name to iterate
-   *
    * @return Iterator of ODocument instances
    */
   <REC extends ORecord> ORecordIteratorCluster<REC> browseCluster(String iClusterName);
@@ -159,7 +153,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param iClusterName Cluster name to iterate
    * @param iRecordClass The record class expected
-   *
    * @return Iterator of ODocument instances
    */
   @Deprecated
@@ -178,7 +171,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * is, otherwise a new ORecord is created with the identity received and returned.
    *
    * @param iIdentifiable
-   *
    * @return A ORecord instance
    */
   <RET extends ORecord> RET getRecord(OIdentifiable iIdentifiable);
@@ -200,7 +192,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * enabled.
    *
    * @param iValue True to enable, false to disable it.
-   *
    * @see #isRetainRecords()
    */
   ODatabaseDocument setRetainRecords(boolean iValue);
@@ -211,7 +202,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param resourceGeneric Generic Resource where to execute the operation
    * @param resourceGeneric Specific resource name where to execute the operation
    * @param iOperation      Operation to execute against the resource
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   <DB extends ODatabaseDocument> DB checkSecurity(ORule.ResourceGeneric resourceGeneric, String resourceSpecific, int iOperation);
@@ -228,7 +218,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param iResourceGeneric  Resource where to execute the operation, i.e.: database.clusters
    * @param iOperation        Operation to execute against the resource
    * @param iResourceSpecific Target resource, i.e.: "employee" to specify the cluster name.
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   <DB extends ODatabaseDocument> DB checkSecurity(ORule.ResourceGeneric iResourceGeneric, int iOperation, Object iResourceSpecific);
@@ -245,7 +234,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param iResourceGeneric   Resource where to execute the operation, i.e.: database.clusters
    * @param iOperation         Operation to execute against the resource
    * @param iResourcesSpecific Target resources as an array of Objects, i.e.: ["employee", 2] to specify cluster name and id.
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   <DB extends ODatabaseDocument> DB checkSecurity(ORule.ResourceGeneric iResourceGeneric, int iOperation,
@@ -264,7 +252,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Since 2.2 this setting is persistent.
    *
    * @param iEnabled True to enable, false to disable
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   <DB extends ODatabaseDocument> DB setValidationEnabled(boolean iEnabled);
@@ -274,7 +261,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param iResource  Resource where to execute the operation
    * @param iOperation Operation to execute against the resource
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   @Deprecated
@@ -292,7 +278,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param iResourceGeneric  Resource where to execute the operation, i.e.: database.clusters
    * @param iOperation        Operation to execute against the resource
    * @param iResourceSpecific Target resource, i.e.: "employee" to specify the cluster name.
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   @Deprecated
@@ -310,7 +295,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param iResourceGeneric   Resource where to execute the operation, i.e.: database.clusters
    * @param iOperation         Operation to execute against the resource
    * @param iResourcesSpecific Target resources as an array of Objects, i.e.: ["employee", 2] to specify cluster name and id.
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
    */
   @Deprecated
@@ -326,7 +310,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param iClusterName Cluster name
    * @param iParameters  Additional parameters to pass to the factories
-   *
    * @return Cluster id
    */
   int addBlobCluster(String iClusterName, Object... iParameters);
@@ -339,13 +322,11 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
 
   OElement newEmbeddedElement(final String className);
 
-
   /**
    * Creates a new Edge of type E
    *
    * @param from the starting point vertex
    * @param to   the endpoint vertex
-   *
    * @return the edge
    */
   default OEdge newEdge(OVertex from, OVertex to) {
@@ -358,7 +339,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param from the starting point vertex
    * @param to   the endpoint vertex
    * @param type the edge type
-   *
    * @return the edge
    */
   OEdge newEdge(OVertex from, OVertex to, OClass type);
@@ -369,7 +349,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * @param from the starting point vertex
    * @param to   the endpoint vertex
    * @param type the edge type
-   *
    * @return the edge
    */
   OEdge newEdge(OVertex from, OVertex to, String type);
@@ -387,7 +366,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Creates a new Vertex
    *
    * @param type the vertex type
-   *
    * @return
    */
   OVertex newVertex(OClass type);
@@ -396,7 +374,6 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * Creates a new Vertex
    *
    * @param type the vertex type (class name)
-   *
    * @return
    */
   OVertex newVertex(String type);
@@ -405,9 +382,7 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * creates a new vertex class (a class that extends V)
    *
    * @param className the class name
-   *
    * @return The object representing the class in the schema
-   *
    * @throws OSchemaException if the class already exists or if V class is not defined (Eg. if it was deleted from the schema)
    */
   default OClass createVertexClass(String className) throws OSchemaException {
@@ -418,9 +393,7 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    * creates a new edge class (a class that extends E)
    *
    * @param className the class name
-   *
    * @return The object representing the class in the schema
-   *
    * @throws OSchemaException if the class already exists or if E class is not defined (Eg. if it was deleted from the schema)
    */
   default OClass createEdgeClass(String className) {
@@ -432,9 +405,7 @@ public interface ODatabaseDocument extends ODatabase<ORecord> {
    *
    * @param className    the class name
    * @param superclasses a list of superclasses for the class (can be empty)
-   *
    * @return the class with the given name
-   *
    * @throws OSchemaException if one of the superclasses does not exist in the schema
    */
   default OClass createClassIfNotExist(String className, String... superclasses) throws OSchemaException {

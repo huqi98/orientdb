@@ -27,9 +27,9 @@ import java.util.stream.Stream;
 
 public class CellBTreeMultiValueV2TestIT {
   private CellBTreeMultiValueV2<String> multiValueTree;
-  private OrientDB orientDB;
-  private OAbstractPaginatedStorage storage;
-  private OAtomicOperationsManager atomicOperationsManager;
+  private OrientDB                      orientDB;
+  private OAbstractPaginatedStorage     storage;
+  private OAtomicOperationsManager      atomicOperationsManager;
 
   private static final String DB_NAME = "localMultiBTreeTest";
 
@@ -1060,7 +1060,7 @@ public class CellBTreeMultiValueV2TestIT {
   }
 
   private void assertIterateMajorEntries(NavigableMap<String, Integer> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     String[] keys = new String[keyValues.size()];
     int index = 0;
 
@@ -1115,7 +1115,7 @@ public class CellBTreeMultiValueV2TestIT {
   }
 
   private void assertIterateMinorEntries(NavigableMap<String, Integer> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     String[] keys = new String[keyValues.size()];
     int index = 0;
 
@@ -1168,7 +1168,7 @@ public class CellBTreeMultiValueV2TestIT {
   }
 
   private void assertIterateBetweenEntries(NavigableMap<String, Integer> keyValues, Random random, boolean fromInclusive,
-                                           boolean toInclusive, boolean ascSortOrder) {
+      boolean toInclusive, boolean ascSortOrder) {
     String[] keys = new String[keyValues.size()];
     int index = 0;
 
@@ -1240,7 +1240,7 @@ public class CellBTreeMultiValueV2TestIT {
   }
 
   private void doInRollbackLoop(final int start, final int end, @SuppressWarnings("SameParameterValue") final int rollbackSlice,
-                                final TxCode code) throws IOException {
+      final TxCode code) throws IOException {
     final OAtomicOperationsManager atomicOperationsManager = storage.getAtomicOperationsManager();
 
     for (int i = start; i < end; i += rollbackSlice) {

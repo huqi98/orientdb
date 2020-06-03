@@ -67,7 +67,7 @@ public class OrientGraphQuery extends DefaultGraphQuery {
   public                 int    skip              = 0;
   public                 String orderBy           = "";
   public                 String orderByDir        = "desc";
-  protected String fetchPlan;
+  protected              String fetchPlan;
 
   public class OrientGraphQueryIterable<T extends Element> extends DefaultGraphQueryIterable<T> {
     public OrientGraphQueryIterable(final boolean forVertex, final String[] labels) {
@@ -93,7 +93,6 @@ public class OrientGraphQuery extends DefaultGraphQuery {
    * (Blueprints Extension) Sets the labels to filter. Labels are bound to Class names by default.
    *
    * @param labels String vararg of labels
-   *
    * @return Current Query Object to allow calls in chain.
    */
   public Query labels(final String... labels) {
@@ -105,7 +104,6 @@ public class OrientGraphQuery extends DefaultGraphQuery {
    * Skips first iSkip items from the result set.
    *
    * @param iSkip Number of items to skip on result set
-   *
    * @return Current Query Object to allow calls in chain.
    */
   public Query skip(final int iSkip) {
@@ -118,7 +116,6 @@ public class OrientGraphQuery extends DefaultGraphQuery {
    * underlying SQL query.
    *
    * @param props Field to order by
-   *
    * @return Current Query Object to allow calls in chain.
    */
   public Query order(final String props) {
@@ -132,7 +129,6 @@ public class OrientGraphQuery extends DefaultGraphQuery {
    *
    * @param props Field to order by
    * @param dir   Direction. Use "asc" for ascending and "desc" for descending
-   *
    * @return Current Query Object to allow calls in chain.
    */
   public Query order(final String props, final String dir) {

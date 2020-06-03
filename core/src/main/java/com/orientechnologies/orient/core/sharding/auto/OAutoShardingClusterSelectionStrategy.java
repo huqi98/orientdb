@@ -36,11 +36,11 @@ import java.util.List;
  * @since 3.0
  */
 public class OAutoShardingClusterSelectionStrategy implements OClusterSelectionStrategy {
-  public static final String NAME = "auto-sharding";
-  private final OIndex       index;
-  private final OIndexEngine indexEngine;
-  private final List<String> indexedFields;
-  private final int[]        clusters;
+  public static final String       NAME = "auto-sharding";
+  private final       OIndex       index;
+  private final       OIndexEngine indexEngine;
+  private final       List<String> indexedFields;
+  private final       int[]        clusters;
 
   public OAutoShardingClusterSelectionStrategy(final OClass clazz, final OIndex autoShardingIndex) {
     index = autoShardingIndex;

@@ -9,7 +9,7 @@ import java.net.Socket;
 /**
  * Created by luigidellaquila on 14/12/16.
  */
-public class  MockChannel extends OChannelBinary {
+public class MockChannel extends OChannelBinary {
 
   private final ByteArrayOutputStream byteOut;
 

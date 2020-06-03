@@ -47,16 +47,16 @@ import java.util.Set;
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OCommandExecutorSQLMoveVertex extends OCommandExecutorSQLSetAware implements OCommandDistributedReplicateRequest {
-  public static final  String NAME          = "MOVE VERTEX";
-  private static final String KEYWORD_MERGE = "MERGE";
-  private static final String KEYWORD_BATCH = "BATCH";
-  private              String source        = null;
-  private String                      clusterName;
-  private String                      className;
-  private OClass                      clazz;
-  private List<OPair<String, Object>> fields;
-  private ODocument                   merge;
-  private int batch = 100;
+  public static final  String                      NAME          = "MOVE VERTEX";
+  private static final String                      KEYWORD_MERGE = "MERGE";
+  private static final String                      KEYWORD_BATCH = "BATCH";
+  private              String                      source        = null;
+  private              String                      clusterName;
+  private              String                      className;
+  private              OClass                      clazz;
+  private              List<OPair<String, Object>> fields;
+  private              ODocument                   merge;
+  private              int                         batch         = 100;
 
   @SuppressWarnings("unchecked")
   public OCommandExecutorSQLMoveVertex parse(final OCommandRequest iRequest) {

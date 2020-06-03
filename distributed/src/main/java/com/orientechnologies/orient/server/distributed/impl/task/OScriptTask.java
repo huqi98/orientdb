@@ -41,13 +41,12 @@ import com.orientechnologies.orient.server.distributed.task.OAbstractCommandTask
 
 /**
  * Executes a script on distributed servers.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OScriptTask extends OAbstractCommandTask {
-  private static final long     serialVersionUID = 1L;
-  public static final int       FACTORYID        = 6;
+  private static final long serialVersionUID = 1L;
+  public static final  int  FACTORYID        = 6;
 
   protected String              text;
   protected Map<Object, Object> params;
@@ -63,8 +62,9 @@ public class OScriptTask extends OAbstractCommandTask {
 
   public Object execute(ODistributedRequestId requestId, final OServer iServer, ODistributedServerManager iManager,
       final ODatabaseDocumentInternal database) throws Exception {
-    ODistributedServerLog.debug(this, iManager.getLocalNodeName(), getNodeSource(), DIRECTION.IN, "execute command=%s db=%s",
-        text.toString(), database.getName());
+    ODistributedServerLog
+        .debug(this, iManager.getLocalNodeName(), getNodeSource(), DIRECTION.IN, "execute command=%s db=%s", text.toString(),
+            database.getName());
 
     final OCommandRequest cmd = database.command(new OCommandScript(text));
 

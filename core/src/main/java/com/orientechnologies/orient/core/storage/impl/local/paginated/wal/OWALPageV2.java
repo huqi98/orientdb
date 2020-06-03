@@ -131,17 +131,17 @@ public class OWALPageV2 implements OWALPage {
   }
 
   /**
-   * Calculates how much space record will consume once it will be stored inside of page.
-   * Sizes are different because once record is stored inside of the page, it is wrapped by additional system information.
+   * Calculates how much space record will consume once it will be stored inside of page. Sizes are different because once record is
+   * stored inside of the page, it is wrapped by additional system information.
    */
   static int calculateSerializedSize(int recordSize) {
     return recordSize + OIntegerSerializer.INT_SIZE + 2;
   }
 
   /**
-   * Calculates how much space record stored inside of page will consume once it will be read from page.
-   * In other words it calculates initial size of the record before it was stored inside of the page.
-   * Sizes are different because once record is stored inside of the page, it is wrapped by additional system information.
+   * Calculates how much space record stored inside of page will consume once it will be read from page. In other words it
+   * calculates initial size of the record before it was stored inside of the page. Sizes are different because once record is
+   * stored inside of the page, it is wrapped by additional system information.
    */
   static int calculateRecordSize(int serializedSize) {
     return serializedSize - OIntegerSerializer.INT_SIZE - 2;

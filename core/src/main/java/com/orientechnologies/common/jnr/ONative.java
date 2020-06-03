@@ -106,7 +106,6 @@ public class ONative {
    *
    * @param recommended recommended value of limit of open files.
    * @param defLimit    default value for limit of open files.
-   *
    * @return limit of open files, available for the system.
    */
   public int getOpenFilesLimit(boolean verbose, int recommended, int defLimit) {
@@ -149,7 +148,6 @@ public class ONative {
 
   /**
    * @param printSteps Print all steps of discovering of memory limit in the log with {@code INFO} level.
-   *
    * @return Amount of memory which are allowed to be consumed by application, and detects whether OrientDB instance is running
    * inside container. If <code>null</code> is returned then it was impossible to detect amount of memory on machine.
    */

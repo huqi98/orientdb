@@ -22,7 +22,7 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 
 /**
  * Returns the value's OrientDB Type.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodType extends OAbstractSQLMethod {

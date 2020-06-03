@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.core.conflict;
@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Manages the MVCC conflicts.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface ORecordConflictStrategy {

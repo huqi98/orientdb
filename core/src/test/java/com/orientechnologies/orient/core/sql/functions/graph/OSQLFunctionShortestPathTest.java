@@ -21,7 +21,7 @@ public class OSQLFunctionShortestPathTest {
   private OrientDB          orientDB;
   private ODatabaseDocument graph;
 
-  private Map<Integer, OVertex> vertices = new HashMap<Integer, OVertex>();
+  private Map<Integer, OVertex>    vertices = new HashMap<Integer, OVertex>();
   private OSQLFunctionShortestPath function;
 
   @Before

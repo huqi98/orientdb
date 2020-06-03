@@ -15,10 +15,10 @@ import java.util.*;
  * @since 20.12.11
  */
 public class OPropertyMapIndexDefinitionTest {
-  private final Map<String, Integer> mapToTest = new HashMap<String, Integer>();
-  private OPropertyMapIndexDefinition propertyIndexByKey;
-  private OPropertyMapIndexDefinition propertyIndexByValue;
-  private OPropertyMapIndexDefinition propertyIndexByIntegerKey;
+  private final Map<String, Integer>        mapToTest = new HashMap<String, Integer>();
+  private       OPropertyMapIndexDefinition propertyIndexByKey;
+  private       OPropertyMapIndexDefinition propertyIndexByValue;
+  private       OPropertyMapIndexDefinition propertyIndexByIntegerKey;
 
   @Before
   public void beforeClass() {

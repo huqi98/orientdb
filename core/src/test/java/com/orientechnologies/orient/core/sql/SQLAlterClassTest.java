@@ -31,8 +31,8 @@ public class SQLAlterClassTest {
   }
 
   @Test
-  public void testQuoted(){
-    ODatabaseDocument db = new ODatabaseDocumentTx("memory:" + SQLAlterClassTest.class.getSimpleName()+"_Quoted");
+  public void testQuoted() {
+    ODatabaseDocument db = new ODatabaseDocumentTx("memory:" + SQLAlterClassTest.class.getSimpleName() + "_Quoted");
     db.create();
     try {
       try {
@@ -48,6 +48,5 @@ public class SQLAlterClassTest {
       db.drop();
     }
   }
-
 
 }

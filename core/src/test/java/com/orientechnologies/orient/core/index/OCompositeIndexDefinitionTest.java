@@ -47,7 +47,8 @@ public class OCompositeIndexDefinitionTest {
     final OCompositeIndexDefinition compositeIndexDefinition = new OCompositeIndexDefinition("testCollectionClass");
 
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fOne", OType.INTEGER));
-    compositeIndexDefinition.addIndex(new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
+    compositeIndexDefinition.addIndex(
+        new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
 
     final Map<String, String> stringMap = new HashMap<String, String>();
     stringMap.put("key1", "val1");
@@ -306,7 +307,8 @@ public class OCompositeIndexDefinitionTest {
     final OCompositeIndexDefinition compositeIndexDefinition = new OCompositeIndexDefinition("testCollectionClass");
 
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fOne", OType.INTEGER));
-    compositeIndexDefinition.addIndex(new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
+    compositeIndexDefinition.addIndex(
+        new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
 
     final Object result = compositeIndexDefinition.getDocumentValueToIndex(document);
     final Collection<OCompositeKey> collectionResult = (Collection<OCompositeKey>) result;
@@ -616,8 +618,9 @@ public class OCompositeIndexDefinitionTest {
     final ODatabaseDocumentTx database = new ODatabaseDocumentTx("memory:compositetesttwo");
     database.create();
 
-    final OCompositeIndexDefinition emptyCompositeIndex = new OCompositeIndexDefinition("testClass",
-        Arrays.asList(new OPropertyIndexDefinition("testClass", "fOne", OType.INTEGER), new OPropertyIndexDefinition("testClass", "fTwo", OType.STRING)), -1);
+    final OCompositeIndexDefinition emptyCompositeIndex = new OCompositeIndexDefinition("testClass", Arrays
+        .asList(new OPropertyIndexDefinition("testClass", "fOne", OType.INTEGER),
+            new OPropertyIndexDefinition("testClass", "fTwo", OType.STRING)), -1);
 
     final OCompositeIndexDefinition emptyCompositeIndexTwo = new OCompositeIndexDefinition("testClass");
 
@@ -849,7 +852,8 @@ public class OCompositeIndexDefinitionTest {
     final OCompositeIndexDefinition compositeIndexDefinition = new OCompositeIndexDefinition();
 
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fOne", OType.INTEGER));
-    compositeIndexDefinition.addIndex(new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
+    compositeIndexDefinition.addIndex(
+        new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fThree", OType.INTEGER));
 
     final ODocument doc = new ODocument();
@@ -882,7 +886,8 @@ public class OCompositeIndexDefinitionTest {
     final OCompositeIndexDefinition compositeIndexDefinition = new OCompositeIndexDefinition();
 
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fOne", OType.INTEGER));
-    compositeIndexDefinition.addIndex(new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
+    compositeIndexDefinition.addIndex(
+        new OPropertyMapIndexDefinition("testCollectionClass", "fTwo", OType.STRING, OPropertyMapIndexDefinition.INDEX_BY.KEY));
     compositeIndexDefinition.addIndex(new OPropertyIndexDefinition("testCollectionClass", "fThree", OType.INTEGER));
 
     final ODocument doc = new ODocument();

@@ -52,7 +52,8 @@ public class OLuceneQueryBuilder {
         Optional.ofNullable(metadata.<Boolean>field("splitOnWhitespace")).orElse(true));
   }
 
-  public OLuceneQueryBuilder(final boolean allowLeadingWildcard, final boolean lowercaseExpandedTerms, final boolean splitOnWhitespace) {
+  public OLuceneQueryBuilder(final boolean allowLeadingWildcard, final boolean lowercaseExpandedTerms,
+      final boolean splitOnWhitespace) {
     this.allowLeadingWildcard = allowLeadingWildcard;
     // this.lowercaseExpandedTerms = lowercaseExpandedTerms;
     this.splitOnWhitespace = splitOnWhitespace;
@@ -77,8 +78,8 @@ public class OLuceneQueryBuilder {
     }
   }
 
-  protected Query buildQuery(final OIndexDefinition index, final String query, final ODocument metadata, final Analyzer queryAnalyzer)
-      throws ParseException {
+  protected Query buildQuery(final OIndexDefinition index, final String query, final ODocument metadata,
+      final Analyzer queryAnalyzer) throws ParseException {
     String[] fields;
     if (index.isAutomatic()) {
       fields = index.getFields().toArray(new String[index.getFields().size()]);

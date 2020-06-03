@@ -22,7 +22,7 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
 /**
  * Returns the string length.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */

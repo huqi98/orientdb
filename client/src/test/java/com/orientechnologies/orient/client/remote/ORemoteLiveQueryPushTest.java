@@ -25,9 +25,9 @@ import static org.junit.Assert.assertFalse;
 public class ORemoteLiveQueryPushTest {
 
   private static class MockLiveListener implements OLiveQueryResultListener {
-    public int countCreate = 0;
-    public int countUpdate = 0;
-    public int countDelete = 0;
+    public int     countCreate = 0;
+    public int     countUpdate = 0;
+    public int     countDelete = 0;
     public boolean end;
 
     @Override

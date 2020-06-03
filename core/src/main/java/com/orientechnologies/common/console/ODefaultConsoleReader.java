@@ -34,7 +34,7 @@ public class ODefaultConsoleReader implements OConsoleReader {
 
   private static class EraserThread extends OSoftThread {
     @Override
-    @SuppressWarnings({"checkstyle:AvoidEscapedUnicodeCharacters", "checkstyle:IllegalTokenText"})
+    @SuppressWarnings({ "checkstyle:AvoidEscapedUnicodeCharacters", "checkstyle:IllegalTokenText" })
     protected void execute() throws Exception {
       System.out.print("\u0008*");
       try {

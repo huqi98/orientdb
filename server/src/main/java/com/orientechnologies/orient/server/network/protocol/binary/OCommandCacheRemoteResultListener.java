@@ -8,8 +8,8 @@ import com.orientechnologies.orient.core.sql.query.OConcurrentLegacyResultSet;
 import com.orientechnologies.orient.core.sql.query.OLegacyResultSet;
 
 public final class OCommandCacheRemoteResultListener extends OAbstractCommandResultListener {
-  private final OCommandCache cmdCache;
-  private OLegacyResultSet collector = new OConcurrentLegacyResultSet<ORecord>();
+  private final OCommandCache    cmdCache;
+  private       OLegacyResultSet collector = new OConcurrentLegacyResultSet<ORecord>();
 
   public OCommandCacheRemoteResultListener(OCommandResultListener wrappedResultListener, OCommandCache cmdCache) {
     super(wrappedResultListener);

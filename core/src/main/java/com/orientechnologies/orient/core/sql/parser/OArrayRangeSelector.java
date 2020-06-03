@@ -68,7 +68,7 @@ public class OArrayRangeSelector extends SimpleNode {
     if (toSelector != null) {
       lTo = toSelector.getValue(iCurrentRecord, result, ctx);
     }
-    if(included){
+    if (included) {
       lTo++;
     }
     if (lFrom > lTo) {
@@ -108,7 +108,7 @@ public class OArrayRangeSelector extends SimpleNode {
     if (toSelector != null) {
       lTo = toSelector.getValue(iCurrentRecord, result, ctx);
     }
-    if(included){
+    if (included) {
       lTo++;
     }
     if (lFrom > lTo) {
@@ -212,7 +212,6 @@ public class OArrayRangeSelector extends SimpleNode {
    * @param target
    * @param value
    * @param ctx
-   *
    * @return
    */
   public void setValue(Object target, Object value, OCommandContext ctx) {

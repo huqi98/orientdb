@@ -24,9 +24,8 @@ import com.orientechnologies.common.exception.OHighLevelException;
 
 /**
  * Exception thrown when a distributed operation doesn't reach the quorum.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class ODistributedOperationException extends ONeedRetryException implements OHighLevelException {
 

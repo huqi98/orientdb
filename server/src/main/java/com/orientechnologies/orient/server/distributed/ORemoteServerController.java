@@ -36,7 +36,7 @@ public class ORemoteServerController {
   private final    ORemoteServerChannel[] responseChannels;
   private volatile int                    responseChannelIndex = 0;
 
-  private             int protocolVersion          = -1;
+  private             int protocolVersion                = -1;
   public static final int CURRENT_PROTOCOL_VERSION       = 2;
   public static final int MIN_SUPPORTED_PROTOCOL_VERSION = 2;
 

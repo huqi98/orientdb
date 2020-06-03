@@ -19,10 +19,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import static org.junit.Assert.assertNotNull;
 
 public class TestConcurrentSequenceGenerationIT {
-  static final         int    THREADS          = 20;
-  static final         int    RECORDS          = 100;
-  private OServer  server;
-  private OrientDB orientDB;
+  static final int      THREADS = 20;
+  static final int      RECORDS = 100;
+  private      OServer  server;
+  private      OrientDB orientDB;
 
   @Before
   public void before() throws Exception {

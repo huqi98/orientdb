@@ -47,9 +47,9 @@ import java.math.BigInteger;
 import java.util.*;
 
 public class ORecordSerializerSchemaAware2CSV extends ORecordSerializerCSVAbstract {
-  public static final String                           NAME             = "ORecordDocument2csv";
-  public static final ORecordSerializerSchemaAware2CSV INSTANCE         = new ORecordSerializerSchemaAware2CSV();
-  private static final long                            serialVersionUID = 1L;
+  public static final  String                           NAME             = "ORecordDocument2csv";
+  public static final  ORecordSerializerSchemaAware2CSV INSTANCE         = new ORecordSerializerSchemaAware2CSV();
+  private static final long                             serialVersionUID = 1L;
 
   @Override
   public String toString() {
@@ -289,7 +289,8 @@ public class ORecordSerializerSchemaAware2CSV extends ORecordSerializerCSVAbstra
   }
 
   @Override
-  protected StringBuilder toString(ORecord iRecord, final StringBuilder iOutput, final String iFormat, final boolean autoDetectCollectionType) {
+  protected StringBuilder toString(ORecord iRecord, final StringBuilder iOutput, final String iFormat,
+      final boolean autoDetectCollectionType) {
     if (iRecord == null)
       throw new OSerializationException("Expected a record but was null");
 
@@ -302,7 +303,6 @@ public class ORecordSerializerSchemaAware2CSV extends ORecordSerializerCSVAbstra
       iOutput.append(ODocumentInternal.getImmutableSchemaClass(record).getStreamableName());
       iOutput.append(OStringSerializerHelper.CLASS_SEPARATOR);
     }
-
 
     OProperty prop;
     OType type;
@@ -465,8 +465,8 @@ public class ORecordSerializerSchemaAware2CSV extends ORecordSerializerCSVAbstra
               final Object firstValue = OMultiValue.getFirstValue(fieldValue);
 
               if (firstValue != null) {
-                if (ODatabaseRecordThreadLocal.instance().isDefined() && (firstValue instanceof ODocument && !((ODocument) firstValue)
-                    .isEmbedded()) && (firstValue instanceof ORecord)) {
+                if (ODatabaseRecordThreadLocal.instance().isDefined() && (firstValue instanceof ODocument
+                    && !((ODocument) firstValue).isEmbedded()) && (firstValue instanceof ORecord)) {
                   linkedClass = getLinkInfo(ODatabaseRecordThreadLocal.instance().get(), getClassName(firstValue));
                   // LINK: GET THE CLASS
                   linkedType = OType.LINK;
@@ -549,7 +549,6 @@ public class ORecordSerializerSchemaAware2CSV extends ORecordSerializerCSVAbstra
 
     return linkedClass;
   }
-
 
   @Override
   public String getName() {

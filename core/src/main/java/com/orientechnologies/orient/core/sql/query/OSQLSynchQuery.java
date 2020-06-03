@@ -33,17 +33,16 @@ import java.util.Map;
 
 /**
  * SQL synchronous query. When executed the caller wait for the result.
- * 
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
+ *
  * @param <T>
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OSQLAsynchQuery
  */
 @SuppressWarnings({ "unchecked", "serial" })
 public class OSQLSynchQuery<T extends Object> extends OSQLAsynchQuery<T> implements OCommandResultListener, Iterable<T> {
-  private final OLegacyResultSet<T> result = new OConcurrentLegacyResultSet<T>();
-  private ORID                nextPageRID;
-  private Map<Object, Object> previousQueryParams = new HashMap<Object, Object>();
+  private final OLegacyResultSet<T> result              = new OConcurrentLegacyResultSet<T>();
+  private       ORID                nextPageRID;
+  private       Map<Object, Object> previousQueryParams = new HashMap<Object, Object>();
 
   public OSQLSynchQuery() {
     resultListener = this;

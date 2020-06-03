@@ -25,10 +25,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class RemoteTransactionHookTest {
 
-  private static final String SERVER_DIRECTORY = "./target/hook-transaction";
-  private OServer           server;
-  private OrientDB          orientDB;
-  private ODatabaseDocument database;
+  private static final String            SERVER_DIRECTORY = "./target/hook-transaction";
+  private              OServer           server;
+  private              OrientDB          orientDB;
+  private              ODatabaseDocument database;
 
   @Before
   public void before() throws Exception {

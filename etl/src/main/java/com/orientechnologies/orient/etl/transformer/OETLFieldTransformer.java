@@ -33,9 +33,9 @@ public class OETLFieldTransformer extends OETLAbstractTransformer {
   private List<String> fieldNames;
   private String       expression;
   private Object       value;
-  private boolean setOperation = true;
-  private OSQLFilter sqlFilter;
-  private boolean save = false;
+  private boolean      setOperation = true;
+  private OSQLFilter   sqlFilter;
+  private boolean      save         = false;
 
   @Override
   public ODocument getConfiguration() {

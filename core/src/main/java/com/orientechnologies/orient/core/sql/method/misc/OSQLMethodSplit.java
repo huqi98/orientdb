@@ -21,7 +21,7 @@ import com.orientechnologies.orient.core.db.record.OIdentifiable;
 
 /**
  * Splits a string using a delimiter.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodSplit extends OAbstractSQLMethod {

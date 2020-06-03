@@ -17,16 +17,19 @@ import java.util.List;
 public class OAlterDatabaseStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OAlterDatabaseStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testSetProperty() {
+  @Test
+  public void testSetProperty() {
     Object previousValue = db.get(ODatabase.ATTRIBUTES.MINIMUMCLUSTERS);
 
     OResultSet result = db.command("alter database MINIMUMCLUSTERS 12");
@@ -43,7 +46,8 @@ public class OAlterDatabaseStatementExecutionTest {
     result.close();
   }
 
-  @Test public void testSetCustom() {
+  @Test
+  public void testSetCustom() {
     List<OStorageEntryConfiguration> previousCustoms = (List<OStorageEntryConfiguration>) db.get(ODatabase.ATTRIBUTES.CUSTOM);
     Object prev = null;
     for (OStorageEntryConfiguration entry : previousCustoms) {
@@ -61,7 +65,6 @@ public class OAlterDatabaseStatementExecutionTest {
       }
     }
 
-
     Assert.assertNotNull(result);
     Assert.assertTrue(result.hasNext());
     OResult next = result.next();
@@ -72,6 +75,5 @@ public class OAlterDatabaseStatementExecutionTest {
     Assert.assertFalse(result.hasNext());
     result.close();
   }
-
 
 }

@@ -40,14 +40,12 @@ public class GraphUnwindOutTest {
       test3.setProperty("ida", "childckt4");
       test3.save();
       graph.commit();
-      graph
-          .command(new OCommandSQL(
-              "create edge edgetestedge from (select from edgetest where ida='parentckt1') to (select from edgetest where ida like 'childckt%')"))
+      graph.command(new OCommandSQL(
+          "create edge edgetestedge from (select from edgetest where ida='parentckt1') to (select from edgetest where ida like 'childckt%')"))
           .execute();
       graph.commit();
-      Iterable<OrientElement> res = graph
-          .command(
-              new OSQLSynchQuery("select out_edgetestedge[0] from v where out_edgetestedge.size() > 0 unwind out_edgetestedge "))
+      Iterable<OrientElement> res = graph.command(
+          new OSQLSynchQuery("select out_edgetestedge[0] from v where out_edgetestedge.size() > 0 unwind out_edgetestedge "))
           .execute();
 
       for (OrientElement oDocument : res) {

@@ -30,7 +30,8 @@ public class MapTransformer implements OResultTransformer<Map<Object, Object>> {
 
         if (val instanceof Iterable) {
           Spliterator spliterator = ((Iterable) val).spliterator();
-          Object collect = StreamSupport.stream(spliterator, false).map((e) -> this.transformer.toResult(e)).collect(Collectors.toList());
+          Object collect = StreamSupport.stream(spliterator, false).map((e) -> this.transformer.toResult(e))
+              .collect(Collectors.toList());
           internal.setProperty(key.toString(), collect);
         } else {
           internal.setProperty(key.toString(), val);

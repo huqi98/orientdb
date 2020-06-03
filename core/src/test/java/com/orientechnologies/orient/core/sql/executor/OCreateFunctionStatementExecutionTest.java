@@ -13,16 +13,19 @@ import org.junit.Test;
 public class OCreateFunctionStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OCreateFunctionStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testPlain() {
+  @Test
+  public void testPlain() {
     String name = "testPlain";
     OResultSet result = db.command("CREATE FUNCTION " + name + " \"return a + b;\" PARAMETERS [a,b] language javascript");
     Assert.assertTrue(result.hasNext());
@@ -41,6 +44,5 @@ public class OCreateFunctionStatementExecutionTest {
     result.close();
 
   }
-
 
 }

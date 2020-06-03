@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OETLProcessorTest extends OETLBaseTest {
 
   private static final String databaseDir = "./target/databases/";
-  
+
   @Before
   public void setUp() throws Exception {
     OFileUtils.deleteRecursively(new File(databaseDir));
@@ -44,9 +44,8 @@ public class OETLProcessorTest extends OETLBaseTest {
   @Test
   public void testMain() throws Exception {
 
-    final OETLProcessor processor = new OETLProcessorConfigurator()
-        .parseConfigAndParameters(new String[] { "-dbURL=plocal:" + databaseDir + "orientDBoetl/testMain",
-            "./src/test/resources/comment.json" });
+    final OETLProcessor processor = new OETLProcessorConfigurator().parseConfigAndParameters(
+        new String[] { "-dbURL=plocal:" + databaseDir + "orientDBoetl/testMain", "./src/test/resources/comment.json" });
 
     assertThat(processor.getContext().getVariable("dbURL")).isEqualTo("plocal:" + databaseDir + "orientDBoetl/testMain");
 
@@ -59,10 +58,9 @@ public class OETLProcessorTest extends OETLBaseTest {
   @Test
   public void shouldParseSplitConfiguration() throws Exception {
 
-    final OETLProcessor processor = new OETLProcessorConfigurator()
-        .parseConfigAndParameters(new String[] { "-dbURL=plocal:" + databaseDir + "orientDBoetl/shouldParseSplitConfiguration",
-            "./src/test/resources/comment_split_1.json",
-            "./src/test/resources/comment_split_2.json" });
+    final OETLProcessor processor = new OETLProcessorConfigurator().parseConfigAndParameters(
+        new String[] { "-dbURL=plocal:" + databaseDir + "orientDBoetl/shouldParseSplitConfiguration",
+            "./src/test/resources/comment_split_1.json", "./src/test/resources/comment_split_2.json" });
 
     assertThat(processor.getContext().getVariable("dbURL"))
         .isEqualTo("plocal:" + databaseDir + "orientDBoetl/shouldParseSplitConfiguration");

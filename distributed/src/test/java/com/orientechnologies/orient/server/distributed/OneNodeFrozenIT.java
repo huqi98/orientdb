@@ -31,11 +31,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * released.
  */
 public class OneNodeFrozenIT extends AbstractServerClusterTxTest {
-  final static int    SERVERS          = 3;
-  volatile boolean    inserting        = true;
-  volatile int        serverStarted    = 0;
-  volatile boolean    freezeInProgress = false;
-  final AtomicInteger nodeLefts        = new AtomicInteger();
+  final static int           SERVERS          = 3;
+  volatile     boolean       inserting        = true;
+  volatile     int           serverStarted    = 0;
+  volatile     boolean       freezeInProgress = false;
+  final        AtomicInteger nodeLefts        = new AtomicInteger();
 
   @Test
   @Ignore
@@ -89,45 +89,45 @@ public class OneNodeFrozenIT extends AbstractServerClusterTxTest {
           try {
             // CRASH LAST SERVER
             executeWhen(new Callable<Boolean>() {
-              // CONDITION
-              @Override
-              public Boolean call() throws Exception {
-                final ODatabaseDocument database = getDatabase(0);
-                try {
-                  return database.countClass("Person") > (count * SERVERS) * 1 / 3;
-                } finally {
-                  database.close();
-                }
-              }
-            }, // ACTION
+                          // CONDITION
+                          @Override
+                          public Boolean call() throws Exception {
+                            final ODatabaseDocument database = getDatabase(0);
+                            try {
+                              return database.countClass("Person") > (count * SERVERS) * 1 / 3;
+                            } finally {
+                              database.close();
+                            }
+                          }
+                        }, // ACTION
                 new Callable() {
-              @Override
-              public Object call() throws Exception {
-                Assert.assertTrue("Insert was too fast", inserting);
+                  @Override
+                  public Object call() throws Exception {
+                    Assert.assertTrue("Insert was too fast", inserting);
 
-                banner("FREEZING SERVER " + (SERVERS - 1));
+                    banner("FREEZING SERVER " + (SERVERS - 1));
 
-                freezeInProgress = true;
-                try {
+                    freezeInProgress = true;
+                    try {
 
-                  final OServerAdmin admin = new OServerAdmin(getDatabaseURL(server)).connect("root", "test");
+                      final OServerAdmin admin = new OServerAdmin(getDatabaseURL(server)).connect("root", "test");
 
-                  admin.freezeDatabase("plocal");
-                  try {
-                    Thread.sleep(10000);
-                  } finally {
-                    admin.releaseDatabase("plocal");
+                      admin.freezeDatabase("plocal");
+                      try {
+                        Thread.sleep(10000);
+                      } finally {
+                        admin.releaseDatabase("plocal");
+                      }
+
+                    } catch (IOException e) {
+                      e.printStackTrace();
+                    } finally {
+                      banner("RELEASING SERVER " + (SERVERS - 1));
+                      freezeInProgress = false;
+                    }
+                    return null;
                   }
-
-                } catch (IOException e) {
-                  e.printStackTrace();
-                } finally {
-                  banner("RELEASING SERVER " + (SERVERS - 1));
-                  freezeInProgress = false;
-                }
-                return null;
-              }
-            });
+                });
 
           } catch (Exception e) {
             e.printStackTrace();

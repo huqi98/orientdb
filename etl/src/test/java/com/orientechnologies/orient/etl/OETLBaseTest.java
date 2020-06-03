@@ -38,9 +38,10 @@ public abstract class OETLBaseTest {
   @Rule
   public TestName name = new TestName();
 
-  protected String[] names    = new String[] { "Jay", "Luca", "Bill", "Steve", "Jill", "Luigi", "Enrico", "Emanuele" };
-  protected String[] surnames = new String[] { "Miner", "Ferguson", "Cancelli", "Lavori", "Raggio", "Eagles", "Smiles",
-      "Ironcutter" };
+  protected String[]                  names    = new String[] { "Jay", "Luca", "Bill", "Steve", "Jill", "Luigi", "Enrico",
+      "Emanuele" };
+  protected String[]                  surnames = new String[] { "Miner", "Ferguson", "Cancelli", "Lavori", "Raggio", "Eagles",
+      "Smiles", "Ironcutter" };
   protected OETLProcessor             proc;
   private   OETLProcessorConfigurator configurator;
 
@@ -48,8 +49,7 @@ public abstract class OETLBaseTest {
   public void configureProcessor() throws Throwable {
 
     OLogManager.instance().installCustomFormatter();
-    OETLComponentFactory factory = new OETLComponentFactory()
-        .registerLoader(OETLStubLoader.class)
+    OETLComponentFactory factory = new OETLComponentFactory().registerLoader(OETLStubLoader.class)
         .registerExtractor(OETLStubRandomExtractor.class);
 
     configurator = new OETLProcessorConfigurator(factory);

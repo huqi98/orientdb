@@ -21,10 +21,10 @@ import static org.junit.Assert.assertNotNull;
  */
 public class MetadataPushTest {
 
-  private static final String SERVER_DIRECTORY = "./target/metadata-push";
-  private OServer           server;
-  private OrientDB          orientDB;
-  private ODatabaseDocument database;
+  private static final String            SERVER_DIRECTORY = "./target/metadata-push";
+  private              OServer           server;
+  private              OrientDB          orientDB;
+  private              ODatabaseDocument database;
 
   private OrientDB                  secondOrientDB;
   private ODatabaseDocumentInternal secondDatabase;

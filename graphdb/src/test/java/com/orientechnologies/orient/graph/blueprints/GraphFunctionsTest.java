@@ -14,11 +14,11 @@ public class GraphFunctionsTest {
   private static String      DB_URL = "memory:" + GraphFunctionsTest.class.getSimpleName();
   private static OrientGraph graph;
 
-  private static Vertex      v1;
-  private static Vertex      v2;
-  private static Vertex      v3;
-  private static Edge        e1;
-  private static Edge        e2;
+  private static Vertex v1;
+  private static Vertex v2;
+  private static Vertex v3;
+  private static Edge   e1;
+  private static Edge   e2;
 
   public GraphFunctionsTest() {
   }

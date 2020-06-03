@@ -23,9 +23,8 @@ import java.util.Set;
 
 /**
  * Contains the index metadata.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OIndexMetadata {
   private final String           name;

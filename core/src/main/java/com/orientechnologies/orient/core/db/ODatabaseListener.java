@@ -72,11 +72,11 @@ public interface ODatabaseListener {
 
   }
 
-  default void onCommandStart(ODatabase database,OResultSet resultSet) {
+  default void onCommandStart(ODatabase database, OResultSet resultSet) {
 
   }
 
-  default void onCommandEnd(ODatabase database,OResultSet resultSet) {
+  default void onCommandEnd(ODatabase database, OResultSet resultSet) {
 
   }
 
@@ -86,7 +86,6 @@ public interface ODatabaseListener {
    * @param iDatabase        Target database
    * @param iReason          Reason of corruption
    * @param iWhatWillbeFixed TODO
-   *
    * @return true if repair must be done, otherwise false
    */
   @Deprecated

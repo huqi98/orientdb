@@ -15,28 +15,20 @@ public class HttpGephiTest extends BaseHttpDatabaseTest {
 
   @Test
   public void commandRootCredentials() throws IOException {
-    HttpResponse response = get("gephi/" + getDatabaseName() + "/sql/select%20from%20V")
-        .setUserName("root")
-        .setUserPassword("root")
+    HttpResponse response = get("gephi/" + getDatabaseName() + "/sql/select%20from%20V").setUserName("root").setUserPassword("root")
         .getResponse();
 
-    Assert.assertEquals(200, response
-        .getStatusLine()
-        .getStatusCode());
+    Assert.assertEquals(200, response.getStatusLine().getStatusCode());
   }
 
   @Test
   public void commandDatabaseCredentials() throws IOException {
-    HttpResponse response = get("gephi/" + getDatabaseName() + "/sql/select%20from%20V")
-        .setUserName("admin")
-        .setUserPassword("admin")
-        .getResponse();
+    HttpResponse response = get("gephi/" + getDatabaseName() + "/sql/select%20from%20V").setUserName("admin")
+        .setUserPassword("admin").getResponse();
 
     response.getEntity().writeTo(System.out);
 
-    Assert.assertEquals(200, response
-        .getStatusLine()
-        .getStatusCode());
+    Assert.assertEquals(200, response.getStatusLine().getStatusCode());
   }
 
   @Override
@@ -53,8 +45,7 @@ public class HttpGephiTest extends BaseHttpDatabaseTest {
 
     Assert.assertEquals(post("command/" + getDatabaseName() + "/sql/")
         .payload("{\"command\":\"create edge from (select from v where name = 'Jay') to (select from v where name = 'Amiga')\"}",
-            CONTENT.TEXT).setUserName("admin")
-        .setUserPassword("admin").getResponse().getStatusLine().getStatusCode(), 200);
+            CONTENT.TEXT).setUserName("admin").setUserPassword("admin").getResponse().getStatusLine().getStatusCode(), 200);
 
   }
 

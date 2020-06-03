@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
  * <li>DEPRECATED: the API has been deprecated. Usually a better alternative is provided in JavaDoc. The Deprecated API could be
  * removed on further releases</li>
  * </ul>
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 @Retention(RetentionPolicy.SOURCE)

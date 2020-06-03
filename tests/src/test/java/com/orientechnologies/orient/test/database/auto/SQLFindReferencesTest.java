@@ -35,18 +35,18 @@ public class SQLFindReferencesTest extends DocumentDBBaseTest {
   private static final String WORKER    = "Worker";
   private static final String CAR       = "Car";
 
-  private ORID                carID;
-  private ORID                johnDoeID;
-  private ORID                janeDoeID;
-  private ORID                chuckNorrisID;
-  private ORID                jackBauerID;
-  private ORID                ctuID;
-  private ORID                fbiID;
+  private ORID carID;
+  private ORID johnDoeID;
+  private ORID janeDoeID;
+  private ORID chuckNorrisID;
+  private ORID jackBauerID;
+  private ORID ctuID;
+  private ORID fbiID;
 
-	@Parameters(value = "url")
-	public SQLFindReferencesTest(@Optional String url) {
-		super(url);
-	}
+  @Parameters(value = "url")
+  public SQLFindReferencesTest(@Optional String url) {
+    super(url);
+  }
 
   @SuppressWarnings("unchecked")
   @Test
@@ -96,8 +96,9 @@ public class SQLFindReferencesTest extends DocumentDBBaseTest {
       Assert.assertTrue(rid.equals(ctuID) || rid.equals(fbiID) || rid.equals(carID));
     }
 
-    result = database.command(
-        new OCommandSQL("find references " + johnDoeID + " [" + WORKPLACE + "," + CAR + ",cluster:" + WORKER + "]")).execute();
+    result = database
+        .command(new OCommandSQL("find references " + johnDoeID + " [" + WORKPLACE + "," + CAR + ",cluster:" + WORKER + "]"))
+        .execute();
 
     Assert.assertEquals(result.size(), 1);
     Assert.assertEquals(((Collection<OIdentifiable>) result.iterator().next().field("referredBy")).size(), 0);
@@ -187,7 +188,7 @@ public class SQLFindReferencesTest extends DocumentDBBaseTest {
 
   @AfterClass
   public void deleteTestEnvironment() {
-		database.open("admin", "admin");
+    database.open("admin", "admin");
 
     carID.reset();
     carID = null;
@@ -205,7 +206,7 @@ public class SQLFindReferencesTest extends DocumentDBBaseTest {
     fbiID = null;
     deleteSchema();
 
-		database.close();
+    database.close();
   }
 
   private void deleteSchema() {

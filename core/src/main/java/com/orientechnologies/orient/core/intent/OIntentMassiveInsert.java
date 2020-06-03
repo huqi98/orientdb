@@ -36,10 +36,10 @@ public class OIntentMassiveInsert implements OIntent {
   private boolean                                     previousValidation;
   private Map<ORecordHook, ORecordHook.HOOK_POSITION> removedHooks;
   private OSecurityUser                               currentUser;
-  private boolean disableValidation = true;
-  private boolean disableSecurity   = true;
-  private boolean disableHooks      = true;
-  private boolean enableCache       = true;
+  private boolean                                     disableValidation = true;
+  private boolean                                     disableSecurity   = true;
+  private boolean                                     disableHooks      = true;
+  private boolean                                     enableCache       = true;
 
   public void begin(final ODatabaseDocumentInternal iDatabase) {
     if (disableSecurity) {

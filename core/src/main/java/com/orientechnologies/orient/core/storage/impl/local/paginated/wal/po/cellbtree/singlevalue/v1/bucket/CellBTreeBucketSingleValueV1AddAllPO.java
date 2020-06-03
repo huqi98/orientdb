@@ -47,8 +47,6 @@ public final class CellBTreeBucketSingleValueV1AddAllPO extends PageOperationRec
     return keySerializer;
   }
 
-
-
   @Override
   public void redo(OCacheEntry cacheEntry) {
     final CellBTreeBucketSingleValueV1 bucket = new CellBTreeBucketSingleValueV1(cacheEntry);

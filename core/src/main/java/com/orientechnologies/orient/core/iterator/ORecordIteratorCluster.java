@@ -260,7 +260,6 @@ public class ORecordIteratorCluster<REC extends ORecord> extends OIdentifiableIt
    * the size of the cluster while you're browsing it. Default is false.
    *
    * @param iLiveUpdated True to activate it, otherwise false (default)
-   *
    * @see #isLiveUpdated()
    */
   @Override

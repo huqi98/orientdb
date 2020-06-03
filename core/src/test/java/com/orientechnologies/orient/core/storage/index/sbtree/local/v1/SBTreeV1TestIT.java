@@ -32,11 +32,11 @@ import java.util.stream.Stream;
 public class SBTreeV1TestIT {
   private int keysCount = 1_000_000;
   OSBTreeV1<Integer, OIdentifiable> sbTree;
-  protected ODatabaseSession databaseDocumentTx;
-  protected String buildDirectory;
-  protected OrientDB orientDB;
+  protected ODatabaseSession          databaseDocumentTx;
+  protected String                    buildDirectory;
+  protected OrientDB                  orientDB;
   protected OAbstractPaginatedStorage storage;
-  protected OAtomicOperationsManager atomicOperationsManager;
+  protected OAtomicOperationsManager  atomicOperationsManager;
 
   String dbName;
 
@@ -859,7 +859,7 @@ public class SBTreeV1TestIT {
   }
 
   private void assertIterateMajorEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     for (int i = 0; i < 100; i++) {
       int upperBorder = keyValues.lastKey() + 5000;
       int fromKey;
@@ -901,7 +901,7 @@ public class SBTreeV1TestIT {
   }
 
   private void assertIterateMinorEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean keyInclusive,
-                                         boolean ascSortOrder) {
+      boolean ascSortOrder) {
     for (int i = 0; i < 100; i++) {
       int upperBorder = keyValues.lastKey() + 5000;
       int toKey;
@@ -942,7 +942,7 @@ public class SBTreeV1TestIT {
   }
 
   private void assertIterateBetweenEntries(NavigableMap<Integer, ORID> keyValues, Random random, boolean fromInclusive,
-                                           boolean toInclusive, boolean ascSortOrder) {
+      boolean toInclusive, boolean ascSortOrder) {
     long totalTime = 0;
     long totalIterations = 0;
 

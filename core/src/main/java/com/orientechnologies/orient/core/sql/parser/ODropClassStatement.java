@@ -15,8 +15,8 @@ import java.util.Map;
 public class ODropClassStatement extends ODDLStatement {
 
   public OIdentifier name;
-  public boolean ifExists = false;
-  public boolean unsafe   = false;
+  public boolean     ifExists = false;
+  public boolean     unsafe   = false;
 
   public ODropClassStatement(int id) {
     super(id);
@@ -26,7 +26,8 @@ public class ODropClassStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
     OSchema schema = ctx.getDatabase().getMetadata().getSchema();
     OClass clazz = schema.getClass(name.getStringValue());
     if (clazz == null) {
@@ -58,7 +59,8 @@ public class ODropClassStatement extends ODDLStatement {
     return rs;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("DROP CLASS ");
     name.toString(params, builder);
     if (ifExists) {
@@ -69,7 +71,8 @@ public class ODropClassStatement extends ODDLStatement {
     }
   }
 
-  @Override public ODropClassStatement copy() {
+  @Override
+  public ODropClassStatement copy() {
     ODropClassStatement result = new ODropClassStatement(-1);
     result.name = name == null ? null : name.copy();
     result.ifExists = ifExists;
@@ -77,7 +80,8 @@ public class ODropClassStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -87,7 +91,7 @@ public class ODropClassStatement extends ODDLStatement {
 
     if (unsafe != that.unsafe)
       return false;
-    if(ifExists != that.ifExists)
+    if (ifExists != that.ifExists)
       return false;
     if (name != null ? !name.equals(that.name) : that.name != null)
       return false;
@@ -95,7 +99,8 @@ public class ODropClassStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = name != null ? name.hashCode() : 0;
     result = 31 * result + (unsafe ? 1 : 0);
     return result;

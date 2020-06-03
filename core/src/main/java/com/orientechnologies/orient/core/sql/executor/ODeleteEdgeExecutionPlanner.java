@@ -16,7 +16,6 @@ public class ODeleteEdgeExecutionPlanner {
 
   private final ODeleteEdgeStatement statement;
 
-
   protected OIdentifier className;
   protected OIdentifier targetClusterName;
 
@@ -43,7 +42,9 @@ public class ODeleteEdgeExecutionPlanner {
       this.rids = new ArrayList<>();
       rids.add(this.statement.getRid().copy());
     } else {
-      this.rids = this.statement.getRids() == null ? null : this.statement.getRids().stream().map(x -> x.copy()).collect(Collectors.toList());
+      this.rids = this.statement.getRids() == null ?
+          null :
+          this.statement.getRids().stream().map(x -> x.copy()).collect(Collectors.toList());
     }
 
     this.leftExpression = this.statement.getLeftExpression() == null ? null : this.statement.getLeftExpression().copy();

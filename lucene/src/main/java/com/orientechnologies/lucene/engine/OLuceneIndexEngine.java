@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.lucene.engine;
@@ -63,7 +63,6 @@ public interface OLuceneIndexEngine extends OIndexEngine, OFreezableStorageCompo
   OLuceneTxChanges buildTxChanges() throws IOException;
 
   Query deleteQuery(Object key, OIdentifiable value);
-
 
   boolean isCollectionIndex();
 

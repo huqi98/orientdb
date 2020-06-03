@@ -45,8 +45,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * thread group which drastically decrease thread contention when we acquire new connection to database.
  * </p>
  * <p>
- * To acquire connection from the pool call {@link #acquire()} method but to release connection you just need to call
- * {@link com.orientechnologies.orient.core.db.document.ODatabaseDocument#close()} method.
+ * To acquire connection from the pool call {@link #acquire()} method but to release connection you just need to call {@link
+ * com.orientechnologies.orient.core.db.document.ODatabaseDocument#close()} method.
  * </p>
  * <p>
  * In case of remote storage database pool will keep connections to the remote storage till you close pool. So in case of remote
@@ -55,17 +55,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  * </p>
  * <p>
  * This pool has one noticeable difference from other pools. If you perform several subsequent acquire calls in the same thread the
- * <b>same</b> instance of database will be returned, but amount of calls to close method should match to amount of acquire calls to
+ * <b>same</b> instance of database will be returned, but amount of calls to close method should match to amount of acquire calls
+ * to
  * release database back in the pool. It will allow you to use such feature as transaction propagation when you perform call of one
  * service from another one.
  * </p>
  * <p>
- * Given pool has two parameters now, amount of maximum connections for single partition and total amount of connections
- * which may be hold by pool. When you start to use pool it will automatically split by several partitions, each partition is
- * independent from other which gives us very good multicore scalability.
- * Amount of partitions will be close to amount of cores but it is not mandatory and depends how much application is
- * loaded. Amount of connections which may be hold by single partition is defined by user but we suggest to use default parameters
- * if your application load is not extremely high.
+ * Given pool has two parameters now, amount of maximum connections for single partition and total amount of connections which may
+ * be hold by pool. When you start to use pool it will automatically split by several partitions, each partition is independent from
+ * other which gives us very good multicore scalability. Amount of partitions will be close to amount of cores but it is not
+ * mandatory and depends how much application is loaded. Amount of connections which may be hold by single partition is defined by
+ * user but we suggest to use default parameters if your application load is not extremely high.
  * <p>
  * If total amount of connections which allowed to be hold by this pool is reached thread will wait till free connection will be
  * available. If total amount of connection is set to value 0 or less it means that there is no connection limit.
@@ -75,21 +75,21 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 06/11/14
  */
 public class OPartitionedDatabasePool extends OOrientListenerAbstract {
-  private static final int                 HASH_INCREMENT = 0x61c88647;
-  private static final int                 MIN_POOL_SIZE  = 2;
-  private static final AtomicInteger       nextHashCode   = new AtomicInteger();
-  protected final      Map<String, Object> properties     = new HashMap<String, Object>();
-  private final String url;
-  private final String userName;
-  private final String password;
-  private final int    maxPartitonSize;
-  private final AtomicBoolean poolBusy      = new AtomicBoolean();
-  private       int           maxPartitions = Runtime.getRuntime().availableProcessors();
-  private final Semaphore connectionsCounter;
-  private volatile ThreadLocal<PoolData> poolData = new ThreadPoolData();
-  private volatile PoolPartition[] partitions;
-  private volatile boolean closed     = false;
-  private          boolean autoCreate = false;
+  private static final int                   HASH_INCREMENT = 0x61c88647;
+  private static final int                   MIN_POOL_SIZE  = 2;
+  private static final AtomicInteger         nextHashCode   = new AtomicInteger();
+  protected final      Map<String, Object>   properties     = new HashMap<String, Object>();
+  private final        String                url;
+  private final        String                userName;
+  private final        String                password;
+  private final        int                   maxPartitonSize;
+  private final        AtomicBoolean         poolBusy       = new AtomicBoolean();
+  private              int                   maxPartitions  = Runtime.getRuntime().availableProcessors();
+  private final        Semaphore             connectionsCounter;
+  private volatile     ThreadLocal<PoolData> poolData       = new ThreadPoolData();
+  private volatile     PoolPartition[]       partitions;
+  private volatile     boolean               closed         = false;
+  private              boolean               autoCreate     = false;
 
   public OPartitionedDatabasePool(String url, String userName, String password) {
     this(url, userName, password, Runtime.getRuntime().availableProcessors(), -1);
@@ -365,7 +365,6 @@ public class OPartitionedDatabasePool extends OOrientListenerAbstract {
    *
    * @param iName  Property name
    * @param iValue new value to set
-   *
    * @return The previous value if any, otherwise null
    */
   public Object setProperty(final String iName, final Object iValue) {
@@ -380,7 +379,6 @@ public class OPartitionedDatabasePool extends OOrientListenerAbstract {
    * Gets the property value.
    *
    * @param iName Property name
-   *
    * @return The previous value if any, otherwise null
    */
   public Object getProperty(final String iName) {

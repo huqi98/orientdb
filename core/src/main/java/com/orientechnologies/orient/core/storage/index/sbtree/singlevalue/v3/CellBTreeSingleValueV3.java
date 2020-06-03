@@ -1468,9 +1468,9 @@ public final class CellBTreeSingleValueV3<K> extends ODurableComponent implement
               @SuppressWarnings("ObjectAllocationInLoop")
               CellBTreeSingleValueBucketV3.CellBTreeEntry<K> entry = bucket.getEntry(itemIndex, keySerializer);
 
-              if (toKey != null && (toKeyInclusive
-                  ? comparator.compare(entry.key, toKey) > 0
-                  : comparator.compare(entry.key, toKey) >= 0)) {
+              if (toKey != null && (toKeyInclusive ?
+                  comparator.compare(entry.key, toKey) > 0 :
+                  comparator.compare(entry.key, toKey) >= 0)) {
                 return true;
               }
 
@@ -1662,9 +1662,9 @@ public final class CellBTreeSingleValueV3<K> extends ODurableComponent implement
               @SuppressWarnings("ObjectAllocationInLoop")
               CellBTreeSingleValueBucketV3.CellBTreeEntry<K> entry = bucket.getEntry(itemIndex, keySerializer);
 
-              if (fromKey != null && (fromKeyInclusive
-                  ? comparator.compare(entry.key, fromKey) < 0
-                  : comparator.compare(entry.key, fromKey) <= 0)) {
+              if (fromKey != null && (fromKeyInclusive ?
+                  comparator.compare(entry.key, fromKey) < 0 :
+                  comparator.compare(entry.key, fromKey) <= 0)) {
                 return true;
               }
 

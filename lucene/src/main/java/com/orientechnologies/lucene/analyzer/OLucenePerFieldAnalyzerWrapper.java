@@ -11,10 +11,9 @@ import static com.orientechnologies.lucene.engine.OLuceneIndexEngineAbstract.RID
 
 /**
  * Created by frank on 10/12/15.
- *
- * Doesn't allow to wrap components or readers. Thread local resources can be delegated to the delegate analyzer,
- * but not allocated on this analyzer (limit memory consumption).
- * Uses a per field reuse strategy.
+ * <p>
+ * Doesn't allow to wrap components or readers. Thread local resources can be delegated to the delegate analyzer, but not allocated
+ * on this analyzer (limit memory consumption). Uses a per field reuse strategy.
  */
 public class OLucenePerFieldAnalyzerWrapper extends DelegatingAnalyzerWrapper {
   private final Analyzer              defaultDelegateAnalyzer;

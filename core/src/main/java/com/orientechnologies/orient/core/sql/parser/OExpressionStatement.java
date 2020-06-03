@@ -10,8 +10,7 @@ import com.orientechnologies.orient.core.sql.executor.OResultSet;
 import java.util.Map;
 import java.util.Objects;
 
-public
-class OExpressionStatement extends OSimpleExecStatement {
+public class OExpressionStatement extends OSimpleExecStatement {
 
   protected OExpression expression;
 
@@ -32,7 +31,6 @@ class OExpressionStatement extends OSimpleExecStatement {
     result.add(item);
     return result;
   }
-
 
   @Override
   public boolean executinPlanCanBeCached() {
@@ -58,8 +56,10 @@ class OExpressionStatement extends OSimpleExecStatement {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OExpressionStatement that = (OExpressionStatement) o;
     return Objects.equals(expression, that.expression);
   }

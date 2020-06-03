@@ -21,7 +21,6 @@ import com.orientechnologies.orient.core.command.OCommandContext;
 import com.orientechnologies.orient.core.db.record.OIdentifiable;
 
 /**
- * 
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodLastIndexOf extends OAbstractSQLMethod {
@@ -35,7 +34,8 @@ public class OSQLMethodLastIndexOf extends OAbstractSQLMethod {
   @Override
   public Object execute(Object iThis, OIdentifiable iCurrentRecord, OCommandContext iContext, Object ioResult, Object[] iParams) {
     final String toFind = OIOUtils.getStringContent(iParams[0].toString());
-    return iParams.length > 1 ? iThis.toString().lastIndexOf(toFind, Integer.parseInt(iParams[1].toString())) : iThis.toString()
-        .lastIndexOf(toFind);
+    return iParams.length > 1 ?
+        iThis.toString().lastIndexOf(toFind, Integer.parseInt(iParams[1].toString())) :
+        iThis.toString().lastIndexOf(toFind);
   }
 }

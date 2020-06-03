@@ -16,7 +16,7 @@ public class ORetryExecutionPlan extends OUpdateExecutionPlan {
   }
 
   public boolean containsReturn() {
-    for (OExecutionStep step:getSteps()) {
+    for (OExecutionStep step : getSteps()) {
       if (step instanceof ForEachStep) {
         return ((ForEachStep) step).containsReturn();
       }

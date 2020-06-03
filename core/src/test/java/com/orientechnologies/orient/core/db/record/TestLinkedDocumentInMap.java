@@ -3,7 +3,10 @@ package com.orientechnologies.orient.core.db.record;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Assert;import org.junit.Before; import org.junit.After;import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.OCommandSQL;
@@ -30,8 +33,9 @@ public class TestLinkedDocumentInMap {
     jaimeDoc.save();
 
     ODocument tyrionDoc = new ODocument("PersonTest");
-    tyrionDoc.fromJSON("{\"@type\":\"d\",\"name\":\"tyrion\",\"emergency_contact\":[{\"relationship\":\"brother\",\"contact\":"
-        + jaimeDoc.toJSON() + "}]}");
+    tyrionDoc.fromJSON(
+        "{\"@type\":\"d\",\"name\":\"tyrion\",\"emergency_contact\":[{\"relationship\":\"brother\",\"contact\":" + jaimeDoc.toJSON()
+            + "}]}");
     tyrionDoc.save();
     List<Map<String, OIdentifiable>> res = tyrionDoc.field("emergency_contact");
     Map<String, OIdentifiable> doc = res.get(0);

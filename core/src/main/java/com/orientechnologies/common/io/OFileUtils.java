@@ -257,7 +257,6 @@ public class OFileUtils {
    * @param source    the source to move the file from.
    * @param target    the target to move the file to.
    * @param requester the requester of the move being performed to produce user-friendly log messages.
-   *
    * @see Files#move(Path, Path, CopyOption...)
    * @see StandardCopyOption#ATOMIC_MOVE
    */

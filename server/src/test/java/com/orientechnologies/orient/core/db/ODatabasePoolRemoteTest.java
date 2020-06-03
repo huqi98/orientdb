@@ -15,8 +15,8 @@ import java.io.File;
 import static org.junit.Assert.assertEquals;
 
 public class ODatabasePoolRemoteTest {
-  private static final String SERVER_DIRECTORY = "./target/poolRemote";
-  private OServer server;
+  private static final String  SERVER_DIRECTORY = "./target/poolRemote";
+  private              OServer server;
 
   @Before
   public void before() throws Exception {

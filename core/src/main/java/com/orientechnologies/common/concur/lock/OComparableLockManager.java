@@ -28,16 +28,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class OComparableLockManager<T extends  Comparable> {
+public class OComparableLockManager<T extends Comparable> {
   public enum LOCK {
     SHARED, EXCLUSIVE
   }
 
-  private static final int DEFAULT_CONCURRENCY_LEVEL = 16;
-  private         long                                    acquireTimeout;
-  protected final ConcurrentSkipListMap<T, CountableLock> map;
-  private final   boolean                                 enabled;
-  private static final Object NULL_KEY = new Object();
+  private static final int                                     DEFAULT_CONCURRENCY_LEVEL = 16;
+  private              long                                    acquireTimeout;
+  protected final      ConcurrentSkipListMap<T, CountableLock> map;
+  private final        boolean                                 enabled;
+  private static final Object                                  NULL_KEY                  = new Object();
 
   @SuppressWarnings("serial")
   private static class CountableLock {
@@ -85,7 +85,6 @@ public class OComparableLockManager<T extends  Comparable> {
       immutableResource = (T) NULL_KEY;
 
     CountableLock lock;
-
 
     while (true) {
       lock = new CountableLock();

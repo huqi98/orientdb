@@ -175,7 +175,9 @@ public class OConsoleDatabaseApp extends OrientConsole implements OCommandOutput
   private void checkDefaultPassword(String database, String user, String password) {
     if ((("admin".equals(user) && "admin".equals(password)) || ("reader".equals(user) && "reader".equals(password)) || (
         "writer".equals(user) && "writer".equals(password))) && WARNING_DEFAULT_USERS.getValueAsBoolean()) {
-      message(String.format("IMPORTANT! Using default password is unsafe, please change password for user '%s' on database '%s'", user, database));
+      message(String
+          .format("IMPORTANT! Using default password is unsafe, please change password for user '%s' on database '%s'", user,
+              database));
     }
   }
 
@@ -199,7 +201,7 @@ public class OConsoleDatabaseApp extends OrientConsole implements OCommandOutput
     currentDatabaseUserPassword = iUserPassword;
     urlConnection = OURLHelper.parseNew(iURL);
     if (urlConnection.getDbName() != null && !"".equals(urlConnection.getDbName())) {
-      checkDefaultPassword(urlConnection.getDbName(),currentDatabaseUserName, currentDatabaseUserPassword);
+      checkDefaultPassword(urlConnection.getDbName(), currentDatabaseUserName, currentDatabaseUserPassword);
     }
     orientDB = new OrientDB(urlConnection.getType() + ":" + urlConnection.getPath(), iUserName, iUserPassword,
         OrientDBConfig.defaultConfig());
@@ -1392,7 +1394,7 @@ public class OConsoleDatabaseApp extends OrientConsole implements OCommandOutput
           resultSet.add(row);
 
           row.field("NAME", p.getName());
-          row.field("TYPE", (Object)p.getType());
+          row.field("TYPE", (Object) p.getType());
           row.field("LINKED-TYPE/CLASS", p.getLinkedClass() != null ? p.getLinkedClass() : p.getLinkedType());
           row.field("MANDATORY", p.isMandatory());
           row.field("READONLY", p.isReadonly());

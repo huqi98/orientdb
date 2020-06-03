@@ -171,9 +171,8 @@ public class OIndexFullText extends OIndexMultiValues {
    * Splits passed in key on several words and remove records with keys equals to any item of split result and values equals to
    * passed in value.
    *
-   * @param key   Key to remove.
+   * @param key Key to remove.
    * @param rid Value to remove.
-   *
    * @return <code>true</code> if at least one record is removed.
    */
   @Override

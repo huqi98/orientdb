@@ -43,19 +43,19 @@ import static org.junit.Assert.assertEquals;
  */
 public class TwoClientsRecordUpdateTxOnTwoServersWithQuorum2ScenarioIT extends AbstractScenarioTest {
 
-  private final String            RECORD_ID   = "R001";
-  private HashMap<String, Object> lukeFields  = new HashMap<String, Object>() {
-                                                {
-                                                  put("firstName", "Luke");
-                                                  put("lastName", "Skywalker");
-                                                }
-                                              };
-  private HashMap<String, Object> darthFields = new HashMap<String, Object>() {
-                                                {
-                                                  put("firstName", "Darth");
-                                                  put("lastName", "Vader");
-                                                }
-                                              };
+  private final String                  RECORD_ID   = "R001";
+  private       HashMap<String, Object> lukeFields  = new HashMap<String, Object>() {
+    {
+      put("firstName", "Luke");
+      put("lastName", "Skywalker");
+    }
+  };
+  private       HashMap<String, Object> darthFields = new HashMap<String, Object>() {
+    {
+      put("firstName", "Darth");
+      put("lastName", "Vader");
+    }
+  };
 
   @Test
   @Ignore
@@ -72,49 +72,49 @@ public class TwoClientsRecordUpdateTxOnTwoServersWithQuorum2ScenarioIT extends A
     setWriteQuorum(2);
 
     ODatabaseDocument dbServer0 = getDatabase(0);
-    
+
     try {
-  
+
       // inserts record
       ODocument recordServer0 = new ODocument("Person").fields("id", RECORD_ID, "firstName", "Han", "lastName", "Solo");
       recordServer0.save();
-  
+
       // waits for propagation of the record on all the servers
       waitForInsertedRecordPropagation(RECORD_ID);
-  
+
       // retrieves record from server1 and checks they're equal
       ODocument recordServer1 = retrieveRecord(serverInstance.get(1), RECORD_ID);
       assertEquals(recordServer1.getVersion(), recordServer0.getVersion());
       assertEquals(recordServer1.field("id"), recordServer0.field("id"));
       assertEquals(recordServer1.field("firstName"), recordServer0.field("firstName"));
       assertEquals(recordServer1.field("lastName"), recordServer0.field("lastName"));
-  
+
       // gets the actual version of record from server0
       int actualVersion = recordServer0.getVersion();
-  
+
       // sets a delay for operations on distributed storage of server0
-      ((ODistributedStorage) ((ODatabaseDocumentInternal)dbServer0).getStorage())
+      ((ODistributedStorage) ((ODatabaseDocumentInternal) dbServer0).getStorage())
           .setEventListener(new AfterRecordLockDelayer("server0", DOCUMENT_WRITE_TIMEOUT / 4));
-  
+
       // updates the same record from two different clients, each calling a different node
       List<Callable<Void>> clients = new LinkedList<Callable<Void>>();
       clients.add(new RecordUpdater(serverInstance.get(0), recordServer0, lukeFields, true));
       clients.add(new RecordUpdater(serverInstance.get(1), recordServer1, darthFields, true));
       List<Future<Void>> futures = Executors.newCachedThreadPool().invokeAll(clients);
       executeFutures(futures);
-  
+
       // checks that record on server1 is discarded in favour of record present on server0
       waitForUpdatedRecordPropagation(RECORD_ID, "firstName", lukeFields.get("firstName").toString());
-  
+
       recordServer0 = retrieveRecord(serverInstance.get(0), RECORD_ID);
       recordServer1 = retrieveRecord(serverInstance.get(1), RECORD_ID);
-  
+
       int finalVersionServer0 = recordServer0.getVersion();
       int finalVersionServer1 = recordServer1.getVersion();
       assertEquals(finalVersionServer0, actualVersion + 1);
       assertEquals(finalVersionServer1, actualVersion + 1);
     } finally {
-     	dbServer0.close();
+      dbServer0.close();
     }
   }
 

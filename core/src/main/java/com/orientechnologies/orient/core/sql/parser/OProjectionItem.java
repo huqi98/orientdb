@@ -133,8 +133,8 @@ public class OProjectionItem extends SimpleNode {
     if (value instanceof Iterator && !(value instanceof OIdentifiable)) {
       Iterator iter = (Iterator) value;
       value = new ArrayList<>();
-      while(iter.hasNext()){
-        ((List)value).add(iter.next());
+      while (iter.hasNext()) {
+        ((List) value).add(iter.next());
       }
     }
 

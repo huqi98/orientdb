@@ -27,7 +27,6 @@ import java.io.IOException;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface OMetadata {
 

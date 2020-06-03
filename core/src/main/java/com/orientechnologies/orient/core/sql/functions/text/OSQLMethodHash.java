@@ -27,7 +27,7 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
 /**
  * Hash a string supporting multiple algorithm, all those supported by JVM
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodHash extends OAbstractSQLMethod {

@@ -399,15 +399,16 @@ public final class CellBTreeMultiValueV2<K> extends ODurableComponent implements
             final CellBTreeMultiValueV2NullBucket nullBucket = new CellBTreeMultiValueV2NullBucket(nullCacheEntry);
             final long result = nullBucket.addValue(value);
             if (result >= 0) {
-              multiContainer.validatedPut(atomicOperation, new MultiValueEntry(result, value.getClusterId(), value.getClusterPosition()), (byte) 1,
-                  (k, ov, v) -> {
-                    if (ov != null) {
-                      return OBaseIndexEngine.Validator.IGNORE;
-                    }
+              multiContainer
+                  .validatedPut(atomicOperation, new MultiValueEntry(result, value.getClusterId(), value.getClusterPosition()),
+                      (byte) 1, (k, ov, v) -> {
+                        if (ov != null) {
+                          return OBaseIndexEngine.Validator.IGNORE;
+                        }
 
-                    nullBucket.incrementSize();
-                    return v;
-                  });
+                        nullBucket.incrementSize();
+                        return v;
+                      });
             }
           } finally {
             releasePageFromWrite(atomicOperation, nullCacheEntry);
@@ -432,14 +433,15 @@ public final class CellBTreeMultiValueV2<K> extends ODurableComponent implements
     final long result = bucketMultiValue.appendNewLeafEntry(index, value);
     if (result >= 0) {
       multiContainer
-          .validatedPut(atomicOperation, new MultiValueEntry(result, value.getClusterId(), value.getClusterPosition()), (byte) 1, (k, ov, v) -> {
-            if (ov != null) {
-              return OBaseIndexEngine.Validator.IGNORE;
-            }
+          .validatedPut(atomicOperation, new MultiValueEntry(result, value.getClusterId(), value.getClusterPosition()), (byte) 1,
+              (k, ov, v) -> {
+                if (ov != null) {
+                  return OBaseIndexEngine.Validator.IGNORE;
+                }
 
-            bucketMultiValue.incrementEntriesCount(index);
-            return v;
-          });
+                bucketMultiValue.incrementEntriesCount(index);
+                return v;
+              });
       return true;
     }
 
@@ -649,9 +651,8 @@ public final class CellBTreeMultiValueV2<K> extends ODurableComponent implements
             final CellBTreeMultiValueV2NullBucket nullBucket = new CellBTreeMultiValueV2NullBucket(nullBucketCacheEntry);
             final int result = nullBucket.removeValue(value);
             if (result == 0) {
-              removed =
-                  multiContainer.remove(atomicOperation, new MultiValueEntry(nullBucket.getMid(), value.getClusterId(), value.getClusterPosition()))
-                      != null;
+              removed = multiContainer.remove(atomicOperation,
+                  new MultiValueEntry(nullBucket.getMid(), value.getClusterId(), value.getClusterPosition())) != null;
               if (removed) {
                 nullBucket.decrementSize();
               }
@@ -674,7 +675,8 @@ public final class CellBTreeMultiValueV2<K> extends ODurableComponent implements
     });
   }
 
-  private boolean removeEntry(final OAtomicOperation atomicOperation, final int itemIndex, final int keySize, final ORID value, final CellBTreeMultiValueV2Bucket<K> bucket) {
+  private boolean removeEntry(final OAtomicOperation atomicOperation, final int itemIndex, final int keySize, final ORID value,
+      final CellBTreeMultiValueV2Bucket<K> bucket) {
     final int entriesCount = bucket.removeLeafEntry(itemIndex, value);
     if (entriesCount == 0) {
       bucket.removeMainLeafEntry(itemIndex, keySize);
@@ -683,7 +685,8 @@ public final class CellBTreeMultiValueV2<K> extends ODurableComponent implements
     boolean removed = entriesCount >= 0;
     if (!removed && bucket.hasExternalEntries(itemIndex)) {
       final long mId = bucket.getMid(itemIndex);
-      removed = multiContainer.remove(atomicOperation, new MultiValueEntry(mId, value.getClusterId(), value.getClusterPosition())) != null;
+      removed = multiContainer.remove(atomicOperation, new MultiValueEntry(mId, value.getClusterId(), value.getClusterPosition()))
+          != null;
       if (removed) {
         if (bucket.decrementEntriesCount(itemIndex)) {
           bucket.removeMainLeafEntry(itemIndex, keySize);

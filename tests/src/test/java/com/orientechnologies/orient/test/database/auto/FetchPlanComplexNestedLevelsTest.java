@@ -56,20 +56,18 @@ public class FetchPlanComplexNestedLevelsTest extends DocumentDBBaseTest {
     database.command(new OCommandSQL("create vertex PersonTest set name = 'B'")).execute();
     database.command(new OCommandSQL("create vertex PersonTest set name = 'C'")).execute();
 
-    database.command(
-        new OCommandSQL(
-            "create edge FollowTest from (select from PersonTest where name = 'A') to (select from PersonTest where name = 'B')"))
+    database.command(new OCommandSQL(
+        "create edge FollowTest from (select from PersonTest where name = 'A') to (select from PersonTest where name = 'B')"))
         .execute();
-    database.command(
-        new OCommandSQL(
-            "create edge FollowTest from (select from PersonTest where name = 'B') to (select from PersonTest where name = 'C')"))
+    database.command(new OCommandSQL(
+        "create edge FollowTest from (select from PersonTest where name = 'B') to (select from PersonTest where name = 'C')"))
         .execute();
   }
 
   @Test
   public void queryAll2() {
-    final List<ODocument> result = database.query(new OSQLSynchQuery<ODocument>(
-        "select @this.toJSON('fetchPlan:*:2') as json from (select from PersonTest where name='A')"));
+    final List<ODocument> result = database.query(
+        new OSQLSynchQuery<ODocument>("select @this.toJSON('fetchPlan:*:2') as json from (select from PersonTest where name='A')"));
 
     Assert.assertEquals(result.size(), 1);
     String json = result.get(0).rawField("json");

@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class OSecurityResourceCluster extends OSecurityResource {
 
-  public static final OSecurityResourceCluster ALL_CLUSTERS = new OSecurityResourceCluster("database.cluster.*", "*");
+  public static final OSecurityResourceCluster ALL_CLUSTERS    = new OSecurityResourceCluster("database.cluster.*", "*");
   public static final OSecurityResourceCluster SYSTEM_CLUSTERS = new OSecurityResourceCluster("database.systemclusters", "");
 
   private final String clusterName;
@@ -20,8 +20,10 @@ public class OSecurityResourceCluster extends OSecurityResource {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OSecurityResourceCluster that = (OSecurityResourceCluster) o;
     return Objects.equals(clusterName, that.clusterName);
   }

@@ -50,7 +50,8 @@ public class ORecordIteratorClusters<REC extends ORecord> extends OIdentifiableI
   }
 
   @Deprecated
-  public ORecordIteratorClusters(final ODatabaseDocumentInternal iDatabase, final int[] iClusterIds, final OStorage.LOCKING_STRATEGY iLockingStrategy) {
+  public ORecordIteratorClusters(final ODatabaseDocumentInternal iDatabase, final int[] iClusterIds,
+      final OStorage.LOCKING_STRATEGY iLockingStrategy) {
     super(iDatabase, iLockingStrategy);
 
     checkForSystemClusters(iDatabase, iClusterIds);

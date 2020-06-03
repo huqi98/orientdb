@@ -23,13 +23,12 @@ import javax.persistence.Version;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaSimpleTestClass {
   @Id
-  private Object            id;
+  private Object id;
   @Version
-  private Object            version;
+  private Object version;
 
   private String            text          = "initTest";
   private EnumTest          enumeration;
@@ -42,11 +41,11 @@ public class JavaSimpleTestClass {
   private Date              dateField;
   private JavaTestInterface testAnonymous = new JavaTestInterface() {
 
-                                            public int getNumber() {
-                                              // TODO Auto-generated method stub
-                                              return -1;
-                                            }
-                                          };
+    public int getNumber() {
+      // TODO Auto-generated method stub
+      return -1;
+    }
+  };
 
   public Object getId() {
     return id;

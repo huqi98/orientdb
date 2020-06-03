@@ -18,8 +18,7 @@ package com.orientechnologies.orient.test.domain.inheritance;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class InheritanceTestClass extends InheritanceTestBaseClass {
-	public String	bField;
+  public String bField;
 }

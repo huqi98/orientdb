@@ -1,6 +1,7 @@
 package com.orientechnologies.orient.core.sql.parser;
 
 import org.junit.Test;
+
 public class OAlterClusterStatementTest extends OParserTestAbstract {
 
   @Test

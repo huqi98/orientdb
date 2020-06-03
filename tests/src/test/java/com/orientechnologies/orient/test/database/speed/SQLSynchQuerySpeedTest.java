@@ -29,8 +29,8 @@ import com.orientechnologies.orient.test.database.base.OrientTest;
 
 @Test(enabled = false)
 public class SQLSynchQuerySpeedTest extends SpeedTestMonoThread implements OCommandResultListener {
-  protected int               resultCount = 0;
-  private ODatabaseDocumentTx database;
+  protected int                 resultCount = 0;
+  private   ODatabaseDocumentTx database;
 
   public static void main(String[] iArgs) throws InstantiationException, IllegalAccessException {
     SQLSynchQuerySpeedTest test = new SQLSynchQuerySpeedTest();

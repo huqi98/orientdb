@@ -15,11 +15,11 @@ public class DatabaseConflictStrategyAutoMergeTest {
 
   private static final String CLIENT_ORIENT_URL_MAIN = "memory:testAutoMerge";
 
-  private static final int    NUM_OF_LOOP_ITERATIONS = 50;
-  private static Object       LOCK                   = new Object();
-  private volatile Throwable  exceptionInThread;
-  private Object              parentV1Id;
-  private Object              parentV2Id;
+  private static final int       NUM_OF_LOOP_ITERATIONS = 50;
+  private static       Object    LOCK                   = new Object();
+  private volatile     Throwable exceptionInThread;
+  private              Object    parentV1Id;
+  private              Object    parentV2Id;
 
   @Test
   public void testAutoMerge() throws Throwable {

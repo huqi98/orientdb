@@ -59,23 +59,24 @@ public class SQLLiveSelectTest extends AbstractSelectTest {
     int TOTAL_OPS = 6;
     final CountDownLatch latch = new CountDownLatch(TOTAL_OPS);
     final List<ORecordOperation> ops = Collections.synchronizedList(new ArrayList());
-    OLegacyResultSet<ODocument> tokens = database.query(new OLiveQuery<Object>("live select from LiveClassTx", new OLiveResultListener() {
-      @Override
-      public void onLiveResult(int iLiveToken, ORecordOperation iOp) throws OException {
-        ops.add(iOp);
-        latch.countDown();
-      }
+    OLegacyResultSet<ODocument> tokens = database
+        .query(new OLiveQuery<Object>("live select from LiveClassTx", new OLiveResultListener() {
+          @Override
+          public void onLiveResult(int iLiveToken, ORecordOperation iOp) throws OException {
+            ops.add(iOp);
+            latch.countDown();
+          }
 
-      @Override
-      public void onError(int iLiveToken) {
+          @Override
+          public void onError(int iLiveToken) {
 
-      }
+          }
 
-      @Override
-      public void onUnsubscribe(int iLiveToken) {
+          @Override
+          public void onUnsubscribe(int iLiveToken) {
 
-      }
-    }));
+          }
+        }));
     Assert.assertEquals(tokens.size(), 1);
 
     ODocument tokenDoc = tokens.get(0);
@@ -111,23 +112,24 @@ public class SQLLiveSelectTest extends AbstractSelectTest {
 
     final CountDownLatch latch = new CountDownLatch(6);
     final List<ORecordOperation> ops = Collections.synchronizedList(new ArrayList());
-    OLegacyResultSet<ODocument> tokens = database.query(new OLiveQuery<Object>("live select from LiveClass", new OLiveResultListener() {
-      @Override
-      public void onLiveResult(int iLiveToken, ORecordOperation iOp) throws OException {
-        ops.add(iOp);
-        latch.countDown();
-      }
+    OLegacyResultSet<ODocument> tokens = database
+        .query(new OLiveQuery<Object>("live select from LiveClass", new OLiveResultListener() {
+          @Override
+          public void onLiveResult(int iLiveToken, ORecordOperation iOp) throws OException {
+            ops.add(iOp);
+            latch.countDown();
+          }
 
-      @Override
-      public void onError(int iLiveToken) {
+          @Override
+          public void onError(int iLiveToken) {
 
-      }
+          }
 
-      @Override
-      public void onUnsubscribe(int iLiveToken) {
+          @Override
+          public void onUnsubscribe(int iLiveToken) {
 
-      }
-    }));
+          }
+        }));
     Assert.assertEquals(tokens.size(), 1);
 
     ODocument tokenDoc = tokens.get(0);

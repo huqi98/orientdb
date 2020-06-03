@@ -12,16 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 public class OProxyServer extends OServerPluginAbstract {
-  protected boolean                    enabled                     = true;
-  protected String                     remoteHost                  = "localhost";
-  protected Map<Integer, Integer>      ports                       = new HashMap<Integer, Integer>();
-  protected int                        bufferSize                  = 16384;
+  protected boolean               enabled    = true;
+  protected String                remoteHost = "localhost";
+  protected Map<Integer, Integer> ports      = new HashMap<Integer, Integer>();
+  protected int                   bufferSize = 16384;
 
-  protected List<OProxyServerListener> serverThreads               = new ArrayList<OProxyServerListener>();
-  protected volatile boolean           running                     = false;
-  protected String                     tracing                     = "byte";
-  protected int                        readTimeout                 = 300;
-  protected boolean                    waitUntilRemotePortsAreOpen = false;
+  protected          List<OProxyServerListener> serverThreads               = new ArrayList<OProxyServerListener>();
+  protected volatile boolean                    running                     = false;
+  protected          String                     tracing                     = "byte";
+  protected          int                        readTimeout                 = 300;
+  protected          boolean                    waitUntilRemotePortsAreOpen = false;
 
   public OProxyServer() {
   }
@@ -42,8 +42,9 @@ public class OProxyServer extends OServerPluginAbstract {
       final int localPort = ports.getKey();
       final int remotePort = ports.getValue();
 
-      OLogManager.instance().info(this, "Proxy server: configuring proxy connection from localhost:%d -> %s:%d...", localPort,
-          remoteHost, remotePort);
+      OLogManager.instance()
+          .info(this, "Proxy server: configuring proxy connection from localhost:%d -> %s:%d...", localPort, remoteHost,
+              remotePort);
 
       try {
         final OProxyServerListener serverThread = new OProxyServerListener(this, localPort, remotePort);

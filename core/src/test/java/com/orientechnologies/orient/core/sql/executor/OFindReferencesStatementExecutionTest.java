@@ -20,16 +20,19 @@ import static com.orientechnologies.orient.core.sql.executor.ExecutionPlanPrintU
 public class OFindReferencesStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OFindReferencesStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testLink() {
+  @Test
+  public void testLink() {
     String name = "testLink1";
     String name2 = "testLink2";
     db.getMetadata().getSchema().createClass(name);
@@ -66,7 +69,5 @@ public class OFindReferencesStatementExecutionTest {
     Assert.assertTrue(ridsToMatch.isEmpty());
     result.close();
   }
-
-
 
 }

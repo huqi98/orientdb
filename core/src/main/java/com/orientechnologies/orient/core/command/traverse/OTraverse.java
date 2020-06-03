@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * Base class for traversing.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OTraverse implements OCommand, Iterable<OIdentifiable>, Iterator<OIdentifiable> {
@@ -54,7 +54,7 @@ public class OTraverse implements OCommand, Iterable<OIdentifiable>, Iterator<OI
   /*
    * Executes a traverse collecting all the result in the returning List<OIdentifiable>. This could be memory expensive because for
    * large results the list could be huge. it's always better to use it as an Iterable and lazy fetch each result on next() call.
-   * 
+   *
    * @see com.orientechnologies.orient.core.command.OCommand#execute()
    */
   public List<OIdentifiable> execute() {

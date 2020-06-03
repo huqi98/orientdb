@@ -38,8 +38,8 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * JMX bean which allows to start/stop monitoring of OrientDB performance
- * characteristics and exposes all system and component wide performance attributes of {@link OPerformanceStatisticManager}.
+ * JMX bean which allows to start/stop monitoring of OrientDB performance characteristics and exposes all system and component wide
+ * performance attributes of {@link OPerformanceStatisticManager}.
  * <p>
  * System wide attributes has the same MBean attribute names, but for each component wide attribute MBean attribute name consist of
  * "attribute name" {@link #COMPONENT_SEPARATOR} "component name".

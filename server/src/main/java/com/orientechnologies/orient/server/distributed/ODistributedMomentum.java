@@ -35,9 +35,9 @@ import java.util.List;
  * @author Luca Garulli (l.garulli--at--orientdb.com)
  */
 public class ODistributedMomentum implements OStreamable {
-  private static final String LAST_OPERATION_TIME_STAMP = "lastOperationTimeStamp";
-  private static final String VERSION                   = "version";
-  private final ODocument configuration;
+  private static final String    LAST_OPERATION_TIME_STAMP = "lastOperationTimeStamp";
+  private static final String    VERSION                   = "version";
+  private final        ODocument configuration;
 
   public ODistributedMomentum() {
     configuration = new ODocument();

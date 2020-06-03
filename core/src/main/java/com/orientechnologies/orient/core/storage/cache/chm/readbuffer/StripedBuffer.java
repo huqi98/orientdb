@@ -26,10 +26,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 
 /**
- * A base class providing the mechanics for supporting dynamic striping of bounded buffers. This
- * implementation is an adaption of the numeric 64-bit <code>java.util.concurrent.atomic.Striped64</code>
- * class, which is used by atomic counters. The approach was modified to lazily grow an array of
- * buffers in order to minimize memory usage for caches that are not heavily contended on.
+ * A base class providing the mechanics for supporting dynamic striping of bounded buffers. This implementation is an adaption of
+ * the numeric 64-bit <code>java.util.concurrent.atomic.Striped64</code> class, which is used by atomic counters. The approach was
+ * modified to lazily grow an array of buffers in order to minimize memory usage for caches that are not heavily contended on.
  *
  * @author dl@cs.oswego.edu (Doug Lea)
  * @author ben.manes@gmail.com (Ben Manes)
@@ -119,8 +118,7 @@ abstract class StripedBuffer<E> implements Buffer<E> {
   /**
    * Table of buffers. When non-null, size is a power of 2.
    */
-  private transient volatile
-  Buffer<E>[] table;
+  private transient volatile Buffer<E>[] table;
 
   /**
    * Returns the probe value for the current thread.
@@ -153,7 +151,6 @@ abstract class StripedBuffer<E> implements Buffer<E> {
    * Creates a new buffer instance after resizing to accommodate a producer.
    *
    * @param e the producer's element
-   *
    * @return a newly created buffer populated with a single element
    */
   protected abstract Buffer<E> create(E e);
@@ -217,9 +214,9 @@ abstract class StripedBuffer<E> implements Buffer<E> {
   }
 
   /**
-   * Handles cases of updates involving initialization, resizing, creating new Buffers, and/or
-   * contention. See above for explanation. This method suffers the usual non-modularity problems of
-   * optimistic retry code, relying on rechecked sets of reads.
+   * Handles cases of updates involving initialization, resizing, creating new Buffers, and/or contention. See above for
+   * explanation. This method suffers the usual non-modularity problems of optimistic retry code, relying on rechecked sets of
+   * reads.
    *
    * @param e              the element to add
    * @param wasUncontended false if CAS failed before call

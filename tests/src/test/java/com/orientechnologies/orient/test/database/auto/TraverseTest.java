@@ -39,7 +39,7 @@ import java.util.Map;
 @Test
 @SuppressWarnings("unused")
 public class TraverseTest extends DocumentDBBaseTest {
-  private int totalElements = 0;
+  private int       totalElements = 0;
   private ODocument tomCruise;
   private ODocument megRyan;
   private ODocument nicoleKidman;

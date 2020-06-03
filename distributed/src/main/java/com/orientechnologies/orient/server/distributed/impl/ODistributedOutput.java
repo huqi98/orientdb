@@ -429,7 +429,6 @@ public class ODistributedOutput {
    *
    * @param manager
    * @param distribCfg
-   *
    * @return
    */
   public static String getCompactServerStatus(final ODistributedServerManager manager, final ODocument distribCfg) {
@@ -608,7 +607,6 @@ public class ODistributedOutput {
 
     return buffer.toString();
   }
-
 
   protected static String formatServerName(final ODistributedAbstractPlugin manager, final String fromServer) {
     return fromServer + (manager.getLocalNodeName().equals(fromServer) ? "*" : "");

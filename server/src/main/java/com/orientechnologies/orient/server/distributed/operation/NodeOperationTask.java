@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 public class NodeOperationTask implements ORemoteTask {
-  public static final int FACTORYID = 55;
-  private NodeOperation task;
-  private String        nodeSource;
+  public static final int           FACTORYID = 55;
+  private             NodeOperation task;
+  private             String        nodeSource;
 
   private Integer messageId;
 

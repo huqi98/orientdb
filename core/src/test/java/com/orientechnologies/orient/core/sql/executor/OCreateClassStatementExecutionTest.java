@@ -15,16 +15,19 @@ import org.junit.Test;
 public class OCreateClassStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OCreateClassStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testPlain() {
+  @Test
+  public void testPlain() {
     String className = "testPlain";
     OResultSet result = db.command("create class " + className);
     OSchema schema = db.getMetadata().getSchema();
@@ -34,7 +37,8 @@ public class OCreateClassStatementExecutionTest {
     result.close();
   }
 
-  @Test public void testAbstract() {
+  @Test
+  public void testAbstract() {
     String className = "testAbstract";
     OResultSet result = db.command("create class " + className + " abstract ");
     OSchema schema = db.getMetadata().getSchema();
@@ -44,7 +48,8 @@ public class OCreateClassStatementExecutionTest {
     result.close();
   }
 
-  @Test public void testCluster() {
+  @Test
+  public void testCluster() {
     String className = "testCluster";
     OResultSet result = db.command("create class " + className + " cluster 1235, 1236, 1255");
     OSchema schema = db.getMetadata().getSchema();
@@ -55,7 +60,8 @@ public class OCreateClassStatementExecutionTest {
     result.close();
   }
 
-  @Test public void testClusters() {
+  @Test
+  public void testClusters() {
     String className = "testClusters";
     OResultSet result = db.command("create class " + className + " clusters 32");
     OSchema schema = db.getMetadata().getSchema();
@@ -66,8 +72,8 @@ public class OCreateClassStatementExecutionTest {
     result.close();
   }
 
-
-  @Test public void testIfNotExists() {
+  @Test
+  public void testIfNotExists() {
     String className = "testIfNotExists";
     OResultSet result = db.command("create class " + className + " if not exists");
     OSchema schema = db.getMetadata().getSchema();
@@ -80,6 +86,5 @@ public class OCreateClassStatementExecutionTest {
     Assert.assertNotNull(clazz);
     result.close();
   }
-
 
 }

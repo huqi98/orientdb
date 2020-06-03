@@ -19,7 +19,7 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
  * {@link ODocumentFieldHandlingStrategy} that delegates to the default {@link ODocument#field(String)} implementation.
- * 
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class ODocumentSimpleFieldHandlingStrategy implements ODocumentFieldHandlingStrategy {
@@ -49,7 +49,7 @@ public class ODocumentSimpleFieldHandlingStrategy implements ODocumentFieldHandl
 
   /**
    * Derives the type of a field in a document.
-   * 
+   *
    * @param iRecord
    * @param fieldName
    * @param requestedFieldType

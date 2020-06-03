@@ -44,7 +44,6 @@ public class OProfilerStub extends OAbstractProfiler {
     super(registerListener);
   }
 
-
   public OProfilerStub(final OAbstractProfiler profiler) {
     super(profiler);
   }

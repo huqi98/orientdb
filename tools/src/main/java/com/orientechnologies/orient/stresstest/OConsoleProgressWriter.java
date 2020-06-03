@@ -31,7 +31,7 @@ import com.orientechnologies.orient.stresstest.workload.OWorkload;
 public class OConsoleProgressWriter extends OSoftThread {
 
   private final OWorkload workload;
-  private String          lastResult = null;
+  private       String    lastResult = null;
 
   public OConsoleProgressWriter(final OWorkload workload) {
     this.workload = workload;

@@ -25,9 +25,8 @@ import com.orientechnologies.orient.core.exception.OSecurityException;
 
 /**
  * An exception for invalid passwords.
- * 
+ *
  * @author S. Colin Leister
- * 
  */
 @SuppressWarnings("serial")
 public class OInvalidPasswordException extends OSecurityException {

@@ -19,8 +19,9 @@ import com.orientechnologies.orient.core.command.OCommandContext;
 import com.orientechnologies.orient.core.db.record.OIdentifiable;
 
 /**
- * Methods can be used on various objects with different number of arguments. SQL syntax : <object_name>.<method_name>([parameters])
- * 
+ * Methods can be used on various objects with different number of arguments. SQL syntax :
+ * <object_name>.<method_name>([parameters])
+ *
  * @author Johann Sorel (Geomatys)
  */
 public interface OSQLMethod extends Comparable<OSQLMethod> {
@@ -34,13 +35,13 @@ public interface OSQLMethod extends Comparable<OSQLMethod> {
    * Returns a convinient SQL String representation of the method.
    * <p>
    * Example :
-   * 
+   *
    * <pre>
    *  field.myMethod( param1, param2, [optionalParam3])
    * </pre>
-   * 
+   * <p>
    * This text will be used in exception messages.
-   * 
+   *
    * @return String , never null.
    */
   public String getSyntax();
@@ -57,18 +58,12 @@ public interface OSQLMethod extends Comparable<OSQLMethod> {
 
   /**
    * Process a record.
-   * 
-   * 
-   * 
+   *
    * @param iThis
-   * @param iCurrentRecord
-   *          : current record
-   * @param iContext
-   *          execution context
-   * @param ioResult
-   *          : field value
-   * @param iParams
-   *          : function parameters, number is ensured to be within minParams and maxParams.
+   * @param iCurrentRecord : current record
+   * @param iContext       execution context
+   * @param ioResult       : field value
+   * @param iParams        : function parameters, number is ensured to be within minParams and maxParams.
    * @return evaluation result
    */
   Object execute(Object iThis, OIdentifiable iCurrentRecord, OCommandContext iContext, Object ioResult, Object[] iParams);

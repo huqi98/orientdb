@@ -76,7 +76,6 @@ public class OBinaryComparatorV0 implements OBinaryComparator {
    *
    * @param iField1 First value to compare
    * @param iField2 Second value to compare
-   *
    * @return true if they match, otherwise false
    */
   @Override
@@ -648,7 +647,6 @@ public class OBinaryComparatorV0 implements OBinaryComparator {
    *
    * @param iField1 First value to compare
    * @param iField2 Second value to compare
-   *
    * @return 0 if they matches, >0 if first value is major than second, <0 in case is minor
    */
   @Override

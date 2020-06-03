@@ -36,18 +36,14 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 import org.junit.Test;
 
 /**
- * Basic Test that checks the consistency in the cluster with the following scenario:
- * - 3 server
- * - 5 threads for each server write 100 records
- * - check consistency
- * - no faults
+ * Basic Test that checks the consistency in the cluster with the following scenario: - 3 server - 5 threads for each server write
+ * 100 records - check consistency - no faults
  *
  * @author Gabriele Ponzi
- * @email  <gabriele.ponzi--at--gmail.com>
+ * @email <gabriele.ponzi--at--gmail.com>
  */
 
 public class BasicScenarioIT extends AbstractScenarioTest {
-
 
   @Test
   public void test() throws Exception {

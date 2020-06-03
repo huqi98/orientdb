@@ -25,7 +25,6 @@ import com.orientechnologies.orient.server.network.protocol.http.OHttpUtils;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OHttpMultipartFileToDiskContentParser implements OHttpMultipartContentParser<InputStream> {
 
@@ -62,7 +61,7 @@ public class OHttpMultipartFileToDiskContentParser implements OHttpMultipartCont
         final String fileExt = fileName.substring(fileName.lastIndexOf("."));
         final String fileNoExt = fileName.substring(0, fileName.lastIndexOf("."));
 
-        for (int i = 1;; ++i) {
+        for (int i = 1; ; ++i) {
           if (!new File(fileNoExt + "_" + i + fileExt).exists()) {
             fileName = fileNoExt + "_" + i + fileExt;
             break;

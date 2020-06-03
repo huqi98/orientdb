@@ -30,10 +30,10 @@ import java.util.Map;
  * Executes arbitrary code in any supported language by JVM.
  */
 public class OETLCodeBlock extends OETLAbstractBlock {
-  protected String language = "javascript";
+  protected String                 language = "javascript";
   protected String                 code;
   protected OCommandExecutorScript cmd;
-  protected Map<Object, Object> params = new HashMap<Object, Object>();
+  protected Map<Object, Object>    params   = new HashMap<Object, Object>();
 
   @Override
   public ODocument getConfiguration() {

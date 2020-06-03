@@ -30,11 +30,13 @@ public class OFindReferencesStatement extends OStatement {
 
   }
 
-  @Override public boolean isIdempotent() {
+  @Override
+  public boolean isIdempotent() {
     return true;
   }
 
-  @Override public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -57,7 +59,8 @@ public class OFindReferencesStatement extends OStatement {
     return new OLocalResultSet(executionPlan);
   }
 
-  @Override public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -74,11 +77,13 @@ public class OFindReferencesStatement extends OStatement {
     return new OLocalResultSet(executionPlan);
   }
 
-  @Override public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx, boolean enableProfiling) {
+  @Override
+  public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx, boolean enableProfiling) {
     return new OFindReferencesExecutionPlanner(this).createExecutionPlan(ctx, enableProfiling);
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("FIND REFERENCES ");
     if (rid != null) {
       rid.toString(params, builder);
@@ -101,7 +106,8 @@ public class OFindReferencesStatement extends OStatement {
     }
   }
 
-  @Override public OFindReferencesStatement copy() {
+  @Override
+  public OFindReferencesStatement copy() {
     OFindReferencesStatement result = new OFindReferencesStatement(-1);
     result.rid = rid == null ? null : rid.copy();
     result.subQuery = subQuery == null ? null : subQuery.copy();
@@ -109,7 +115,8 @@ public class OFindReferencesStatement extends OStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -127,7 +134,8 @@ public class OFindReferencesStatement extends OStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = rid != null ? rid.hashCode() : 0;
     result = 31 * result + (subQuery != null ? subQuery.hashCode() : 0);
     result = 31 * result + (targets != null ? targets.hashCode() : 0);

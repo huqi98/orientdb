@@ -42,7 +42,6 @@ public class DbCopyTest extends DocumentDBBaseTest implements OCommandOutputList
     final String className = "DbCopyTest";
     database.getMetadata().getSchema().createClass(className);
 
-
     Thread thread = new Thread() {
       @Override
       public void run() {
@@ -85,7 +84,6 @@ public class DbCopyTest extends DocumentDBBaseTest implements OCommandOutputList
     Assert.assertEquals(result.size(), 25);
 
   }
-
 
   @Override
   @Test(enabled = false)

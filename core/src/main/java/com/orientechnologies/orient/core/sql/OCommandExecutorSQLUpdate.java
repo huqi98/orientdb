@@ -364,7 +364,6 @@ public class OCommandExecutorSQLUpdate extends OCommandExecutorSQLRetryAbstract
    *
    * @param iRecord     The record object
    * @param orientClass The schema class
-   *
    * @return
    */
   private boolean isRecordInstanceOf(Object iRecord, String orientClass) {
@@ -445,8 +444,9 @@ public class OCommandExecutorSQLUpdate extends OCommandExecutorSQLRetryAbstract
 
   @Override
   public String getSyntax() {
-    return "UPDATE <class>|cluster:<cluster>> [SET|ADD|PUT|REMOVE|INCREMENT|CONTENT {<JSON>}|MERGE {<JSON>}] [[,] <field-name> = <expression>|<sub-command>]* [LOCK <NONE|RECORD>] "
-        + "[UPSERT] [RETURN <COUNT|BEFORE|AFTER>] [WHERE <conditions>]";
+    return
+        "UPDATE <class>|cluster:<cluster>> [SET|ADD|PUT|REMOVE|INCREMENT|CONTENT {<JSON>}|MERGE {<JSON>}] [[,] <field-name> = <expression>|<sub-command>]* [LOCK <NONE|RECORD>] "
+            + "[UPSERT] [RETURN <COUNT|BEFORE|AFTER>] [WHERE <conditions>]";
   }
 
   @Override

@@ -26,7 +26,7 @@ import com.tinkerpop.blueprints.Direction;
 
 /**
  * Represents a Vertex class.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public class OrientVertexType extends OrientElementType {
@@ -34,8 +34,8 @@ public class OrientVertexType extends OrientElementType {
   public static final String CLASS_NAME = OClass.VERTEX_CLASS_NAME;
 
   public class OrientVertexProperty extends OPropertyAbstractDelegate {
-    public static final String      ORDERED = "ordered";
-    protected final OrientBaseGraph graph;
+    public static final String          ORDERED = "ordered";
+    protected final     OrientBaseGraph graph;
 
     public OrientVertexProperty(final OrientBaseGraph iGraph, final OProperty iProperty) {
       super(iProperty);

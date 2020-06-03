@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-public class OFetchQueryPageTaskTest extends AbstractRemoteTaskTest{
+public class OFetchQueryPageTaskTest extends AbstractRemoteTaskTest {
 
   @Test
   public void testSerialization() throws IOException {

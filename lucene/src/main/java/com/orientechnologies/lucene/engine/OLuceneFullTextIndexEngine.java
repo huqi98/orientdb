@@ -88,7 +88,7 @@ public class OLuceneFullTextIndexEngine extends OLuceneIndexEngineAbstract {
 
   @Override
   public void onRecordAddedToResultSet(final OLuceneQueryContext queryContext, final OContextualRecordId recordId,
-                                       final Document ret, final ScoreDoc score) {
+      final Document ret, final ScoreDoc score) {
     recordId.setContext(new HashMap<String, Object>() {
       {
         final Map<String, TextFragment[]> frag = queryContext.getFragments();

@@ -25,6 +25,7 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 import java.util.List;
 
 /**
+ *
  */
 public class OSystemRole extends ORole {
   public static final String DB_FILTER = "dbFilter";

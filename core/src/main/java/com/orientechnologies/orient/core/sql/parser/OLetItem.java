@@ -11,7 +11,7 @@ public class OLetItem extends SimpleNode {
 
   protected OIdentifier varName;
   protected OExpression expression;
-  protected OStatement query;
+  protected OStatement  query;
 
   public OLetItem(int id) {
     super(id);

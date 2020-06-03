@@ -25,7 +25,7 @@ import com.orientechnologies.orient.core.record.ORecord;
 
 /**
  * Cache implementation that uses Soft References.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (l.garulli-at-orientdb.com)
  */
 public class ORecordCacheSoftRefs extends OAbstractMapCache<OSoftRefsHashMap<ORID, ORecord>> implements ORecordCache {

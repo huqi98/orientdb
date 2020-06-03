@@ -43,9 +43,9 @@ public class OCommandExecutorSQLDropClass extends OCommandExecutorSQLAbstract im
   public static final String KEYWORD_CLASS  = "CLASS";
   public static final String KEYWORD_UNSAFE = "UNSAFE";
 
-  private String             className;
-  private boolean            unsafe;
-  private boolean            ifExists       = false;
+  private String  className;
+  private boolean unsafe;
+  private boolean ifExists = false;
 
   public OCommandExecutorSQLDropClass parse(final OCommandRequest iRequest) {
     final OCommandRequestText textRequest = (OCommandRequestText) iRequest;
@@ -108,7 +108,8 @@ public class OCommandExecutorSQLDropClass extends OCommandExecutorSQLAbstract im
   public long getDistributedTimeout() {
     final OClass cls = getDatabase().getMetadata().getSchema().getClass(className);
     if (className != null && cls != null)
-      return getDatabase().getConfiguration().getValueAsLong(OGlobalConfiguration.DISTRIBUTED_COMMAND_QUICK_TASK_SYNCH_TIMEOUT) + (2 * cls.count());
+      return getDatabase().getConfiguration().getValueAsLong(OGlobalConfiguration.DISTRIBUTED_COMMAND_QUICK_TASK_SYNCH_TIMEOUT) + (2
+          * cls.count());
 
     return getDatabase().getConfiguration().getValueAsLong(OGlobalConfiguration.DISTRIBUTED_COMMAND_QUICK_TASK_SYNCH_TIMEOUT);
   }
@@ -152,13 +153,14 @@ public class OCommandExecutorSQLDropClass extends OCommandExecutorSQLAbstract im
       if (cls.isSubClassOf("V")) {
         // FOUND VERTICES
         if (unsafe)
-          OLogManager.instance().warn(this,
-              "Dropped class '%s' containing %d vertices using UNSAFE mode. Database could contain broken edges", className,
-              records);
+          OLogManager.instance()
+              .warn(this, "Dropped class '%s' containing %d vertices using UNSAFE mode. Database could contain broken edges",
+                  className, records);
       } else if (cls.isSubClassOf("E")) {
         // FOUND EDGES
-        OLogManager.instance().warn(this,
-            "Dropped class '%s' containing %d edges using UNSAFE mode. Database could contain broken vertices", className, records);
+        OLogManager.instance()
+            .warn(this, "Dropped class '%s' containing %d edges using UNSAFE mode. Database could contain broken vertices",
+                className, records);
       }
     }
 

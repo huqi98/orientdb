@@ -32,13 +32,9 @@ import java.util.List;
 import static org.junit.Assert.fail;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server (quorum=1)
- * - server3 is isolated (simulated by shutdown)
- * - 5 threads on both server1 and server2 write 100 records
- * - server3 joins the cluster
- * - server3 receive the delta from the cluster
- * - check consistency
+ * It checks the consistency in the cluster with the following scenario: - 3 server (quorum=1) - server3 is isolated (simulated by
+ * shutdown) - 5 threads on both server1 and server2 write 100 records - server3 joins the cluster - server3 receive the delta from
+ * the cluster - check consistency
  *
  * @author Gabriele Ponzi
  * @email <gabriele.ponzi--at--gmail.com>
@@ -133,8 +129,8 @@ public class Quorum1ScenarioIT extends AbstractScenarioTest {
 
       return result.get(0);
     } finally {
-     	dbServer.close();
-    }    
+      dbServer.close();
+    }
   }
 
   @Override

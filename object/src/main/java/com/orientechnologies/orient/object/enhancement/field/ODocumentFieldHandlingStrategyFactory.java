@@ -23,18 +23,18 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 /**
  * Factory for {@link ODocumentFieldHandlingStrategy} instances.
  * <p/>
- * 
+ * <p>
  * Since strategies are stateless, {@link ODocumentFieldHandlingStrategyRegistry} is used for caching.
- * 
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class ODocumentFieldHandlingStrategyFactory {
 
-  public static final int                                    SIMPLE               = 0;
-  public static final int                                    SINGLE_ORECORD_BYTES = 1;
-  public static final int                                    SPLIT_ORECORD_BYTES  = 2;
+  public static final int SIMPLE               = 0;
+  public static final int SINGLE_ORECORD_BYTES = 1;
+  public static final int SPLIT_ORECORD_BYTES  = 2;
 
-  private static final ODocumentFieldHandlingStrategyFactory INSTANCE             = new ODocumentFieldHandlingStrategyFactory();
+  private static final ODocumentFieldHandlingStrategyFactory INSTANCE = new ODocumentFieldHandlingStrategyFactory();
 
   private ODocumentFieldHandlingStrategyFactory() {
     // Hidden
@@ -50,7 +50,7 @@ public class ODocumentFieldHandlingStrategyFactory {
   /**
    * Creates a new instance of the requested strategy. Since strategies are stateless, if an existing instance already exists then
    * it's returned.
-   * 
+   *
    * @param strategy
    * @return strategy instance
    */

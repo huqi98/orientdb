@@ -23,11 +23,10 @@ import com.orientechnologies.orient.server.network.protocol.http.OHttpRequest;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface OHttpMultipartContentParser<T> {
 
-  public T parse(OHttpRequest iRequest, Map<String, String> headers, OHttpMultipartContentInputStream in, ODatabaseDocument database)
-      throws IOException;
+  public T parse(OHttpRequest iRequest, Map<String, String> headers, OHttpMultipartContentInputStream in,
+      ODatabaseDocument database) throws IOException;
 
 }

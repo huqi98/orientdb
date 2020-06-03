@@ -31,7 +31,6 @@ import java.util.Set;
  * collection values.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OSQLFunctionDifference extends OSQLFunctionMultiValueAbstract<Set<Object>> {
   public static final String NAME = "difference";

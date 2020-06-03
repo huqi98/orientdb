@@ -24,10 +24,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class ReadAllClusterObjectsSpeedTest extends SpeedTestMonoThread {
-  private static final String CLASS_NAME = "Account";
-  private ODatabaseDocumentTx db;
-  private int                 objectsRead;
-  private String              url;
+  private static final String              CLASS_NAME = "Account";
+  private              ODatabaseDocumentTx db;
+  private              int                 objectsRead;
+  private              String              url;
 
   public ReadAllClusterObjectsSpeedTest() {
     super(5);
@@ -55,8 +55,8 @@ public class ReadAllClusterObjectsSpeedTest extends SpeedTestMonoThread {
 
   @Override
   public void afterCycle() throws Exception {
-    System.out.println(data.getCyclesDone() + "-> Read " + objectsRead + " objects in the cluster " + CLASS_NAME + "="
-        + data().takeTimer());
+    System.out.println(
+        data.getCyclesDone() + "-> Read " + objectsRead + " objects in the cluster " + CLASS_NAME + "=" + data().takeTimer());
   }
 
   @Override

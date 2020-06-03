@@ -1,10 +1,8 @@
 package com.orientechnologies.orient.server.token;
 
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-
 
 import com.orientechnologies.orient.core.id.ORID;
 import com.orientechnologies.orient.core.id.ORecordId;
@@ -18,7 +16,7 @@ import static org.junit.Assert.assertNull;
 public class OBinaryTokenSerializerTest {
 
   private OBinaryTokenSerializer ser = new OBinaryTokenSerializer(new String[] { "plocal", "memory" }, new String[] { "key" },
-                                         new String[] { "HmacSHA256" }, new String[] { "OrientDB" });
+      new String[] { "HmacSHA256" }, new String[] { "OrientDB" });
 
   @Test
   public void testSerializerDeserializeToken() throws IOException {

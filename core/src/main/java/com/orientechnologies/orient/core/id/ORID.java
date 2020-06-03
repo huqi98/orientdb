@@ -29,7 +29,7 @@ import java.io.OutputStream;
  * RecordID interface that represents a recordid in database. RecordID are made of 2 numbers: cluster id (cluster number) and
  * cluster position (absolute position inside the cluster). Loading a record by its RecordID allows O(1) performance, no matter the
  * database size.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface ORID extends OIdentifiable, OSerializableStream {

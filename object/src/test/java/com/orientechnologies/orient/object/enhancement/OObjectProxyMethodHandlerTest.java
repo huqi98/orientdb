@@ -255,8 +255,8 @@ public class OObjectProxyMethodHandlerTest {
     private String                        stringField;
     private boolean                       booleanField;
     private EntityWithDifferentFieldTypes objectField;
-    private Map<String, String> stringStringMap  = new HashMap<String, String>();
-    private Map<String, String> stringStringMap2 = new HashMap<String, String>();
+    private Map<String, String>           stringStringMap  = new HashMap<String, String>();
+    private Map<String, String>           stringStringMap2 = new HashMap<String, String>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<EntityWithDifferentFieldTypes> listOfEntityWithDifferentFieldTypes;

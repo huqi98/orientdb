@@ -67,11 +67,11 @@ public class OMatchPathItem extends SimpleNode {
         return queryResult;
       }
 
-
       for (OIdentifiable origin : queryResult) {
         Object previousMatch = iCommandContext.getVariable("$currentMatch");
         iCommandContext.setVariable("$currentMatch", origin);
-        if ((oClass==null || matchesClass(origin, oClass)) && (filter == null || filter.matchesFilters(origin, iCommandContext))) {
+        if ((oClass == null || matchesClass(origin, oClass)) && (filter == null || filter
+            .matchesFilters(origin, iCommandContext))) {
           result.add(origin);
         }
         iCommandContext.setVariable("$currentMatch", previousMatch);
@@ -80,7 +80,8 @@ public class OMatchPathItem extends SimpleNode {
       iCommandContext.setVariable("$depth", depth);
       Object previousMatch = iCommandContext.getVariable("$currentMatch");
       iCommandContext.setVariable("$currentMatch", startingPoint);
-      if ((oClass==null || matchesClass(startingPoint, oClass)) && (filter == null || filter.matchesFilters(startingPoint, iCommandContext))) {
+      if ((oClass == null || matchesClass(startingPoint, oClass)) && (filter == null || filter
+          .matchesFilters(startingPoint, iCommandContext))) {
         result.add(startingPoint);
       }
 
@@ -120,7 +121,6 @@ public class OMatchPathItem extends SimpleNode {
     return false;
   }
 
-
   protected Iterable<OIdentifiable> traversePatternEdge(OMatchStatement.MatchContext matchContext, OIdentifiable startingPoint,
       OCommandContext iCommandContext) {
 
@@ -140,7 +140,8 @@ public class OMatchPathItem extends SimpleNode {
     return (qR instanceof Iterable && !(qR instanceof ODocument)) ? (Iterable) qR : Collections.singleton((OIdentifiable) qR);
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -156,13 +157,15 @@ public class OMatchPathItem extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = method != null ? method.hashCode() : 0;
     result = 31 * result + (filter != null ? filter.hashCode() : 0);
     return result;
   }
 
-  @Override public OMatchPathItem copy() {
+  @Override
+  public OMatchPathItem copy() {
     OMatchPathItem result = null;
     try {
       result = getClass().getConstructor(Integer.TYPE).newInstance(-1);

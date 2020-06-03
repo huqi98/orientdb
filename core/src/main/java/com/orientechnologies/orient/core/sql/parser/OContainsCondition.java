@@ -90,17 +90,16 @@ public class OContainsCondition extends OBooleanExpression {
         boolean found = false;
         while (leftIterator.hasNext()) {
           Object rightItem = leftIterator.next();
-          if ((leftItem != null && leftItem.equals(rightItem)) ||
-              (leftItem == null && rightItem == null)){
+          if ((leftItem != null && leftItem.equals(rightItem)) || (leftItem == null && rightItem == null)) {
             found = true;
             break;
           }
         }
-        
+
         if (!found) {
           return false;
         }
-        
+
         //here left iterator should go from beginning, that can be done only for iterable
         //if left at input is iterator result can be invalid 
         //TODO what if left is Iterator!!!???, should we make temporary Collection , to be able to iterate from beginning

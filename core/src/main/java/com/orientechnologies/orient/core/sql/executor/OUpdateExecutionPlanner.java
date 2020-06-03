@@ -85,7 +85,8 @@ public class OUpdateExecutionPlanner {
     plan.chain(new ConvertToUpdatableResultStep(ctx, profilingEnabled));
   }
 
-  private void handleResultForReturnCount(OUpdateExecutionPlan result, OCommandContext ctx, boolean returnCount, boolean profilingEnabled) {
+  private void handleResultForReturnCount(OUpdateExecutionPlan result, OCommandContext ctx, boolean returnCount,
+      boolean profilingEnabled) {
     if (returnCount) {
       result.chain(new CountStep(ctx, profilingEnabled));
     }
@@ -122,7 +123,8 @@ public class OUpdateExecutionPlanner {
     }
   }
 
-  private void handleReturnBefore(OUpdateExecutionPlan result, OCommandContext ctx, boolean returnBefore, boolean profilingEnabled) {
+  private void handleReturnBefore(OUpdateExecutionPlan result, OCommandContext ctx, boolean returnBefore,
+      boolean profilingEnabled) {
     if (returnBefore) {
       result.chain(new CopyRecordContentBeforeUpdateStep(ctx, profilingEnabled));
     }
@@ -138,14 +140,15 @@ public class OUpdateExecutionPlanner {
     }
   }
 
-  private void handleUpsert(OUpdateExecutionPlan plan, OCommandContext ctx, OFromClause target, OWhereClause where,
-      boolean upsert, boolean profilingEnabled) {
+  private void handleUpsert(OUpdateExecutionPlan plan, OCommandContext ctx, OFromClause target, OWhereClause where, boolean upsert,
+      boolean profilingEnabled) {
     if (upsert) {
       plan.chain(new UpsertStep(target, where, ctx, profilingEnabled));
     }
   }
 
-  private void handleOperations(OUpdateExecutionPlan plan, OCommandContext ctx, List<OUpdateOperations> ops, boolean profilingEnabled) {
+  private void handleOperations(OUpdateExecutionPlan plan, OCommandContext ctx, List<OUpdateOperations> ops,
+      boolean profilingEnabled) {
     if (ops != null) {
       for (OUpdateOperations op : ops) {
         switch (op.getType()) {

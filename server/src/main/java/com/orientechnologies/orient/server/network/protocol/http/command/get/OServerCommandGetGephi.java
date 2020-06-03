@@ -50,8 +50,7 @@ public class OServerCommandGetGephi extends OServerCommandAuthenticatedDbAbstrac
 
   @Override
   public boolean execute(final OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {
-    String[] urlParts = checkSyntax(iRequest.getUrl(),
-        4,
+    String[] urlParts = checkSyntax(iRequest.getUrl(), 4,
         "Syntax error: gephi/<database>/<language>/<query-text>[/<limit>][/<fetchPlan>].<br>Limit is optional and is set to 20 by default. Set to 0 to have no limits.");
 
     final String language = urlParts[2];
@@ -97,11 +96,8 @@ public class OServerCommandGetGephi extends OServerCommandAuthenticatedDbAbstrac
     return false;
   }
 
-  protected void sendRecordsContent(final OHttpRequest iRequest,
-      final OHttpResponse iResponse,
-      OResultSet resultSet,
-      String iFetchPlan,
-      int limit) throws IOException {
+  protected void sendRecordsContent(final OHttpRequest iRequest, final OHttpResponse iResponse, OResultSet resultSet,
+      String iFetchPlan, int limit) throws IOException {
 
     final StringWriter buffer = new StringWriter();
     final OJSONWriter json = new OJSONWriter(buffer, OHttpResponse.JSON_FORMAT);

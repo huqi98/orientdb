@@ -45,9 +45,9 @@ import java.util.*;
 import java.util.Map.Entry;
 
 public class OTransactionOptimisticProxy extends OTransactionOptimistic {
-  private final Map<ORID, ORecordOperation> tempEntries    = new LinkedHashMap<ORID, ORecordOperation>();
-  private final Map<ORecordId, ORecord>     createdRecords = new HashMap<ORecordId, ORecord>();
-  private final Map<ORecordId, ORecord>     updatedRecords = new HashMap<ORecordId, ORecord>();
+  private final Map<ORID, ORecordOperation>   tempEntries    = new LinkedHashMap<ORID, ORecordOperation>();
+  private final Map<ORecordId, ORecord>       createdRecords = new HashMap<ORecordId, ORecord>();
+  private final Map<ORecordId, ORecord>       updatedRecords = new HashMap<ORecordId, ORecord>();
   @Deprecated
   private final int                           clientTxId;
   private final short                         protocolVersion;
@@ -79,7 +79,8 @@ public class OTransactionOptimisticProxy extends OTransactionOptimistic {
 
         switch (recordStatus) {
         case ORecordOperation.CREATED:
-          ORecord record = Orient.instance().getRecordFactoryManager().newInstance(operation.getRecordType(), rid.getClusterId(), getDatabase());
+          ORecord record = Orient.instance().getRecordFactoryManager()
+              .newInstance(operation.getRecordType(), rid.getClusterId(), getDatabase());
           serializer.fromStream(operation.getRecord(), record, null);
           ORecordInternal.setIdentity(record, rid);
           ORecordInternal.setVersion(record, 0);
@@ -92,7 +93,8 @@ public class OTransactionOptimisticProxy extends OTransactionOptimistic {
 
         case ORecordOperation.UPDATED:
           int version = operation.getVersion();
-          ORecord updated = Orient.instance().getRecordFactoryManager().newInstance(operation.getRecordType(), rid.getClusterId(), getDatabase());
+          ORecord updated = Orient.instance().getRecordFactoryManager()
+              .newInstance(operation.getRecordType(), rid.getClusterId(), getDatabase());
           ORecordInternal.setIdentity(updated, rid);
           ORecordInternal.setVersion(updated, version);
           entry = new ORecordOperation(updated, ORecordOperation.UPDATED);

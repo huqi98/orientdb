@@ -15,6 +15,7 @@ public class OCluster extends SimpleNode {
     super(-1);
     this.clusterName = clusterName;
   }
+
   public OCluster(int id) {
     super(id);
   }

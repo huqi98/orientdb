@@ -52,7 +52,6 @@ public class OServerAdmin {
    * Creates the object passing a remote URL to connect. sessionToken
    *
    * @param iURL URL to connect. It supports only the "remote" storage type.
-   *
    * @throws IOException
    */
   @Deprecated
@@ -101,9 +100,7 @@ public class OServerAdmin {
    *
    * @param iUserName     Server's user name
    * @param iUserPassword Server's password for the user name used
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    */
   @Deprecated
@@ -187,9 +184,7 @@ public class OServerAdmin {
    *
    * @param iDatabaseType 'document' or 'graph'
    * @param iStorageMode  local or memory
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    */
   @Deprecated
@@ -213,9 +208,7 @@ public class OServerAdmin {
    * @param iDatabaseType 'document' or 'graph'
    * @param iStorageMode  local or memory
    * @param backupPath    path to incremental backup which will be used to create database (optional)
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    */
   public synchronized OServerAdmin createDatabase(final String iDatabaseName, final String iDatabaseType, final String iStorageMode,
@@ -254,9 +247,7 @@ public class OServerAdmin {
    *
    * @param iDatabaseName The database name
    * @param storageType   Storage type between "plocal" or "memory".
-   *
    * @return true if exists, otherwise false
-   *
    * @throws IOException
    */
   public synchronized boolean existsDatabase(final String iDatabaseName, final String storageType) throws IOException {
@@ -271,9 +262,7 @@ public class OServerAdmin {
    * Checks if a database exists in the remote server.
    *
    * @param storageType Storage type between "plocal" or "memory".
-   *
    * @return true if exists, otherwise false
-   *
    * @throws IOException
    */
   public synchronized boolean existsDatabase(final String storageType) throws IOException {
@@ -284,9 +273,7 @@ public class OServerAdmin {
    * Deprecated. Use dropDatabase() instead.
    *
    * @param storageType Storage type between "plocal" or "memory".
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    * @see #dropDatabase(String)
    */
@@ -300,9 +287,7 @@ public class OServerAdmin {
    *
    * @param iDatabaseName The database name
    * @param storageType   Storage type between "plocal" or "memory".
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    */
   public synchronized OServerAdmin dropDatabase(final String iDatabaseName, final String storageType) throws IOException {
@@ -323,9 +308,7 @@ public class OServerAdmin {
    * Drops a database from a remote server instance.
    *
    * @param storageType Storage type between "plocal" or "memory".
-   *
    * @return The instance itself. Useful to execute method in chain
-   *
    * @throws IOException
    */
   public synchronized OServerAdmin dropDatabase(final String storageType) throws IOException {
@@ -336,9 +319,7 @@ public class OServerAdmin {
    * Freezes the database by locking it in exclusive mode.
    *
    * @param storageType Storage type between "plocal" or "memory".
-   *
    * @return
-   *
    * @throws IOException
    * @see #releaseDatabase(String)
    */
@@ -354,9 +335,7 @@ public class OServerAdmin {
    * Releases a frozen database.
    *
    * @param storageType Storage type between "plocal" or "memory".
-   *
    * @return
-   *
    * @throws IOException
    * @see #freezeDatabase(String)
    */

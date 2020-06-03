@@ -200,16 +200,16 @@ public class KeyNormalizationTest {
      * final byte[] stream = new byte[9]; ODecimalSerializer decimalSerializer = new ODecimalSerializer();
      * decimalSerializer.serialize(matKey, stream, 0); print(ByteBuffer.wrap(stream).order(ByteOrder.BIG_ENDIAN).array());
      * Assert.assertEquals(decimalSerializer.deserialize(stream, 0), matKey);
-     * 
+     *
      * final BigDecimal matKeyNeg = new BigDecimal(new BigInteger("-2"), 2); final byte[] streamNeg = new byte[9];
      * decimalSerializer.serialize(matKeyNeg, streamNeg, 0); print(ByteBuffer.wrap(streamNeg).order(ByteOrder.BIG_ENDIAN).array());
      * Assert.assertEquals(decimalSerializer.deserialize(streamNeg, 0), matKeyNeg);
-     * 
+     *
      * final BigDecimal matKeyZero = new BigDecimal(new BigInteger("0"), 2); final byte[] streamZero = new byte[9];
      * decimalSerializer.serialize(matKeyZero, streamZero, 0);
      * print(ByteBuffer.wrap(streamZero).order(ByteOrder.BIG_ENDIAN).array());
      * Assert.assertEquals(decimalSerializer.deserialize(streamZero, 0), matKeyZero);
-     * 
+     *
      * compareWithUnsafeByteArrayComparator(streamNeg, streamZero, stream);
      */
   }
@@ -516,8 +516,8 @@ public class KeyNormalizationTest {
   @Ignore
   @Test
   public void normalizeCompositeDateTime() {
-    final ZonedDateTime zdt = LocalDateTime.of(2013, 11, 5, 3, 3, 3)
-        .atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
+    final ZonedDateTime zdt = LocalDateTime.of(2013, 11, 5, 3, 3, 3).atZone(ZoneId.systemDefault())
+        .withZoneSameInstant(ZoneId.of("UTC"));
     final Date key = Date.from(zdt.toInstant());
     System.out.println("Date-key: " + key);
     final byte[] bytes = getNormalizedKeySingle(key, OType.DATETIME);
@@ -537,18 +537,15 @@ public class KeyNormalizationTest {
 
   @Test
   public void normalizeCompositeDateTimeCompare() {
-    ZonedDateTime zdt = LocalDateTime.of(2013, 11, 5, 3, 3, 3)
-        .atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
+    ZonedDateTime zdt = LocalDateTime.of(2013, 11, 5, 3, 3, 3).atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
     Date key = Date.from(zdt.toInstant());
     final byte[] smallest = getNormalizedKeySingle(key, OType.DATETIME);
 
-    zdt = LocalDateTime.of(2013, 11, 5, 5, 3, 3)
-        .atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
+    zdt = LocalDateTime.of(2013, 11, 5, 5, 3, 3).atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
     key = Date.from(zdt.toInstant());
     final byte[] middle = getNormalizedKeySingle(key, OType.DATETIME);
 
-    zdt = LocalDateTime.of(2013, 11, 5, 5, 5, 5)
-        .atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
+    zdt = LocalDateTime.of(2013, 11, 5, 5, 5, 5).atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneId.of("UTC"));
     key = Date.from(zdt.toInstant());
     final byte[] largest = getNormalizedKeySingle(key, OType.DATETIME);
     compareWithUnsafeByteArrayComparator(smallest, middle, largest);

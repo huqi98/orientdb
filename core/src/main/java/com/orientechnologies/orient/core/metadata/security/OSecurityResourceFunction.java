@@ -19,8 +19,10 @@ public class OSecurityResourceFunction extends OSecurityResource {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OSecurityResourceFunction that = (OSecurityResourceFunction) o;
     return Objects.equals(functionName, that.functionName);
   }

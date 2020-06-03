@@ -9,7 +9,7 @@ import org.junit.*;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OAlterRoleStatementExecutionTest {
-  static OrientDB orient;
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -35,7 +35,6 @@ public class OAlterRoleStatementExecutionTest {
     this.db = null;
   }
 
-
   @Test
   public void testAddPolicy() {
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
@@ -48,13 +47,13 @@ public class OAlterRoleStatementExecutionTest {
     security.saveSecurityPolicy(db, policy);
     db.command("ALTER ROLE reader SET POLICY testPolicy ON database.class.Person").close();
 
-
-    Assert.assertEquals("testPolicy", security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
+    Assert.assertEquals("testPolicy",
+        security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
 
   }
 
   @Test
-  public void testRemovePolicy(){
+  public void testRemovePolicy() {
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
 
     db.createClass("Person");
@@ -64,11 +63,10 @@ public class OAlterRoleStatementExecutionTest {
     policy.setReadRule("name = 'foo'");
     security.saveSecurityPolicy(db, policy);
     security.setSecurityPolicy(db, security.getRole(db, "reader"), "database.class.Person", policy);
-    Assert.assertEquals("testPolicy", security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
+    Assert.assertEquals("testPolicy",
+        security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
     db.command("ALTER ROLE reader REMOVE POLICY ON database.class.Person").close();
     Assert.assertNull(security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person"));
   }
-
-
 
 }

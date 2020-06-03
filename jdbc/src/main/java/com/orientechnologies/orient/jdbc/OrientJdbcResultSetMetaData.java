@@ -118,10 +118,7 @@ public class OrientJdbcResultSetMetaData implements ResultSetMetaData {
 
     String fieldName = fieldNames[column - 1];
 
-    OType otype = currentRecord.toElement()
-        .getSchemaType()
-        .map(st -> st.getProperty(fieldName))
-        .map(op -> op.getType())
+    OType otype = currentRecord.toElement().getSchemaType().map(st -> st.getProperty(fieldName)).map(op -> op.getType())
         .orElse(null);
 
     if (otype == null) {
@@ -228,11 +225,8 @@ public class OrientJdbcResultSetMetaData implements ResultSetMetaData {
 
     String columnLabel = fieldNames[column - 1];
 
-    return currentRecord.toElement().getSchemaType()
-        .map(st -> st.getProperty(columnLabel))
-        .map(p -> p.getType())
-        .map(t -> t.toString())
-        .orElse(null);
+    return currentRecord.toElement().getSchemaType().map(st -> st.getProperty(columnLabel)).map(p -> p.getType())
+        .map(t -> t.toString()).orElse(null);
   }
 
   public int getPrecision(final int column) throws SQLException {
@@ -290,8 +284,7 @@ public class OrientJdbcResultSetMetaData implements ResultSetMetaData {
 
   public boolean isSigned(final int column) throws SQLException {
     final OResult currentRecord = getCurrentRecord();
-    OType otype = currentRecord.toElement().getSchemaType()
-        .map(st -> st.getProperty(fieldNames[column - 1]).getType())
+    OType otype = currentRecord.toElement().getSchemaType().map(st -> st.getProperty(fieldNames[column - 1]).getType())
         .orElse(null);
 
     return this.isANumericColumn(otype);
@@ -310,11 +303,7 @@ public class OrientJdbcResultSetMetaData implements ResultSetMetaData {
   }
 
   private boolean isANumericColumn(final OType type) {
-    return type == OType.BYTE
-        || type == OType.DOUBLE
-        || type == OType.FLOAT
-        || type == OType.INTEGER
-        || type == OType.LONG
+    return type == OType.BYTE || type == OType.DOUBLE || type == OType.FLOAT || type == OType.INTEGER || type == OType.LONG
         || type == OType.SHORT;
   }
 
@@ -322,9 +311,7 @@ public class OrientJdbcResultSetMetaData implements ResultSetMetaData {
 
     String fieldName = getColumnName(column);
 
-    return getCurrentRecord().toElement().getSchemaType()
-        .map(st -> st.getProperty(fieldName))
-        .orElse(null);
+    return getCurrentRecord().toElement().getSchemaType().map(st -> st.getProperty(fieldName)).orElse(null);
 
   }
 

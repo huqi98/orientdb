@@ -136,7 +136,8 @@ public class OServerCommandGetStaticContent extends OServerCommandConfigurableAb
               new ByteArrayInputStream(compressedBytes), compressedBytes.length, null, new HashMap<String, String>() {
                 {
                   put("Content-Encoding", "gzip");
-                }});
+                }
+              });
         } finally {
           stream.close();
           bytesOutput.close();
@@ -188,7 +189,8 @@ public class OServerCommandGetStaticContent extends OServerCommandConfigurableAb
     if (iRequest.getUrl() != null) {
       final int beginPos = iRequest.getUrl().startsWith("/") ? 1 : 0;
       final int endPos = iRequest.getUrl().indexOf("/", beginPos);
-      final String firstFolderName = endPos > -1 ? iRequest.getUrl().substring(beginPos, endPos) : iRequest.getUrl().substring(beginPos);
+      final String firstFolderName =
+          endPos > -1 ? iRequest.getUrl().substring(beginPos, endPos) : iRequest.getUrl().substring(beginPos);
       final OCallable<Object, String> virtualFolderCallback = virtualFolders.get(firstFolderName);
       if (virtualFolderCallback != null) {
         // DELEGATE TO THE CALLBACK

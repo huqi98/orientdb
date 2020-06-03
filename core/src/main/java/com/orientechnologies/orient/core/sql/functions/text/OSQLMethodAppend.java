@@ -22,7 +22,7 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
 /**
  * Appends strings. Acts as a concatenation.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */

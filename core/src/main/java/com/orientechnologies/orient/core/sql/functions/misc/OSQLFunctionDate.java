@@ -34,16 +34,15 @@ import java.util.TimeZone;
 
 /**
  * Builds a date object from the format passed. If no arguments are passed, than the system date is built (like sysdate() function)
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OSQLFunctionSysdate
- * 
  */
 public class OSQLFunctionDate extends OSQLFunctionAbstract {
   public static final String NAME = "date";
 
-  private Date               date;
-  private SimpleDateFormat   format;
+  private Date             date;
+  private SimpleDateFormat format;
 
   /**
    * Get the date at construction to have the same date for all the iteration.
@@ -78,8 +77,8 @@ public class OSQLFunctionDate extends OSQLFunctionAbstract {
     try {
       return format.parse((String) iParams[0]);
     } catch (ParseException e) {
-      throw OException.wrapException(new OQueryParsingException("Error on formatting date '" + iParams[0] + "' using the format: "
-          + format.toPattern()), e);
+      throw OException.wrapException(
+          new OQueryParsingException("Error on formatting date '" + iParams[0] + "' using the format: " + format.toPattern()), e);
     }
   }
 

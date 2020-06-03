@@ -56,7 +56,7 @@ public class OBinaryCondition extends OBooleanExpression {
       Object rightVal = right.execute(currentRecord, ctx);
 
       //TODO collate
-      
+
       if (operator.execute(leftVal, rightVal)) {
         return true;
       }
@@ -130,7 +130,6 @@ public class OBinaryCondition extends OBooleanExpression {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression involves an indexed function AND that function can be used on this target, false otherwise
    */
   public boolean canExecuteIndexedFunctionWithoutIndex(OFromClause target, OCommandContext context) {
@@ -142,7 +141,6 @@ public class OBinaryCondition extends OBooleanExpression {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression involves an indexed function AND that function can be used on this target, false otherwise
    */
   public boolean allowsIndexedFunctionExecutionOnTarget(OFromClause target, OCommandContext context) {
@@ -156,7 +154,6 @@ public class OBinaryCondition extends OBooleanExpression {
    *
    * @param target  the query target
    * @param context the execution context
-   *
    * @return true if current expression involves an indexed function AND the function has also to be executed after the index
    * search.
    */

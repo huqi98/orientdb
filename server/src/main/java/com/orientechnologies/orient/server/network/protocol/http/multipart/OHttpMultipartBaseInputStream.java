@@ -21,7 +21,6 @@ import java.util.ArrayList;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OHttpMultipartBaseInputStream extends InputStream {
 

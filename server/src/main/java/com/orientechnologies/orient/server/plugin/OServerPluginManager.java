@@ -364,8 +364,7 @@ public class OServerPluginManager implements OService {
 
         // REGISTER THE PLUGIN
         currentPluginData = new OServerPluginInfo(pluginName, properties.field("version"), properties.field("description"),
-            properties.field("web"), pluginInstance, parameters,
-            pluginFile.lastModified(), pluginClassLoader);
+            properties.field("web"), pluginInstance, parameters, pluginFile.lastModified(), pluginClassLoader);
 
         registerPlugin(currentPluginData);
         loadedPlugins.put(pluginFile.getName(), pluginName);

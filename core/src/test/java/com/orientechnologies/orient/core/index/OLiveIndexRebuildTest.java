@@ -127,9 +127,8 @@ public class OLiveIndexRebuildTest {
           try {
             long start = System.nanoTime();
 
-            final List<ODocument> result = database
-                .query(new OSQLSynchQuery<ODocument>("select from " + className + " where " + propertyName + " >= 100 and " +
-                    propertyName + "< 200"));
+            final List<ODocument> result = database.query(new OSQLSynchQuery<ODocument>(
+                "select from " + className + " where " + propertyName + " >= 100 and " + propertyName + "< 200"));
 
             long end = System.nanoTime();
             long interval = end - start;

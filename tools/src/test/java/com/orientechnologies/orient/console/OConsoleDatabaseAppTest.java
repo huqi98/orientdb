@@ -82,7 +82,6 @@ public class OConsoleDatabaseAppTest {
 
   }
 
-
   @Test
   public void testDumpRecordDetails() {
     ConsoleTest c = new ConsoleTest();

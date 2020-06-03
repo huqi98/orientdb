@@ -1,6 +1,5 @@
 package com.orientechnologies.common.collection;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -72,7 +71,6 @@ public class OMultiValueTest {
 
     OMultiValue.remove(collection, "bar", true);
     Assert.assertEquals(collection.size(), 2);
-
 
   }
 

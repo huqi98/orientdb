@@ -6,7 +6,8 @@ import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.metadata.function.OFunction;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.query.OLegacyResultSet;
-import org.junit.Assert; import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
@@ -60,8 +61,6 @@ public class OFunctionSqlTest {
     doc1.field("name", "Luca");
     db.save(doc1);
 
-
-
     OFunction function = new OFunction();
     function.setName("test");
     function.setCode("select name from Test where name = :name and hello(:name) = 'Hello Enrico'");
@@ -83,7 +82,6 @@ public class OFunctionSqlTest {
     });
     function1.save();
     Object result = function.executeInContext(new OBasicCommandContext(), "Enrico");
-
 
     Assert.assertEquals(((OLegacyResultSet) result).size(), 1);
     db.drop();

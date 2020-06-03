@@ -1,18 +1,18 @@
 /*
  * All content copyright Terracotta, Inc., unless otherwise indicated. All rights reserved.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not 
- * use this file except in compliance with the License. You may obtain a copy 
- * of the License at 
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0 
- *   
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT 
- * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the 
- * License for the specific language governing permissions and limitations 
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy
+ * of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
  * under the License.
- * 
+ *
  */
 
 package com.orientechnologies.orient.core.schedule;
@@ -200,8 +200,8 @@ public final class OCronExpression implements Serializable, Cloneable {
     dayMap.put("SAT", 7);
   }
 
-  private final String cronExpression;
-  private TimeZone timeZone = null;
+  private final       String           cronExpression;
+  private             TimeZone         timeZone = null;
   protected transient TreeSet<Integer> seconds;
   protected transient TreeSet<Integer> minutes;
   protected transient TreeSet<Integer> hours;
@@ -228,7 +228,6 @@ public final class OCronExpression implements Serializable, Cloneable {
    * Constructs a new <CODE>CronExpression</CODE> based on the specified parameter.
    *
    * @param cronExpression String representation of the cron expression the new object should represent
-   *
    * @throws java.text.ParseException if the string expression cannot be parsed into a valid <CODE>CronExpression</CODE>
    */
   public OCronExpression(String cronExpression) throws ParseException {
@@ -267,7 +266,6 @@ public final class OCronExpression implements Serializable, Cloneable {
    * different milliseconds of the same second will always have the same result here.
    *
    * @param date the date to evaluate
-   *
    * @return a boolean indicating whether the given date satisfies the cron expression
    */
   public boolean isSatisfiedBy(Date date) {
@@ -287,7 +285,6 @@ public final class OCronExpression implements Serializable, Cloneable {
    * Returns the next date/time <I>after</I> the given date/time which satisfies the cron expression.
    *
    * @param date the date/time at which to begin the search for the next valid date/time
-   *
    * @return the next valid date/time
    */
   public Date getNextValidTimeAfter(Date date) {
@@ -298,7 +295,6 @@ public final class OCronExpression implements Serializable, Cloneable {
    * Returns the next date/time <I>after</I> the given date/time which does <I>not</I> satisfy the expression
    *
    * @param date the date/time at which to begin the search for the next invalid date/time
-   *
    * @return the next valid date/time
    */
   public Date getNextInvalidTimeAfter(Date date) {
@@ -365,7 +361,6 @@ public final class OCronExpression implements Serializable, Cloneable {
    * Indicates whether the specified cron expression can be parsed into a valid cron expression
    *
    * @param cronExpression the expression to evaluate
-   *
    * @return a boolean indicating whether the given expression is a valid cron expression
    */
   public static boolean isValidExpression(String cronExpression) {

@@ -42,7 +42,8 @@ public class OContainsAllCondition extends OBooleanExpression {
           boolean found = false;
           if (((Collection) left).contains(next)) {
             found = true;
-          } else if (next instanceof OResult && ((OResult) next).isElement() && ((Collection) left).contains(((OResult) next).toElement())) {
+          } else if (next instanceof OResult && ((OResult) next).isElement() && ((Collection) left)
+              .contains(((OResult) next).toElement())) {
             found = true;
           }
           if (!found) {

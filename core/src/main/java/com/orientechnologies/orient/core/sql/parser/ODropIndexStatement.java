@@ -15,9 +15,9 @@ import java.util.Map;
 
 public class ODropIndexStatement extends ODDLStatement {
 
-  protected boolean all = false;
+  protected boolean    all      = false;
   protected OIndexName name;
-  protected boolean ifExists = false;
+  protected boolean    ifExists = false;
 
   public ODropIndexStatement(int id) {
     super(id);

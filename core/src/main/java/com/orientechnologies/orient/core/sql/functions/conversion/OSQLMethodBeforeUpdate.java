@@ -30,7 +30,6 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
  * db.live("select from Person where @this.beforeUpdate().name != name
  * </code>
  *
- *
  * @author Luigi Dell'Aquila (l.dellaquila--(at)--orientdb.com)
  */
 public class OSQLMethodBeforeUpdate extends OAbstractSQLMethod {

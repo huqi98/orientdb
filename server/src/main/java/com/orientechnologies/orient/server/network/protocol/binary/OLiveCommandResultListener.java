@@ -56,11 +56,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 public class OLiveCommandResultListener extends OAbstractCommandResultListener implements OLiveResultListener {
 
-  private OClientConnection   connection;
-  private final AtomicBoolean empty       = new AtomicBoolean(true);
-  private final int           sessionId;
-  private final Set<ORID>     alreadySent = new HashSet<ORID>();
-  private OClientSessions     session;
+  private       OClientConnection connection;
+  private final AtomicBoolean     empty       = new AtomicBoolean(true);
+  private final int               sessionId;
+  private final Set<ORID>         alreadySent = new HashSet<ORID>();
+  private       OClientSessions   session;
 
   public OLiveCommandResultListener(OServer server, final OClientConnection connection,
       OCommandResultListener wrappedResultListener) {
@@ -238,9 +238,9 @@ public class OLiveCommandResultListener extends OAbstractCommandResultListener i
     out.writeInt(bytes.length);
     out.write(bytes);
   }
-  
+
   @Override
   public void linkdedBySimpleValue(ODocument doc) {
-    
+
   }
 }

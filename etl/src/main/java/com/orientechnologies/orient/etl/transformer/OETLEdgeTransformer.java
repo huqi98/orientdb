@@ -37,11 +37,11 @@ import java.util.List;
 import java.util.logging.Level;
 
 public class OETLEdgeTransformer extends OETLAbstractLookupTransformer {
-  private String  edgeClass    = "E";
-  private boolean directionOut = true;
+  private String    edgeClass      = "E";
+  private boolean   directionOut   = true;
   private ODocument targetVertexFields;
   private ODocument edgeFields;
-  private boolean skipDuplicates = false;
+  private boolean   skipDuplicates = false;
 
   @Override
   public ODocument getConfiguration() {
@@ -102,7 +102,7 @@ public class OETLEdgeTransformer extends OETLAbstractLookupTransformer {
       if (o instanceof OVertex)
         vertex = (OVertex) o;
       else if (o instanceof OIdentifiable)
-        vertex = ((OElement)db.getRecord((OIdentifiable) o)).asVertex().get();
+        vertex = ((OElement) db.getRecord((OIdentifiable) o)).asVertex().get();
       else
         throw new OETLTransformException(getName() + ": input type '" + o + "' is not supported");
 

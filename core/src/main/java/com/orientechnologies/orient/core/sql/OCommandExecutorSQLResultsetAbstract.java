@@ -95,8 +95,8 @@ public abstract class OCommandExecutorSQLResultsetAbstract extends OCommandExecu
         indexValuesIterator = database.getMetadata().getIndexManagerInternal().getIndex(database, indexName).getInternal().stream()
             .map((pair) -> pair.second).iterator();
       } else
-        indexValuesIterator = database.getMetadata().getIndexManagerInternal().getIndex(database, indexName).getInternal().descStream()
-            .map((pair) -> pair.second).iterator();
+        indexValuesIterator = database.getMetadata().getIndexManagerInternal().getIndex(database, indexName).getInternal()
+            .descStream().map((pair) -> pair.second).iterator();
     }
 
     @Override
@@ -163,7 +163,6 @@ public abstract class OCommandExecutorSQLResultsetAbstract extends OCommandExecu
    * Assign the right TARGET if found.
    *
    * @param iArgs Parameters to bind
-   *
    * @return true if the target has been recognized, otherwise false
    */
   protected boolean assignTarget(final Map<Object, Object> iArgs) {
@@ -309,9 +308,7 @@ public abstract class OCommandExecutorSQLResultsetAbstract extends OCommandExecu
    * Parses the limit keyword if found.
    *
    * @param w
-   *
    * @return the limit found as integer, or -1 if no limit is found. -1 means no limits.
-   *
    * @throws OCommandSQLParsingException if no valid limit has been found
    */
   protected int parseLimit(final String w) throws OCommandSQLParsingException {
@@ -337,9 +334,7 @@ public abstract class OCommandExecutorSQLResultsetAbstract extends OCommandExecu
    * Parses the skip keyword if found.
    *
    * @param w
-   *
    * @return the skip found as integer, or -1 if no skip is found. -1 means no skip.
-   *
    * @throws OCommandSQLParsingException if no valid skip has been found
    */
   protected int parseSkip(final String w) throws OCommandSQLParsingException {
@@ -534,7 +529,6 @@ public abstract class OCommandExecutorSQLResultsetAbstract extends OCommandExecu
    * Check function arguments and pre calculate it if possible
    *
    * @param function
-   *
    * @return optimized function, same function if no change
    */
   protected Object optimizeFunction(OSQLFunctionRuntime function) {

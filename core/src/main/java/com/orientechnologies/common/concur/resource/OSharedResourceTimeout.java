@@ -33,13 +33,12 @@ import com.orientechnologies.common.concur.OTimeoutException;
 
 /**
  * Shared resource. Sub classes can acquire and release shared and exclusive locks.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public abstract class OSharedResourceTimeout {
   private final ReadWriteLock lock = new ReentrantReadWriteLock();
-  protected int               timeout;
+  protected     int           timeout;
 
   public OSharedResourceTimeout(final int timeout) {
     this.timeout = timeout;
@@ -86,8 +85,9 @@ public abstract class OSharedResourceTimeout {
   private void throwTimeoutException(Lock lock) {
     final String owner = extractLockOwnerStackTrace(lock);
 
-    throw new OTimeoutException("Timeout on acquiring exclusive lock against resource of class: " + getClass() + " with timeout="
-        + timeout + (owner != null ? "\n" + owner : ""));
+    throw new OTimeoutException(
+        "Timeout on acquiring exclusive lock against resource of class: " + getClass() + " with timeout=" + timeout + (
+            owner != null ? "\n" + owner : ""));
   }
 
   private String extractLockOwnerStackTrace(Lock lock) {

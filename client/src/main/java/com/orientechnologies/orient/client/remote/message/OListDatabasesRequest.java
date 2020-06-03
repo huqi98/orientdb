@@ -39,7 +39,7 @@ public class OListDatabasesRequest implements OBinaryRequest<OListDatabasesRespo
   public String getDescription() {
     return "List Databases";
   }
-  
+
   @Override
   public boolean requireDatabaseSession() {
     return false;

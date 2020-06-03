@@ -22,8 +22,8 @@ package com.orientechnologies.orient.core.sharding.auto;
 /**
  * Auto-sharding strategy interface.
  *
- * @since 3.0
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
+ * @since 3.0
  */
 public interface OAutoShardingStrategy {
   int getPartitionsId(Object iKey, int partitionSize);

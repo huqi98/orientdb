@@ -19,8 +19,8 @@ public class OCreateViewStatement extends ODDLStatement {
 
   protected OIdentifier name;
   protected OStatement  statement;
-  protected boolean ifNotExists = false;
-  protected OJson metadata;
+  protected boolean     ifNotExists = false;
+  protected OJson       metadata;
 
   public OCreateViewStatement(int id) {
     super(id);

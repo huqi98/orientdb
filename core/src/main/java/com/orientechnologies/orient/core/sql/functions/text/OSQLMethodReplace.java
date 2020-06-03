@@ -22,7 +22,7 @@ import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
 /**
  * Replaces all the occurrences.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */

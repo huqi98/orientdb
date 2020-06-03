@@ -23,38 +23,38 @@ import org.testng.annotations.Test;
 
 @Test
 public class SetupTest {
-	private String						url;
-	private boolean						reuseDatabase	= false;
+  private String  url;
+  private boolean reuseDatabase = false;
 
-	private static SetupTest	instance;
+  private static SetupTest instance;
 
-	@Parameters(value = { "url", "reuseDatabase" })
-	public SetupTest(String iURL, @Optional boolean iReuseDatabase) {
-		instance = this;
+  @Parameters(value = { "url", "reuseDatabase" })
+  public SetupTest(String iURL, @Optional boolean iReuseDatabase) {
+    instance = this;
 
-		url = iURL;
-		reuseDatabase = iReuseDatabase;
-	}
+    url = iURL;
+    reuseDatabase = iReuseDatabase;
+  }
 
-	public void init() {
-		new File(url).delete();
-	}
+  public void init() {
+    new File(url).delete();
+  }
 
-	public String getURL() {
-		if (url != null)
-			return url;
+  public String getURL() {
+    if (url != null)
+      return url;
 
-		return System.getProperty("url");
-	}
+    return System.getProperty("url");
+  }
 
-	public boolean isReuseDatabase() {
-		return reuseDatabase;
-	}
+  public boolean isReuseDatabase() {
+    return reuseDatabase;
+  }
 
-	public static SetupTest instance() {
-		if (instance == null)
-			instance = new SetupTest(null, false);
+  public static SetupTest instance() {
+    if (instance == null)
+      instance = new SetupTest(null, false);
 
-		return instance;
-	}
+    return instance;
+  }
 }

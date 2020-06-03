@@ -59,7 +59,6 @@ public class OCreateSecurityPolicyStatement extends OSimpleExecStatement {
     }
     security.saveSecurityPolicy(db, policy);
 
-
     OResultInternal result = new OResultInternal();
     result.setProperty("operation", "create security policy");
     result.setProperty("name", name.getStringValue());
@@ -147,16 +146,14 @@ public class OCreateSecurityPolicyStatement extends OSimpleExecStatement {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OCreateSecurityPolicyStatement that = (OCreateSecurityPolicyStatement) o;
-    return Objects.equals(name, that.name) &&
-            Objects.equals(create, that.create) &&
-            Objects.equals(read, that.read) &&
-            Objects.equals(beforeUpdate, that.beforeUpdate) &&
-            Objects.equals(afterUpdate, that.afterUpdate) &&
-            Objects.equals(delete, that.delete) &&
-            Objects.equals(execute, that.execute);
+    return Objects.equals(name, that.name) && Objects.equals(create, that.create) && Objects.equals(read, that.read) && Objects
+        .equals(beforeUpdate, that.beforeUpdate) && Objects.equals(afterUpdate, that.afterUpdate) && Objects
+        .equals(delete, that.delete) && Objects.equals(execute, that.execute);
   }
 
   @Override

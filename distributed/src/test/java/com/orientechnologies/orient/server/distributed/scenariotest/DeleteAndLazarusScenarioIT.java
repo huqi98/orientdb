@@ -88,9 +88,8 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
       e.printStackTrace();
       fail("Record r1 not inserted!.");
     } finally {
-     	dbServer1.close();
+      dbServer1.close();
     }
-    
 
     waitForInsertedRecordPropagation("R001");
 
@@ -101,15 +100,15 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
 
     final ORecordId r1Rid = (ORecordId) r1onServer1.getIdentity();
 
-    assertEquals((Integer)r1onServer1.field("@version"), (Integer)r1onServer2.field("@version"));
-    assertEquals((String)r1onServer1.field("id"), (String)r1onServer2.field("id"));
-    assertEquals((String)r1onServer1.field("firstName"), (String)r1onServer2.field("firstName"));
-    assertEquals((String)r1onServer1.field("lastName"), (String)r1onServer2.field("lastName"));
+    assertEquals((Integer) r1onServer1.field("@version"), (Integer) r1onServer2.field("@version"));
+    assertEquals((String) r1onServer1.field("id"), (String) r1onServer2.field("id"));
+    assertEquals((String) r1onServer1.field("firstName"), (String) r1onServer2.field("firstName"));
+    assertEquals((String) r1onServer1.field("lastName"), (String) r1onServer2.field("lastName"));
 
-    assertEquals((Integer)r1onServer2.field("@version"),(Integer) r1onServer3.field("@version"));
-    assertEquals((String)r1onServer2.field("id"), (String)r1onServer3.field("id"));
-    assertEquals((String)r1onServer2.field("firstName"), (String)r1onServer3.field("firstName"));
-    assertEquals((String)r1onServer2.field("lastName"),(String) r1onServer3.field("lastName"));
+    assertEquals((Integer) r1onServer2.field("@version"), (Integer) r1onServer3.field("@version"));
+    assertEquals((String) r1onServer2.field("id"), (String) r1onServer3.field("id"));
+    assertEquals((String) r1onServer2.field("firstName"), (String) r1onServer3.field("firstName"));
+    assertEquals((String) r1onServer2.field("lastName"), (String) r1onServer3.field("lastName"));
 
     System.out.println("\tDone.");
 
@@ -135,7 +134,8 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
       e.printStackTrace();
       fail();
     } finally {
-     	if(dbServer3 != null) dbServer3.close();
+      if (dbServer3 != null)
+        dbServer3.close();
     }
 
     // restarting server3
@@ -158,21 +158,21 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
     r1onServer1 = retrieveRecord(serverInstance.get(0), "R001");
     r1onServer2 = retrieveRecord(serverInstance.get(1), "R001");
 
-    assertEquals(1, (int)r1onServer1.field("@version"));
-    assertEquals("R001", (String)r1onServer1.field("id"));
-    assertEquals("Luke", (String)r1onServer1.field("firstName"));
-    assertEquals("Skywalker", (String)r1onServer1.field("lastName"));
+    assertEquals(1, (int) r1onServer1.field("@version"));
+    assertEquals("R001", (String) r1onServer1.field("id"));
+    assertEquals("Luke", (String) r1onServer1.field("firstName"));
+    assertEquals("Skywalker", (String) r1onServer1.field("lastName"));
 
-    assertEquals((Integer)r1onServer1.field("@version"), (Integer)r1onServer2.field("@version"));
-    assertEquals((String)r1onServer1.field("id"), r1onServer2.field("id"));
-    assertEquals((String)r1onServer1.field("firstName"), r1onServer2.field("firstName"));
-    assertEquals((String)r1onServer1.field("lastName"), r1onServer2.field("lastName"));
+    assertEquals((Integer) r1onServer1.field("@version"), (Integer) r1onServer2.field("@version"));
+    assertEquals((String) r1onServer1.field("id"), r1onServer2.field("id"));
+    assertEquals((String) r1onServer1.field("firstName"), r1onServer2.field("firstName"));
+    assertEquals((String) r1onServer1.field("lastName"), r1onServer2.field("lastName"));
 
     // checking we have different values for r1* on server3
-    assertEquals("R001", (String)r1onServer3.field("id"));
-    assertEquals("Darth", (String)r1onServer3.field("firstName"));
-    assertEquals("Vader", (String)r1onServer3.field("lastName"));
-    assertEquals(initialVersion + 1, (int)r1onServer3.field("@version"));
+    assertEquals("R001", (String) r1onServer3.field("id"));
+    assertEquals("Darth", (String) r1onServer3.field("firstName"));
+    assertEquals("Vader", (String) r1onServer3.field("lastName"));
+    assertEquals(initialVersion + 1, (int) r1onServer3.field("@version"));
 
     // shutdown server1
     System.out.println("Network fault on server1.\n");
@@ -198,10 +198,10 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
     r1onServer1 = retrieveRecord(serverInstance.get(0), "R001");
     r1onServer2 = retrieveRecord(serverInstance.get(1), "R001");
 
-    assertEquals(1, (int)r1onServer1.field("@version"));
-    assertEquals("R001", (String)r1onServer1.field("id"));
-    assertEquals("Luke", (String)r1onServer1.field("firstName"));
-    assertEquals("Skywalker", (String)r1onServer1.field("lastName"));
+    assertEquals(1, (int) r1onServer1.field("@version"));
+    assertEquals("R001", (String) r1onServer1.field("id"));
+    assertEquals("Luke", (String) r1onServer1.field("firstName"));
+    assertEquals("Skywalker", (String) r1onServer1.field("lastName"));
 
     assertEquals(r1onServer1.field("@version"), r1onServer2.field("@version"));
     assertEquals(r1onServer1.field("id"), r1onServer2.field("id"));
@@ -211,10 +211,10 @@ public class DeleteAndLazarusScenarioIT extends AbstractScenarioTest {
     // r1* is still present on server3
     r1onServer3 = retrieveRecord(serverInstance.get(2), "R001");
 
-    assertEquals(2, (int)r1onServer3.field("@version"));
-    assertEquals("R001", (String)r1onServer3.field("id"));
-    assertEquals("Darth", (String)r1onServer3.field("firstName"));
-    assertEquals("Vader", (String)r1onServer3.field("lastName"));
+    assertEquals(2, (int) r1onServer3.field("@version"));
+    assertEquals("R001", (String) r1onServer3.field("id"));
+    assertEquals("Darth", (String) r1onServer3.field("firstName"));
+    assertEquals("Vader", (String) r1onServer3.field("lastName"));
 
     // delete request on server1 for r1
     dbServer1 = getDatabase(0);

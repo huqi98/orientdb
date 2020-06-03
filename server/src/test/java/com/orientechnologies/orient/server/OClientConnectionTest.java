@@ -30,13 +30,13 @@ public class OClientConnectionTest {
   private ONetworkProtocolBinary    protocol;
 
   @Mock
-  private ONetworkProtocolBinary    protocol1;
+  private ONetworkProtocolBinary protocol1;
 
   @Mock
-  private OClientConnectionManager  manager;
+  private OClientConnectionManager manager;
 
   @Mock
-  private OServer                   server;
+  private OServer server;
 
   @Before
   public void before() {

@@ -21,9 +21,9 @@ public interface OBaseIndexEngine {
 
   void flush();
 
-  void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes, boolean nullPointerSupport,
-      OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties, OEncryption encryption)
-      throws IOException;
+  void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes,
+      boolean nullPointerSupport, OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties,
+      OEncryption encryption) throws IOException;
 
   void delete(OAtomicOperation atomicOperation) throws IOException;
 
@@ -61,7 +61,6 @@ public interface OBaseIndexEngine {
    * infer a more narrow lock scope, but that is not a requirement.
    *
    * @param key the index key to lock.
-   *
    * @return {@code true} if this index was locked entirely, {@code false} if this index locking is sensitive to the provided {@code
    * key} and only some subset of this index was locked.
    */
@@ -95,7 +94,6 @@ public interface OBaseIndexEngine {
      * @param key      the put operation key.
      * @param oldValue the old value or {@code null} if no value is currently stored.
      * @param newValue the new value passed to validatedPut(Object, OIdentifiable, Validator).
-     *
      * @return the new value to store, may differ from the passed one, or the special {@link #IGNORE} value to silently ignore the
      * put operation request being processed.
      */

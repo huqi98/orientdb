@@ -117,7 +117,6 @@ public abstract class ODatabasePoolBase<DB extends ODatabaseInternal> extends Th
    * @param iName         Database name
    * @param iUserName     User name
    * @param iUserPassword User password
-   *
    * @return A pooled database instance
    */
   public DB acquire(final String iName, final String iUserName, final String iUserPassword) {
@@ -131,7 +130,6 @@ public abstract class ODatabasePoolBase<DB extends ODatabaseInternal> extends Th
    *
    * @param name     Source name.
    * @param userName User name which is used to acquire source.
-   *
    * @return amount of available connections which you can acquire for given source and user name.
    */
   public int getAvailableConnections(final String name, final String userName) {
@@ -150,7 +148,6 @@ public abstract class ODatabasePoolBase<DB extends ODatabaseInternal> extends Th
    * @param iName         Database name
    * @param iUserName     User name
    * @param iUserPassword User password
-   *
    * @return A pooled database instance
    */
   public DB acquire(final String iName, final String iUserName, final String iUserPassword,

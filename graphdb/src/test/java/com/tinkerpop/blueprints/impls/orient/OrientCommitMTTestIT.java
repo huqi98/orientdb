@@ -21,24 +21,24 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 import com.tinkerpop.blueprints.Vertex;
 
 public class OrientCommitMTTestIT {
-  public static final String        DB_URL           = "plocal:./avltreetest";
-  public static final String        DB_USER          = "admin";
-  public static final String        DB_PASSWORD      = "admin";
-  private static final String       TEST_CLASS       = "ORIENT_COMMIT_TEST";
-  private static final String       THREAD_ID        = "ThreadId";
-  private static final String       ID               = "IdField";
+  public static final  String DB_URL      = "plocal:./avltreetest";
+  public static final  String DB_USER     = "admin";
+  public static final  String DB_PASSWORD = "admin";
+  private static final String TEST_CLASS  = "ORIENT_COMMIT_TEST";
+  private static final String THREAD_ID   = "ThreadId";
+  private static final String ID          = "IdField";
 
-  private String                    failureMessage   = "";
-  private boolean                   isValidData;
-  private TestExecutor[]            threads;
+  private String         failureMessage = "";
+  private boolean        isValidData;
+  private TestExecutor[] threads;
 
-  final int                         threadCount      = 5;
-  final int                         maxSleepTime     = 100;
-  final int                         maxOpCount       = 6;
-  final int                         initialCacheSize = 10;
-  final AtomicInteger               idGenerator      = new AtomicInteger(1);
+  final int           threadCount      = 5;
+  final int           maxSleepTime     = 100;
+  final int           maxOpCount       = 6;
+  final int           initialCacheSize = 10;
+  final AtomicInteger idGenerator      = new AtomicInteger(1);
 
-  private static Random             random           = new Random();
+  private static Random             random = new Random();
   private static OrientGraphFactory factory;
 
   @Before
@@ -149,10 +149,7 @@ public class OrientCommitMTTestIT {
     return this.failureMessage;
   }
 
-  private void executeTest(final int threadCount,
-      final int maxSleepTime,
-      final int maxOpCount,
-      final int initialCacheSize,
+  private void executeTest(final int threadCount, final int maxSleepTime, final int maxOpCount, final int initialCacheSize,
       final int runtimeInMin) {
     CountDownLatch endLatch = new CountDownLatch(threadCount);
 
@@ -193,10 +190,10 @@ public class OrientCommitMTTestIT {
   }
 
   class TestExecutor implements Runnable {
-    private int                  maxSleepTime;
+    private       int            maxSleepTime;
     private final CountDownLatch endLatch;
-    private boolean              shutdown;
-    private int                  maxOpCount;
+    private       boolean        shutdown;
+    private       int            maxOpCount;
     private final List<IdPair>   cache;
     private final int            threadId;
 
@@ -269,8 +266,9 @@ public class OrientCommitMTTestIT {
         } catch (Exception e) {
           graph.rollback();
           tempCache.clear();
-          System.out.println("ThreadId: " + this.threadId + " Rolling back transaction due to " + e.getClass().getSimpleName()
-              + " " + e.getMessage());
+          System.out.println(
+              "ThreadId: " + this.threadId + " Rolling back transaction due to " + e.getClass().getSimpleName() + " " + e
+                  .getMessage());
           e.printStackTrace(System.out);
         }
         // update permanent cache from temp cache
@@ -351,9 +349,8 @@ public class OrientCommitMTTestIT {
     /**
      * Add id from the temp cache with insert operation to permanent cache. Remove id from permanent cache that has a delete
      * operation in the temp cache.
-     * 
-     * @param tempCache
-     *          cached objects
+     *
+     * @param tempCache cached objects
      */
     private void updateCache(final List<TempCacheObject> tempCache) {
       for (TempCacheObject tempCacheObject : tempCache) {

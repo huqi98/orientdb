@@ -33,8 +33,8 @@ public enum OChecksumMode {
   Off,
 
   /**
-   * Checksums are calculated and stored on page flushes, no verification is done on page loads, stored checksums are verified
-   * only during user-initiated health checks.
+   * Checksums are calculated and stored on page flushes, no verification is done on page loads, stored checksums are verified only
+   * during user-initiated health checks.
    */
   Store,
 
@@ -51,8 +51,8 @@ public enum OChecksumMode {
   StoreAndThrow,
 
   /**
-   * Same as {@link OChecksumMode#StoreAndVerify} with addition that storage will be switched in read only mode
-   * till it will not be repaired.
+   * Same as {@link OChecksumMode#StoreAndVerify} with addition that storage will be switched in read only mode till it will not be
+   * repaired.
    */
   StoreAndSwitchReadOnlyMode
 

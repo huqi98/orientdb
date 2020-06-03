@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.network.protocol.http.command.post;
@@ -53,8 +53,9 @@ public class OServerCommandPostKillDbConnection extends OServerCommandAuthentica
         }
       }
     }
-    iResponse.send(OHttpUtils.STATUS_OK_NOCONTENT_CODE, OHttpUtils.STATUS_OK_NOCONTENT_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN,
-        null, null);
+    iResponse
+        .send(OHttpUtils.STATUS_OK_NOCONTENT_CODE, OHttpUtils.STATUS_OK_NOCONTENT_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN, null,
+            null);
   }
 
   @Override

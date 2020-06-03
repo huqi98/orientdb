@@ -22,7 +22,7 @@ public class OCommandExecutorSQLDeleteEdgeTest {
   private static ODatabaseDocumentTx db;
   private static ORID                folderId1;
   private static ORID                userId1;
-  private List<OIdentifiable>        edges;
+  private        List<OIdentifiable> edges;
 
   @BeforeClass
   public static void init() throws Exception {
@@ -77,9 +77,8 @@ public class OCommandExecutorSQLDeleteEdgeTest {
 
   @Test
   public void testFromSelectToSelect() throws Exception {
-    final int res = (Integer) db
-        .command(new OCommandSQL(
-            "delete edge CanAccess from ( select from User where username = 'gongolo' ) to ( select from Folder where keyId = '01234567893' )"))
+    final int res = (Integer) db.command(new OCommandSQL(
+        "delete edge CanAccess from ( select from User where username = 'gongolo' ) to ( select from Folder where keyId = '01234567893' )"))
         .execute();
     Assert.assertEquals(res, 1);
     Assert.assertTrue(db.query(new OSQLSynchQuery<Object>("select flatten(out(CanAccess)) from " + userId1)).isEmpty());

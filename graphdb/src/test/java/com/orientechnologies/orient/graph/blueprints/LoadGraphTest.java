@@ -11,8 +11,8 @@ public class LoadGraphTest {
 
   private static final String INPUT_FILE = "src/test/resources/graph-example-2.xml";
 
-  private String              inputFile  = INPUT_FILE;
-  private String              dbURL;
+  private String inputFile = INPUT_FILE;
+  private String dbURL;
 
   @Test
   public void testImport() throws IOException, FileNotFoundException {

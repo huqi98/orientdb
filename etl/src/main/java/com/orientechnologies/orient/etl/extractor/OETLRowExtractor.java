@@ -30,8 +30,8 @@ import java.util.NoSuchElementException;
 public class OETLRowExtractor extends OETLAbstractSourceExtractor {
   protected BufferedReader    bReader;
   protected OETLExtractedItem next;
-  protected boolean multiLine = true;
-  protected String  lineFeed  = "\r\n";
+  protected boolean           multiLine = true;
+  protected String            lineFeed  = "\r\n";
 
   @Override
   public String getName() {

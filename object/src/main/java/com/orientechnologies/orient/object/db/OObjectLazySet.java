@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
 import javassist.util.proxy.ProxyObject;
 
 import com.orientechnologies.orient.core.db.ODatabaseRecordThreadLocal;
@@ -36,20 +37,19 @@ import com.orientechnologies.orient.object.enhancement.OObjectProxyMethodHandler
 /**
  * Lazy implementation of Set. It's bound to a source ORecord object to keep track of changes. This avoid to call the makeDirty() by
  * hand when the set is changed.
- * 
+ *
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 @SuppressWarnings("unchecked")
-public class OObjectLazySet<TYPE> extends HashSet<TYPE> implements OLazyObjectSetInterface<TYPE>,
-    OObjectLazyMultivalueElement<Set<TYPE>>, Serializable {
-  private static final long        serialVersionUID = 1793910544017627989L;
+public class OObjectLazySet<TYPE> extends HashSet<TYPE>
+    implements OLazyObjectSetInterface<TYPE>, OObjectLazyMultivalueElement<Set<TYPE>>, Serializable {
+  private static final long serialVersionUID = 1793910544017627989L;
 
   private final ProxyObject        sourceRecord;
   private final Set<OIdentifiable> underlying;
-  private String                   fetchPlan;
-  private boolean                  converted        = false;
-  private boolean                  convertToRecord  = true;
+  private       String             fetchPlan;
+  private       boolean            converted       = false;
+  private       boolean            convertToRecord = true;
   private final boolean            orphanRemoval;
 
   public OObjectLazySet(final Object iSourceRecord, final Set<OIdentifiable> iRecordSource, final boolean orphanRemoval) {
@@ -252,10 +252,10 @@ public class OObjectLazySet<TYPE> extends HashSet<TYPE> implements OLazyObjectSe
     for (Object e : copy) {
       if (e != null) {
         if (e instanceof ORID)
-          add((TYPE) database.getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan),
-                  fetchPlan));
+          add((TYPE) database
+              .getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan), fetchPlan));
         else if (e instanceof ODocument)
-          add((TYPE)database.getUserObjectByRecord((ORecord) e, fetchPlan));
+          add((TYPE) database.getUserObjectByRecord((ORecord) e, fetchPlan));
         else
           add((TYPE) e);
       }
@@ -274,8 +274,8 @@ public class OObjectLazySet<TYPE> extends HashSet<TYPE> implements OLazyObjectSe
     for (Object e : copy) {
       if (e != null) {
         if (e instanceof ORID)
-          super.add((TYPE)database.getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan),
-              fetchPlan));
+          super.add((TYPE) database
+              .getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan), fetchPlan));
         else if (e instanceof ODocument)
           super.add((TYPE) database.getUserObjectByRecord((ORecord) e, fetchPlan));
         else
@@ -285,7 +285,8 @@ public class OObjectLazySet<TYPE> extends HashSet<TYPE> implements OLazyObjectSe
     converted = true;
   }
 
-  protected void convertAndDetachAll(boolean nonProxiedInstance, Map<Object, Object> alreadyDetached, Map<Object, Object> lazyObjects) {
+  protected void convertAndDetachAll(boolean nonProxiedInstance, Map<Object, Object> alreadyDetached,
+      Map<Object, Object> lazyObjects) {
     if (converted || !convertToRecord)
       return;
 
@@ -295,8 +296,8 @@ public class OObjectLazySet<TYPE> extends HashSet<TYPE> implements OLazyObjectSe
     for (Object e : copy) {
       if (e != null) {
         if (e instanceof ORID) {
-          e = database.getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan),
-                  fetchPlan);
+          e = database
+              .getUserObjectByRecord(((ODatabaseDocument) getDatabase().getUnderlying()).load((ORID) e, fetchPlan), fetchPlan);
           super.add((TYPE) ((OObjectDatabaseTx) getDatabase()).detachAll(e, nonProxiedInstance, alreadyDetached, lazyObjects));
         } else if (e instanceof ODocument) {
           e = database.getUserObjectByRecord((ORecord) e, fetchPlan);

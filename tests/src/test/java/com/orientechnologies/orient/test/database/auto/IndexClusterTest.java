@@ -15,11 +15,10 @@ import static org.testng.Assert.assertEquals;
 @Test(groups = { "index" })
 public class IndexClusterTest extends DocumentDBBaseTest {
 
-	@Parameters(value = "url")
-	public IndexClusterTest(@Optional String url) {
-		super(url);
-	}
-
+  @Parameters(value = "url")
+  public IndexClusterTest(@Optional String url) {
+    super(url);
+  }
 
   @Test
   public void indexAfterRebuildShouldIncludeAllClusters() {

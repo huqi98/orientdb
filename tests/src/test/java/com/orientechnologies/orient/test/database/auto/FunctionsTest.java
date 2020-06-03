@@ -128,10 +128,8 @@ public class FunctionsTest extends DocumentDBBaseTest {
 
   @Test
   public void testFunctionDefinitionAndCallWithParams() {
-    database
-        .command(
-            new OCommandSQL(
-                "create function testParams \"return 'Hello ' + name + ' ' + surname + ' from ' + country;\" PARAMETERS [name,surname,country] LANGUAGE Javascript"))
+    database.command(new OCommandSQL(
+        "create function testParams \"return 'Hello ' + name + ' ' + surname + ' from ' + country;\" PARAMETERS [name,surname,country] LANGUAGE Javascript"))
         .execute();
 
     OLegacyResultSet<OIdentifiable> res1 = database.command(new OCommandSQL("select testParams('Jay', 'Miner', 'USA')")).execute();
@@ -151,10 +149,8 @@ public class FunctionsTest extends DocumentDBBaseTest {
 
   @Test
   public void testMapParamToFunction() {
-    database
-        .command(
-            new OCommandSQL(
-                "create function testMapParamToFunction \"return mapParam.get('foo')[0];\" PARAMETERS [mapParam] LANGUAGE Javascript"))
+    database.command(new OCommandSQL(
+        "create function testMapParamToFunction \"return mapParam.get('foo')[0];\" PARAMETERS [mapParam] LANGUAGE Javascript"))
         .execute();
 
     Map<String, Object> params = new HashMap<String, Object>();
@@ -165,7 +161,8 @@ public class FunctionsTest extends DocumentDBBaseTest {
     theMap.put("foo", theList);
     params.put("theParam", theMap);
 
-    OLegacyResultSet<OIdentifiable> res1 = database.command(new OCommandSQL("select testMapParamToFunction(:theParam) as a")).execute(params);
+    OLegacyResultSet<OIdentifiable> res1 = database.command(new OCommandSQL("select testMapParamToFunction(:theParam) as a"))
+        .execute(params);
     Assert.assertNotNull(res1);
     Assert.assertNotNull(res1.get(0));
     Assert.assertEquals(((ODocument) res1.get(0)).field("a"), "bar");

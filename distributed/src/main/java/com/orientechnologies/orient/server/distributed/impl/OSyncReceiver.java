@@ -14,17 +14,18 @@ import java.io.*;
 import java.util.concurrent.CountDownLatch;
 
 public class OSyncReceiver implements Runnable {
-  private       ODistributedAbstractPlugin            distributed;
-  private final String                                databaseName;
-  private final ODistributedDatabaseChunk             firstChunk;
-  private final String                                iNode;
-  private final String                                dbPath;
-  private final CountDownLatch                        done    = new CountDownLatch(1);
-  private final CountDownLatch                        started = new CountDownLatch(1);
-  private       PipedOutputStream                     output;
-  private       PipedInputStream                      inputStream;
+  private       ODistributedAbstractPlugin distributed;
+  private final String                     databaseName;
+  private final ODistributedDatabaseChunk  firstChunk;
+  private final String                     iNode;
+  private final String                     dbPath;
+  private final CountDownLatch             done    = new CountDownLatch(1);
+  private final CountDownLatch             started = new CountDownLatch(1);
+  private       PipedOutputStream          output;
+  private       PipedInputStream           inputStream;
 
-  public OSyncReceiver(ODistributedAbstractPlugin distributed, String databaseName, ODistributedDatabaseChunk firstChunk, String iNode, String dbPath) {
+  public OSyncReceiver(ODistributedAbstractPlugin distributed, String databaseName, ODistributedDatabaseChunk firstChunk,
+      String iNode, String dbPath) {
     this.distributed = distributed;
     this.databaseName = databaseName;
     this.firstChunk = firstChunk;

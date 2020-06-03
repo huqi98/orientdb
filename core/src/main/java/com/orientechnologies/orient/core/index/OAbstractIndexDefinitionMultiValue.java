@@ -24,7 +24,8 @@ import java.util.Map;
 import com.orientechnologies.orient.core.metadata.schema.OType;
 
 /**
- * Base class for all multivalue index definitions that contains base functionality which can be reused by concrete implementations.
+ * Base class for all multivalue index definitions that contains base functionality which can be reused by concrete
+ * implementations.
  */
 public abstract class OAbstractIndexDefinitionMultiValue extends OPropertyIndexDefinition implements OIndexDefinitionMultiValue {
   protected OAbstractIndexDefinitionMultiValue() {

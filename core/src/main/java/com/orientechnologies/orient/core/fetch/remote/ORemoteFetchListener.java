@@ -26,11 +26,10 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
  * Fetch listener for {@class ONetworkBinaryProtocol} class
- * 
+ * <p>
  * Whenever a record has to be fetched it will be added to the list of records to send
- * 
+ *
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public abstract class ORemoteFetchListener implements OFetchListener {
   public boolean requireFieldProcessing() {

@@ -40,19 +40,10 @@ import java.util.concurrent.Future;
 import static org.junit.Assert.*;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server (quorum=2)
- * - network fault on server3
- * - 5 threads for each running server write 100 records
- * - writes on server1 and server2 succeeds, writes on server3 are redirected
- * - restart server3
- * - check consistency
- * - changing quorum (quorum=3)
- * - network fault on server3
- * - writes on server1 and server2 don't succeed
- * - restart server3
- * - 5 threads for each running server write 100 records
- * - check consistency
+ * It checks the consistency in the cluster with the following scenario: - 3 server (quorum=2) - network fault on server3 - 5
+ * threads for each running server write 100 records - writes on server1 and server2 succeeds, writes on server3 are redirected -
+ * restart server3 - check consistency - changing quorum (quorum=3) - network fault on server3 - writes on server1 and server2 don't
+ * succeed - restart server3 - 5 threads for each running server write 100 records - check consistency
  *
  * @author Gabriele Ponzi
  * @email <gabriele.ponzi--at--gmail.com>
@@ -115,7 +106,7 @@ public class ShutdownAndRestartNodeScenarioIT extends AbstractScenarioTest {
     private final String          databaseUrlServer3;
     private       List<ServerRun> serverInstances;
     private       List<ServerRun> executeWritesOnServers;
-    private int initialCount = 0;
+    private       int             initialCount = 0;
 
     public TestQuorum2(List<ServerRun> serverInstances) {
 
@@ -199,7 +190,7 @@ public class ShutdownAndRestartNodeScenarioIT extends AbstractScenarioTest {
     private final String          databaseUrl2;
     private       List<ServerRun> serverInstances;
     private       List<ServerRun> executeWritesOnServers;
-    private int initialCount = 0;
+    private       int             initialCount = 0;
 
     public TestQuorum3(List<ServerRun> serverInstances) {
 

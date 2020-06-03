@@ -21,17 +21,16 @@ import java.util.ArrayList;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OHttpMultipartContentInputStream extends InputStream {
 
-  protected String                        boundary;
+  protected String boundary;
 
   protected OHttpMultipartBaseInputStream wrappedInputStream;
 
-  protected int                           nextByte;
+  protected int nextByte;
 
-  protected boolean                       internalAvailable = true;
+  protected boolean internalAvailable = true;
 
   public OHttpMultipartContentInputStream(OHttpMultipartBaseInputStream in, String iBoundary) throws IOException {
     wrappedInputStream = in;

@@ -19,7 +19,9 @@ public class HttpDisabledTokenTest extends BaseHttpDatabaseTest {
 
   protected String getServerCfg() {
     return "/com/orientechnologies/orient/server/network/orientdb-server-config-httponly-notoken.xml";
-  };
+  }
+
+  ;
 
   @Test
   public void testTokenRequest() throws ClientProtocolException, IOException {

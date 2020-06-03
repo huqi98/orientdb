@@ -34,13 +34,12 @@ import com.orientechnologies.orient.test.domain.business.IdentityChild;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaComplexTestClass {
   @Id
-  private String                    id;
+  private String id;
   @Version
-  private Object                    version;
+  private Object version;
 
   @Embedded
   private ODocument                 embeddedDocument;
@@ -62,14 +61,14 @@ public class JavaComplexTestClass {
   private Map<String, EnumTest>     enumMap            = new HashMap<String, EnumTest>();
 
   @Embedded
-  private List<Child>               embeddedList       = new ArrayList<Child>();
+  private List<Child>        embeddedList     = new ArrayList<Child>();
   @Embedded
-  private Set<Child>                embeddedSet        = new HashSet<Child>();
+  private Set<Child>         embeddedSet      = new HashSet<Child>();
   @Embedded
-  private Map<String, Child>        embeddedChildren   = new HashMap<String, Child>();
+  private Map<String, Child> embeddedChildren = new HashMap<String, Child>();
 
   @Embedded
-  private Map<String, Object>       embeddedObjectMap  = new HashMap<String, Object>();
+  private Map<String, Object> embeddedObjectMap = new HashMap<String, Object>();
 
   public String getName() {
     return name;

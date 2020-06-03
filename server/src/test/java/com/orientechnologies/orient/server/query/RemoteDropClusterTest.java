@@ -19,10 +19,10 @@ import java.io.File;
  */
 public class RemoteDropClusterTest {
 
-  private static final String SERVER_DIRECTORY = "./target/cluster";
-  private OServer           server;
-  private OrientDB          orientDB;
-  private ODatabaseDocument session;
+  private static final String            SERVER_DIRECTORY = "./target/cluster";
+  private              OServer           server;
+  private              OrientDB          orientDB;
+  private              ODatabaseDocument session;
 
   @Before
   public void before() throws Exception {

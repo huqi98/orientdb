@@ -19,8 +19,8 @@ public class OForEachBlock extends OStatement {
 
   static int FOREACH_VARIABLE_PROGR = 0;
 
-  protected OIdentifier loopVariable;
-  protected OExpression loopValues;
+  protected OIdentifier      loopVariable;
+  protected OExpression      loopValues;
   protected List<OStatement> statements = new ArrayList<>();
 
   public OForEachBlock(int id) {
@@ -49,7 +49,7 @@ public class OForEachBlock extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OUpdateExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OUpdateExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     executionPlan.executeInternal();
@@ -69,7 +69,7 @@ public class OForEachBlock extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OUpdateExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OUpdateExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     executionPlan.executeInternal();

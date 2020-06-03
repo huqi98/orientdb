@@ -39,10 +39,10 @@ import java.util.*;
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OCommandExecutorSQLCreateVertex extends OCommandExecutorSQLSetAware implements OCommandDistributedReplicateRequest {
-  public static final String NAME = "CREATE VERTEX";
-  private OClass                      clazz;
-  private String                      clusterName;
-  private List<OPair<String, Object>> fields;
+  public static final String                      NAME = "CREATE VERTEX";
+  private             OClass                      clazz;
+  private             String                      clusterName;
+  private             List<OPair<String, Object>> fields;
 
   @SuppressWarnings("unchecked")
   public OCommandExecutorSQLCreateVertex parse(final OCommandRequest iRequest) {
@@ -129,7 +129,7 @@ public class OCommandExecutorSQLCreateVertex extends OCommandExecutorSQLSetAware
     OSQLHelper.bindParameters(vertex.getRecord(), fields, new OCommandParameters(iArgs), context);
 
     if (content != null)
-      ((ODocument)vertex.getRecord()).merge(content, true, false);
+      ((ODocument) vertex.getRecord()).merge(content, true, false);
 
     if (clusterName != null)
       vertex.save(clusterName);

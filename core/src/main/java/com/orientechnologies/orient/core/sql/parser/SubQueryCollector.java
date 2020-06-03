@@ -16,9 +16,7 @@ import java.util.Map;
  * will become
  * <br><br>
  * <code>
- * select from foo<br>
- * let $$$SUBQUERY$$_0 = (select name from bar)<br>
- * where name in $$$SUBQUERY$$_0
+ * select from foo<br> let $$$SUBQUERY$$_0 = (select name from bar)<br> where name in $$$SUBQUERY$$_0
  * </code>
  * <br>
  *
@@ -48,6 +46,7 @@ public class SubQueryCollector {
     subQueries.put(alias, stm);
     return alias;
   }
+
   public OIdentifier addStatement(OStatement stm) {
     OIdentifier alias = getNextAlias();
     return addStatement(alias, stm);

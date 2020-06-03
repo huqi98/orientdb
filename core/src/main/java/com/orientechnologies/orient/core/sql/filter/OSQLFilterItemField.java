@@ -210,7 +210,6 @@ public class OSQLFilterItemField extends OSQLFilterItemAbstract {
    * Creates {@code FieldChain} in case when filter item can have such representation.
    *
    * @return {@code FieldChain} representation of this filter item.
-   *
    * @throws IllegalStateException if this filter item cannot be represented as {@code FieldChain}.
    */
   public FieldChain getFieldChain() {
@@ -233,7 +232,6 @@ public class OSQLFilterItemField extends OSQLFilterItemAbstract {
    * get the collate of this expression, based on the fully evaluated field chain starting from the passed object.
    *
    * @param doc the root element (document?) of this field chain
-   *
    * @return the collate, null if no collate is defined
    */
   public OCollate getCollate(Object doc) {

@@ -59,7 +59,6 @@ public class OrientJdbcStatement implements Statement {
    * @param iConnection
    * @param resultSetType
    * @param resultSetConcurrency
-   *
    * @throws SQLException
    */
   public OrientJdbcStatement(OrientJdbcConnection iConnection, int resultSetType, int resultSetConcurrency) {

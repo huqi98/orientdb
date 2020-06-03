@@ -128,7 +128,6 @@ public interface OStorage extends OBackupable, OSharedContainer, OStorageInfo {
    * Drops a cluster.
    *
    * @param iId id of the cluster to delete
-   *
    * @return true if has been removed, otherwise false
    */
   boolean dropCluster(int iId);

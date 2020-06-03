@@ -69,7 +69,6 @@ public interface OIndexManager {
    * Returns all indexes registered in database.
    *
    * @return list of registered indexes.
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -79,9 +78,7 @@ public interface OIndexManager {
    * Index by specified name.
    *
    * @param iName name of index
-   *
    * @return index if one registered in database or null otherwise.
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -91,7 +88,6 @@ public interface OIndexManager {
    * Returns the auto-sharding index defined for the class, if any.
    *
    * @param className Class name
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -101,9 +97,7 @@ public interface OIndexManager {
    * Checks if index with specified name exists in database.
    *
    * @param iName name of index.
-   *
    * @return true if index with specified name exists, false otherwise.
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -118,9 +112,7 @@ public interface OIndexManager {
    * @param clusterIdsToIndex ids of clusters that index should track for changes.
    * @param progressListener  listener to track task progress.
    * @param metadata          document with additional properties that can be used by index engine.
-   *
    * @return a newly created index instance
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -139,9 +131,7 @@ public interface OIndexManager {
    * @param progressListener  listener to track task progress.
    * @param metadata          document with additional properties that can be used by index engine.
    * @param algorithm         tip to an index factory what algorithm to use
-   *
    * @return a newly created index instance
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -152,9 +142,7 @@ public interface OIndexManager {
    * Drop index with specified name. Do nothing if such index does not exists.
    *
    * @param iIndexName the name of index to drop
-   *
    * @return this
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -183,7 +171,6 @@ public interface OIndexManager {
    * Return a dictionary index. Could be helpful to store different kinds of configurations.
    *
    * @return a dictionary
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -207,9 +194,7 @@ public interface OIndexManager {
    *
    * @param className name of class which is indexed.
    * @param fields    Field names.
-   *
    * @return list of indexes that contain passed in fields names as their first keys.
-   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -223,7 +208,6 @@ public interface OIndexManager {
    *
    * @param className name of class which is indexed.
    * @param fields    Field names.
-   *
    * @return list of indexes that contain passed in fields names as their first keys.
    * @deprecated Manual indexes are deprecated and will be removed
    */
@@ -236,7 +220,6 @@ public interface OIndexManager {
    *
    * @param className name of class which contain {@code fields}.
    * @param fields    Field names.
-   *
    * @return <code>true</code> if given fields are contained as first key fields in class indexes.
    * @deprecated
    */
@@ -246,9 +229,7 @@ public interface OIndexManager {
   /**
    * @param className name of class which contain {@code fields}.
    * @param fields    Field names.
-   *
    * @return <code>true</code> if given fields are contained as first key fields in class indexes.
-   *
    * @see #areIndexed(String, java.util.Collection)
    * @deprecated Manual indexes are deprecated and will be removed
    */
@@ -259,7 +240,6 @@ public interface OIndexManager {
    * Gets indexes for a specified class (excluding indexes for sub-classes).
    *
    * @param className name of class which is indexed.
-   *
    * @return a set of indexes related to specified class
    * @deprecated Manual indexes are deprecated and will be removed
    */
@@ -278,6 +258,7 @@ public interface OIndexManager {
 
   /**
    * Returns the unique index for a class, if any.
+   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated
@@ -288,7 +269,6 @@ public interface OIndexManager {
    *
    * @param className name of class which is indexed.
    * @param indexName name of index.
-   *
    * @return an index instance or null if such does not exist.
    * @deprecated Manual indexes are deprecated and will be removed
    */
@@ -297,6 +277,7 @@ public interface OIndexManager {
 
   /**
    * Blocks current thread till indexes will be restored.
+   *
    * @deprecated Manual indexes are deprecated and will be removed
    */
   @Deprecated

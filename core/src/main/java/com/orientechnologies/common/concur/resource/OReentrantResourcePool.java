@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * Reentrant implementation of Resource Pool. It manages multiple resource acquisition on thread local map. If you're looking for a
  * Reentrant implementation look at #OReentrantResourcePool.
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com) (a.lomakin--at--orientdb.com)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OResourcePool
@@ -41,8 +41,8 @@ public class OReentrantResourcePool<K, V> extends OResourcePool<K, V> implements
   private volatile ThreadLocal<Map<K, ResourceHolder<V>>> activeResources = new ThreadLocal<Map<K, ResourceHolder<V>>>();
 
   private static final class ResourceHolder<V> {
-    private final V resource;
-    private int     counter = 1;
+    private final V   resource;
+    private       int counter = 1;
 
     private ResourceHolder(V resource) {
       this.resource = resource;

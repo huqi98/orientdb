@@ -22,8 +22,8 @@ package com.orientechnologies.orient.core.db.document;
 import com.orientechnologies.orient.core.db.ODatabasePoolBase;
 
 /**
- * @deprecated use {@link com.orientechnologies.orient.core.db.OPartitionedDatabasePool} or
- *             {@link com.orientechnologies.orient.core.db.OPartitionedDatabasePoolFactory} instead.
+ * @deprecated use {@link com.orientechnologies.orient.core.db.OPartitionedDatabasePool} or {@link
+ * com.orientechnologies.orient.core.db.OPartitionedDatabasePoolFactory} instead.
  */
 @Deprecated
 public class ODatabaseDocumentPool extends ODatabasePoolBase<ODatabaseDocumentTx> {

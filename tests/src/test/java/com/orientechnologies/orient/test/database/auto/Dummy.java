@@ -15,11 +15,10 @@
  */
 package com.orientechnologies.orient.test.database.auto;
 
-
 public class Dummy {
-	@SuppressWarnings("unused")
-	private String	name;
+  @SuppressWarnings("unused")
+  private String name;
 
-	public Dummy() {
-	}
+  public Dummy() {
+  }
 }

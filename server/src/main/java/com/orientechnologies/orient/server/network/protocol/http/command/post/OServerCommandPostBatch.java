@@ -197,7 +197,6 @@ public class OServerCommandPostBatch extends OServerCommandDocumentAbstract {
             params = ((Collection) params).toArray();
           }
 
-
           OResultSet result;
           if (params == null) {
             result = db.execute(language, text.toString());

@@ -15,16 +15,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OCreateSequenceStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OCreateSequenceStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testSimple() {
+  @Test
+  public void testSimple() {
     db.command("CREATE SEQUENCE Sequence1 TYPE ORDERED");
 
     OResultSet results = db.query("select sequence('Sequence1').next() as val");
@@ -49,7 +52,8 @@ public class OCreateSequenceStatementExecutionTest {
     results.close();
   }
 
-  @Test public void testIncrement() {
+  @Test
+  public void testIncrement() {
     db.command("CREATE SEQUENCE SequenceIncrement TYPE ORDERED INCREMENT 3");
 
     OResultSet results = db.query("select sequence('SequenceIncrement').next() as val");
@@ -74,7 +78,8 @@ public class OCreateSequenceStatementExecutionTest {
     results.close();
   }
 
-  @Test public void testStart() {
+  @Test
+  public void testStart() {
     db.command("CREATE SEQUENCE SequenceStart TYPE ORDERED START 3");
 
     OResultSet results = db.query("select sequence('SequenceStart').next() as val");
@@ -100,7 +105,8 @@ public class OCreateSequenceStatementExecutionTest {
 
   }
 
-  @Test public void testStartIncrement() {
+  @Test
+  public void testStartIncrement() {
     db.command("CREATE SEQUENCE SequenceStartIncrement TYPE ORDERED START 3 INCREMENT 10");
 
     OResultSet results = db.query("select sequence('SequenceStartIncrement').next() as val");
@@ -126,7 +132,8 @@ public class OCreateSequenceStatementExecutionTest {
 
   }
 
-  @Test public void testCreateSequenceIfNotExists() {
+  @Test
+  public void testCreateSequenceIfNotExists() {
     db.command("CREATE SEQUENCE SequenceIfNotExists if not exists TYPE ORDERED").close();
 
     OResultSet result = db.command("CREATE SEQUENCE SequenceIfNotExists if not exists TYPE ORDERED");
@@ -135,6 +142,5 @@ public class OCreateSequenceStatementExecutionTest {
     result.close();
 
   }
-
 
 }

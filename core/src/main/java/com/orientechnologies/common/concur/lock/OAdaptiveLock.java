@@ -35,9 +35,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Adaptive class to handle shared resources. It's configurable specifying if it's running in a concurrent environment and allow o
  * specify a maximum timeout to avoid deadlocks.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OAdaptiveLock extends OAbstractLock {
   private final ReentrantLock lock = new ReentrantLock();
@@ -90,8 +89,8 @@ public class OAdaptiveLock extends OAbstractLock {
             }
           }
 
-          throw OException.wrapException(new OLockException("Thread interrupted while waiting for resource of class '" + getClass()
-              + "' with timeout=" + timeout), e);
+          throw OException.wrapException(new OLockException(
+              "Thread interrupted while waiting for resource of class '" + getClass() + "' with timeout=" + timeout), e);
         }
 
         throwTimeoutException(lock);
@@ -110,8 +109,8 @@ public class OAdaptiveLock extends OAbstractLock {
         try {
           return lock.tryLock(iTimeout, iUnit);
         } catch (InterruptedException e) {
-          throw OException.wrapException(new OLockException("Thread interrupted while waiting for resource of class '" + getClass()
-              + "' with timeout=" + timeout), e);
+          throw OException.wrapException(new OLockException(
+              "Thread interrupted while waiting for resource of class '" + getClass() + "' with timeout=" + timeout), e);
         }
       else
         return lock.tryLock();
@@ -137,8 +136,9 @@ public class OAdaptiveLock extends OAbstractLock {
   private void throwTimeoutException(Lock lock) {
     final String owner = extractLockOwnerStackTrace(lock);
 
-    throw new OTimeoutException("Timeout on acquiring exclusive lock against resource of class: " + getClass() + " with timeout="
-        + timeout + (owner != null ? "\n" + owner : ""));
+    throw new OTimeoutException(
+        "Timeout on acquiring exclusive lock against resource of class: " + getClass() + " with timeout=" + timeout + (
+            owner != null ? "\n" + owner : ""));
   }
 
   private String extractLockOwnerStackTrace(Lock lock) {

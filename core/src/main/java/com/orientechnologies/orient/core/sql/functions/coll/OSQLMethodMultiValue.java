@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * Works against multi value objects like collections, maps and arrays.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodMultiValue extends OAbstractSQLMethod {

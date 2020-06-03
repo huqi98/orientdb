@@ -62,7 +62,6 @@ public class ODeleteEdgeStatementExecutionTest {
     Assert.assertEquals(9, rs.stream().count());
     rs.close();
 
-
     db.command("DELETE EDGE " + edgeClassName + " from (SELECT FROM " + vertexClassName + " where name = 'a1') to (SELECT FROM "
         + vertexClassName + " where name = 'a2')").close();
 
@@ -108,7 +107,7 @@ public class ODeleteEdgeStatementExecutionTest {
 
     db.command("DELETE EDGE " + edgeClassName).close();
 
-     rs = db.query("SELECT FROM " + edgeClassName);
+    rs = db.query("SELECT FROM " + edgeClassName);
     Assert.assertEquals(0, rs.stream().count());
     rs.close();
 

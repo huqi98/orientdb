@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 package com.orientechnologies.orient.test.database.speed;
 
@@ -62,8 +62,9 @@ public class LocalCreateVertexSpeedTest extends OrientMonoThreadTest {
   @Override
   @Test(enabled = false)
   public void cycle() {
-    database.addVertex("class:Account", "id", data.getCyclesDone(), "name", "Luca", "surname", "Garulli", "birthDate", date, "salary",
-        3000f + data.getCyclesDone());
+    database
+        .addVertex("class:Account", "id", data.getCyclesDone(), "name", "Luca", "surname", "Garulli", "birthDate", date, "salary",
+            3000f + data.getCyclesDone());
 
     if (data.getCyclesDone() == data.getCycles() - 1)
       database.commit();
@@ -77,5 +78,5 @@ public class LocalCreateVertexSpeedTest extends OrientMonoThreadTest {
     if (database != null)
       database.shutdown();
     super.deinit();
- }
+  }
 }

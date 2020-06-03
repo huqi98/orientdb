@@ -85,9 +85,7 @@ public class OStressTesterCommandLineParser {
    * builds a StressTester object using the command line arguments
    *
    * @param args
-   *
    * @return
-   *
    * @throws Exception
    */
   public static OStressTester getStressTester(String[] args) throws Exception {
@@ -118,7 +116,8 @@ public class OStressTesterCommandLineParser {
     settings.remotePort = 2424;
     settings.checkDatabase = Boolean.parseBoolean(options.get(OPTION_CHECK_DATABASE));
     if (options.get(OPTION_LOAD_BALANCING) != null)
-      settings.loadBalancing = OStorageRemote.CONNECTION_STRATEGY.valueOf(options.get(OPTION_LOAD_BALANCING).toUpperCase(Locale.ENGLISH));
+      settings.loadBalancing = OStorageRemote.CONNECTION_STRATEGY
+          .valueOf(options.get(OPTION_LOAD_BALANCING).toUpperCase(Locale.ENGLISH));
 
     if (settings.plocalPath != null) {
       if (settings.plocalPath.endsWith(File.separator)) {

@@ -27,7 +27,8 @@ public class NestedTxTest {
     graph.createVertexType("B");
 
     executorService.submit(new Runnable() {
-      @Override public void run() {
+      @Override
+      public void run() {
         final OrientGraph graph = getGraph(factory);
         graph.begin();
         graph.addVertex("class:A");
@@ -36,7 +37,8 @@ public class NestedTxTest {
     Assert.assertTrue("vertex A should not exist before top-level commit", !vertexExists(graph, "A"));
 
     executorService.submit(new Runnable() {
-      @Override public void run() {
+      @Override
+      public void run() {
         final OrientGraph graph = getGraph(factory);
         graph.begin();
         graph.addVertex("class:B");
@@ -45,7 +47,8 @@ public class NestedTxTest {
     Assert.assertTrue("vertex B should not exist before top-level commit", !vertexExists(graph, "B"));
 
     executorService.submit(new Runnable() {
-      @Override public void run() {
+      @Override
+      public void run() {
         final OrientGraph graph = getGraph(factory);
         graph.commit();
       }
@@ -54,7 +57,8 @@ public class NestedTxTest {
     Assert.assertTrue("vertex B should not exist before top-level commit", !vertexExists(graph, "B"));
 
     executorService.submit(new Runnable() {
-      @Override public void run() {
+      @Override
+      public void run() {
         final OrientGraph graph = getGraph(factory);
         graph.commit();
       }

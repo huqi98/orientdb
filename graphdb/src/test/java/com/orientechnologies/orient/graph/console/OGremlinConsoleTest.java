@@ -44,7 +44,7 @@ import java.util.List;
 
 /**
  * Test cases for gremlin console.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OGremlinConsoleTest {

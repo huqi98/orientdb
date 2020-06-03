@@ -31,7 +31,6 @@ import java.util.Map;
  */
 public interface OCommandContext {
 
-
   enum TIMEOUT_STRATEGY {
     RETURN, EXCEPTION
   }
@@ -57,7 +56,6 @@ public interface OCommandContext {
    *
    * @param iName  Metric's name
    * @param iValue delta to add or subtract
-   *
    * @return
    */
   long updateMetric(String iName, long iValue);
@@ -72,7 +70,6 @@ public interface OCommandContext {
    * Check if timeout is elapsed, if defined.
    *
    * @return false if it the timeout is elapsed and strategy is "return"
-   *
    * @throws OTimeoutException if the strategy is "exception" (default)
    */
   public boolean checkTimeout();

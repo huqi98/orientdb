@@ -136,9 +136,7 @@ public class OUser extends OIdentity implements OSecurityUser {
    * Checks if the user has the permission to access to the requested resource for the requested operation.
    *
    * @param iOperation Requested operation
-   *
    * @return The role that has granted the permission if any, otherwise a OSecurityAccessException exception is raised
-   *
    * @throws OSecurityAccessException
    */
   public ORole allow(final ORule.ResourceGeneric resourceGeneric, String resourceSpecific, final int iOperation) {
@@ -166,7 +164,6 @@ public class OUser extends OIdentity implements OSecurityUser {
    * Checks if the user has the permission to access to the requested resource for the requested operation.
    *
    * @param iOperation Requested operation
-   *
    * @return The role that has granted the permission if any, otherwise null
    */
   public ORole checkIfAllowed(final ORule.ResourceGeneric resourceGeneric, String resourceSpecific, final int iOperation) {

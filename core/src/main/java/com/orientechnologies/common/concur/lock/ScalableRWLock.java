@@ -38,25 +38,18 @@ import java.util.concurrent.locks.StampedLock;
 
 /**
  * <h1> Scalable Read-Write Lock </h1>
- * A Read-Write Lock that is scalable with the number of threads doing Read.
- * Uses a two-state-machine for the Readers, and averages two synchronized
- * operations. <br>
- * Although this mechanism was independently designed and implemented by the
- * authors, the idea is very similar to the algorithm C-RW-WP described in this
- * paper: <a href="http://blogs.oracle.com/dave/resource/ppopp13-dice-NUMAAwareRWLocks.pdf">NUMA-Aware Reader-Writer locks</a>
+ * A Read-Write Lock that is scalable with the number of threads doing Read. Uses a two-state-machine for the Readers, and averages
+ * two synchronized operations. <br> Although this mechanism was independently designed and implemented by the authors, the idea is
+ * very similar to the algorithm C-RW-WP described in this paper: <a href="http://blogs.oracle.com/dave/resource/ppopp13-dice-NUMAAwareRWLocks.pdf">NUMA-Aware
+ * Reader-Writer locks</a>
  * <br>
- * Relative to the paper, there are two differences: The threads have no
- * particular order, which means this implementation is <b>not</b> NUMA-aware;
- * Threads attempting a read-lock for the first time are added to a list and
- * removed when the thread terminates, following the mechanism described below.
- * To manage the adding and removal of new Reader threads, we use a
- * ConcurrentLinkedQueue instance named {@code readersStateList} containing all
- * the references to ReadersEntry (Reader's states), which the Writer scans to
- * determine if the Readers have completed or not.
- * After a thread terminates, the {@code finalize()} of the associated
- * {@code ReaderEntry} instance will be called, which will remove the
- * Reader's state reference from the {@code readersStateList}, to avoid memory leaking.
- * Advantages: <ul>
+ * Relative to the paper, there are two differences: The threads have no particular order, which means this implementation is
+ * <b>not</b> NUMA-aware; Threads attempting a read-lock for the first time are added to a list and removed when the thread
+ * terminates, following the mechanism described below. To manage the adding and removal of new Reader threads, we use a
+ * ConcurrentLinkedQueue instance named {@code readersStateList} containing all the references to ReadersEntry (Reader's states),
+ * which the Writer scans to determine if the Readers have completed or not. After a thread terminates, the {@code finalize()} of
+ * the associated {@code ReaderEntry} instance will be called, which will remove the Reader's state reference from the {@code
+ * readersStateList}, to avoid memory leaking. Advantages: <ul>
  * <li> Implements {@code java.util.concurrent.locks.ReadWriteLock}
  * <li> When there are very few Writes, the performance scales with the
  * number of Reader threads
@@ -70,13 +63,10 @@ import java.util.concurrent.locks.StampedLock;
  * <li> Does not support {@code lockInterruptibly()}
  * <li> Does not support {@code newCondition()}
  * </ul>
- * For scenarios with few writes, the average case for {@code sharedLock()} is
- * two synchronized calls: an {@code AtomicInteger.set()} on a cache line that
- * is held in exclusive mode by the core where the current thread is running,
- * and an {@code AtomicLong.get()} on a shared cache line.<br>
- * This means that when doing several sequential calls of sharedLock()/unlock()
- * on the same instance, the performance penalty will be small because the
- * accessed variables will most likely be in L1/L2 cache.
+ * For scenarios with few writes, the average case for {@code sharedLock()} is two synchronized calls: an {@code
+ * AtomicInteger.set()} on a cache line that is held in exclusive mode by the core where the current thread is running, and an
+ * {@code AtomicLong.get()} on a shared cache line.<br> This means that when doing several sequential calls of sharedLock()/unlock()
+ * on the same instance, the performance penalty will be small because the accessed variables will most likely be in L1/L2 cache.
  *
  * @author Pedro Ramalhete
  * @author Andreia Correia
@@ -93,23 +83,19 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   private static final AtomicInteger[] dummyArray             = new AtomicInteger[0];
 
   /**
-   * List of Reader's states that the Writer will scan when attempting to
-   * acquire the lock in write-mode
+   * List of Reader's states that the Writer will scan when attempting to acquire the lock in write-mode
    */
   private final transient ConcurrentLinkedQueue<AtomicInteger> readersStateList;
 
   /**
-   * The thread-id of the Writer currently holding the lock in write-mode, or
-   * SRWL_INVALID_TID if there is no Writer holding or attempting to acquire
-   * the lock in write mode.
+   * The thread-id of the Writer currently holding the lock in write-mode, or SRWL_INVALID_TID if there is no Writer holding or
+   * attempting to acquire the lock in write mode.
    */
   private final transient StampedLock stampedLock;
 
   /**
-   * Thread-local reference to the current thread's ReadersEntry instance.
-   * It's from this instance that the current Reader thread is able
-   * to determine where to store its own state, and the number of reentrant
-   * read lock loops for that particular thread.
+   * Thread-local reference to the current thread's ReadersEntry instance. It's from this instance that the current Reader thread is
+   * able to determine where to store its own state, and the number of reentrant read lock loops for that particular thread.
    */
   private final transient ThreadLocal<ReadersEntry> entry;
 
@@ -126,8 +112,7 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   private final InnerWriteLock writerLock;
 
   /**
-   * Inner class that makes use of finalize() to remove the Reader's state
-   * from the ConcurrentLinkedQueue {@code readersStateList}
+   * Inner class that makes use of finalize() to remove the Reader's state from the ConcurrentLinkedQueue {@code readersStateList}
    */
   final class ReadersEntry {
     public final AtomicInteger state;
@@ -136,7 +121,7 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
       this.state = state;
     }
 
-    @SuppressWarnings({"checkstyle:NoFinalizer"})
+    @SuppressWarnings({ "checkstyle:NoFinalizer" })
     protected void finalize() throws Throwable {
       removeState(state);
       super.finalize();
@@ -252,11 +237,9 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   }
 
   /**
-   * Creates a new ReadersEntry instance for the current thread and
-   * its associated AtomicInteger to store the state of the Reader
+   * Creates a new ReadersEntry instance for the current thread and its associated AtomicInteger to store the state of the Reader
    *
-   * @return Returns a reference to the newly created instance of
-   * {@code ReadersEntry}
+   * @return Returns a reference to the newly created instance of {@code ReadersEntry}
    */
   private ReadersEntry addState() {
     final AtomicInteger state = new AtomicInteger(SRWL_STATE_NOT_READING);
@@ -304,13 +287,10 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   /**
    * Attempts to release the read lock.
    * <p>If the current thread is the holder of this lock then
-   * the {@code reentrantReaderCount} is decremented. If the
-   * {@code reentrantReaderCount} is now zero then the lock is released.
-   * If the current thread is not the holder of this lock then {@link
-   * IllegalMonitorStateException} is thrown.
+   * the {@code reentrantReaderCount} is decremented. If the {@code reentrantReaderCount} is now zero then the lock is released. If
+   * the current thread is not the holder of this lock then {@link IllegalMonitorStateException} is thrown.
    *
-   * @throws IllegalMonitorStateException if the current thread does not
-   *                                      hold this lock.
+   * @throws IllegalMonitorStateException if the current thread does not hold this lock.
    */
   public void sharedUnlock() {
     final ReadersEntry localEntry = entry.get();
@@ -326,14 +306,12 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   /**
    * Acquires the write lock.
    * <p>Acquires the write lock if neither the read nor write lock
-   * are held by another thread and returns immediately, setting
-   * the write lock {@code reentrantWriterCount} to one.
+   * are held by another thread and returns immediately, setting the write lock {@code reentrantWriterCount} to one.
    * <p>If the current thread already holds the write lock then the
-   * {@code reentrantWriterCount} is incremented by one and the method
-   * returns immediately.
+   * {@code reentrantWriterCount} is incremented by one and the method returns immediately.
    * <p>If the lock is held by another thread, then the current
-   * thread yields and lies dormant until the write lock has been acquired,
-   * at which time the {@code reentrantWriterCount} is set to one.
+   * thread yields and lies dormant until the write lock has been acquired, at which time the {@code reentrantWriterCount} is set to
+   * one.
    */
   public void exclusiveLock() {
     // Try to acquire the lock in write-mode
@@ -361,13 +339,10 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   /**
    * Attempts to release the write lock.
    * <p>If the current thread is the holder of this lock then
-   * the {@code reentrantWriterCount} is decremented. If {@code
-   * reentrantWriterCount} is now zero then the lock is released.
-   * If the current thread is not the holder of this lock then {@link
-   * IllegalMonitorStateException} is thrown.
+   * the {@code reentrantWriterCount} is decremented. If {@code reentrantWriterCount} is now zero then the lock is released. If the
+   * current thread is not the holder of this lock then {@link IllegalMonitorStateException} is thrown.
    *
-   * @throws IllegalMonitorStateException if the current thread does not
-   *                                      hold this lock.
+   * @throws IllegalMonitorStateException if the current thread does not hold this lock.
    */
   public void exclusiveUnlock() {
     if (!stampedLock.isWriteLocked()) {
@@ -379,14 +354,11 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   }
 
   /**
-   * Acquires the read lock only if the write lock is not held by
-   * another thread at the time of invocation.
+   * Acquires the read lock only if the write lock is not held by another thread at the time of invocation.
    * <p>Acquires the read lock if the write lock is not held by
-   * another thread and returns immediately with the value
-   * {@code true}.
+   * another thread and returns immediately with the value {@code true}.
    * <p>If the write lock is held by another thread then
-   * this method will return immediately with the value
-   * {@code false}.
+   * this method will return immediately with the value {@code false}.
    *
    * @return {@code true} if the read lock was acquired
    */
@@ -410,11 +382,9 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   }
 
   /**
-   * Acquires the read lock if the write lock is not held by
-   * another thread within the given waiting time.
+   * Acquires the read lock if the write lock is not held by another thread within the given waiting time.
    * <p>Acquires the read lock if the write lock is not held by
-   * another thread and returns immediately with the value
-   * {@code true}.
+   * another thread and returns immediately with the value {@code true}.
    * <p>If the write lock is held by another thread then the
    * current thread yields execution until one of two things happens:
    * <ul>
@@ -425,7 +395,6 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
    * returned.
    *
    * @param nanosTimeout the time to wait for the read lock in nanoseconds
-   *
    * @return {@code true} if the read lock was acquired
    */
   public boolean sharedTryLockNanos(long nanosTimeout) {
@@ -459,22 +428,17 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   }
 
   /**
-   * Acquires the write lock only if it is not held by another thread
-   * at the time of invocation.
+   * Acquires the write lock only if it is not held by another thread at the time of invocation.
    * <p>Acquires the write lock if the write lock is not
-   * held by another thread and returns immediately with
-   * the value {@code true} if and only if no other thread is attempting a
-   * read lock, setting the write lock {@code writerLoop}
-   * count to one.
+   * held by another thread and returns immediately with the value {@code true} if and only if no other thread is attempting a read
+   * lock, setting the write lock {@code writerLoop} count to one.
    * <p> If the current thread already holds this lock then the
-   * {@code reentrantWriterCount} count is incremented by one and the method returns
-   * {@code true}.
+   * {@code reentrantWriterCount} count is incremented by one and the method returns {@code true}.
    * <p>If the write lock is held by another thread then this method
    * will return immediately with the value {@code false}.
    *
-   * @return {@code true} if the write lock was free and was acquired
-   * by the current thread, or the write lock was already held
-   * by the current thread; and {@code false} otherwise.
+   * @return {@code true} if the write lock was free and was acquired by the current thread, or the write lock was already held by
+   * the current thread; and {@code false} otherwise.
    */
   public boolean exclusiveTryLock() {
     // Try to acquire the lock in write-mode
@@ -506,17 +470,13 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
   }
 
   /**
-   * Acquires the write lock if it is not held by another thread
-   * within the given waiting time.
+   * Acquires the write lock if it is not held by another thread within the given waiting time.
    * <p>Acquires the write lock if the write lock is not
-   * held by another thread and returns immediately with
-   * the value {@code true} if and only if no other thread is attempting a
-   * read lock, setting the write lock {@code reentrantWriterCount}
-   * to one. If another thread is attempting a read lock, this
-   * function <b>may yield until the read lock is released</b>.
+   * held by another thread and returns immediately with the value {@code true} if and only if no other thread is attempting a read
+   * lock, setting the write lock {@code reentrantWriterCount} to one. If another thread is attempting a read lock, this function
+   * <b>may yield until the read lock is released</b>.
    * <p>If the current thread already holds this lock then the
-   * {@code reentrantWriterCount} is incremented by one and the method returns
-   * {@code true}.
+   * {@code reentrantWriterCount} is incremented by one and the method returns {@code true}.
    * <p>If the write lock is held by another thread then the current
    * thread yields and lies dormant until one of two things happens:
    * <ul>
@@ -527,11 +487,8 @@ public class ScalableRWLock implements ReadWriteLock, java.io.Serializable {
    * returned and the write lock {@code reentrantWriterCount} is set to one.
    *
    * @param nanosTimeout the time to wait for the write lock in nanoseconds
-   *
-   * @return {@code true} if the lock was free and was acquired
-   * by the current thread, or the write lock was already held by the
-   * current thread; and {@code false} if the waiting time
-   * elapsed before the lock could be acquired.
+   * @return {@code true} if the lock was free and was acquired by the current thread, or the write lock was already held by the
+   * current thread; and {@code false} if the waiting time elapsed before the lock could be acquired.
    */
   public boolean exclusiveTryLockNanos(long nanosTimeout) throws InterruptedException {
     final long lastTime = System.nanoTime();

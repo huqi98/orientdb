@@ -32,14 +32,14 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Test
 public class ConcurrentQueriesTest extends DocumentDBBaseTest {
-  private final static int THREADS      = 10;
-  private final static int CYCLES       = 50;
-  private final static int MAX_RETRIES  = 50;
+  private final static int THREADS     = 10;
+  private final static int CYCLES      = 50;
+  private final static int MAX_RETRIES = 50;
 
   private final AtomicLong counter      = new AtomicLong();
   private final AtomicLong totalRetries = new AtomicLong();
 
-	@Parameters(value = "url")
+  @Parameters(value = "url")
   public ConcurrentQueriesTest(@Optional String url) {
     super(url);
   }

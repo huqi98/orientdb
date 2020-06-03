@@ -15,18 +15,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 15/12/14
  */
 public class OPartitionedObjectPool<T> extends OOrientListenerAbstract {
-  private static final int HASH_INCREMENT = 0x61c88647;
-  private static final int MIN_POOL_SIZE = 2;
-  private static final AtomicInteger nextHashCode = new AtomicInteger();
+  private static final int           HASH_INCREMENT = 0x61c88647;
+  private static final int           MIN_POOL_SIZE  = 2;
+  private static final AtomicInteger nextHashCode   = new AtomicInteger();
 
-  private final int maxPartitions;
-  private final ObjectFactory<T> factory;
-  private final int maxSize;
+  private final    int                  maxPartitions;
+  private final    ObjectFactory<T>     factory;
+  private final    int                  maxSize;
   private volatile ThreadLocal<Integer> threadHashCode = new ThreadHashCodeThreadLocal();
 
-  private final AtomicBoolean poolBusy = new AtomicBoolean();
+  private final    AtomicBoolean   poolBusy = new AtomicBoolean();
   private volatile PoolPartition[] partitions;
-  private volatile boolean closed = false;
+  private volatile boolean         closed   = false;
 
   public OPartitionedObjectPool(final ObjectFactory factory, final int maxSize, final int maxPartitions) {
     this.factory = factory;
@@ -213,9 +213,9 @@ public class OPartitionedObjectPool<T> extends OOrientListenerAbstract {
   }
 
   private static final class PoolPartition<T> {
-    private final AtomicInteger currentSize = new AtomicInteger();
-    private final AtomicInteger acquiredObjects = new AtomicInteger();
-    private final ConcurrentLinkedQueue<T> queue = new ConcurrentLinkedQueue<T>();
+    private final AtomicInteger            currentSize     = new AtomicInteger();
+    private final AtomicInteger            acquiredObjects = new AtomicInteger();
+    private final ConcurrentLinkedQueue<T> queue           = new ConcurrentLinkedQueue<T>();
   }
 
   public interface ObjectFactory<T> {
@@ -230,7 +230,7 @@ public class OPartitionedObjectPool<T> extends OOrientListenerAbstract {
 
   public static final class PoolEntry<T> {
     private final PoolPartition<T> partition;
-    public final T object;
+    public final  T                object;
 
     public PoolEntry(PoolPartition<T> partition, T object) {
       this.partition = partition;

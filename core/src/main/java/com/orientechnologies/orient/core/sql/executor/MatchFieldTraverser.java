@@ -17,7 +17,6 @@ public class MatchFieldTraverser extends MatchEdgeTraverser {
     super(lastUpstreamRecord, item);
   }
 
-
   protected Iterable<OResultInternal> traversePatternEdge(OIdentifiable startingPoint, OCommandContext iCommandContext) {
 
     Iterable possibleResults = null;
@@ -38,7 +37,7 @@ public class MatchFieldTraverser extends MatchEdgeTraverser {
     Object qR;
     try {
       //TODO check possible results!
-      qR = ((OFieldMatchPathItem)this.item).getExp().execute(startingPoint, iCommandContext);
+      qR = ((OFieldMatchPathItem) this.item).getExp().execute(startingPoint, iCommandContext);
     } finally {
       iCommandContext.setVariable("$current", prevCurrent);
     }

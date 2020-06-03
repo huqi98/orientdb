@@ -21,7 +21,7 @@ import com.orientechnologies.orient.core.db.record.OIdentifiable;
 
 /**
  * Returns the value's Java type.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodJavaType extends OAbstractSQLMethod {

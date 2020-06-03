@@ -103,7 +103,7 @@ public class OServerCommandPostProperty extends OServerCommandAuthenticatedDbAbs
         final OProperty prop = cls.createProperty(propertyName, propertyType);
       }
     }
-      break;
+    break;
 
     default:
       final OProperty prop = cls.createProperty(propertyName, propertyType);
@@ -149,7 +149,7 @@ public class OServerCommandPostProperty extends OServerCommandAuthenticatedDbAbs
               "property named " + propertyName + " is declared as " + propertyType + " but linked type is not declared");
         }
       }
-        break;
+      break;
       case LINK: {
         final String linkClass = doc.get(LINKED_CLASS_JSON_FIELD);
         if (linkClass != null) {
@@ -160,7 +160,7 @@ public class OServerCommandPostProperty extends OServerCommandAuthenticatedDbAbs
         }
 
       }
-        break;
+      break;
 
       default:
         final OProperty prop = cls.createProperty(propertyName, propertyType);

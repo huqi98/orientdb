@@ -29,22 +29,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Container for performance statistic gathered after call of
- * {@link OAbstractPaginatedStorage#startGatheringPerformanceStatisticForCurrentThread()}.
+ * Container for performance statistic gathered after call of {@link OAbstractPaginatedStorage#startGatheringPerformanceStatisticForCurrentThread()}.
  * <p>
- * Statistic is gathered on component and system level. Each
- * {@link com.orientechnologies.orient.core.storage.impl.local.paginated.base.ODurableComponent} provides separate data for this
- * tool which allows to detect performance problems on component level.
+ * Statistic is gathered on component and system level. Each {@link com.orientechnologies.orient.core.storage.impl.local.paginated.base.ODurableComponent}
+ * provides separate data for this tool which allows to detect performance problems on component level.
  * <p>
- * To stop gathering of performance statistic call
- * {@link OAbstractPaginatedStorage#completeGatheringPerformanceStatisticForCurrentThread()}.
+ * To stop gathering of performance statistic call {@link OAbstractPaginatedStorage#completeGatheringPerformanceStatisticForCurrentThread()}.
  * <p>
  * List of gathered performance characteristics can be deduced from getXXX methods. There are 2 kind of methods , one kind do not
  * accept any parameters, they return performance data on system level and, other kind accept component name, they return
  * performance data gathered on separate component or on system level if null is passed as method name. If data from component with
  * passed in name is absent then -1 is returned.
  * <p>
- * Some data are gathered only on system level for example write ahead log performance data or commit time {@link #getCommitTime()}.
+ * Some data are gathered only on system level for example write ahead log performance data or commit time {@link
+ * #getCommitTime()}.
  * <p>
  * This container may be used both for gathering information in single thread and in multithreaded environment. Container itself is
  * not thread safe, but it supports data snapshots.
@@ -136,8 +134,8 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * @param intervalBetweenSnapshots Minimum interval between two snapshots taken by container.
    * @param cleanUpInterval          Minimum interval between two time series, in other words container clears all statistic during
-   *                                 next try of making
-   *                                 snapshot after this interval is over. <code>-1</code> means that data will not be cleared.
+   *                                 next try of making snapshot after this interval is over. <code>-1</code> means that data will
+   *                                 not be cleared.
    */
   public OSessionStoragePerformanceStatistic(long intervalBetweenSnapshots, long cleanUpInterval) {
     this(intervalBetweenSnapshots, System::nanoTime, cleanUpInterval);
@@ -147,8 +145,8 @@ public class OSessionStoragePerformanceStatistic {
    * @param nanoTimer                Service to get current value of PC nano time.
    * @param intervalBetweenSnapshots Minimum interval between two snapshots taken by container.
    * @param cleanUpInterval          Minimum interval between two time series, in other words container clears all statistic during
-   *                                 next try of making
-   *                                 snapshot after this interval is over. <code>-1</code> means that data will not be cleared.
+   *                                 next try of making snapshot after this interval is over. <code>-1</code> means that data will
+   *                                 not be cleared.
    */
   public OSessionStoragePerformanceStatistic(long intervalBetweenSnapshots, NanoTimer nanoTimer, long cleanUpInterval) {
     this.nanoTimer = nanoTimer;
@@ -220,7 +218,6 @@ public class OSessionStoragePerformanceStatistic {
    * <code>-1</code> will be returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Read speed of data in pages per second on cache level or value which is less than 0, which means that value cannot be
    * calculated.
    */
@@ -249,7 +246,6 @@ public class OSessionStoragePerformanceStatistic {
    * will be returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Read speed of data from file system in pages per second or value which is less than 0, which means that value cannot be
    * calculated.
    */
@@ -277,7 +273,6 @@ public class OSessionStoragePerformanceStatistic {
    * returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Amount of pages read from cache in total.
    */
   public long getAmountOfPagesReadFromCache(String componentName) {
@@ -304,7 +299,6 @@ public class OSessionStoragePerformanceStatistic {
    * returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Amount of pages are read from file.
    */
   public long getAmountOfPagesReadFromFile(String componentName) {
@@ -332,7 +326,6 @@ public class OSessionStoragePerformanceStatistic {
    * <code>-1</code> will be returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Write speed of data in pages per second on cache level or value which is less than 0, which means that value cannot be
    * calculated.
    */
@@ -360,7 +353,6 @@ public class OSessionStoragePerformanceStatistic {
    * returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Amount of pages written to cache.
    */
   public long getAmountOfPagesWrittenInCache(String componentName) {
@@ -401,7 +393,6 @@ public class OSessionStoragePerformanceStatistic {
    * system will be returned. If data for component with passed in name does not exist then <code>-1</code> will be returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Percent of cache hits or value which is less than 0, which means that value cannot be calculated.
    */
   public int getCacheHits(String componentName) {
@@ -421,7 +412,6 @@ public class OSessionStoragePerformanceStatistic {
    * If null value is passed or data for component with passed in name does not exist then <code>-1</code> will be returned.
    *
    * @param componentName Name of component data of which should be returned. Name is case sensitive.
-   *
    * @return Average amount of pages which were read from cache for component with given name during single data operation or value
    * which is less than 0, which means that value cannot be calculated.
    */
@@ -461,7 +451,6 @@ public class OSessionStoragePerformanceStatistic {
    * of aggregation of performance data is returned inside of passed in performance data and as result of this method call.
    *
    * @param holder Performance data for write cache may be <code>null</code>
-   *
    * @return Result of aggregation of performance data
    */
   public WritCacheCountersHolder pushWriteCacheCounters(WritCacheCountersHolder holder) {
@@ -484,7 +473,6 @@ public class OSessionStoragePerformanceStatistic {
    * aggregation of performance data is returned inside of passed in performance data and as result of this method call.
    *
    * @param holder Performance data for storage may be <code>null</code>
-   *
    * @return Result of aggregation of performance data
    */
   public StorageCountersHolder pushStorageCounters(StorageCountersHolder holder) {
@@ -507,7 +495,6 @@ public class OSessionStoragePerformanceStatistic {
    * aggregation of performance data is returned inside of passed in performance data and as result of this method call.
    *
    * @param holder Performance data for write ahead log may be <code>null</code>
-   *
    * @return Result of aggregation of performance data
    */
   public WALCountersHolder pushWALCounters(WALCountersHolder holder) {
@@ -560,14 +547,13 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * Converts properties of given class into values of fields of returned document. Names of fields equal to names of properties.
    * <p>
-   * All data related to separate components are stored in field <code>dataByComponent</code> map which has type
-   * {@link OType#EMBEDDEDMAP} where key of map entry is name of component, and value is document which contains the same fields as
-   * high level document but with values for single component not whole system.
+   * All data related to separate components are stored in field <code>dataByComponent</code> map which has type {@link
+   * OType#EMBEDDEDMAP} where key of map entry is name of component, and value is document which contains the same fields as high
+   * level document but with values for single component not whole system.
    * <p>
    * Write ahead log performance data are stored inside of <code>walData</code> field.
    *
-   * @return Performance characteristics of storage gathered after call of
-   * {@link OAbstractPaginatedStorage#startGatheringPerformanceStatisticForCurrentThread()}
+   * @return Performance characteristics of storage gathered after call of {@link OAbstractPaginatedStorage#startGatheringPerformanceStatisticForCurrentThread()}
    */
   public ODocument toDocument() {
     final ODocument document = performanceCountersHolder.toDocument();
@@ -592,9 +578,8 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * Increments counter of page accesses from cache.
    * <p>
-   * If you wish to gather statistic for current durable component please call
-   * {@link #startComponentOperation(String, ComponentType)} method before the call and {@link #completeComponentOperation()} after
-   * the call.
+   * If you wish to gather statistic for current durable component please call {@link #startComponentOperation(String,
+   * ComponentType)} method before the call and {@link #completeComponentOperation()} after the call.
    */
   public void incrementPageAccessOnCacheLevel(boolean cacheHit) {
     performanceCountersHolder.cacheAccessCount++;
@@ -625,9 +610,8 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * Stops and records results of timer which counts how much time was spent on read of page from file system.
    * <p>
-   * If you wish to gather statistic for current durable component please call
-   * {@link #startComponentOperation(String, ComponentType)} method before the call and {@link #completeComponentOperation()} after
-   * the call.
+   * If you wish to gather statistic for current durable component please call {@link #startComponentOperation(String,
+   * ComponentType)} method before the call and {@link #completeComponentOperation()} after the call.
    *
    * @param readPages Amount of pages which were read by single call to file system.
    */
@@ -727,9 +711,8 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * Stops and records results of timer which counts how much time was spent on read of page from disk cache.
    * <p>
-   * If you wish to gather statistic for current durable component please call
-   * {@link #startComponentOperation(String, ComponentType)} method before the call and {@link #completeComponentOperation()} after
-   * the call.
+   * If you wish to gather statistic for current durable component please call {@link #startComponentOperation(String,
+   * ComponentType)} method before the call and {@link #completeComponentOperation()} after the call.
    */
   public void stopPageReadFromCacheTimer() {
     final long endTs = nanoTimer.getNano();
@@ -792,9 +775,8 @@ public class OSessionStoragePerformanceStatistic {
   /**
    * Stops and records results of timer which counts how much time was spent to write page to disk cache.
    * <p>
-   * If you wish to gather statistic for current durable component please call
-   * {@link #startComponentOperation(String, ComponentType)} method before the call and {@link #completeComponentOperation()} after
-   * the call.
+   * If you wish to gather statistic for current durable component please call {@link #startComponentOperation(String,
+   * ComponentType)} method before the call and {@link #completeComponentOperation()} after the call.
    */
   public void stopPageWriteInCacheTimer() {
     final long endTs = nanoTimer.getNano();

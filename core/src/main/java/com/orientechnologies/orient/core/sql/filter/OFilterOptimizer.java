@@ -53,8 +53,8 @@ public class OFilterOptimizer {
     final OIndexReuseType reuseType = operator.getIndexReuseType(condition.getLeft(), condition.getRight());
     switch (reuseType) {
     case INDEX_METHOD:
-      if (isCovered(indexMatch, operator, condition.getLeft(), condition.getRight())
-          || isCovered(indexMatch, operator, condition.getRight(), condition.getLeft())) {
+      if (isCovered(indexMatch, operator, condition.getLeft(), condition.getRight()) || isCovered(indexMatch, operator,
+          condition.getRight(), condition.getLeft())) {
         return null;
       }
       return condition;
@@ -73,8 +73,8 @@ public class OFilterOptimizer {
       return condition;
 
     case INDEX_OPERATOR:
-      if (isCovered(indexMatch, operator, condition.getLeft(), condition.getRight())
-          || isCovered(indexMatch, operator, condition.getRight(), condition.getLeft())) {
+      if (isCovered(indexMatch, operator, condition.getLeft(), condition.getRight()) || isCovered(indexMatch, operator,
+          condition.getRight(), condition.getLeft())) {
         return null;
       }
       return condition;
@@ -92,8 +92,8 @@ public class OFilterOptimizer {
             return true;
         }
 
-      return operator.equals(indexMatch.lastOperator) && isSameField(field, indexMatch.lastField)
-          && isSameValue(valueCandidate, indexMatch.lastValue);
+      return operator.equals(indexMatch.lastOperator) && isSameField(field, indexMatch.lastField) && isSameValue(valueCandidate,
+          indexMatch.lastValue);
     }
     return false;
   }

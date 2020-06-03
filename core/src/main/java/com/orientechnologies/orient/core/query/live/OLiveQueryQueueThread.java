@@ -34,7 +34,7 @@ public class OLiveQueryQueueThread extends Thread {
 
   private final BlockingQueue<ORecordOperation>            queue;
   private final ConcurrentMap<Integer, OLiveQueryListener> subscribers;
-  private boolean                                          stopped = false;
+  private       boolean                                    stopped = false;
 
   private OLiveQueryQueueThread(BlockingQueue<ORecordOperation> queue, ConcurrentMap<Integer, OLiveQueryListener> subscribers) {
     this.queue = queue;

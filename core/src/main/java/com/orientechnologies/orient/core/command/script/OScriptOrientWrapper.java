@@ -25,9 +25,8 @@ import com.orientechnologies.orient.core.exception.OConfigurationException;
 
 /**
  * Orient wrapper class to use from scripts.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 
 @Deprecated
@@ -37,7 +36,6 @@ public class OScriptOrientWrapper {
   public OScriptOrientWrapper() {
     this.db = null;
   }
-
 
   public OScriptOrientWrapper(final ODatabase db) {
     this.db = db;

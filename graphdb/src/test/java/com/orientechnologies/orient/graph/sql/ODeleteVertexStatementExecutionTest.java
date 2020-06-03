@@ -67,7 +67,6 @@ public class ODeleteVertexStatementExecutionTest {
     rs.close();
   }
 
-
   @Test
   public void testFilterClass() {
     String className1 = "testDeleteAllVertices1";

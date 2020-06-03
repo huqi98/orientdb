@@ -37,9 +37,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * </ul>
  */
 public class StopNodeIT extends AbstractServerClusterTxTest {
-  final static int            SERVERS       = 3;
-  volatile boolean            inserting     = true;
-  volatile int                serverStarted = 0;
+  final static  int           SERVERS       = 3;
+  volatile      boolean       inserting     = true;
+  volatile      int           serverStarted = 0;
   final private Set<String>   nodeReJoined  = new HashSet<String>();
   final private AtomicInteger nodeLefts     = new AtomicInteger();
 
@@ -102,17 +102,17 @@ public class StopNodeIT extends AbstractServerClusterTxTest {
           try {
             // CRASH LAST SERVER try {
             executeWhen(new Callable<Boolean>() {
-              // CONDITION
-              @Override
-              public Boolean call() throws Exception {
-                final ODatabaseDocument database = getDatabase(0);
-                try {
-                  return database.countClass("Person") > (count * writerCount * SERVERS) * 1 / 3;
-                } finally {
-                  database.close();
-                }
-              }
-            }, // ACTION
+                          // CONDITION
+                          @Override
+                          public Boolean call() throws Exception {
+                            final ODatabaseDocument database = getDatabase(0);
+                            try {
+                              return database.countClass("Person") > (count * writerCount * SERVERS) * 1 / 3;
+                            } finally {
+                              database.close();
+                            }
+                          }
+                        }, // ACTION
                 new Callable() {
                   @Override
                   public Object call() throws Exception {

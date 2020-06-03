@@ -46,7 +46,7 @@ public class LiveQuery30Test extends DocumentDBBaseTest implements OCommandOutpu
   class MyLiveQueryListener implements OLiveQueryResultListener {
 
     public List<OPair<String, OResult>> ops = new ArrayList<>();
-    public int unsubscribe;
+    public int                          unsubscribe;
 
     @Override
     public void onCreate(ODatabaseDocument database, OResult data) {

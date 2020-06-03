@@ -70,7 +70,6 @@ public interface OSchema {
    * If the database nor the entity manager have not registered class with specified name, returns null.
    *
    * @param iClassName Name of the class to retrieve
-   *
    * @return class instance or null if class with given name is not configured.
    */
   OClass getClass(String iClassName);

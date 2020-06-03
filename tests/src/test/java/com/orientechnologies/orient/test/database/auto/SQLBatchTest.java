@@ -90,9 +90,8 @@ public class SQLBatchTest extends DocumentDBBaseTest {
     database.command(new OCommandSQL("CREATE PROPERTY " + className2 + ".foos LinkList " + className1)).execute();
 
     String script = "" + "BEGIN;" + "LET a = CREATE VERTEX " + className1 + ";" + "LET b = CREATE VERTEX " + className1 + ";"
-        + "LET c = CREATE VERTEX " + className1 + ";" +
-        "LET foos = [$a,$b,$c];"+
-        "CREATE VERTEX " + className2 + " SET foos= $foos;" + "COMMIT";
+        + "LET c = CREATE VERTEX " + className1 + ";" + "LET foos = [$a,$b,$c];" + "CREATE VERTEX " + className2
+        + " SET foos= $foos;" + "COMMIT";
 
     database.command(new OCommandScript(script)).execute();
 

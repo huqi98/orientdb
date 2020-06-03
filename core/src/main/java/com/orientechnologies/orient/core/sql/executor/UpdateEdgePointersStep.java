@@ -146,7 +146,6 @@ public class UpdateEdgePointersStep extends AbstractExecutionStep {
    *
    * @param iRecord     The record object
    * @param orientClass The schema class
-   *
    * @return
    */
   private boolean isRecordInstanceOf(Object iRecord, String orientClass) {

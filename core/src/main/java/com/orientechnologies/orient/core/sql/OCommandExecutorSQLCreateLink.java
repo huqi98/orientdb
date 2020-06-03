@@ -59,12 +59,12 @@ public class OCommandExecutorSQLCreateLink extends OCommandExecutorSQLAbstract {
   private static final String KEYWORD_TO     = "TO";
   private static final String KEYWORD_TYPE   = "TYPE";
 
-  private String destClassName;
-  private String destField;
-  private String sourceClassName;
-  private String sourceField;
-  private String linkName;
-  private OType  linkType;
+  private String  destClassName;
+  private String  destField;
+  private String  sourceClassName;
+  private String  sourceField;
+  private String  linkName;
+  private OType   linkType;
   private boolean inverse = false;
 
   public OCommandExecutorSQLCreateLink parse(final OCommandRequest iRequest) {
@@ -176,8 +176,8 @@ public class OCommandExecutorSQLCreateLink extends OCommandExecutorSQLAbstract {
 
     final ODatabaseDocumentInternal database = getDatabase();
     if (!(database.getDatabaseOwner() instanceof ODatabaseDocument))
-      throw new OCommandSQLParsingException("This command supports only the database type ODatabaseDocumentTx and type '"
-          + database.getClass() + "' was found");
+      throw new OCommandSQLParsingException(
+          "This command supports only the database type ODatabaseDocumentTx and type '" + database.getClass() + "' was found");
 
     final ODatabaseDocument db = (ODatabaseDocument) database.getDatabaseOwner();
 
@@ -244,8 +244,9 @@ public class OCommandExecutorSQLCreateLink extends OCommandExecutorSQLAbstract {
             if (result == null || result.size() == 0)
               value = null;
             else if (result.size() > 1)
-              throw new OCommandExecutionException("Cannot create link because multiple records was found in class '"
-                  + destClass.getName() + "' with value " + value + " in field '" + destField + "'");
+              throw new OCommandExecutionException(
+                  "Cannot create link because multiple records was found in class '" + destClass.getName() + "' with value " + value
+                      + " in field '" + destField + "'");
             else {
               target = result.get(0);
               value = target;

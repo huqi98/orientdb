@@ -311,7 +311,6 @@ public class OJPAPersistenceUnitInfo implements PersistenceUnitInfo {
    * environment, if this element is not specified, a default of RESOURCE_LOCAL may be assumed.
    *
    * @param elementContent
-   *
    * @return
    */
   public static PersistenceUnitTransactionType initTransactionType(String elementContent) {

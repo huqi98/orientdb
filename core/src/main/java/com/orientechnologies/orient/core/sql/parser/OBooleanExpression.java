@@ -252,7 +252,7 @@ public abstract class OBooleanExpression extends SimpleNode {
   public static OBooleanExpression deserializeFromOResult(OResult doc) {
     try {
       OBooleanExpression result = (OBooleanExpression) Class.forName(doc.getProperty("__class")).getConstructor(Integer.class)
-              .newInstance(-1);
+          .newInstance(-1);
       result.deserialize(doc);
     } catch (Exception e) {
       throw OException.wrapException(new OCommandExecutionException(""), e);
@@ -277,8 +277,9 @@ public abstract class OBooleanExpression extends SimpleNode {
   }
 
   /**
-   * returns true only if the expression does not need any further evaluation (eg. "true")  and always evaluates to true.
-   * It is supposed to be used as and optimization, and is allowed to return false negatives
+   * returns true only if the expression does not need any further evaluation (eg. "true")  and always evaluates to true. It is
+   * supposed to be used as and optimization, and is allowed to return false negatives
+   *
    * @return
    */
   public boolean isAlwaysTrue() {

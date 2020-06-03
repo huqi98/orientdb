@@ -30,9 +30,9 @@ import com.orientechnologies.orient.stresstest.OStressTesterCommandLineParser;
  * Executed distributed stress tests. In particular executes a load-balanced (per request) insertion in a graph, distributed on 3
  * nodes, with 8 parallel clients in total, trying to build many vertices all connected to the same super node. This means very high
  * contention on update.
- *
+ * <p>
  * This test has been created to reproduce a weird problem when the UNDO operation left the RID nagative in Ridbag.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class DistributedStressIT extends AbstractServerClusterTest {
@@ -55,9 +55,9 @@ public class DistributedStressIT extends AbstractServerClusterTest {
   @Override
   protected void executeTest() throws Exception {
     // -m remote -c 8 -tx 50 -w GINSERT:V100000F20Ssupernode --remote-ip localhost --root-password root --ha-metrics true
-    final OStressTester stressTester = OStressTesterCommandLineParser
-        .getStressTester(new String[] { "-m", "remote", "-c", "8", "-tx", "50", "-w", "GINSERT:V500F20Ssupernode", "--remote-ip",
-            "localhost", "--root-password", "test", "--ha-metrics", "true" });
+    final OStressTester stressTester = OStressTesterCommandLineParser.getStressTester(
+        new String[] { "-m", "remote", "-c", "8", "-tx", "50", "-w", "GINSERT:V500F20Ssupernode", "--remote-ip", "localhost",
+            "--root-password", "test", "--ha-metrics", "true" });
 
     OLogManager.instance().flush();
     System.out.flush();

@@ -475,7 +475,7 @@ public class ODatabaseDocumentTxTest {
   }
 
   @Test
-  public void testDeleteVertexWithLinkset(){
+  public void testDeleteVertexWithLinkset() {
     String V = "testv";
     String E = "teste";
 
@@ -486,7 +486,7 @@ public class ODatabaseDocumentTxTest {
     OVertex v1 = db.newVertex(V);
     v1.setProperty("name", "root");
     v1.save();
-    
+
     for (int i = 0; i < 10; i++) {
       OVertex v2 = db.newVertex(V);
       v2.setProperty("name", "foo");

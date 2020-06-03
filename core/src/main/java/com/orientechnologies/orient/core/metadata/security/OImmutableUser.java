@@ -17,17 +17,17 @@ import java.util.Set;
  * @since 03/11/14
  */
 public class OImmutableUser implements OSecurityUser {
-  private static final long         serialVersionUID = 1L;
-  private final long                version;
+  private static final long serialVersionUID = 1L;
+  private final        long version;
 
-  private final String              name;
-  private final String              password;
+  private final String name;
+  private final String password;
 
-  private final Set<OImmutableRole> roles            = new HashSet<OImmutableRole>();
+  private final Set<OImmutableRole> roles = new HashSet<OImmutableRole>();
 
-  private final STATUSES            status;
-  private final ORID                rid;
-  private final OUser               user;
+  private final STATUSES status;
+  private final ORID     rid;
+  private final OUser    user;
 
   public OImmutableUser(long version, OUser user) {
     this.version = version;
@@ -49,8 +49,9 @@ public class OImmutableUser implements OSecurityUser {
     final OSecurityRole role = checkIfAllowed(resourceGeneric, resourceSpecific, iOperation);
 
     if (role == null)
-      throw new OSecurityAccessException(getName(), "User '" + getName() + "' does not have permission to execute the operation '"
-          + ORole.permissionToString(iOperation) + "' against the resource: " + resourceGeneric + "." + resourceSpecific);
+      throw new OSecurityAccessException(getName(),
+          "User '" + getName() + "' does not have permission to execute the operation '" + ORole.permissionToString(iOperation)
+              + "' against the resource: " + resourceGeneric + "." + resourceSpecific);
 
     return role;
   }
@@ -59,8 +60,8 @@ public class OImmutableUser implements OSecurityUser {
       final int iOperation) {
     for (OImmutableRole r : roles) {
       if (r == null)
-        OLogManager.instance().warn(this,
-            "User '%s' has a null role, ignoring it.  Consider fixing this user's roles before continuing", getName());
+        OLogManager.instance()
+            .warn(this, "User '%s' has a null role, ignoring it.  Consider fixing this user's roles before continuing", getName());
       else if (r.allow(resourceGeneric, resourceSpecific, iOperation))
         return r;
     }
@@ -71,8 +72,8 @@ public class OImmutableUser implements OSecurityUser {
   public boolean isRuleDefined(final ORule.ResourceGeneric resourceGeneric, String resourceSpecific) {
     for (OImmutableRole r : roles)
       if (r == null)
-        OLogManager.instance().warn(this,
-            "User '%s' has a null role, ignoring it.  Consider fixing this user's roles before continuing", getName());
+        OLogManager.instance()
+            .warn(this, "User '%s' has a null role, ignoring it.  Consider fixing this user's roles before continuing", getName());
       else if (r.hasRule(resourceGeneric, resourceSpecific))
         return true;
 
@@ -160,7 +161,7 @@ public class OImmutableUser implements OSecurityUser {
   }
 
   public boolean hasRole(final String iRoleName, final boolean iIncludeInherited) {
-    for (Iterator<OImmutableRole> it = roles.iterator(); it.hasNext();) {
+    for (Iterator<OImmutableRole> it = roles.iterator(); it.hasNext(); ) {
       final OSecurityRole role = it.next();
       if (role.getName().equals(iRoleName))
         return true;

@@ -9,5 +9,4 @@ public class OHaSetStatementTest extends OParserTestAbstract {
     checkRightSyntax("HA SET DBSTATUS china = 'OFFLINE'");
   }
 
-
 }

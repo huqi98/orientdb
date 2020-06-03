@@ -46,8 +46,7 @@ public class ODistributedDatabaseChunk implements OStreamable {
   public ODistributedDatabaseChunk() {
   }
 
-  public ODistributedDatabaseChunk(final OSyncSource backgroundBackup, final int iMaxSize)
-      throws IOException {
+  public ODistributedDatabaseChunk(final OSyncSource backgroundBackup, final int iMaxSize) throws IOException {
     filePath = "";
     this.gzipCompressed = false;
     this.incremental = backgroundBackup.getIncremental();
@@ -81,11 +80,13 @@ public class ODistributedDatabaseChunk implements OStreamable {
 
   }
 
-  public ODistributedDatabaseChunk(final File iFile, final long iOffset, final int iMaxSize, final boolean gzipCompressed, boolean incremental) throws IOException {
+  public ODistributedDatabaseChunk(final File iFile, final long iOffset, final int iMaxSize, final boolean gzipCompressed,
+      boolean incremental) throws IOException {
     this(iFile, iOffset, iMaxSize, gzipCompressed, incremental, -1, -1);
   }
 
-  public ODistributedDatabaseChunk(final File iFile, final long iOffset, final int iMaxSize, final boolean gzipCompressed, boolean incremental, long walSegment, long walPosition) throws IOException {
+  public ODistributedDatabaseChunk(final File iFile, final long iOffset, final int iMaxSize, final boolean gzipCompressed,
+      boolean incremental, long walSegment, long walPosition) throws IOException {
     filePath = iFile.getAbsolutePath();
     offset = iOffset;
     this.gzipCompressed = gzipCompressed;

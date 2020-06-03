@@ -47,7 +47,8 @@ public class OCreateClassStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
 
     OSchema schema = ctx.getDatabase().getMetadata().getSchema();
     if (schema.existsClass(name.getStringValue())) {
@@ -88,12 +89,11 @@ public class OCreateClassStatement extends ODDLStatement {
 
   private OClass[] getSuperClasses(OSchema schema) {
     if (superclasses == null) {
-      return new OClass[]{};
+      return new OClass[] {};
     }
     return superclasses.stream().map(x -> schema.getClass(x.getStringValue())).filter(x -> x != null).collect(Collectors.toList())
         .toArray(new OClass[] {});
   }
-
 
   private void checkSuperclasses(OSchema schema, OCommandContext ctx) {
     if (superclasses != null) {
@@ -105,7 +105,8 @@ public class OCreateClassStatement extends ODDLStatement {
     }
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("CREATE CLASS ");
     name.toString(params, builder);
     if (ifNotExists) {
@@ -142,7 +143,8 @@ public class OCreateClassStatement extends ODDLStatement {
     }
   }
 
-  @Override public OCreateClassStatement copy() {
+  @Override
+  public OCreateClassStatement copy() {
     OCreateClassStatement result = new OCreateClassStatement(-1);
     result.name = name == null ? null : name.copy();
     result.superclasses = superclasses == null ? null : superclasses.stream().map(x -> x.copy()).collect(Collectors.toList());
@@ -153,7 +155,8 @@ public class OCreateClassStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -178,7 +181,8 @@ public class OCreateClassStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = name != null ? name.hashCode() : 0;
     result = 31 * result + (superclasses != null ? superclasses.hashCode() : 0);
     result = 31 * result + (clusters != null ? clusters.hashCode() : 0);
@@ -186,6 +190,7 @@ public class OCreateClassStatement extends ODDLStatement {
     result = 31 * result + (abstractClass ? 1 : 0);
     return result;
   }
+
   public List<OIdentifier> getSuperclasses() {
     return superclasses;
   }

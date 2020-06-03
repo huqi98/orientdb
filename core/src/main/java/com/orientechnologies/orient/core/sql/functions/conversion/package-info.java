@@ -15,6 +15,5 @@
  */
 /**
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 package com.orientechnologies.orient.core.sql.functions.conversion;

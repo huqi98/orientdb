@@ -18,8 +18,7 @@ public class ODemoDbGroupByTestIT extends OIntegrationTestTemplate {
   public void testGroupBy1() throws Exception {
     OResultSet resultSet = db.query("SELECT count(*) FROM Orders GROUP BY OrderDate.format('yyyy')");
 
-    assertThat(resultSet)
-            .hasSize(7);
+    assertThat(resultSet).hasSize(7);
     resultSet.close();
     db.close();
   }
@@ -29,28 +28,28 @@ public class ODemoDbGroupByTestIT extends OIntegrationTestTemplate {
 
     OResultSet resultSet = db.query("SELECT count(*), OrderDate.format('yyyy') as year FROM Orders GROUP BY year");
 
-    assertThat(resultSet)
-            .hasSize(7);
+    assertThat(resultSet).hasSize(7);
     resultSet.close();
     db.close();
   }
+
   @Test
   public void testGroupBy3() throws Exception {
 
     OResultSet resultSet = db.query("SELECT count(*), OrderDate.format('yyyy') FROM Orders GROUP BY OrderDate.format('yyyy')");
 
-    assertThat(resultSet)
-            .hasSize(7);
+    assertThat(resultSet).hasSize(7);
     resultSet.close();
     db.close();
   }
+
   @Test
   public void testGroupBy4() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT count(*), OrderDate.format('yyyy') as year FROM Orders GROUP BY OrderDate.format('yyyy')");
+    OResultSet resultSet = db
+        .query("SELECT count(*), OrderDate.format('yyyy') as year FROM Orders GROUP BY OrderDate.format('yyyy')");
 
-    assertThat(resultSet)
-            .hasSize(7);
+    assertThat(resultSet).hasSize(7);
     resultSet.close();
     db.close();
   }

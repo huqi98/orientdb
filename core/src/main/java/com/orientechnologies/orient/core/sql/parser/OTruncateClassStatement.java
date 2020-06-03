@@ -21,8 +21,8 @@ import java.util.Map;
 public class OTruncateClassStatement extends ODDLStatement {
 
   protected OIdentifier className;
-  protected boolean polymorphic = false;
-  protected boolean unsafe      = false;
+  protected boolean     polymorphic = false;
+  protected boolean     unsafe      = false;
 
   public OTruncateClassStatement(int id) {
     super(id);
@@ -32,7 +32,8 @@ public class OTruncateClassStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
     ODatabase db = ctx.getDatabase();
     OSchema schema = db.getMetadata().getSchema();
     OClass clazz = schema.getClass(className.getStringValue());
@@ -50,7 +51,6 @@ public class OTruncateClassStatement extends ODDLStatement {
             "'TRUNCATE CLASS' command cannot be used on not empty edge classes. Apply the 'UNSAFE' keyword to force it (at your own risk)");
       }
     }
-
 
     OInternalResultSet rs = new OInternalResultSet();
     Collection<OClass> subclasses = clazz.getAllSubclasses();
@@ -92,7 +92,6 @@ public class OTruncateClassStatement extends ODDLStatement {
       throw OException.wrapException(new OCommandExecutionException("Error on executing command"), e);
     }
 
-
     return rs;
   }
 
@@ -100,7 +99,7 @@ public class OTruncateClassStatement extends ODDLStatement {
     if (clazz == null) {
       return;
     }
-    OCommandCache commandCache = ((OMetadataInternal)db.getMetadata()).getCommandCache();
+    OCommandCache commandCache = ((OMetadataInternal) db.getMetadata()).getCommandCache();
     if (commandCache != null && commandCache.isEnabled()) {
       int[] clusterIds = clazz.getClusterIds();
       if (clusterIds != null) {
@@ -114,7 +113,8 @@ public class OTruncateClassStatement extends ODDLStatement {
     }
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("TRUNCATE CLASS " + className.toString());
     if (polymorphic) {
       builder.append(" POLYMORPHIC");
@@ -124,7 +124,8 @@ public class OTruncateClassStatement extends ODDLStatement {
     }
   }
 
-  @Override public OTruncateClassStatement copy() {
+  @Override
+  public OTruncateClassStatement copy() {
     OTruncateClassStatement result = new OTruncateClassStatement(-1);
     result.className = className == null ? null : className.copy();
     result.polymorphic = polymorphic;
@@ -132,7 +133,8 @@ public class OTruncateClassStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -150,7 +152,8 @@ public class OTruncateClassStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = className != null ? className.hashCode() : 0;
     result = 31 * result + (polymorphic ? 1 : 0);
     result = 31 * result + (unsafe ? 1 : 0);

@@ -32,9 +32,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 public class OCommandExecutorSQLCreateSequenceTest {
-  static ODatabaseDocumentTx db;
-  private static String DB_STORAGE = "memory";
-  private static String DB_NAME    = "OCommandExecutorSQLCreateSequenceTest";
+  static         ODatabaseDocumentTx db;
+  private static String              DB_STORAGE = "memory";
+  private static String              DB_NAME    = "OCommandExecutorSQLCreateSequenceTest";
 
   @BeforeClass
   public static void beforeClass() throws Exception {

@@ -48,7 +48,6 @@ public class OIndexRIDContainerSBTree implements Set<OIdentifiable> {
    * Generates a lock name for the given index name.
    *
    * @param indexName the index name to generate the lock name for.
-   *
    * @return the generated lock name.
    */
   public static String generateLockName(String indexName) {

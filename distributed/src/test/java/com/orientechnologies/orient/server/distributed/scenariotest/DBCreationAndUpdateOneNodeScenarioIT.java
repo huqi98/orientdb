@@ -27,12 +27,9 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server
- * - db creation on server1
- * - check the new db is present both on server2 and server3
- * - 5 threads write 100 records on server1
- * - check consistency: db with all the records are consistent
+ * It checks the consistency in the cluster with the following scenario: - 3 server - db creation on server1 - check the new db is
+ * present both on server2 and server3 - 5 threads write 100 records on server1 - check consistency: db with all the records are
+ * consistent
  *
  * @author Gabriele Ponzi
  * @email <gabriele.ponzi--at--gmail.com>

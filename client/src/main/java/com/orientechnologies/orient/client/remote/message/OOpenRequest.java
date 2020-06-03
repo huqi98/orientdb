@@ -24,10 +24,10 @@ public class OOpenRequest implements OBinaryRequest<OOpenResponse> {
   private boolean useToken        = true;
   private boolean supportsPush    = true;
   private boolean collectStats    = true;
-  private String databaseName;
-  private String userName;
-  private String userPassword;
-  private String dbType;
+  private String  databaseName;
+  private String  userName;
+  private String  userPassword;
+  private String  dbType;
 
   public OOpenRequest(String databaseName, String userName, String userPassword) {
     this.databaseName = databaseName;

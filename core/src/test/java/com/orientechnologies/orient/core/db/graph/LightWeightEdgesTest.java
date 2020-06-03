@@ -110,12 +110,8 @@ public class LightWeightEdgesTest {
     session.command("create edge " + eClazz + " from (select from " + vClazz + " where name = 'a') to (select from " + vClazz
         + " where name = 'b') set name = 'foo'");
 
-    session.execute("sql", ""
-        +
-        "begin;"+
-        "delete edge "+eClazz+";"+
-        "create edge " + eClazz + " from (select from " + vClazz + " where name = 'a') to (select from " + vClazz + " where name = 'b') set name = 'foo';"+
-        "commit;");
+    session.execute("sql", "" + "begin;" + "delete edge " + eClazz + ";" + "create edge " + eClazz + " from (select from " + vClazz
+        + " where name = 'a') to (select from " + vClazz + " where name = 'b') set name = 'foo';" + "commit;");
 
   }
 

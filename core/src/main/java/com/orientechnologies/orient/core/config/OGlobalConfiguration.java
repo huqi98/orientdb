@@ -1199,7 +1199,6 @@ public enum OGlobalConfiguration { // ENVIRONMENT
    * Find the OGlobalConfiguration instance by the key. Key is case insensitive.
    *
    * @param iKey Key to find. It's case insensitive.
-   *
    * @return OGlobalConfiguration instance if found, otherwise null
    */
   public static OGlobalConfiguration findByKey(final String iKey) {

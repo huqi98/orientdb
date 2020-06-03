@@ -33,7 +33,8 @@ public class OProfileStorageStatement extends OSimpleExecStatement {
   }
 
   //new execution logic
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     OResultInternal result = new OResultInternal();
     result.setProperty("operation", "optimize database");
 
@@ -63,7 +64,8 @@ public class OProfileStorageStatement extends OSimpleExecStatement {
   }
 
   //old execution logic
-  @Override public Object execute(OSQLAsynchQuery<ODocument> request, OCommandContext context, OProgressListener progressListener) {
+  @Override
+  public Object execute(OSQLAsynchQuery<ODocument> request, OCommandContext context, OProgressListener progressListener) {
     try {
       ODatabaseDocumentInternal db = getDatabase();
 
@@ -108,13 +110,15 @@ public class OProfileStorageStatement extends OSimpleExecStatement {
     builder.append(on ? "ON" : "OFF");
   }
 
-  @Override public OProfileStorageStatement copy() {
+  @Override
+  public OProfileStorageStatement copy() {
     OProfileStorageStatement result = new OProfileStorageStatement(-1);
     result.on = on;
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -128,7 +132,8 @@ public class OProfileStorageStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return (on ? 1 : 0);
   }
 }

@@ -143,8 +143,9 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryWithExcludeFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>(
-        "select * from FetchClass where name is not null and linkSet is not null").setFetchPlan("linkSet:-2 name:-1"));
+    List<ODocument> resultset = database.query(
+        new OSQLSynchQuery<ODocument>("select * from FetchClass where name is not null and linkSet is not null")
+            .setFetchPlan("linkSet:-2 name:-1"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -154,8 +155,9 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryWithExcludeWildcardFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>(
-        "select * from FetchClass where name is not null and linkSet is not null").setFetchPlan("link*:-2 *:1"));
+    List<ODocument> resultset = database.query(
+        new OSQLSynchQuery<ODocument>("select * from FetchClass where name is not null and linkSet is not null")
+            .setFetchPlan("link*:-2 *:1"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -166,8 +168,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryOutInWithExcludeWildcardFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>("select * from OutInFetchClass ")
-        .setFetchPlan("*:1 out_*:-2 in_*:-2"));
+    List<ODocument> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select * from OutInFetchClass ").setFetchPlan("*:1 out_*:-2 in_*:-2"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -178,8 +180,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryWithFullFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>(
-        "select * from FetchClass where name is not null and linkSet is not null"));
+    List<ODocument> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select * from FetchClass where name is not null and linkSet is not null"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -190,8 +192,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryFetchPlanDepth() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>("select * from FetchClass where name = 'forth' ")
-        .setFetchPlan("ref:-1 ref.link*:-2"));
+    List<ODocument> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select * from FetchClass where name = 'forth' ").setFetchPlan("ref:-1 ref.link*:-2"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -204,8 +206,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryUpdateReadedWithPlanDepth() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>("select * from FetchClass where name = 'forth' ")
-        .setFetchPlan("ref:-1 ref.link*:-2"));
+    List<ODocument> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select * from FetchClass where name = 'forth' ").setFetchPlan("ref:-1 ref.link*:-2"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -231,8 +233,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryUpdateConstraintReadedWithFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>("select * from SecondFetchClass where name = 'sixth'")
-        .setFetchPlan("name:-1 surname:-2"));
+    List<ODocument> resultset = database.query(
+        new OSQLSynchQuery<ODocument>("select * from SecondFetchClass where name = 'sixth'").setFetchPlan("name:-1 surname:-2"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));
@@ -249,8 +251,8 @@ public class FetchPlanTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void queryDeleteReadedWithFetchPlan() {
-    List<ODocument> resultset = database.query(new OSQLSynchQuery<ODocument>("select * from SecondFetchClass where name = 'fifth'")
-        .setFetchPlan("*:1 surname:-2"));
+    List<ODocument> resultset = database
+        .query(new OSQLSynchQuery<ODocument>("select * from SecondFetchClass where name = 'fifth'").setFetchPlan("*:1 surname:-2"));
 
     for (ODocument d : resultset) {
       Assert.assertNotNull(d.field("name"));

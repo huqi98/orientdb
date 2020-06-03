@@ -651,7 +651,6 @@ public class OCommandExecutorSQLSelect extends OCommandExecutorSQLResultsetAbstr
    * Handles the record in result.
    *
    * @param iRecord Record to handle
-   *
    * @return false if limit has been reached, otherwise true
    */
   @Override
@@ -2308,7 +2307,6 @@ public class OCommandExecutorSQLSelect extends OCommandExecutorSQLResultsetAbstr
    * Use index to order documents by provided fields.
    *
    * @param iSchemaClass where search for indexes for optimization.
-   *
    * @return true if execution was optimized
    */
   private boolean optimizeSort(OClass iSchemaClass) {

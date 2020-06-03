@@ -15,12 +15,12 @@ import com.orientechnologies.orient.core.sql.OCommandSQL;
 
 @Test
 public class IndexConcurrentCommitTest extends DocumentDBBaseTest {
-	@Parameters(value = "url")
-	public IndexConcurrentCommitTest(@Optional String url) {
-		super(url);
-	}
+  @Parameters(value = "url")
+  public IndexConcurrentCommitTest(@Optional String url) {
+    super(url);
+  }
 
-	public void testConcurrentUpdate() {
+  public void testConcurrentUpdate() {
     OClass personClass = database.getMetadata().getSchema().createClass("Person");
     personClass.createProperty("ssn", OType.STRING).createIndex(OClass.INDEX_TYPE.UNIQUE);
     personClass.createProperty("name", OType.STRING).createIndex(OClass.INDEX_TYPE.NOTUNIQUE);

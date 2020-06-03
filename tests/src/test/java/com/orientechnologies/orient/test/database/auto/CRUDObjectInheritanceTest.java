@@ -42,9 +42,9 @@ import java.util.List;
 
 @Test(groups = { "crud", "object" }, sequential = true)
 public class CRUDObjectInheritanceTest extends ObjectDBBaseTest {
-  protected static final int TOT_RECORDS = 10;
-  protected long             startRecordNumber;
-  private City               redmond     = new City(new Country("Washington"), "Redmond");
+  protected static final int  TOT_RECORDS = 10;
+  protected              long startRecordNumber;
+  private                City redmond     = new City(new Country("Washington"), "Redmond");
 
   @Parameters(value = "url")
   public CRUDObjectInheritanceTest(@Optional String url) {
@@ -171,13 +171,12 @@ public class CRUDObjectInheritanceTest extends ObjectDBBaseTest {
   }
 
   @Test
-  public void testKeywordClass(){
+  public void testKeywordClass() {
     OClass klass = database.getMetadata().getSchema().createClass("Not");
 
     OClass klass1 = database.getMetadata().getSchema().createClass("Extends_Not", klass);
-    Assert.assertEquals(1,klass1.getSuperClasses().size(),1);
-    Assert.assertEquals("Not",klass1.getSuperClasses().get(0).getName());
+    Assert.assertEquals(1, klass1.getSuperClasses().size(), 1);
+    Assert.assertEquals("Not", klass1.getSuperClasses().get(0).getName());
   }
-
 
 }

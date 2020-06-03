@@ -11,9 +11,9 @@ import org.junit.*;
 import java.util.Map;
 
 public class OClassSecurityTest {
-  private static String DB_NAME = PredicateSecurityTest.class.getSimpleName();
-  private static OrientDB orient;
-  private ODatabaseSession db;
+  private static String           DB_NAME = PredicateSecurityTest.class.getSimpleName();
+  private static OrientDB         orient;
+  private        ODatabaseSession db;
 
   @BeforeClass
   public static void beforeClass() {

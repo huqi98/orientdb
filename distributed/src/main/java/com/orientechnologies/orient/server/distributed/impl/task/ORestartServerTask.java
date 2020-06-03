@@ -37,11 +37,10 @@ import java.io.IOException;
  * Distributed task to restart a node.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class ORestartServerTask extends OAbstractRemoteTask {
   private static final long serialVersionUID = 1L;
-  public static final int   FACTORYID        = 10;
+  public static final  int  FACTORYID        = 10;
 
   public ORestartServerTask() {
   }
@@ -50,8 +49,8 @@ public class ORestartServerTask extends OAbstractRemoteTask {
   public Object execute(ODistributedRequestId requestId, final OServer iServer, final ODistributedServerManager iManager,
       final ODatabaseDocumentInternal database) throws Exception {
 
-    ODistributedServerLog.warn(this, iManager.getLocalNodeName(), getNodeSource(), ODistributedServerLog.DIRECTION.IN,
-        "Restarting server...");
+    ODistributedServerLog
+        .warn(this, iManager.getLocalNodeName(), getNodeSource(), ODistributedServerLog.DIRECTION.IN, "Restarting server...");
 
     iManager.setNodeStatus(ODistributedServerManager.NODE_STATUS.OFFLINE);
 

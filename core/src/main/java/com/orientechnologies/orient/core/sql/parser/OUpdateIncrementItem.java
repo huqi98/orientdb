@@ -34,7 +34,8 @@ public class OUpdateIncrementItem extends SimpleNode {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -52,7 +53,8 @@ public class OUpdateIncrementItem extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = left != null ? left.hashCode() : 0;
     result = 31 * result + (leftModifier != null ? leftModifier.hashCode() : 0);
     result = 31 * result + (right != null ? right.hashCode() : 0);

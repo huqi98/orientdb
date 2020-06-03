@@ -21,15 +21,15 @@ import java.util.Optional;
  */
 public class FetchFromClusterExecutionStep extends AbstractExecutionStep {
 
-  public static final Object ORDER_ASC  = "ASC";
-  public static final Object ORDER_DESC = "DESC";
-  private final QueryPlanningInfo queryPlanning;
+  public static final Object            ORDER_ASC  = "ASC";
+  public static final Object            ORDER_DESC = "DESC";
+  private final       QueryPlanningInfo queryPlanning;
 
   private int    clusterId;
   private Object order;
 
   private ORecordIteratorCluster iterator;
-  private long cost = 0;
+  private long                   cost = 0;
 
   public FetchFromClusterExecutionStep(int clusterId, OCommandContext ctx, boolean profilingEnabled) {
     this(clusterId, null, ctx, profilingEnabled);
@@ -50,7 +50,8 @@ public class FetchFromClusterExecutionStep extends AbstractExecutionStep {
       if (iterator == null) {
         long minClusterPosition = calculateMinClusterPosition();
         long maxClusterPosition = calculateMaxClusterPosition();
-        iterator = new ORecordIteratorCluster((ODatabaseDocumentInternal) ctx.getDatabase(), clusterId, minClusterPosition, maxClusterPosition);
+        iterator = new ORecordIteratorCluster((ODatabaseDocumentInternal) ctx.getDatabase(), clusterId, minClusterPosition,
+            maxClusterPosition);
         if (ORDER_DESC.equals(order)) {
           iterator.last();
         }

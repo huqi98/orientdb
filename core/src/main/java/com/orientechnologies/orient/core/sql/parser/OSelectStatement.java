@@ -263,9 +263,9 @@ public class OSelectStatement extends OStatement {
     }
     ctx.setInputParameters(params);
     OInternalExecutionPlan executionPlan;
-    if(usePlanCache) {
+    if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
-    }else{
+    } else {
       executionPlan = createExecutionPlanNoCache(ctx, false);
     }
 
@@ -282,9 +282,9 @@ public class OSelectStatement extends OStatement {
     ctx.setDatabase(db);
     ctx.setInputParameters(params);
     OInternalExecutionPlan executionPlan;
-    if(usePlanCache) {
+    if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
-    }else{
+    } else {
       executionPlan = createExecutionPlanNoCache(ctx, false);
     }
 
@@ -400,7 +400,7 @@ public class OSelectStatement extends OStatement {
     if (projection != null && projection.refersToParent()) {
       return true;
     }
-    if(target!=null && target.refersToParent()){
+    if (target != null && target.refersToParent()) {
       return true;
     }
     if (whereClause != null && whereClause.refersToParent()) {

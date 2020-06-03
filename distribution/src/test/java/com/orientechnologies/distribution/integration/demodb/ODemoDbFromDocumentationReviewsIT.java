@@ -19,15 +19,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate {
 
-@Test
+  @Test
   public void test_Reviews_Example_1() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT \n" + "  Stars, count(*) as Count \n" + "FROM HasReview \n" + "GROUP BY Stars \n"
-        + "ORDER BY Count DESC");
+    OResultSet resultSet = db
+        .query("SELECT \n" + "  Stars, count(*) as Count \n" + "FROM HasReview \n" + "GROUP BY Stars \n" + "ORDER BY Count DESC");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(5);
+    assertThat(results).hasSize(5);
 
     final OResult result = results.iterator().next();
 
@@ -41,11 +40,11 @@ public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate 
   @Test
   public void test_Reviews_Example_2() throws Exception {
 
-    OResultSet resultSet = db.query("MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r} \n" + "RETURN $pathelements");
+    OResultSet resultSet = db
+        .query("MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r} \n" + "RETURN $pathelements");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(2546);
+    assertThat(results).hasSize(2546);
 
     resultSet.close();
     db.close();
@@ -54,12 +53,12 @@ public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate 
   @Test
   public void test_Reviews_Example_3() throws Exception {
 
-    OResultSet resultSet = db.query("MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}<-MadeReview-{class: Customers, as: c} \n"
+    OResultSet resultSet = db.query(
+        "MATCH {class: Services, as: s}-HasReview->{class: Reviews, as: r}<-MadeReview-{class: Customers, as: c} \n"
             + "RETURN $pathelements");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(3819);
+    assertThat(results).hasSize(3819);
 
     resultSet.close();
     db.close();
@@ -68,13 +67,12 @@ public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate 
   @Test
   public void test_Reviews_Example_4() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT \n" + "  @rid as Service_RID,\n" + "  Name as Service_Name,\n"
-        + "  Type as Service_Type,\n" + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Services` \n"
-        + "ORDER BY ReviewNumbers DESC");
+    OResultSet resultSet = db.query(
+        "SELECT \n" + "  @rid as Service_RID,\n" + "  Name as Service_Name,\n" + "  Type as Service_Type,\n"
+            + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Services` \n" + "ORDER BY ReviewNumbers DESC");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(3105);
+    assertThat(results).hasSize(3105);
 
     final OResult result = results.iterator().next();
 
@@ -89,13 +87,13 @@ public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate 
   @Test
   public void test_Reviews_Example_5() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT\n" + "  @rid as Restaurant_RID,\n" + "  Name as Restaurants_Name,\n"
-        + "  Type as Restaurants_Type,\n" + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Restaurants` \n"
-        + "ORDER BY ReviewNumbers DESC \n" + "LIMIT 3");
+    OResultSet resultSet = db.query(
+        "SELECT\n" + "  @rid as Restaurant_RID,\n" + "  Name as Restaurants_Name,\n" + "  Type as Restaurants_Type,\n"
+            + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Restaurants` \n" + "ORDER BY ReviewNumbers DESC \n"
+            + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 
@@ -110,13 +108,13 @@ public class ODemoDbFromDocumentationReviewsIT extends OIntegrationTestTemplate 
   @Test
   public void test_Reviews_Example_5_bis() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT \n" + "  @rid as Service_RID,\n" + "  Name as Service_Name,\n"
-        + "  Type as Service_Type,\n" + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Services` \n"
-        + "ORDER BY ReviewNumbers DESC \n" + "LIMIT 3");
+    OResultSet resultSet = db.query(
+        "SELECT \n" + "  @rid as Service_RID,\n" + "  Name as Service_Name,\n" + "  Type as Service_Type,\n"
+            + "  out(\"HasReview\").size() AS ReviewNumbers \n" + "FROM `Services` \n" + "ORDER BY ReviewNumbers DESC \n"
+            + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-        .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 

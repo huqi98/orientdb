@@ -10,9 +10,9 @@ import java.util.Optional;
  */
 public class OResultSetTest {
   @Test
-  public void testResultStream(){
+  public void testResultStream() {
     OInternalResultSet rs = new OInternalResultSet();
-    for(int i=0;i<10;i++){
+    for (int i = 0; i < 10; i++) {
       OResultInternal item = new OResultInternal();
       item.setProperty("i", i);
       rs.add(item);
@@ -23,9 +23,9 @@ public class OResultSetTest {
   }
 
   @Test
-  public void testResultEmptyVertexStream(){
+  public void testResultEmptyVertexStream() {
     OInternalResultSet rs = new OInternalResultSet();
-    for(int i=0;i<10;i++){
+    for (int i = 0; i < 10; i++) {
       OResultInternal item = new OResultInternal();
       item.setProperty("i", i);
       rs.add(item);
@@ -35,9 +35,9 @@ public class OResultSetTest {
   }
 
   @Test
-  public void testResultEdgeVertexStream(){
+  public void testResultEdgeVertexStream() {
     OInternalResultSet rs = new OInternalResultSet();
-    for(int i=0;i<10;i++){
+    for (int i = 0; i < 10; i++) {
       OResultInternal item = new OResultInternal();
       item.setProperty("i", i);
       rs.add(item);

@@ -34,7 +34,8 @@ public class OMoveVertexExecutionPlanner {
     return result;
   }
 
-  private void handleTarget(OUpdateExecutionPlan result, OIdentifier targetClass, OCluster targetCluster, OCommandContext ctx, boolean profilingEnabled) {
+  private void handleTarget(OUpdateExecutionPlan result, OIdentifier targetClass, OCluster targetCluster, OCommandContext ctx,
+      boolean profilingEnabled) {
     result.chain(new MoveVertexStep(targetClass, targetCluster, ctx, profilingEnabled));
   }
 

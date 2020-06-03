@@ -25,7 +25,7 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 
 /**
  * Represents a binary field.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OBinaryField {

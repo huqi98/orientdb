@@ -30,9 +30,9 @@ import org.junit.Test;
 import java.util.List;
 
 public class OCommandExecutorSQLCreateLinkTest {
-  static ODatabaseDocumentTx db;
-  private static String DB_STORAGE = "memory";
-  private static String DB_NAME    = "OCommandExecutorSQLCreateLinkTest";
+  static         ODatabaseDocumentTx db;
+  private static String              DB_STORAGE = "memory";
+  private static String              DB_NAME    = "OCommandExecutorSQLCreateLinkTest";
 
   @BeforeClass
   public static void beforeClass() throws Exception {

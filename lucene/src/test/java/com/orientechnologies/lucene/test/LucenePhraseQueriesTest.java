@@ -108,7 +108,6 @@ public class LucenePhraseQueriesTest extends BaseLuceneTest {
 
     assertThat(vertexes).hasSize(1).allMatch(v -> v.<String>getProperty("name").equalsIgnoreCase("System Business SME"));
 
-
     vertexes = db.command(new OCommandSQL("select from Role where name lucene ? ")).execute("\"System Owner\"~1 -IT");
     assertThat(vertexes).hasSize(1).allMatch(v -> v.<String>getProperty("name").equalsIgnoreCase("System Business Owner"));
 

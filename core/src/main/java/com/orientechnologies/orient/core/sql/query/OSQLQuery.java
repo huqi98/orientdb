@@ -49,7 +49,6 @@ import java.util.Set;
  * SQL query implementation.
  *
  * @param <T> Record type to return.
- *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 @SuppressWarnings("serial")

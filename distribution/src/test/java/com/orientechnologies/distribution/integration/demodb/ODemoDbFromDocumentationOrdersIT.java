@@ -23,12 +23,11 @@ public class ODemoDbFromDocumentationOrdersIT extends OIntegrationTestTemplate {
   public void test_Orders_Example_1() throws Exception {
 
     OResultSet resultSet = db.query("SELECT \n" + "  count(*) as OrdersNumber, \n" + "  sum(Amount) AS TotalRevenuesFromOrders, \n"
-            + "  min(Amount) as MinAmount,\n" + "  (sum(Amount)/count(*)) as AverageAmount,\n" + "  max(Amount) as MaxAmount\n"
-            + "FROM Orders");
+        + "  min(Amount) as MinAmount,\n" + "  (sum(Amount)/count(*)) as AverageAmount,\n" + "  max(Amount) as MaxAmount\n"
+        + "FROM Orders");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(1);
+    assertThat(results).hasSize(1);
 
     final OResult result = results.iterator().next();
 
@@ -45,12 +44,12 @@ public class ODemoDbFromDocumentationOrdersIT extends OIntegrationTestTemplate {
   @Test
   public void test_Orders_Example_2() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT \n" + "  count(*) as OrdersCount, \n" + "  OrderDate.format('yyyy') AS OrderYear \n"
-            + "FROM Orders \n" + "GROUP BY OrderYear \n" + "ORDER BY OrdersCount DESC");
+    OResultSet resultSet = db.query(
+        "SELECT \n" + "  count(*) as OrdersCount, \n" + "  OrderDate.format('yyyy') AS OrderYear \n" + "FROM Orders \n"
+            + "GROUP BY OrderYear \n" + "ORDER BY OrdersCount DESC");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(7);
+    assertThat(results).hasSize(7);
 
     final OResult result = results.iterator().next();
 
@@ -66,14 +65,13 @@ public class ODemoDbFromDocumentationOrdersIT extends OIntegrationTestTemplate {
   @Test
   public void test_Orders_Example_4() throws Exception {
 
-    OResultSet resultSet = db.query("SELECT \n" + "  customer.OrderedId as customerOrderedId, \n"
-            + "  SUM(order.Amount) as totalAmount \n" + "FROM (\n"
+    OResultSet resultSet = db.query(
+        "SELECT \n" + "  customer.OrderedId as customerOrderedId, \n" + "  SUM(order.Amount) as totalAmount \n" + "FROM (\n"
             + "  MATCH {Class: Customers, as: customer}<-HasCustomer-{class: Orders, as: order} \n" + "  RETURN customer, order\n"
             + ") \n" + "GROUP BY customerOrderedId \n" + "ORDER BY totalAmount DESC \n" + "LIMIT 3");
 
     final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-    assertThat(results)
-            .hasSize(3);
+    assertThat(results).hasSize(3);
 
     final OResult result = results.iterator().next();
 

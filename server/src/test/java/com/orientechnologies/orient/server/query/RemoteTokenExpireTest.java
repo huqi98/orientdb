@@ -208,7 +208,6 @@ public class RemoteTokenExpireTest {
 
   }
 
-
   @Test
   public void itShouldNotFailWithRoundRobin() {
 

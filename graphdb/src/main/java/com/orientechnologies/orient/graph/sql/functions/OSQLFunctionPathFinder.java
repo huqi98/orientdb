@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 package com.orientechnologies.orient.graph.sql.functions;
 
 import com.orientechnologies.orient.core.command.OCommandContext;
@@ -37,9 +37,8 @@ import java.util.Set;
 
 /**
  * Abstract class to find paths between nodes.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public abstract class OSQLFunctionPathFinder extends OSQLFunctionMathAbstract {
   protected OrientBaseGraph         db;
@@ -47,12 +46,12 @@ public abstract class OSQLFunctionPathFinder extends OSQLFunctionMathAbstract {
   protected Map<ORID, OrientVertex> predecessors;
   protected Map<ORID, Float>        distance;
 
-  protected OrientVertex            paramSourceVertex;
-  protected OrientVertex            paramDestinationVertex;
-  protected Direction               paramDirection = Direction.OUT;
-  protected OCommandContext         context;
+  protected OrientVertex    paramSourceVertex;
+  protected OrientVertex    paramDestinationVertex;
+  protected Direction       paramDirection = Direction.OUT;
+  protected OCommandContext context;
 
-  protected static final float      MIN            = 0f;
+  protected static final float MIN = 0f;
 
   public OSQLFunctionPathFinder(final String iName, final int iMinParams, final int iMaxParams) {
     super(iName, iMinParams, iMaxParams);
@@ -87,7 +86,7 @@ public abstract class OSQLFunctionPathFinder extends OSQLFunctionMathAbstract {
         // FOUND
         break;
 
-      if ( !OCommandExecutorAbstract.checkInterruption(context) )
+      if (!OCommandExecutorAbstract.checkInterruption(context))
         break;
     }
 

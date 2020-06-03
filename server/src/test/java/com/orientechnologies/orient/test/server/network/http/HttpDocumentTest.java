@@ -16,7 +16,8 @@ public class HttpDocumentTest extends BaseHttpDatabaseTest {
 
   @Test
   public void create() throws IOException {
-    post("document/" + getDatabaseName()).payload("{@class:'V', name:'Jay', surname:'Miner',age:99, \"@version\":100}", CONTENT.JSON).exec();
+    post("document/" + getDatabaseName())
+        .payload("{@class:'V', name:'Jay', surname:'Miner',age:99, \"@version\":100}", CONTENT.JSON).exec();
 
     Assert.assertEquals(201, getResponse().getStatusLine().getStatusCode());
 

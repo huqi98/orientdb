@@ -37,14 +37,13 @@ import java.util.Set;
 /**
  * SQL TRUNCATE RECORD command: Truncates a record without loading it. Useful when the record is dirty in any way and cannot be
  * loaded correctly.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OCommandExecutorSQLTruncateRecord extends OCommandExecutorSQLAbstract implements OCommandDistributedReplicateRequest {
-  public static final String KEYWORD_TRUNCATE = "TRUNCATE";
-  public static final String KEYWORD_RECORD   = "RECORD";
-  private Set<String>        records          = new HashSet<String>();
+  public static final String      KEYWORD_TRUNCATE = "TRUNCATE";
+  public static final String      KEYWORD_RECORD   = "RECORD";
+  private             Set<String> records          = new HashSet<String>();
 
   @SuppressWarnings("unchecked")
   public OCommandExecutorSQLTruncateRecord parse(final OCommandRequest iRequest) {

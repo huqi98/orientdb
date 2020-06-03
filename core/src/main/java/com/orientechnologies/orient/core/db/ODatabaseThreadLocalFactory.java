@@ -18,7 +18,6 @@ package com.orientechnologies.orient.core.db;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface ODatabaseThreadLocalFactory {
 

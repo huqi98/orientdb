@@ -21,8 +21,8 @@ public class ODropPropertyStatement extends ODDLStatement {
 
   protected OIdentifier className;
   protected OIdentifier propertyName;
-  protected boolean ifExists = false;
-  protected boolean force = false;
+  protected boolean     ifExists = false;
+  protected boolean     force    = false;
 
   public ODropPropertyStatement(int id) {
     super(id);
@@ -32,7 +32,8 @@ public class ODropPropertyStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
     OInternalResultSet rs = new OInternalResultSet();
     final ODatabaseDocumentInternal database = (ODatabaseDocumentInternal) ctx.getDatabase();
     final OClassImpl sourceClass = (OClassImpl) database.getMetadata().getSchema().getClass(className.getStringValue());
@@ -40,7 +41,7 @@ public class ODropPropertyStatement extends ODDLStatement {
       throw new OCommandExecutionException("Source class '" + className + "' not found");
 
     if (sourceClass.getProperty(propertyName.getStringValue()) == null) {
-      if(ifExists){
+      if (ifExists) {
         return rs;
       }
       throw new OCommandExecutionException("Property '" + propertyName + "' not found on class " + className);
@@ -86,7 +87,8 @@ public class ODropPropertyStatement extends ODDLStatement {
 
   private List<OIndex> relatedIndexes(final String fieldName, ODatabaseDocumentInternal database) {
     final List<OIndex> result = new ArrayList<OIndex>();
-    for (final OIndex oIndex : database.getMetadata().getIndexManagerInternal().getClassIndexes(database, className.getStringValue())) {
+    for (final OIndex oIndex : database.getMetadata().getIndexManagerInternal()
+        .getClassIndexes(database, className.getStringValue())) {
       if (OCollections.indexOf(oIndex.getDefinition().getFields(), fieldName, new OCaseInsentiveComparator()) > -1) {
         result.add(oIndex);
       }
@@ -95,20 +97,22 @@ public class ODropPropertyStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("DROP PROPERTY ");
     className.toString(params, builder);
     builder.append(".");
     propertyName.toString(params, builder);
-    if(ifExists){
+    if (ifExists) {
       builder.append(" IF EXISTS");
     }
-    if(force){
+    if (force) {
       builder.append(" FORCE");
     }
   }
 
-  @Override public ODropPropertyStatement copy() {
+  @Override
+  public ODropPropertyStatement copy() {
     ODropPropertyStatement result = new ODropPropertyStatement(-1);
     result.className = className == null ? null : className.copy();
     result.propertyName = propertyName == null ? null : propertyName.copy();
@@ -117,7 +121,8 @@ public class ODropPropertyStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -127,7 +132,7 @@ public class ODropPropertyStatement extends ODDLStatement {
 
     if (force != that.force)
       return false;
-    if(ifExists!=that.ifExists){
+    if (ifExists != that.ifExists) {
       return false;
     }
     if (className != null ? !className.equals(that.className) : that.className != null)
@@ -138,7 +143,8 @@ public class ODropPropertyStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = className != null ? className.hashCode() : 0;
     result = 31 * result + (propertyName != null ? propertyName.hashCode() : 0);
     result = 31 * result + (force ? 1 : 0);

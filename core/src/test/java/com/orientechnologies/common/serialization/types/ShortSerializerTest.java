@@ -18,7 +18,10 @@ package com.orientechnologies.common.serialization.types;
 
 import com.orientechnologies.orient.core.storage.impl.local.paginated.wal.OWALChanges;
 import com.orientechnologies.orient.core.storage.impl.local.paginated.wal.OWALChangesTree;
-import org.junit.Assert;import org.junit.Before; import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -29,8 +32,8 @@ import java.nio.ByteOrder;
 public class ShortSerializerTest {
   private static final int FIELD_SIZE = 2;
   byte[] stream = new byte[FIELD_SIZE];
-  private static final Short OBJECT = 1;
-  private OShortSerializer shortSerializer;
+  private static final Short            OBJECT = 1;
+  private              OShortSerializer shortSerializer;
 
   @Before
   public void beforeClass() {

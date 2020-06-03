@@ -21,16 +21,14 @@ package com.orientechnologies.orient.core.command;
 
 /**
  * Callback interface called when the command returns results.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public interface OCommandResultListener {
   /**
    * This method is called for each result.
-   * 
-   * @param iRecord
-   *          Current record
+   *
+   * @param iRecord Current record
    * @return True to continue the query, otherwise false
    */
   boolean result(Object iRecord);

@@ -30,17 +30,16 @@ import com.orientechnologies.orient.core.serialization.serializer.record.ORecord
 import javax.script.CompiledScript;
 
 /**
- * Script command request implementation. It just stores the request and delegated the execution to the configured OCommandExecutor.
- * 
- * 
- * @see OCommandExecutorScript
+ * Script command request implementation. It just stores the request and delegated the execution to the configured
+ * OCommandExecutor.
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
+ * @see OCommandExecutorScript
  */
 @SuppressWarnings("serial")
 public class OCommandScript extends OCommandRequestTextAbstract {
-  private String                                                         language;
-  private CompiledScript                                                 compiledScript;
+  private String         language;
+  private CompiledScript compiledScript;
 
   private OCommandDistributedReplicateRequest.DISTRIBUTED_EXECUTION_MODE executionMode = OCommandDistributedReplicateRequest.DISTRIBUTED_EXECUTION_MODE.LOCAL;
 
@@ -88,7 +87,7 @@ public class OCommandScript extends OCommandRequestTextAbstract {
       buffer.setPosition(currPosition);
     }
 
-    fromStream(buffer,serializer);
+    fromStream(buffer, serializer);
     return this;
   }
 

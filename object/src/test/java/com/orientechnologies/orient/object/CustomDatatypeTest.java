@@ -64,7 +64,7 @@ public class CustomDatatypeTest {
   }
 
   public static class Entity {
-    private String        name;
+    private String name;
 
     private WrappedString data;
 

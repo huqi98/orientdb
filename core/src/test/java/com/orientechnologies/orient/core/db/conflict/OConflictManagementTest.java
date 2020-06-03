@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.core.db.conflict;
@@ -99,17 +99,20 @@ public class OConflictManagementTest extends DatabaseAbstractTest {
   public void testAutomergeStrategyWithLinks() {
     database.setConflictStrategy("automerge");
     ODocument rootDoc = new ODocument().field("name", "Jay").save(database.getClusterNameById(database.getDefaultClusterId()));
-    ODocument linkedDoc = new ODocument().field("product", "Amiga").save(database.getClusterNameById(database.getDefaultClusterId()));
+    ODocument linkedDoc = new ODocument().field("product", "Amiga")
+        .save(database.getClusterNameById(database.getDefaultClusterId()));
     rootDoc.field("relationships", new OIdentifiable[] { linkedDoc }, OType.LINKSET);
     rootDoc.save(database.getClusterNameById(database.getDefaultClusterId()));
 
     ODocument copy = rootDoc.copy();
 
-    ODocument linkedDoc2 = new ODocument().field("company", "Commodore").save(database.getClusterNameById(database.getDefaultClusterId()));
+    ODocument linkedDoc2 = new ODocument().field("company", "Commodore")
+        .save(database.getClusterNameById(database.getDefaultClusterId()));
     rootDoc.field("relationships", new OIdentifiable[] { linkedDoc, linkedDoc2 }, OType.LINKSET);
     rootDoc.save(database.getClusterNameById(database.getDefaultClusterId()));
 
-    ODocument linkedDoc3 = new ODocument().field("company", "Atari").save(database.getClusterNameById(database.getDefaultClusterId()));
+    ODocument linkedDoc3 = new ODocument().field("company", "Atari")
+        .save(database.getClusterNameById(database.getDefaultClusterId()));
     copy.field("relationships", new OIdentifiable[] { linkedDoc, linkedDoc3 }, OType.LINKSET);
     copy.save(database.getClusterNameById(database.getDefaultClusterId()));
 

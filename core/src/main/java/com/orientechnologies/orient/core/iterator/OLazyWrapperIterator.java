@@ -29,16 +29,16 @@ import java.util.NoSuchElementException;
 
 /**
  * Iterator that created wrapped objects during browsing.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public abstract class OLazyWrapperIterator<T> implements OAutoConvertToRecord, Iterator<T>, Iterable<T>, OResettable, OSizeable {
-  protected final Iterator<?> iterator;
-  protected OIdentifiable     nextRecord;
-  protected T                 nextElement;
-  protected final int         size;                      // -1 = UNKNOWN
-  protected boolean           autoConvertToRecord = true;
-  protected Object            multiValue;
+  protected final Iterator<?>   iterator;
+  protected       OIdentifiable nextRecord;
+  protected       T             nextElement;
+  protected final int           size;                      // -1 = UNKNOWN
+  protected       boolean       autoConvertToRecord = true;
+  protected       Object        multiValue;
 
   public OLazyWrapperIterator(final Iterator<?> iterator) {
     this.iterator = iterator;

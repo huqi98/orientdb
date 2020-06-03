@@ -145,7 +145,6 @@ public final class OHashIndexBucket<K, V> extends ODurablePage implements Iterab
    * Obtains the value stored under the given index in this bucket.
    *
    * @param index the value index.
-   *
    * @return the obtained value.
    */
   public V getValue(int index) {

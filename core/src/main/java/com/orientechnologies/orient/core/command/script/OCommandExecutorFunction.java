@@ -38,10 +38,9 @@ import java.util.Map.Entry;
 
 /**
  * Executes Script Commands.
- * 
- * @see OCommandScript
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
+ * @see OCommandScript
  */
 public class OCommandExecutorFunction extends OCommandExecutorAbstract {
   protected OCommandFunction request;
@@ -73,7 +72,8 @@ public class OCommandExecutorFunction extends OCommandExecutorAbstract {
     final OPartitionedObjectPool.PoolEntry<ScriptEngine> entry = scriptManager.acquireDatabaseEngine(db.getName(), f.getLanguage());
     final ScriptEngine scriptEngine = entry.object;
     try {
-      final Bindings binding = scriptManager.bind(scriptEngine,scriptEngine.getBindings(ScriptContext.ENGINE_SCOPE), db, iContext, iArgs);
+      final Bindings binding = scriptManager
+          .bind(scriptEngine, scriptEngine.getBindings(ScriptContext.ENGINE_SCOPE), db, iContext, iArgs);
 
       try {
         final Object result;
@@ -97,11 +97,13 @@ public class OCommandExecutorFunction extends OCommandExecutorAbstract {
           final Object[] args = iArgs == null ? null : iArgs.values().toArray();
           result = scriptEngine.eval(scriptManager.getFunctionInvoke(f, args), binding);
         }
-        return OCommandExecutorUtility.transformResult(scriptManager.handleResult(f.getLanguage(),result,scriptEngine,binding,db));
+        return OCommandExecutorUtility
+            .transformResult(scriptManager.handleResult(f.getLanguage(), result, scriptEngine, binding, db));
 
       } catch (ScriptException e) {
-        throw OException.wrapException(
-            new OCommandScriptException("Error on execution of the script", request.getText(), e.getColumnNumber()), e);
+        throw OException
+            .wrapException(new OCommandScriptException("Error on execution of the script", request.getText(), e.getColumnNumber()),
+                e);
       } catch (NoSuchMethodException e) {
         throw OException.wrapException(new OCommandScriptException("Error on execution of the script", request.getText(), 0), e);
       } catch (OCommandScriptException e) {
@@ -109,7 +111,7 @@ public class OCommandExecutorFunction extends OCommandExecutorAbstract {
         throw e;
 
       } finally {
-        scriptManager.unbind(scriptEngine,binding, iContext, iArgs);
+        scriptManager.unbind(scriptEngine, binding, iContext, iArgs);
       }
     } finally {
       scriptManager.releaseDatabaseEngine(f.getLanguage(), db.getName(), entry);

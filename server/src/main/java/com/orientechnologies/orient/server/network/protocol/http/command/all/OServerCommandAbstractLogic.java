@@ -89,8 +89,8 @@ public abstract class OServerCommandAbstractLogic extends OServerCommandAuthenti
       }
 
       if (isJsonResponse(iResponse)) {
-        sendJsonError(iResponse, OHttpUtils.STATUS_BADREQ_CODE, OHttpUtils.STATUS_BADREQ_DESCRIPTION,
-            OHttpUtils.CONTENT_TEXT_PLAIN, msg.toString(), null);
+        sendJsonError(iResponse, OHttpUtils.STATUS_BADREQ_CODE, OHttpUtils.STATUS_BADREQ_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN,
+            msg.toString(), null);
       } else {
         iResponse.send(OHttpUtils.STATUS_BADREQ_CODE, OHttpUtils.STATUS_BADREQ_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN,
             msg.toString(), null);
@@ -106,6 +106,6 @@ public abstract class OServerCommandAbstractLogic extends OServerCommandAuthenti
 
   protected abstract String[] init(OHttpRequest iRequest, OHttpResponse iResponse);
 
-  protected abstract void handleResult(OHttpRequest iRequest, OHttpResponse iResponse, Object iResult) throws InterruptedException,
-      IOException;
+  protected abstract void handleResult(OHttpRequest iRequest, OHttpResponse iResponse, Object iResult)
+      throws InterruptedException, IOException;
 }

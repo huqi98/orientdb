@@ -70,8 +70,9 @@ public class ORemoteIndexEngine implements OIndexEngine {
   }
 
   @Override
-  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes, boolean nullPointerSupport,
-      OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties, OEncryption encryption) {
+  public void create(OAtomicOperation atomicOperation, OBinarySerializer valueSerializer, boolean isAutomatic, OType[] keyTypes,
+      boolean nullPointerSupport, OBinarySerializer keySerializer, int keySize, Map<String, String> engineProperties,
+      OEncryption encryption) {
   }
 
   @Override

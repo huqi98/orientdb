@@ -56,7 +56,8 @@ public class ORecordIteratorClass<REC extends ORecord> extends ORecordIteratorCl
   }
 
   @Deprecated
-  public ORecordIteratorClass(final ODatabaseDocumentInternal iDatabase, final String iClassName, final boolean iPolymorphic, final OStorage.LOCKING_STRATEGY iLockingStrategy) {
+  public ORecordIteratorClass(final ODatabaseDocumentInternal iDatabase, final String iClassName, final boolean iPolymorphic,
+      final OStorage.LOCKING_STRATEGY iLockingStrategy) {
     super(iDatabase, iLockingStrategy);
 
     targetClass = ((OMetadataInternal) database.getMetadata()).getImmutableSchemaSnapshot().getClass(iClassName);

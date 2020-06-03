@@ -15,7 +15,7 @@ import java.util.Map;
 public class ODropViewStatement extends ODDLStatement {
 
   public OIdentifier name;
-  public boolean ifExists = false;
+  public boolean     ifExists = false;
 
   public ODropViewStatement(int id) {
     super(id);

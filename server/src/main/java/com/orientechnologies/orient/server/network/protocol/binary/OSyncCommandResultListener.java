@@ -39,7 +39,6 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
  * Synchronous command result manager.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OSyncCommandResultListener extends OAbstractCommandResultListener implements OFetchPlanResults {
   private final Set<ORecord> fetchedRecordsToSend = new HashSet<ORecord>();

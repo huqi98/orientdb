@@ -126,16 +126,16 @@ public class GraphDatabaseTest extends DocumentDBBaseTest {
     Assert.assertNotNull(database.getVertex(tom).getEdges(Direction.OUT, "drives"));
     Assert.assertEquals(database.getVertex(tom).countEdges(Direction.OUT, "drives"), 2);
 
-    List<ODocument> result = database.getRawGraph().query(
-        new OSQLSynchQuery<ODocument>("select out_[in.@class = 'GraphCar'].in_ from V where name = 'Tom'"));
+    List<ODocument> result = database.getRawGraph()
+        .query(new OSQLSynchQuery<ODocument>("select out_[in.@class = 'GraphCar'].in_ from V where name = 'Tom'"));
     Assert.assertEquals(result.size(), 1);
 
-    result = database.getRawGraph().query(
-        new OSQLSynchQuery<ODocument>("select out_[label='drives'][in.brand = 'Ferrari'].in_ from V where name = 'Tom'"));
+    result = database.getRawGraph()
+        .query(new OSQLSynchQuery<ODocument>("select out_[label='drives'][in.brand = 'Ferrari'].in_ from V where name = 'Tom'"));
     Assert.assertEquals(result.size(), 1);
 
-    result = database.getRawGraph().query(
-        new OSQLSynchQuery<ODocument>("select out_[in.brand = 'Ferrari'].in_ from V where name = 'Tom'"));
+    result = database.getRawGraph()
+        .query(new OSQLSynchQuery<ODocument>("select out_[in.brand = 'Ferrari'].in_ from V where name = 'Tom'"));
     Assert.assertEquals(result.size(), 1);
   }
 
@@ -210,7 +210,6 @@ public class GraphDatabaseTest extends DocumentDBBaseTest {
     result = database.getRawGraph().query(new OSQLSynchQuery<ODocument>(query2));
     Assert.assertEquals(result.size(), 1);
 
-
     //TODO these tests are broken, they should test "contains" instead of "="
     String query3 = "select driver from V where outE()[action='owns'].inV().car = 'ford'";
     result = database.getRawGraph().query(new OSQLSynchQuery<ODocument>(query3));
@@ -276,8 +275,8 @@ public class GraphDatabaseTest extends DocumentDBBaseTest {
   }
 
   public void testDeleteOfVerticesAndEdgesWithDeleteCommandAndUnsafe() {
-    Iterable<OIdentifiable> deletedVertices = database.command(
-        new OCommandSQL("delete from GraphVehicle return before limit 1 unsafe")).execute();
+    Iterable<OIdentifiable> deletedVertices = database
+        .command(new OCommandSQL("delete from GraphVehicle return before limit 1 unsafe")).execute();
     Assert.assertTrue(deletedVertices.iterator().hasNext());
 
     OrientVertex v = (OrientVertex) deletedVertices.iterator().next();
@@ -315,10 +314,10 @@ public class GraphDatabaseTest extends DocumentDBBaseTest {
     Assert.assertEquals(confirmDeleted.intValue(), 1);
   }
 
-
   public void testEmbeddedDoc() {
     database.executeOutsideTx(new OCallable<Object, OrientBaseGraph>() {
-      @Override public Object call(OrientBaseGraph iArgument) {
+      @Override
+      public Object call(OrientBaseGraph iArgument) {
         return iArgument.getRawGraph().getMetadata().getSchema().createClass("NonVertex");
       }
     });
@@ -327,9 +326,7 @@ public class GraphDatabaseTest extends DocumentDBBaseTest {
     doc.field("foo", "bar");
     doc.save(database.getRawGraph().getClusterNameById(database.getRawGraph().getDefaultClusterId()));
 
-
     vertex.setProperty("emb1", doc);
-
 
     ODocument doc2 = new ODocument("V");
     doc2.field("foo", "bar1");

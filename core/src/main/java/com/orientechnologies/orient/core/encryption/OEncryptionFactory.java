@@ -34,11 +34,11 @@ import java.util.Set;
 
 /**
  * Factory of encryption algorithms.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OEncryptionFactory {
-  public static final OEncryptionFactory                  INSTANCE  = new OEncryptionFactory();
+  public static final OEncryptionFactory INSTANCE = new OEncryptionFactory();
 
   private final Map<String, OEncryption>                  instances = new HashMap<String, OEncryption>();
   private final Map<String, Class<? extends OEncryption>> classes   = new HashMap<String, Class<? extends OEncryption>>();
@@ -81,8 +81,7 @@ public class OEncryptionFactory {
   /**
    * Registers a stateful implementations, a new instance will be created for each storage.
    *
-   * @param iEncryption
-   *          Encryption instance
+   * @param iEncryption Encryption instance
    */
   public void register(final OEncryption iEncryption) {
     try {
@@ -103,8 +102,7 @@ public class OEncryptionFactory {
   /**
    * Registers a stateless implementations, the same instance will be shared on all the storages.
    *
-   * @param iEncryption
-   *          Encryption class
+   * @param iEncryption Encryption class
    */
   public void register(final Class<? extends OEncryption> iEncryption) {
     try {

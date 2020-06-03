@@ -30,26 +30,25 @@ import java.util.*;
  * Abstract class for import/export of database and data in general.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public abstract class ODatabaseImpExpAbstract extends ODatabaseTool {
-  protected static final String       DEFAULT_EXT               = ".json";
-  protected ODatabaseDocumentInternal database;
-  protected String                    fileName;
-  protected Set<String>               includeClusters;
-  protected Set<String>               excludeClusters;
-  protected Set<String>               includeClasses;
-  protected Set<String>               excludeClasses;
-  protected boolean                   includeInfo               = true;
-  protected boolean                   includeClusterDefinitions = true;
-  protected boolean                   includeSchema             = true;
-  protected boolean                   includeSecurity           = false;
-  protected boolean                   includeRecords            = true;
-  protected boolean                   includeIndexDefinitions   = true;
-  protected boolean                   includeManualIndexes      = true;
-  protected boolean                   useLineFeedForRecords     = false;
-  protected boolean                   preserveRids              = false;
-  protected OCommandOutputListener    listener;
+  protected static final String                    DEFAULT_EXT               = ".json";
+  protected              ODatabaseDocumentInternal database;
+  protected              String                    fileName;
+  protected              Set<String>               includeClusters;
+  protected              Set<String>               excludeClusters;
+  protected              Set<String>               includeClasses;
+  protected              Set<String>               excludeClasses;
+  protected              boolean                   includeInfo               = true;
+  protected              boolean                   includeClusterDefinitions = true;
+  protected              boolean                   includeSchema             = true;
+  protected              boolean                   includeSecurity           = false;
+  protected              boolean                   includeRecords            = true;
+  protected              boolean                   includeIndexDefinitions   = true;
+  protected              boolean                   includeManualIndexes      = true;
+  protected              boolean                   useLineFeedForRecords     = false;
+  protected              boolean                   preserveRids              = false;
+  protected              OCommandOutputListener    listener;
 
   public ODatabaseImpExpAbstract(final ODatabaseDocumentInternal iDatabase, final String iFileName,
       final OCommandOutputListener iListener) {

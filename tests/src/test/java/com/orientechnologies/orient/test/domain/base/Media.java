@@ -25,17 +25,16 @@ import com.orientechnologies.orient.core.record.impl.ORecordBytes;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class Media {
 
   @Id
-  private Object       id;
+  private Object id;
 
   @Version
-  private Object       version;
+  private Object version;
 
-  private String       name;
+  private String name;
 
   @OneToOne(orphanRemoval = true)
   private OBlob content;

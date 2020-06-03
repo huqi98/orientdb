@@ -721,7 +721,6 @@ public class ODocumentHelper {
    *
    * @param iKey Field(s) to retrieve. If are multiple fields, then the dot must be used as separator
    * @param iMap
-   *
    * @return
    */
   @SuppressWarnings("unchecked")
@@ -1005,9 +1004,7 @@ public class ODocumentHelper {
    * current one. Instead equals() just checks if the RID are the same.
    *
    * @param iOther ODocument instance
-   *
    * @return true if the two document are identical, otherwise false
-   *
    * @see #equals(Object)
    */
   @SuppressWarnings("unchecked")
@@ -1021,9 +1018,7 @@ public class ODocumentHelper {
    * one. Instead equals() just checks if the RID are the same.
    *
    * @param iOther ODocument instance
-   *
    * @return true if the two document are identical, otherwise false
-   *
    * @see #equals(Object)
    */
   @SuppressWarnings("unchecked")
@@ -1515,7 +1510,6 @@ public class ODocumentHelper {
   private static boolean isFloat(Number value) {
     return value instanceof Float || value instanceof Double;
   }
-
 
   public static <T> T makeDbCall(final ODatabaseDocumentInternal databaseRecord, final ODbRelatedCall<T> function) {
     databaseRecord.activateOnCurrentThread();

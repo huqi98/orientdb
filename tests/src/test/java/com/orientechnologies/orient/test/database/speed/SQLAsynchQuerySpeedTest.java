@@ -30,8 +30,8 @@ import com.orientechnologies.orient.test.database.base.OrientTest;
 
 @Test(enabled = false)
 public class SQLAsynchQuerySpeedTest extends SpeedTestMonoThread {
-  protected int               resultCount = 0;
-  private ODatabaseDocumentTx database;
+  protected int                 resultCount = 0;
+  private   ODatabaseDocumentTx database;
 
   public SQLAsynchQuerySpeedTest(String iURL) {
     super(1);

@@ -10,8 +10,8 @@ import java.util.Set;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OUpdatableResult extends OResultInternal {
-  protected OResultInternal previousValue = null;
-  private final OElement element;
+  protected     OResultInternal previousValue = null;
+  private final OElement        element;
 
   public OUpdatableResult(OElement element) {
     this.element = element;
@@ -33,7 +33,6 @@ public class OUpdatableResult extends OResultInternal {
     }
     return false;
   }
-
 
   @Override
   public boolean isElement() {

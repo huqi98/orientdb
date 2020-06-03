@@ -37,14 +37,12 @@ public class OrientCountVertexTest {
     assertEquals(1, v1Count);
     assertEquals(2, g.countVertices("V2"));
 
-
     g.addVertex("class:V1");
     assertEquals(allCount + 1, g.countVertices());
     assertEquals(v1Count + 1, g.countVertices("V1"));
 
     g.shutdown();
   }
-
 
   private OrientGraph createGraph() {
     return (OrientGraph) new OrientGraph("memory:" + OrientCountVertexTest.class.getSimpleName()).setWarnOnForceClosingTx(false);

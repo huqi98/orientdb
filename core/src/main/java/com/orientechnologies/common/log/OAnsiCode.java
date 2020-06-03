@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 package com.orientechnologies.common.log;
 
 import com.orientechnologies.common.parser.OVariableParser;
@@ -45,7 +45,7 @@ public enum OAnsiCode {
 
   BACKGROUND_BLACK("\u001B[40m"), BACKGROUND_RED("\u001B[41m"), BACKGROUND_GREEN("\u001B[42m"), BACKGROUND_YELLOW(
       "\u001B[43m"), BACKGROUND_BLUE("\u001B[44m"), BACKGROUND_MAGENTA("\u001B[45m"), BACKGROUND_CYAN(
-          "\u001B[46m"), BACKGROUND_WHITE("\u001B[47m"),
+      "\u001B[46m"), BACKGROUND_WHITE("\u001B[47m"),
 
   NULL("");
 

@@ -28,8 +28,8 @@ import java.text.ParseException;
 import java.util.NoSuchElementException;
 
 public class OETLJsonExtractor extends OETLAbstractSourceExtractor {
-  protected OJSONReader jsonReader;
-  protected Character first = null;
+  protected OJSONReader       jsonReader;
+  protected Character         first = null;
   protected OETLExtractedItem next;
 
   @Override

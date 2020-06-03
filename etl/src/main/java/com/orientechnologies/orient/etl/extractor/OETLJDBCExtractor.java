@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.orient.etl.extractor;
@@ -39,13 +39,13 @@ public class OETLJDBCExtractor extends OETLAbstractExtractor {
   protected String query;
   protected String queryCount;
 
-  protected String     driverClass;
-  protected Connection conn;
-  protected Statement  stm;
-  protected ResultSet  rs;
-  protected boolean didNext = false;
-  protected boolean hasNext = false;
-  protected int rsColumns;
+  protected String       driverClass;
+  protected Connection   conn;
+  protected Statement    stm;
+  protected ResultSet    rs;
+  protected boolean      didNext     = false;
+  protected boolean      hasNext     = false;
+  protected int          rsColumns;
   protected List<String> columnNames = null;
   protected List<OType>  columnTypes = null;
   protected int          fetchSize   = 10000;

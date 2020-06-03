@@ -18,16 +18,19 @@ import static com.orientechnologies.orient.core.sql.executor.ExecutionPlanPrintU
 public class OAlterPropertyStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OAlterPropertyStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testSetProperty() {
+  @Test
+  public void testSetProperty() {
     String className = "testSetProperty";
     OClass clazz = db.getMetadata().getSchema().createClass(className);
     OProperty prop = clazz.createProperty("name", OType.STRING);
@@ -47,7 +50,8 @@ public class OAlterPropertyStatementExecutionTest {
     result.close();
   }
 
-  @Test public void testSetCustom() {
+  @Test
+  public void testSetCustom() {
     String className = "testSetCustom";
     OClass clazz = db.getMetadata().getSchema().createClass(className);
     OProperty prop = clazz.createProperty("name", OType.STRING);
@@ -66,6 +70,5 @@ public class OAlterPropertyStatementExecutionTest {
     Assert.assertEquals(currentValue, next.getProperty("newValue"));
     result.close();
   }
-
 
 }

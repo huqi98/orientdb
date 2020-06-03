@@ -18,8 +18,8 @@ public class JsonWebToken implements OJsonWebToken, OToken {
 
   public final OJwtHeader  header;
   public final OJwtPayload payload;
-  private boolean          isVerified;
-  private boolean          isValid;
+  private      boolean     isVerified;
+  private      boolean     isValid;
 
   public JsonWebToken() {
     this(new OrientJwtHeader(), new OrientJwtPayload());
@@ -103,11 +103,11 @@ public class JsonWebToken implements OJsonWebToken, OToken {
   public void setExpiry(long expiry) {
     this.payload.setExpiry(expiry);
   }
-  
+
   @Override
   public boolean isNowValid() {
     long now = System.currentTimeMillis();
     return getExpiry() > now && payload.getNotBefore() < now;
   }
-  
+
 }

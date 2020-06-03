@@ -24,17 +24,17 @@ import com.orientechnologies.common.test.SpeedTestMonoThread;
 
 public class TryCatchSpeedTest extends SpeedTestMonoThread {
 
-	public TryCatchSpeedTest() {
-		super(1000000);
-	}
+  public TryCatchSpeedTest() {
+    super(1000000);
+  }
 
-	@Override
-	@Test(enabled = false)
-	public void cycle() throws IOException {
-		try {
-		} catch (Throwable t) {
-			OLogManager.instance().error(this, "test", t);
-		} finally {
-		}
-	}
+  @Override
+  @Test(enabled = false)
+  public void cycle() throws IOException {
+    try {
+    } catch (Throwable t) {
+      OLogManager.instance().error(this, "test", t);
+    } finally {
+    }
+  }
 }

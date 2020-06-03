@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.graph.sql;
@@ -77,8 +77,8 @@ public class GraphCommandsTest extends GraphNoTxAbstractTest {
   public void testAddValueSQL() {
     graph.command(new OCommandSQL("update V add testprop = 'first' return after @this limit 1")).execute();
 
-    Iterable<Vertex> results = ((Iterable<Vertex>) graph.command(
-        new OSQLSynchQuery("select from V where 'first' in testprop")).execute());
+    Iterable<Vertex> results = ((Iterable<Vertex>) graph.command(new OSQLSynchQuery("select from V where 'first' in testprop"))
+        .execute());
     Assert.assertTrue(results.iterator().hasNext());
 
     graph.command(new OCommandSQL("update V add testprop = 'second' return after @this limit 1")).execute();

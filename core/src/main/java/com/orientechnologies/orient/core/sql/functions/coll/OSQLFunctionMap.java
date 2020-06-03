@@ -29,9 +29,8 @@ import java.util.Map;
 
 /**
  * This operator add an entry in a map. The entry is composed by a key and a value.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFunctionMap extends OSQLFunctionMultiValueAbstract<Map<Object, Object>> {
   public static final String NAME = "map";

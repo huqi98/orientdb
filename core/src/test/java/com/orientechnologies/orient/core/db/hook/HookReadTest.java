@@ -44,7 +44,8 @@ public class HookReadTest {
 
       @Override
       public RESULT onTrigger(TYPE iType, ORecord iRecord) {
-        if (iType == TYPE.AFTER_READ && !((ODocument) iRecord).getClassName().equalsIgnoreCase(OSecurityPolicy.class.getSimpleName()))
+        if (iType == TYPE.AFTER_READ && !((ODocument) iRecord).getClassName()
+            .equalsIgnoreCase(OSecurityPolicy.class.getSimpleName()))
           ((ODocument) iRecord).field("read", "test");
         return RESULT.RECORD_CHANGED;
       }

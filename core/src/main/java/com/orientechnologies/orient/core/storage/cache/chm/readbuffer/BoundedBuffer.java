@@ -23,7 +23,6 @@ import java.util.function.Consumer;
  * A striped, non-blocking, bounded buffer.
  *
  * @param <E> the type of elements maintained by this buffer
- *
  * @author ben.manes@gmail.com (Ben Manes)
  */
 public final class BoundedBuffer<E> extends StripedBuffer<E> {

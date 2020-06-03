@@ -31,7 +31,7 @@ import java.util.Map;
 
 /**
  * Command wraps the command request and return wrapped Graph Element such as Vertex and Edge
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public class OrientGraphCommand implements OCommandRequest {

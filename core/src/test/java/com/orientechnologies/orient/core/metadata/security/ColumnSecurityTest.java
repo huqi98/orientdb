@@ -13,8 +13,8 @@ import org.junit.*;
 
 public class ColumnSecurityTest {
 
-  static String DB_NAME = "test";
-  static OrientDB orient;
+  static  String           DB_NAME = "test";
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -167,7 +167,6 @@ public class ColumnSecurityTest {
     security.saveSecurityPolicy(db, policy);
     security.setSecurityPolicy(db, security.getRole(db, "reader"), "database.class.Person.name", policy);
   }
-
 
   @Test
   public void testReadFilterOneProperty() {
@@ -342,11 +341,9 @@ public class ColumnSecurityTest {
     OResult item = rs.next();
     Assert.assertEquals("foo", item.getProperty("name"));
 
-
     Assert.assertFalse(rs.hasNext());
     rs.close();
   }
-
 
   @Test
   public void testCreate() {
@@ -379,7 +376,6 @@ public class ColumnSecurityTest {
     }
   }
 
-
   @Test
   public void testBeforeUpdate() {
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
@@ -402,7 +398,6 @@ public class ColumnSecurityTest {
     elem.setProperty("surname", "bar");
     db.save(elem);
 
-
     db.close();
     this.db = orient.open(DB_NAME, "writer", "writer");
 
@@ -413,7 +408,6 @@ public class ColumnSecurityTest {
       rs.next();
       Assert.assertFalse(rs.hasNext());
     }
-
 
     try {
       db.command("UPDATE Person SET name = 'bar1' WHERE name = 'bar'");
@@ -450,7 +444,6 @@ public class ColumnSecurityTest {
       rs.next();
       Assert.assertFalse(rs.hasNext());
     }
-
 
     try {
       db.command("UPDATE Person SET name = 'invalid'");
@@ -509,6 +502,5 @@ public class ColumnSecurityTest {
 
     }
   }
-
 
 }

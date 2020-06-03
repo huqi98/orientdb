@@ -28,7 +28,7 @@ import com.orientechnologies.orient.core.encryption.OEncryption;
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class ONothingEncryption implements OEncryption {
-  public static final String             NAME     = "nothing";
+  public static final String NAME = "nothing";
 
   public static final ONothingEncryption INSTANCE = new ONothingEncryption();
 

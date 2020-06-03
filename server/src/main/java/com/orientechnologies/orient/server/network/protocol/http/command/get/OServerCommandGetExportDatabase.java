@@ -45,8 +45,8 @@ public class OServerCommandGetExportDatabase extends OServerCommandAuthenticated
     return false;
   }
 
-  protected void exportStandard(final OHttpRequest iRequest, final OHttpResponse iResponse) throws InterruptedException,
-      IOException {
+  protected void exportStandard(final OHttpRequest iRequest, final OHttpResponse iResponse)
+      throws InterruptedException, IOException {
     iRequest.getData().commandInfo = "Database export";
     final ODatabaseDocumentInternal database = getProfiledDatabaseInstance(iRequest);
     try {

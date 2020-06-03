@@ -29,10 +29,10 @@ import java.util.concurrent.Callable;
  * all the clients can auto-reconnect to the next available server.
  */
 public class HATxCrashIT extends AbstractHARemoveNode {
-  private final static int SERVERS       = 3;
-  private volatile boolean inserting     = true;
-  private volatile int     serverStarted = 0;
-  private volatile boolean lastServerOn  = false;
+  private final static int     SERVERS       = 3;
+  private volatile     boolean inserting     = true;
+  private volatile     int     serverStarted = 0;
+  private volatile     boolean lastServerOn  = false;
 
   @Test
   @Ignore
@@ -60,19 +60,19 @@ public class HATxCrashIT extends AbstractHARemoveNode {
           try {
             // CRASH LAST SERVER try {
             executeWhen(new Callable<Boolean>() {
-              // CONDITION
-              @Override
-              public Boolean call() throws Exception {
-              	 // Why did this in the poolFactory version always use serverInstance.get(0)...?
-              	 // Does it affect the test to use a specific server?
-                final ODatabaseDocument database = getDatabase(server);
-                try {
-                  return database.countClass("Person") > (count * SERVERS) * 1 / 3;
-                } finally {
-                  database.close();
-                }
-              }
-            }, // ACTION
+                          // CONDITION
+                          @Override
+                          public Boolean call() throws Exception {
+                            // Why did this in the poolFactory version always use serverInstance.get(0)...?
+                            // Does it affect the test to use a specific server?
+                            final ODatabaseDocument database = getDatabase(server);
+                            try {
+                              return database.countClass("Person") > (count * SERVERS) * 1 / 3;
+                            } finally {
+                              database.close();
+                            }
+                          }
+                        }, // ACTION
                 new Callable() {
                   @Override
                   public Object call() throws Exception {
@@ -86,17 +86,17 @@ public class HATxCrashIT extends AbstractHARemoveNode {
                     executeWhen(new Callable<Boolean>() {
                       @Override
                       public Boolean call() throws Exception {
-              	         // Why did this in the poolFactory version always use serverInstance.get(0)...?
-              	         // Does it affect the test to use a specific server?
+                        // Why did this in the poolFactory version always use serverInstance.get(0)...?
+                        // Does it affect the test to use a specific server?
                         ServerRun runningServer = null;
-                        for(ServerRun run : serverInstance){
-                          if(run.getServerInstance().getDatabases().isOpen()){
+                        for (ServerRun run : serverInstance) {
+                          if (run.getServerInstance().getDatabases().isOpen()) {
                             runningServer = run;
                             break;
                           }
                         }
                         final ODatabaseDocument database = getDatabase(runningServer);
-                            
+
                         try {
                           return database.countClass("Person") > (count * SERVERS) * 2 / 3;
                         } finally {

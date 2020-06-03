@@ -17,21 +17,21 @@ import static org.junit.Assert.assertEquals;
  */
 public class ODemoDbMetadataConsistencyIT extends OIntegrationTestTemplate {
 
-  private int vCount              = 7275;
-  private int locationsCount      = 3541;
-  private int attractionsCount    = 436;
-  private int archSitesCount      = 55;
-  private int castlesCount        = 127;
-  private int monumentsCount      = 137;
-  private int theatresCount       = 117;
-  private int ServicesCount       = 3105;
-  private int hotelsCount         = 1154;
-  private int restaurantsCount    = 1951;
-  private int profilesCount       = 1000;
-  private int customersCount      = 400;
-  private int countriesCount      = 249;
-  private int ordersCount         = 812;
-  private int reviewsCount        = 1273;
+  private int vCount           = 7275;
+  private int locationsCount   = 3541;
+  private int attractionsCount = 436;
+  private int archSitesCount   = 55;
+  private int castlesCount     = 127;
+  private int monumentsCount   = 137;
+  private int theatresCount    = 117;
+  private int ServicesCount    = 3105;
+  private int hotelsCount      = 1154;
+  private int restaurantsCount = 1951;
+  private int profilesCount    = 1000;
+  private int customersCount   = 400;
+  private int countriesCount   = 249;
+  private int ordersCount      = 812;
+  private int reviewsCount     = 1273;
 
   private int eCount              = 14872;
   private int hasCustomerCount    = 812;
@@ -43,7 +43,7 @@ public class ODemoDbMetadataConsistencyIT extends OIntegrationTestTemplate {
   private int hasUsedServiceCount = 4124;
   private int hasVisitedCount     = 4973;
   private int isFromCountryCount  = 400;
-  private int madeReviewCount  = 1273;
+  private int madeReviewCount     = 1273;
 
   @Test
   public void testMetadata() throws Exception {
@@ -162,9 +162,9 @@ public class ODemoDbMetadataConsistencyIT extends OIntegrationTestTemplate {
     //other way to check inheritance
     List<OResult> results = db.query("SELECT DISTINCT(@class) AS className from `HasUsedService` ORDER BY className ASC").stream()
         .collect(Collectors.toList());
-      assertEquals(2, results.size());
-      assertEquals("HasEaten", results.get(0).getProperty("className"));
-      assertEquals("HasStayed", results.get(1).getProperty("className"));
+    assertEquals(2, results.size());
+    assertEquals("HasEaten", results.get(0).getProperty("className"));
+    assertEquals("HasStayed", results.get(1).getProperty("className"));
     //
 
     assertThat(schema.getClass("HasVisited")).isNotNull();

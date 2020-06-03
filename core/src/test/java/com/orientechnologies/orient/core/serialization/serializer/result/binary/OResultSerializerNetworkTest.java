@@ -16,7 +16,8 @@ import java.util.Set;
  */
 public class OResultSerializerNetworkTest {
 
-  @Test public void test() {
+  @Test
+  public void test() {
     OResultSerializerNetwork serializer = new OResultSerializerNetwork();
 
     OResultInternal original = new OResultInternal();

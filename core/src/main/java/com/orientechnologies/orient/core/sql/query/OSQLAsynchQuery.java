@@ -30,10 +30,9 @@ import java.util.Map;
  * SQL asynchronous query. When executed the caller does not wait for the execution, rather the listener will be called for each
  * item found in the query. OSQLAsynchQuery has been built on top of this. NOTE: if you're working with remote databases don't
  * execute any remote call inside the callback function because the network channel is locked until the query command has finished.
- * 
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
+ *
  * @param <T>
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OSQLSynchQuery
  */
 public class OSQLAsynchQuery<T extends Object> extends OSQLQuery<T> implements OCommandRequestAsynch {

@@ -30,7 +30,6 @@ import java.util.List;
  * Base class for Replicated tasks.
  *
  * @author Luca Garulli (l.garulli--at--orientdb.com)
- *
  */
 public abstract class OAbstractReplicatedTask extends OAbstractRemoteTask {
   protected OLogSequenceNumber lastLSN;

@@ -58,7 +58,6 @@ public class CharSerializerTest {
     Assert.assertEquals(charSerializer.deserializeNativeObject(stream, 0), OBJECT);
   }
 
-
   @Test
   public void testNativeDirectMemoryCompatibility() {
     charSerializer.serializeNative(OBJECT, stream, 0);

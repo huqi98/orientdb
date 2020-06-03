@@ -375,7 +375,6 @@ public class ORecordLazyList extends OTrackedList<OIdentifiable> implements ORec
    * Convert the item requested from record to link.
    *
    * @param iIndex Position of the item to convert
-   *
    * @return <code>true</code> if conversion was successful.
    */
   private boolean convertRecord2Link(final int iIndex) {

@@ -18,5 +18,4 @@ public class OHaStatusStatementTest extends OParserTestAbstract {
     checkWrongSyntax("HA STATUS servers");
   }
 
-
 }

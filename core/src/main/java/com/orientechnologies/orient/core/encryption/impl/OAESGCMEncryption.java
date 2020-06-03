@@ -39,31 +39,30 @@ import static javax.crypto.Cipher.ENCRYPT_MODE;
  */
 public class OAESGCMEncryption implements OEncryption {
 
-  public static final String               NAME                             = "aes/gcm";
+  public static final String NAME = "aes/gcm";
 
-  private static final String              ALGORITHM_NAME                   = "AES";
-  private static final String              TRANSFORMATION                   = "AES/GCM/NoPadding";
+  private static final String              ALGORITHM_NAME = "AES";
+  private static final String              TRANSFORMATION = "AES/GCM/NoPadding";
   // Cipher.getInstance is slow, so we don't want to call it in every encrypt/decrypt call. Instead we reuse existing instances:
-  private static final ThreadLocal<Cipher> CIPHER                           = ThreadLocal
-      .withInitial(OAESGCMEncryption::getCipherInstance);
+  private static final ThreadLocal<Cipher> CIPHER         = ThreadLocal.withInitial(OAESGCMEncryption::getCipherInstance);
 
-  private static final int                 GCM_NONCE_SIZE_IN_BYTES          = 12;
-  private static final int                 GCM_TAG_SIZE_IN_BYTES            = 16;
-  private static final int                 MIN_CIPHERTEXT_SIZE              = GCM_NONCE_SIZE_IN_BYTES + GCM_TAG_SIZE_IN_BYTES;
+  private static final int GCM_NONCE_SIZE_IN_BYTES = 12;
+  private static final int GCM_TAG_SIZE_IN_BYTES   = 16;
+  private static final int MIN_CIPHERTEXT_SIZE     = GCM_NONCE_SIZE_IN_BYTES + GCM_TAG_SIZE_IN_BYTES;
 
-  private static final String              NO_SUCH_CIPHER                   = "AES/GCM/NoPadding not supported.";
-  private static final String              MISSING_KEY_ERROR                = "AESGCMEncryption encryption has been selected, "
+  private static final String NO_SUCH_CIPHER                   = "AES/GCM/NoPadding not supported.";
+  private static final String MISSING_KEY_ERROR                = "AESGCMEncryption encryption has been selected, "
       + "but no key was found. Please configure it by passing the key as property at database create/open. The property key is: '%s'";
-  private static final String              INVALID_KEY_ERROR                = "Failed to initialize AESGCMEncryption. Assure the key is a 128, 192 or 256 bits long BASE64 value";
-  private static final String              ENCRYPTION_NOT_INITIALIZED_ERROR = "OAESGCMEncryption not properly initialized";
-  private static final String              AUTHENTICATION_ERROR             = "Authentication of encrypted data failed. The encrypted data may have been altered or the used key is incorrect";
-  private static final String              INVALID_CIPHERTEXT_SIZE_ERROR    = "Invalid ciphertext size: minimum: %d, actual: %d";
-  private static final String              INVALID_RANGE_ERROR              = "Invalid range: array size: %d, offset: %d, length: %d";
-  private static final String              BLOCKING_SECURE_RANDOM_ERROR     = "SecureRandom blocked while retrieving randomness. This maybe caused by a misconfigured or absent random source on your operating system.";
+  private static final String INVALID_KEY_ERROR                = "Failed to initialize AESGCMEncryption. Assure the key is a 128, 192 or 256 bits long BASE64 value";
+  private static final String ENCRYPTION_NOT_INITIALIZED_ERROR = "OAESGCMEncryption not properly initialized";
+  private static final String AUTHENTICATION_ERROR             = "Authentication of encrypted data failed. The encrypted data may have been altered or the used key is incorrect";
+  private static final String INVALID_CIPHERTEXT_SIZE_ERROR    = "Invalid ciphertext size: minimum: %d, actual: %d";
+  private static final String INVALID_RANGE_ERROR              = "Invalid range: array size: %d, offset: %d, length: %d";
+  private static final String BLOCKING_SECURE_RANDOM_ERROR     = "SecureRandom blocked while retrieving randomness. This maybe caused by a misconfigured or absent random source on your operating system.";
 
-  private boolean                          initialized;
-  private SecretKey                        key;
-  private SecureRandom                     csprng;
+  private boolean      initialized;
+  private SecretKey    key;
+  private SecureRandom csprng;
 
   @Override
   public String name() {

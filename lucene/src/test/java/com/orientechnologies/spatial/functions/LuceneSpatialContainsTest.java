@@ -1,17 +1,14 @@
 /**
  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
  * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
  * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
  * <p>
  * For more information: http://www.orientdb.com
  */
@@ -54,8 +51,8 @@ public class LuceneSpatialContainsTest extends BaseSpatialLuceneTest {
     db.command(new OCommandSQL("insert into Polygon set geometry = ST_Buffer(ST_GeomFromText('POINT(50 50)'), 40)")).execute();
 
     db.command(new OCommandSQL("create index Polygon.g on Polygon (geometry) SPATIAL engine lucene")).execute();
-    List<ODocument> execute = db
-        .command(new OCommandSQL("SELECT from Polygon where ST_Contains(geometry, 'POINT(50 50)') = true")).execute();
+    List<ODocument> execute = db.command(new OCommandSQL("SELECT from Polygon where ST_Contains(geometry, 'POINT(50 50)') = true"))
+        .execute();
 
     Assert.assertEquals(2, execute.size());
 
@@ -80,14 +77,11 @@ public class LuceneSpatialContainsTest extends BaseSpatialLuceneTest {
         "insert into TestInsert set geometry = {'@type':'d','@class':'OGeometryCollection','geometries':[{'@type':'d','@class':'OPolygon','coordinates':[[[11,11],[21,11],[21,21],[11,21],[11,11]]]}]}"))
         .execute();
 
-    db.command(new OCommandSQL("create index TestInsert.geometry on TestInsert (geometry) SPATIAL engine lucene"))
-        .execute();
+    db.command(new OCommandSQL("create index TestInsert.geometry on TestInsert (geometry) SPATIAL engine lucene")).execute();
 
     String testGeometry = "{'@type':'d','@class':'OGeometryCollection','geometries':[{'@type':'d','@class':'OPolygon','coordinates':[[[1,1],[2,1],[2,2],[1,2],[1,1]]]}]}";
     List<ODocument> execute = db
-        .command(new OCommandSQL(
-            "SELECT from TestInsert where ST_Contains(geometry, " + testGeometry + ") = true"))
-        .execute();
+        .command(new OCommandSQL("SELECT from TestInsert where ST_Contains(geometry, " + testGeometry + ") = true")).execute();
 
     Assert.assertEquals(1, execute.size());
 

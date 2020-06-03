@@ -4,7 +4,7 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 import java.util.Map;
 
-public class SimpleObject{
+public class SimpleObject {
 
   @Id
   private Object rid;

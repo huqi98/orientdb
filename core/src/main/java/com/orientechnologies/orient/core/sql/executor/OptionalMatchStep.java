@@ -15,8 +15,6 @@ public class OptionalMatchStep extends MatchStep {
     return new OptionalMatchEdgeTraverser(lastUpstreamRecord, edge);
   }
 
-
-
   @Override
   public String prettyPrint(int depth, int indent) {
     String spaces = OExecutionStepInternal.getIndent(depth, indent);

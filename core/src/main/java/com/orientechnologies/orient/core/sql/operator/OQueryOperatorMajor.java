@@ -40,9 +40,8 @@ import java.util.stream.Stream;
 
 /**
  * MAJOR operator.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OQueryOperatorMajor extends OQueryOperatorEqualityNotNulls {
 
@@ -73,7 +72,8 @@ public class OQueryOperatorMajor extends OQueryOperatorEqualityNotNulls {
   }
 
   @Override
-  public Stream<ORawPair<Object, ORID>> executeIndexQuery(OCommandContext iContext, OIndex index, List<Object> keyParams, boolean ascSortOrder) {
+  public Stream<ORawPair<Object, ORID>> executeIndexQuery(OCommandContext iContext, OIndex index, List<Object> keyParams,
+      boolean ascSortOrder) {
     final OIndexDefinition indexDefinition = index.getDefinition();
 
     Stream<ORawPair<Object, ORID>> stream;
@@ -123,8 +123,8 @@ public class OQueryOperatorMajor extends OQueryOperatorEqualityNotNulls {
       if (iRight instanceof ORID)
         return new ORecordId(((ORID) iRight).next());
       else {
-        if (iRight instanceof OSQLFilterItemParameter
-            && ((OSQLFilterItemParameter) iRight).getValue(null, null, null) instanceof ORID)
+        if (iRight instanceof OSQLFilterItemParameter && ((OSQLFilterItemParameter) iRight)
+            .getValue(null, null, null) instanceof ORID)
           return new ORecordId(((ORID) ((OSQLFilterItemParameter) iRight).getValue(null, null, null)).next());
       }
     return null;
@@ -136,8 +136,8 @@ public class OQueryOperatorMajor extends OQueryOperatorEqualityNotNulls {
   }
 
   @Override
-  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, 
-          OCommandContext iContext, final ODocumentSerializer serializer) {
+  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, OCommandContext iContext,
+      final ODocumentSerializer serializer) {
     return serializer.getComparator().compare(iFirstField, iSecondField) > 0;
   }
 

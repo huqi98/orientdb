@@ -42,7 +42,8 @@ public class SQLCreateVertexTest extends DocumentDBBaseTest {
     }
 
     database.command(new OCommandSQL("create vertex CreateVertexByContent content { \"message\": \"(:\"}")).execute();
-    database.command(new OCommandSQL("create vertex CreateVertexByContent content { \"message\": \"\\\"‎ה, כן?...‎\\\"\"}")).execute();
+    database.command(new OCommandSQL("create vertex CreateVertexByContent content { \"message\": \"\\\"‎ה, כן?...‎\\\"\"}"))
+        .execute();
 
     List<ODocument> result = database.query(new OSQLSynchQuery<ODocument>("select from CreateVertexByContent"));
     Assert.assertEquals(result.size(), 2);
@@ -54,11 +55,12 @@ public class SQLCreateVertexTest extends DocumentDBBaseTest {
     List<String> resultMessages = new ArrayList<String>();
 
     for (ODocument document : result) {
-      resultMessages.add(document.<String> field("message"));
+      resultMessages.add(document.<String>field("message"));
     }
 
 //    issue #1787, works fine locally, not on CI
-    Assert.assertEqualsNoOrder(messages.toArray(), resultMessages.toArray(), "arrays are different: "+toString(messages)+" - "+toString(resultMessages) );
+    Assert.assertEqualsNoOrder(messages.toArray(), resultMessages.toArray(),
+        "arrays are different: " + toString(messages) + " - " + toString(resultMessages));
   }
 
   private String toString(List<String> resultMessages) {
@@ -93,7 +95,7 @@ public class SQLCreateVertexTest extends DocumentDBBaseTest {
 
   }
 
-  public void testIsClassName(){
+  public void testIsClassName() {
     OrientGraph graph = new OrientGraph(database, false);
     graph.shutdown();
     database.open("admin", "admin");

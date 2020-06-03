@@ -191,7 +191,6 @@ public class OMatchStatement extends OStatement implements OCommandExecutor, OIt
    *
    * @param iRequest Command request implementation.
    * @param <RET>
-   *
    * @return
    */
   @Override
@@ -311,7 +310,6 @@ public class OMatchStatement extends OStatement implements OCommandExecutor, OIt
    * in next releases
    *
    * @param iArgs Optional variable arguments to pass to the command.
-   *
    * @return
    */
   @Override
@@ -326,7 +324,6 @@ public class OMatchStatement extends OStatement implements OCommandExecutor, OIt
    *
    * @param request
    * @param context
-   *
    * @return
    */
   public Object execute(OSQLAsynchQuery<ODocument> request, OCommandContext context, OProgressListener progressListener) {
@@ -469,7 +466,6 @@ public class OMatchStatement extends OStatement implements OCommandExecutor, OIt
    * Calculate the set of dependency aliases for each alias in the pattern.
    *
    * @param pattern
-   *
    * @return map of alias to the set of aliases it depends on
    */
   private Map<String, Set<String>> getDependencies(Pattern pattern) {
@@ -1013,7 +1009,6 @@ public class OMatchStatement extends OStatement implements OCommandExecutor, OIt
    * @param request
    * @param ctx
    * @param record
-   *
    * @return false if limit was reached
    */
   private boolean addSingleResult(OSQLAsynchQuery<ODocument> request, OBasicCommandContext ctx, ORecord record) {

@@ -15,17 +15,20 @@ import java.util.Optional;
 public class OExplainStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
 
     db = new ODatabaseDocumentTx("memory:OExplainStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testExplainSelectNoTarget() {
+  @Test
+  public void testExplainSelectNoTarget() {
     OResultSet result = db.query("explain select 1 as one, 2 as two, 2+3");
     Assert.assertTrue(result.hasNext());
     OResult next = result.next();

@@ -13,7 +13,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class OSequenceRemoteTest extends AbstractRemoteTest {
 
-
   ODatabaseDocument db;
 
   @Override
@@ -31,7 +30,6 @@ public class OSequenceRemoteTest extends AbstractRemoteTest {
 
   @Test
   public void shouldSequenceWithDefaultValueNoTx() {
-
 
     db.command("CREATE CLASS Person EXTENDS V");
     db.command("CREATE SEQUENCE personIdSequence TYPE ORDERED;");

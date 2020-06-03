@@ -13,12 +13,12 @@ import java.util.Set;
 
 public class ShardingDocsAndEdgesIT extends AbstractServerClusterTest {
 
-  protected final static int    SERVERS        = 2;
-  private static final   String clusterNodeUSA = "client-type_usa";
-  private static final   String clusterNodeEUR = "client-type_eur";
-  private static         int    testNumber     = 0;
-  private ODatabaseDocument USA;
-  private ODatabaseDocument EUR;
+  protected final static int               SERVERS        = 2;
+  private static final   String            clusterNodeUSA = "client-type_usa";
+  private static final   String            clusterNodeEUR = "client-type_eur";
+  private static         int               testNumber     = 0;
+  private                ODatabaseDocument USA;
+  private                ODatabaseDocument EUR;
 
   @Test
   @Ignore

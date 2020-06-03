@@ -33,7 +33,8 @@ public class OOptimizeDatabaseStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     OResultInternal result = new OResultInternal();
     result.setProperty("operation", "optimize databae");
 
@@ -47,7 +48,8 @@ public class OOptimizeDatabaseStatement extends OSimpleExecStatement {
     return rs;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("OPTIMIZE DATABASE");
     for (OCommandLineOption option : options) {
       builder.append(" ");
@@ -55,7 +57,8 @@ public class OOptimizeDatabaseStatement extends OSimpleExecStatement {
     }
   }
 
-  @Override public OOptimizeDatabaseStatement copy() {
+  @Override
+  public OOptimizeDatabaseStatement copy() {
     OOptimizeDatabaseStatement result = new OOptimizeDatabaseStatement(-1);
     result.options = options == null ? null : options.stream().map(OCommandLineOption::copy).collect(Collectors.toList());
     return result;
@@ -181,7 +184,8 @@ public class OOptimizeDatabaseStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -195,7 +199,8 @@ public class OOptimizeDatabaseStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return options != null ? options.hashCode() : 0;
   }
 }

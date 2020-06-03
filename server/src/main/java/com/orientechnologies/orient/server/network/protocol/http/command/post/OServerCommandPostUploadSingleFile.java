@@ -34,11 +34,10 @@ import com.orientechnologies.orient.server.network.protocol.http.multipart.OHttp
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OServerCommandPostUploadSingleFile extends OHttpMultipartRequestCommand<String, ORID> {
 
-  private static final String[]       NAMES = { "POST|uploadSingleFile/*" };
+  private static final String[] NAMES = { "POST|uploadSingleFile/*" };
 
   protected StringWriter              buffer;
   protected OJSONWriter               writer;
@@ -68,7 +67,8 @@ public class OServerCommandPostUploadSingleFile extends OHttpMultipartRequestCom
         writer.endObject();
         writer.flush();
         if (ok) {
-          iResponse.send(OHttpUtils.STATUS_OK_CODE, OHttpUtils.STATUS_OK_DESCRIPTION, OHttpUtils.CONTENT_JSON, buffer.toString(), null);
+          iResponse
+              .send(OHttpUtils.STATUS_OK_CODE, OHttpUtils.STATUS_OK_DESCRIPTION, OHttpUtils.CONTENT_JSON, buffer.toString(), null);
         }
       } finally {
         if (database != null)
@@ -92,17 +92,18 @@ public class OServerCommandPostUploadSingleFile extends OHttpMultipartRequestCom
   }
 
   @Override
-  protected void processBaseContent(OHttpRequest iRequest, String iContentResult, HashMap<String, String> headers) throws Exception {
-    if (headers.containsKey(OHttpUtils.MULTIPART_CONTENT_NAME)
-        && headers.get(OHttpUtils.MULTIPART_CONTENT_NAME).equals(getDocumentParamenterName())) {
+  protected void processBaseContent(OHttpRequest iRequest, String iContentResult, HashMap<String, String> headers)
+      throws Exception {
+    if (headers.containsKey(OHttpUtils.MULTIPART_CONTENT_NAME) && headers.get(OHttpUtils.MULTIPART_CONTENT_NAME)
+        .equals(getDocumentParamenterName())) {
       fileDocument = iContentResult;
     }
   }
 
   @Override
   protected void processFileContent(OHttpRequest iRequest, ORID iContentResult, HashMap<String, String> headers) throws Exception {
-    if (headers.containsKey(OHttpUtils.MULTIPART_CONTENT_NAME)
-        && headers.get(OHttpUtils.MULTIPART_CONTENT_NAME).equals(getFileParamenterName())) {
+    if (headers.containsKey(OHttpUtils.MULTIPART_CONTENT_NAME) && headers.get(OHttpUtils.MULTIPART_CONTENT_NAME)
+        .equals(getFileParamenterName())) {
       fileRID = iContentResult;
       if (headers.containsKey(OHttpUtils.MULTIPART_CONTENT_FILENAME)) {
         fileName = headers.get(OHttpUtils.MULTIPART_CONTENT_FILENAME);
@@ -150,16 +151,18 @@ public class OServerCommandPostUploadSingleFile extends OHttpMultipartRequestCom
         writer.writeAttribute(1, true, "rid", doc.getIdentity().toString());
         writer.endObject();
       } else {
-        iResponse.send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "File cannot be null", OHttpUtils.CONTENT_TEXT_PLAIN,
-            "File cannot be null", null);
+        iResponse
+            .send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "File cannot be null", OHttpUtils.CONTENT_TEXT_PLAIN, "File cannot be null",
+                null);
         return false;
       }
 
       fileDocument = null;
     } else {
       if (fileRID == null) {
-        iResponse.send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "File cannot be null", OHttpUtils.CONTENT_TEXT_PLAIN,
-            "File cannot be null", null);
+        iResponse
+            .send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "File cannot be null", OHttpUtils.CONTENT_TEXT_PLAIN, "File cannot be null",
+                null);
         return false;
       }
     }

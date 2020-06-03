@@ -28,9 +28,8 @@ import com.orientechnologies.orient.core.sql.filter.OSQLFilterCondition;
 
 /**
  * OR operator.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OQueryOperatorOr extends OQueryOperator {
 

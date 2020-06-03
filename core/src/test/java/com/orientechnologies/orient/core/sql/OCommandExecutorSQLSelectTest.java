@@ -43,10 +43,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 public class OCommandExecutorSQLSelectTest {
-  static ODatabaseDocumentTx db;
-  private static String DB_STORAGE             = "memory";
-  private static String DB_NAME                = "OCommandExecutorSQLSelectTest";
-  private static int    ORDER_SKIP_LIMIT_ITEMS = 100 * 1000;
+  static         ODatabaseDocumentTx db;
+  private static String              DB_STORAGE             = "memory";
+  private static String              DB_NAME                = "OCommandExecutorSQLSelectTest";
+  private static int                 ORDER_SKIP_LIMIT_ITEMS = 100 * 1000;
 
   @BeforeClass
   public static void beforeClass() throws Exception {
@@ -1360,19 +1360,20 @@ public class OCommandExecutorSQLSelectTest {
   }
 
   @Test
-  public void testDateComparison(){
+  public void testDateComparison() {
     //issue #6389
 
-    byte[] array = new byte[]{1,4,5,74,3,45,6,127,-120,2};
+    byte[] array = new byte[] { 1, 4, 5, 74, 3, 45, 6, 127, -120, 2 };
 
     db.command(new OCommandSQL("create class TestDateComparison")).execute();
     db.command(new OCommandSQL("create property TestDateComparison.dateProp DATE")).execute();
 
     db.command(new OCommandSQL("insert into TestDateComparison set dateProp = '2016-05-01'")).execute();
 
-    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("SELECT from TestDateComparison WHERE dateProp >= '2016-05-01'"));
+    List<ODocument> results = db
+        .query(new OSQLSynchQuery<ODocument>("SELECT from TestDateComparison WHERE dateProp >= '2016-05-01'"));
     assertEquals(results.size(), 1);
-    results =db.query(new OSQLSynchQuery<ODocument>("SELECT from TestDateComparison WHERE dateProp <= '2016-05-01'"));
+    results = db.query(new OSQLSynchQuery<ODocument>("SELECT from TestDateComparison WHERE dateProp <= '2016-05-01'"));
     assertEquals(results.size(), 1);
 
   }
@@ -1380,22 +1381,23 @@ public class OCommandExecutorSQLSelectTest {
 //=======
 
   @Test
-  public void testOrderByRidDescMultiCluster(){
+  public void testOrderByRidDescMultiCluster() {
     //issue #6694
 
     OClass clazz = db.getMetadata().getSchema().createClass("TestOrderByRidDescMultiCluster");
-    if(clazz.getClusterIds().length<2){
+    if (clazz.getClusterIds().length < 2) {
       clazz.addCluster("TestOrderByRidDescMultiCluster_11111");
     }
-    for(int i=0;i<100;i++) {
-      db.command(new OCommandSQL("insert into TestOrderByRidDescMultiCluster set foo = "+i)).execute();
+    for (int i = 0; i < 100; i++) {
+      db.command(new OCommandSQL("insert into TestOrderByRidDescMultiCluster set foo = " + i)).execute();
     }
 
-    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("SELECT from TestOrderByRidDescMultiCluster order by @rid desc"));
+    List<ODocument> results = db
+        .query(new OSQLSynchQuery<ODocument>("SELECT from TestOrderByRidDescMultiCluster order by @rid desc"));
     assertEquals(results.size(), 100);
     ODocument lastDoc = null;
-    for(ODocument doc:results){
-      if(lastDoc!=null){
+    for (ODocument doc : results) {
+      if (lastDoc != null) {
         assertTrue(doc.getIdentity().compareTo(lastDoc.getIdentity()) < 0);
       }
       lastDoc = doc;
@@ -1404,8 +1406,8 @@ public class OCommandExecutorSQLSelectTest {
     results = db.query(new OSQLSynchQuery<ODocument>("SELECT from TestOrderByRidDescMultiCluster order by @rid asc"));
     assertEquals(results.size(), 100);
     lastDoc = null;
-    for(ODocument doc:results){
-      if(lastDoc!=null){
+    for (ODocument doc : results) {
+      if (lastDoc != null) {
         assertTrue(doc.getIdentity().compareTo(lastDoc.getIdentity()) > 0);
       }
       lastDoc = doc;
@@ -1413,20 +1415,27 @@ public class OCommandExecutorSQLSelectTest {
 
   }
 
-
   @Test
-  public void testCountOnSubclassIndexes(){
+  public void testCountOnSubclassIndexes() {
     //issue #6737
 
     db.command(new OCommandSQL("create class testCountOnSubclassIndexes_superclass")).execute();
     db.command(new OCommandSQL("create property testCountOnSubclassIndexes_superclass.foo boolean")).execute();
-    db.command(new OCommandSQL("create index testCountOnSubclassIndexes_superclass.foo on testCountOnSubclassIndexes_superclass (foo) notunique")).execute();
+    db.command(new OCommandSQL(
+        "create index testCountOnSubclassIndexes_superclass.foo on testCountOnSubclassIndexes_superclass (foo) notunique"))
+        .execute();
 
-    db.command(new OCommandSQL("create class testCountOnSubclassIndexes_sub1 extends testCountOnSubclassIndexes_superclass")).execute();
-    db.command(new OCommandSQL("create index testCountOnSubclassIndexes_sub1.foo on testCountOnSubclassIndexes_sub1 (foo) notunique")).execute();
+    db.command(new OCommandSQL("create class testCountOnSubclassIndexes_sub1 extends testCountOnSubclassIndexes_superclass"))
+        .execute();
+    db.command(
+        new OCommandSQL("create index testCountOnSubclassIndexes_sub1.foo on testCountOnSubclassIndexes_sub1 (foo) notunique"))
+        .execute();
 
-    db.command(new OCommandSQL("create class testCountOnSubclassIndexes_sub2 extends testCountOnSubclassIndexes_superclass")).execute();
-    db.command(new OCommandSQL("create index testCountOnSubclassIndexes_sub2.foo on testCountOnSubclassIndexes_sub2 (foo) notunique")).execute();
+    db.command(new OCommandSQL("create class testCountOnSubclassIndexes_sub2 extends testCountOnSubclassIndexes_superclass"))
+        .execute();
+    db.command(
+        new OCommandSQL("create index testCountOnSubclassIndexes_sub2.foo on testCountOnSubclassIndexes_sub2 (foo) notunique"))
+        .execute();
 
     db.command(new OCommandSQL("insert into testCountOnSubclassIndexes_sub1 set name = 'a', foo = true")).execute();
     db.command(new OCommandSQL("insert into testCountOnSubclassIndexes_sub1 set name = 'b', foo = false")).execute();
@@ -1434,42 +1443,41 @@ public class OCommandExecutorSQLSelectTest {
     db.command(new OCommandSQL("insert into testCountOnSubclassIndexes_sub2 set name = 'd', foo = true")).execute();
     db.command(new OCommandSQL("insert into testCountOnSubclassIndexes_sub2 set name = 'e', foo = false")).execute();
 
-
-    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("SELECT count(*) from testCountOnSubclassIndexes_sub1 where foo = true"));
+    List<ODocument> results = db
+        .query(new OSQLSynchQuery<ODocument>("SELECT count(*) from testCountOnSubclassIndexes_sub1 where foo = true"));
     assertEquals(results.size(), 1);
-    assertEquals(results.get(0).field("count"), (Object)1L);
+    assertEquals(results.get(0).field("count"), (Object) 1L);
 
     results = db.query(new OSQLSynchQuery<ODocument>("SELECT count(*) from testCountOnSubclassIndexes_sub2 where foo = true"));
     assertEquals(results.size(), 1);
-    assertEquals(results.get(0).field("count"), (Object)2L);
+    assertEquals(results.get(0).field("count"), (Object) 2L);
 
-    results = db.query(new OSQLSynchQuery<ODocument>("SELECT count(*) from testCountOnSubclassIndexes_superclass where foo = true"));
+    results = db
+        .query(new OSQLSynchQuery<ODocument>("SELECT count(*) from testCountOnSubclassIndexes_superclass where foo = true"));
     assertEquals(results.size(), 1);
-    assertEquals(results.get(0).field("count"), (Object)3L);
+    assertEquals(results.get(0).field("count"), (Object) 3L);
   }
 
-
   @Test
-  public void testDoubleExponentNotation(){
+  public void testDoubleExponentNotation() {
     //issue #7013
 
     List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("select 1e-2 as a"));
     assertEquals(results.size(), 1);
-    assertEquals(results.get(0).field("a"), (Object)0.01d);
+    assertEquals(results.get(0).field("a"), (Object) 0.01d);
   }
 
-
   @Test
-  public void testConvertDouble(){
+  public void testConvertDouble() {
     //issue #7234
 
     db.command(new OCommandSQL("create class testConvertDouble")).execute();
     db.command(new OCommandSQL("insert into testConvertDouble set num = 100000")).execute();
 
-    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("SELECT FROM testConvertDouble WHERE num >= 50000 AND num <=300000000"));
+    List<ODocument> results = db
+        .query(new OSQLSynchQuery<ODocument>("SELECT FROM testConvertDouble WHERE num >= 50000 AND num <=300000000"));
     assertEquals(results.size(), 1);
   }
-
 
   @Test
   public void testFilterListsOfMaps() {
@@ -1479,9 +1487,10 @@ public class OCommandExecutorSQLSelectTest {
     db.command(new OCommandSQL("create class " + className)).execute();
     db.command(new OCommandSQL("create property " + className + ".tagz embeddedmap")).execute();
     db.command(new OCommandSQL("insert into " + className + " set tagz = {}")).execute();
-    db.command(new OCommandSQL("update " + className + " SET tagz.foo = [{name:'a', surname:'b'}, {name:'c', surname:'d'}]")).execute();
+    db.command(new OCommandSQL("update " + className + " SET tagz.foo = [{name:'a', surname:'b'}, {name:'c', surname:'d'}]"))
+        .execute();
 
-    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("select tagz.values()[0][name = 'a'] as t from "+className));
+    List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("select tagz.values()[0][name = 'a'] as t from " + className));
     assertEquals(results.size(), 1);
     Map map = results.get(0).field("t");
     assertEquals(map.get("surname"), "b");
@@ -1585,11 +1594,11 @@ public class OCommandExecutorSQLSelectTest {
 
     List<ODocument> results = db.query(new OSQLSynchQuery<ODocument>("SELECT * FROM " + className + " WHERE name is defined"));
     assertEquals(results.size(), 1);
-    assertEquals((int)results.get(0).field("x"), 1);
+    assertEquals((int) results.get(0).field("x"), 1);
 
     results = db.query(new OSQLSynchQuery<ODocument>("SELECT * FROM " + className + " WHERE name is not defined"));
     assertEquals(results.size(), 1);
-    assertEquals((int)results.get(0).field("x"), 2);
+    assertEquals((int) results.get(0).field("x"), 2);
   }
 
   private long indexUsages(ODatabaseDocumentTx db) {

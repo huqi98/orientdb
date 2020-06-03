@@ -56,13 +56,13 @@ public class DeleteEdgeTest {
 
       graph.command(new OCommandSQL("delete edge TestEdge where based_on = '0001'")).execute();
 
-      Iterable<OrientVertex> edges = graph.command(new OCommandSQL("select count(*) from TestEdge where based_on = '0001'")).execute();
+      Iterable<OrientVertex> edges = graph.command(new OCommandSQL("select count(*) from TestEdge where based_on = '0001'"))
+          .execute();
       assertTrue(edges.iterator().hasNext());
       assertEquals(edges.iterator().next().<Object>getProperty("count"), 0l);
     }
 
   }
-
 
   @Test
   public void testDeleteEdgeValidation() {
@@ -82,7 +82,8 @@ public class DeleteEdgeTest {
 
     graph.command(new OCommandSQL("delete edge TestEdge where based_on = '0001'")).execute();
 
-    Iterable<OrientVertex> edges = graph.command(new OCommandSQL("select count(*) from TestEdge where based_on = '0001'")).execute();
+    Iterable<OrientVertex> edges = graph.command(new OCommandSQL("select count(*) from TestEdge where based_on = '0001'"))
+        .execute();
     assertTrue(edges.iterator().hasNext());
     assertEquals(edges.iterator().next().<Object>getProperty("count"), 0l);
 

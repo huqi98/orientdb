@@ -137,7 +137,6 @@ public class OBinarySerializerFactory {
    * Obtain OBinarySerializer instance by it's id.
    *
    * @param identifier is serializes identifier.
-   *
    * @return OBinarySerializer instance.
    */
   public OBinarySerializer<?> getObjectSerializer(final byte identifier) {
@@ -158,7 +157,6 @@ public class OBinarySerializerFactory {
    * Obtain OBinarySerializer realization for the OType
    *
    * @param type is the OType to obtain serializer algorithm for
-   *
    * @return OBinarySerializer instance
    */
   @SuppressWarnings("unchecked")

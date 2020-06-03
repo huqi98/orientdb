@@ -64,13 +64,14 @@ public class OStringSerializerAnyStreamable implements OStringSerializer {
 
   /**
    * Serialize the class name size + class name + object content
-   * 
+   *
    * @param iValue
    */
   public StringBuilder toStream(final StringBuilder iOutput, Object iValue) {
     if (iValue != null) {
       if (!(iValue instanceof OSerializableStream))
-        throw new OSerializationException("Cannot serialize the object since it's not implements the OSerializableStream interface");
+        throw new OSerializationException(
+            "Cannot serialize the object since it's not implements the OSerializableStream interface");
 
       OSerializableStream stream = (OSerializableStream) iValue;
       iOutput.append(iValue.getClass().getName());

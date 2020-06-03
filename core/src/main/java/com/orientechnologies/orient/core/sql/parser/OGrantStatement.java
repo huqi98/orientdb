@@ -18,10 +18,10 @@ import java.util.Map;
 import java.util.Objects;
 
 public class OGrantStatement extends OSimpleExecStatement {
-  protected OPermission permission;
-  protected OIdentifier policyName;
+  protected OPermission              permission;
+  protected OIdentifier              policyName;
   protected OSecurityResourceSegment securityResource;
-  protected OIdentifier actor;
+  protected OIdentifier              actor;
 
   public OGrantStatement(int id) {
     super(id);
@@ -110,13 +110,13 @@ public class OGrantStatement extends OSimpleExecStatement {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     OGrantStatement that = (OGrantStatement) o;
-    return Objects.equals(permission, that.permission)
-            && Objects.equals(policyName, that.policyName)
-            && Objects.equals(securityResource, that.securityResource)
-            && Objects.equals(actor, that.actor);
+    return Objects.equals(permission, that.permission) && Objects.equals(policyName, that.policyName) && Objects
+        .equals(securityResource, that.securityResource) && Objects.equals(actor, that.actor);
   }
 
   @Override

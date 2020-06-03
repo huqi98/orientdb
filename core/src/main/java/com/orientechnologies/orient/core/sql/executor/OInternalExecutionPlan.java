@@ -16,7 +16,6 @@ public interface OInternalExecutionPlan extends OExecutionPlan {
    * elements, then the result will contain them all, next result(s) will contain zero elements
    *
    * @param n
-   *
    * @return
    */
   OResultSet fetchNext(int n);

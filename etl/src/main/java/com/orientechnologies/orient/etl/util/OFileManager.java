@@ -116,7 +116,6 @@ public class OFileManager {
    * It returns a ODocument starting from a json file.
    *
    * @param filePath
-   *
    * @return ODocument (null if the file does not exist or problem are encountered during the reading)
    */
 

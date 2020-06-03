@@ -61,10 +61,10 @@ public class OrientLightWeightEdgeTest {
     ODocument doc = (ODocument) item.rawElement;
     Object fieldVal = doc.rawField("out_testDeleteVertex");
     Assert.assertTrue(fieldVal instanceof Iterable);
-    Assert.assertTrue(((Iterable)fieldVal).iterator().hasNext());
+    Assert.assertTrue(((Iterable) fieldVal).iterator().hasNext());
     graph.commit();
 
-    graph.command(new OCommandSQL("DELETE VERTEX "+vertex2.getIdentity())).execute();
+    graph.command(new OCommandSQL("DELETE VERTEX " + vertex2.getIdentity())).execute();
     graph.commit();
     result = graph.command(new OSQLSynchQuery("SELECT FROM " + vertexId)).execute();
     iterator = result.iterator();
@@ -74,7 +74,7 @@ public class OrientLightWeightEdgeTest {
     doc = (ODocument) item.rawElement;
     fieldVal = doc.rawField("out_testDeleteVertex");
     Assert.assertTrue(fieldVal instanceof Iterable);
-    Assert.assertFalse(((Iterable)fieldVal).iterator().hasNext());
+    Assert.assertFalse(((Iterable) fieldVal).iterator().hasNext());
 
   }
 }

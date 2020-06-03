@@ -26,12 +26,12 @@ import java.util.Random;
  * @since 16.05.13
  */
 public class GiantFileTest {
-  private static final boolean       RECREATE_DATABASE = true;
-  private static final String        DATABASE_NAME     = "GiantFileTest";
-  private static ODatabaseDocumentTx db                = null;
+  private static final boolean             RECREATE_DATABASE = true;
+  private static final String              DATABASE_NAME     = "GiantFileTest";
+  private static       ODatabaseDocumentTx db                = null;
 
   public static void main(final String[] args) throws Exception {
-  OGlobalConfiguration.DISK_CACHE_SIZE.setValue(1024);
+    OGlobalConfiguration.DISK_CACHE_SIZE.setValue(1024);
     try {
       db = new ODatabaseDocumentTx("plocal:" + DATABASE_NAME);
       if (db.exists() && RECREATE_DATABASE) {
@@ -179,7 +179,8 @@ public class GiantFileTest {
         while (bufferedBytes < buffer.length) {
           final int bytesRead = in.read(buffer, bufferedBytes, buffer.length - bufferedBytes);
           if (bytesRead == -1) {
-            throw new Exception("Reached end of file prematurely. (File changed while reading?) fileName=" + file.getAbsolutePath());
+            throw new Exception(
+                "Reached end of file prematurely. (File changed while reading?) fileName=" + file.getAbsolutePath());
           }
           bufferedBytes += bytesRead;
         }
@@ -214,7 +215,8 @@ public class GiantFileTest {
         while (bufferedBytes < remainder) {
           final int bytesRead = in.read(buffer, bufferedBytes, remainder - bufferedBytes);
           if (bytesRead == -1) {
-            throw new Exception("Reached end of file prematurely. (File changed while reading?) fileName=" + file.getAbsolutePath());
+            throw new Exception(
+                "Reached end of file prematurely. (File changed while reading?) fileName=" + file.getAbsolutePath());
           }
           bufferedBytes += bytesRead;
         }

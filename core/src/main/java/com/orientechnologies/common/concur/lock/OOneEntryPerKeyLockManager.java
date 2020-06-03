@@ -37,7 +37,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * running distributed because there is no way to
  *
  * @param <T> Type of keys
- *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OOneEntryPerKeyLockManager<T> implements OLockManager<T> {

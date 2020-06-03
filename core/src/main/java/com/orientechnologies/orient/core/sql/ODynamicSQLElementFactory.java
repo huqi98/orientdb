@@ -30,7 +30,7 @@ import com.orientechnologies.orient.core.sql.operator.OQueryOperatorFactory;
 
 /**
  * Dynamic sql elements factory.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  */
 public class ODynamicSQLElementFactory implements OCommandExecutorSQLFactory, OQueryOperatorFactory, OSQLFunctionFactory {
@@ -39,7 +39,7 @@ public class ODynamicSQLElementFactory implements OCommandExecutorSQLFactory, OQ
   static final Map<String, Object>                                       FUNCTIONS = new ConcurrentHashMap<String, Object>();
   static final Map<String, Class<? extends OCommandExecutorSQLAbstract>> COMMANDS  = new ConcurrentHashMap<String, Class<? extends OCommandExecutorSQLAbstract>>();
   static final Set<OQueryOperator>                                       OPERATORS = Collections
-                                                                                       .synchronizedSet(new HashSet<OQueryOperator>());
+      .synchronizedSet(new HashSet<OQueryOperator>());
 
   public Set<String> getFunctionNames() {
     return FUNCTIONS.keySet();

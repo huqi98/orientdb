@@ -15,7 +15,9 @@ import static com.orientechnologies.orient.object.jpa.parsing.PersistenceXml.TAG
  */
 class SchemaLocatingHandler extends DefaultHandler {
 
-  /** The value of the version attribute in the xml */
+  /**
+   * The value of the version attribute in the xml
+   */
   private String schemaVersion = "";
 
   /**
@@ -27,8 +29,7 @@ class SchemaLocatingHandler extends DefaultHandler {
   /**
    * Fist tag of 'persistence.xml' (<persistence>) have to have 'version' attribute
    *
-   * @see DefaultHandler#startElement(String, String, String,
-   *      org.xml.sax.Attributes)
+   * @see DefaultHandler#startElement(String, String, String, org.xml.sax.Attributes)
    */
   @Override
   public void startElement(String uri, String localName, String name, Attributes attributes) throws SAXException {

@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 
 /**
- * Tests the absolute value function.  The key is that the mathematical abs
- * function is correctly applied and that values retain their types.
+ * Tests the absolute value function.  The key is that the mathematical abs function is correctly applied and that values retain
+ * their types.
  *
  * @author Michael MacFadden
  */

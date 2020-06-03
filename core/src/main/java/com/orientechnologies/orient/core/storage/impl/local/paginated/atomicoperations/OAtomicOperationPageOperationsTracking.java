@@ -283,7 +283,6 @@ final class OAtomicOperationPageOperationsTracking implements OAtomicOperation {
    * be overwritten.
    *
    * @param metadata Metadata to add.
-   *
    * @see OAtomicOperationMetadata
    */
   @Override
@@ -293,7 +292,6 @@ final class OAtomicOperationPageOperationsTracking implements OAtomicOperation {
 
   /**
    * @param key Key of metadata which is looking for.
-   *
    * @return Metadata by associated key or <code>null</code> if such metadata is absent.
    */
   @Override

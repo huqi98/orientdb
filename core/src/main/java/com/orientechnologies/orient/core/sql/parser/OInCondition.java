@@ -119,9 +119,7 @@ public class OInCondition extends OBooleanExpression {
         if (OQueryOperatorEquals.equals(iLeft, o))
           return true;
       }
-    } else if (iRight instanceof OResultSet)
-
-    {
+    } else if (iRight instanceof OResultSet) {
       OResultSet rsRight = (OResultSet) iRight;
       rsRight.reset();
       while (((OResultSet) iRight).hasNext()) {

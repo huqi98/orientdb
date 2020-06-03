@@ -57,8 +57,8 @@ public class OETLFlowTransformerTest extends OETLBaseTest {
     configure(
         "{source: { content: { value: 'name,surname\nJay,Miner\nTest,Test' } }, " + "extractor : { csv: {} }," + " transformers: ["
             + "{vertex: {class:'V'}}, " + "{flow:{operation:'skip',if: 'name = \'Jay\''}},"
-            + "{field:{fieldName:'name', value:'3'}}" + "],"
-            + " loader: { orientdb: {  dbURL: 'memory:" + name.getMethodName() + "', dbType:'graph'} } }");
+            + "{field:{fieldName:'name', value:'3'}}" + "]," + " loader: { orientdb: {  dbURL: 'memory:" + name.getMethodName()
+            + "', dbType:'graph'} } }");
 
     proc.execute();
     ODatabaseDocument db = proc.getLoader().getPool().acquire();

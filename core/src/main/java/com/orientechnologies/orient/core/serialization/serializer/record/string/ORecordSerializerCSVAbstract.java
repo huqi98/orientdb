@@ -50,7 +50,7 @@ import java.util.Map.Entry;
 
 @SuppressWarnings({ "unchecked", "serial" })
 public abstract class ORecordSerializerCSVAbstract extends ORecordSerializerStringAbstract {
-  public static final char    FIELD_VALUE_SEPARATOR = ':';
+  public static final char FIELD_VALUE_SEPARATOR = ':';
 
   /**
    * Serialize the link.
@@ -58,7 +58,6 @@ public abstract class ORecordSerializerCSVAbstract extends ORecordSerializerStri
    * @param buffer
    * @param iParentRecord
    * @param iLinked       Can be an instance of ORID or a Record<?>
-   *
    * @return
    */
   private static OIdentifiable linkToStream(final StringBuilder buffer, final ODocument iParentRecord, Object iLinked) {
@@ -401,7 +400,6 @@ public abstract class ORecordSerializerCSVAbstract extends ORecordSerializerStri
 
       Map<Object, Object> map = (Map<Object, Object>) iValue;
 
-
       boolean invalidMap = false;
       int items = 0;
       for (Map.Entry<Object, Object> entry : map.entrySet()) {
@@ -454,15 +452,14 @@ public abstract class ORecordSerializerCSVAbstract extends ORecordSerializerStri
       break;
 
     case EMBEDDEDLIST:
-      embeddedCollectionToStream(null, iOutput, iLinkedClass, iLinkedType, iValue, iSaveOnlyDirty,
-          false);
-      PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedList2string"),
-          "Serialize embeddedlist to string", timer);
+      embeddedCollectionToStream(null, iOutput, iLinkedClass, iLinkedType, iValue, iSaveOnlyDirty, false);
+      PROFILER
+          .stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedList2string"), "Serialize embeddedlist to string",
+              timer);
       break;
 
     case EMBEDDEDSET:
-      embeddedCollectionToStream(null, iOutput, iLinkedClass, iLinkedType, iValue, iSaveOnlyDirty,
-          true);
+      embeddedCollectionToStream(null, iOutput, iLinkedClass, iLinkedType, iValue, iSaveOnlyDirty, true);
       PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedSet2string"), "Serialize embeddedset to string",
           timer);
       break;

@@ -30,21 +30,18 @@ public class TransactionTest {
 
     db.begin();
     OVertex v = db.newVertex("V");
-    v.setProperty("name","Foo");
+    v.setProperty("name", "Foo");
     db.save(v);
     db.commit();
 
-
     db.begin();
-    v.setProperty("name","Bar");
+    v.setProperty("name", "Bar");
     db.save(v);
     db.rollback();
 
+    Assert.assertEquals("Foo", v.getProperty("name"));
 
-    Assert.assertEquals("Foo",v.getProperty("name"));
-    
   }
-
 
   @After
   public void after() {

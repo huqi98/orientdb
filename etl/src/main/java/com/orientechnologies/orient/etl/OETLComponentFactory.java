@@ -109,7 +109,8 @@ public class OETLComponentFactory {
     try {
       transformers.put(iComponent.newInstance().getName(), iComponent);
     } catch (Exception e) {
-      OETLContextWrapper.getInstance().getMessageHandler().error(this, "Error on registering transformer: %s", iComponent.getName());
+      OETLContextWrapper.getInstance().getMessageHandler()
+          .error(this, "Error on registering transformer: %s", iComponent.getName());
     }
     return this;
   }

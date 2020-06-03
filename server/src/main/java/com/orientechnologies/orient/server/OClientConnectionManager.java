@@ -134,7 +134,6 @@ public class OClientConnectionManager {
    * Create a connection.
    *
    * @param iProtocol protocol which will be used by connection
-   *
    * @return new connection
    */
   public OClientConnection connect(final ONetworkProtocol iProtocol) {
@@ -153,7 +152,6 @@ public class OClientConnectionManager {
    * Create a connection.
    *
    * @param iProtocol protocol which will be used by connection
-   *
    * @return new connection
    */
   public OClientConnection connect(final ONetworkProtocol iProtocol, final OClientConnection connection, final byte[] tokenBytes,
@@ -207,7 +205,6 @@ public class OClientConnectionManager {
    * Retrieves the connection by id.
    *
    * @param iChannelId id of connection
-   *
    * @return The connection if any, otherwise null
    */
   public OClientConnection getConnection(final int iChannelId, ONetworkProtocol protocol) {
@@ -223,7 +220,6 @@ public class OClientConnectionManager {
    * Retrieves the connection by address/port.
    *
    * @param iAddress The address as string in the format address as format <ip>:<port>
-   *
    * @return The connection if any, otherwise null
    */
   public OClientConnection getConnection(final String iAddress) {
@@ -289,7 +285,6 @@ public class OClientConnectionManager {
    * Disconnects a client connections
    *
    * @param iChannelId id of connection
-   *
    * @return true if was last one, otherwise false
    */
   public boolean disconnect(final int iChannelId) {

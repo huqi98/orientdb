@@ -11,8 +11,6 @@ import com.orientechnologies.orient.server.config.distributed.OServerDistributed
 
 public class ODistributedConfig {
 
-
-
   public static OServerDistributedConfiguration fromEnv(OServerDistributedConfiguration distributed)
       throws OConfigurationException {
     final OServerDistributedConfiguration config;

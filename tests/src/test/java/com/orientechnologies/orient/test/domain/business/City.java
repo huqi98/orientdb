@@ -20,10 +20,10 @@ import javax.persistence.Version;
 
 public class City {
   @Id
-  private Long    id;
+  private Long id;
 
   @Version
-  private Long    version;
+  private Long version;
 
   private String  name;
   private Country country;

@@ -65,7 +65,6 @@ public class OIterableObjectArray<T> implements Iterable<T> {
      * Returns the next element in the iteration.
      *
      * @return the next element in the iteration.
-     *
      * @throws java.util.NoSuchElementException iteration has no more elements.
      */
     @SuppressWarnings("unchecked")

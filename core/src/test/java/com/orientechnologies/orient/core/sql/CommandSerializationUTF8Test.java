@@ -1,7 +1,8 @@
 package com.orientechnologies.orient.core.sql;
 
 import com.orientechnologies.orient.core.serialization.serializer.record.ORecordSerializerFactory;
-import org.junit.Assert; import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import com.orientechnologies.orient.core.sql.query.OSQLQuery;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;

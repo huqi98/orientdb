@@ -43,8 +43,8 @@ import java.util.Arrays;
 public class OMemoryStream extends OutputStream {
   public static final int DEF_SIZE = 1024;
 
-  private byte[] buffer;
-  private int    position;
+  private byte[]  buffer;
+  private int     position;
   private Charset charset = Charset.forName("utf8");
 
   private static final int  NATIVE_COPY_THRESHOLD = 9;
@@ -218,7 +218,7 @@ public class OMemoryStream extends OutputStream {
     try {
       return set(iContent.getBytes("UTF-8"));
     } catch (UnsupportedEncodingException e) {
-      throw OException.wrapException(new OSerializationException("error encoding string"),e);
+      throw OException.wrapException(new OSerializationException("error encoding string"), e);
     }
   }
 

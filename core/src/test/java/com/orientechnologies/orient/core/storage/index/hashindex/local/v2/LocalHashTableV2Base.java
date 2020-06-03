@@ -170,8 +170,8 @@ public abstract class LocalHashTableV2Base {
 
   @Test
   public void testKeyPutRemoveNullKey() throws IOException {
-    doInRollbackLoop(0, 10, 1, (value, rollback, atomicOperation) -> localHashTable.put(atomicOperation, value,
-        String.valueOf(value)));
+    doInRollbackLoop(0, 10, 1,
+        (value, rollback, atomicOperation) -> localHashTable.put(atomicOperation, value, String.valueOf(value)));
 
     final OAtomicOperationsManager manager = storage.getAtomicOperationsManager();
 
@@ -187,9 +187,8 @@ public abstract class LocalHashTableV2Base {
 
     Assert.assertEquals(localHashTable.get(null), "null");
 
-    doInRollbackLoop(0, 5, 1,
-        (value, rollback, atomicOperation) -> Assert.assertEquals(localHashTable.remove(atomicOperation, value),
-            String.valueOf(value)));
+    doInRollbackLoop(0, 5, 1, (value, rollback, atomicOperation) -> Assert
+        .assertEquals(localHashTable.remove(atomicOperation, value), String.valueOf(value)));
 
     for (int k = 0; k < 2; k++) {
       final OAtomicOperation atomicOperation = manager.startAtomicOperation(null);

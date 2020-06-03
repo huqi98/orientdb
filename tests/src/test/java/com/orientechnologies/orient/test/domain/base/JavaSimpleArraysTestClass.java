@@ -23,13 +23,12 @@ import javax.persistence.Version;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaSimpleArraysTestClass {
   @Id
-  private Object     id;
+  private Object id;
   @Version
-  private Object     version;
+  private Object version;
 
   private String[]   text = new String[] { "initTest" };
   private EnumTest[] enumeration;

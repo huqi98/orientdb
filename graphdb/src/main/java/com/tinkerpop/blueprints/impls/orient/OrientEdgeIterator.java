@@ -44,8 +44,8 @@ public class OrientEdgeIterator extends OLazyWrapperIterator<OrientEdge> {
   private final OPair<Direction, String> connection;
   private final String[]                 labels;
 
-  public OrientEdgeIterator(final OrientVertex iSourceVertex, final OrientVertex iTargetVertex, final Object iMultiValue, final Iterator<?> iterator,
-      final OPair<Direction, String> connection, final String[] iLabels, final int iSize) {
+  public OrientEdgeIterator(final OrientVertex iSourceVertex, final OrientVertex iTargetVertex, final Object iMultiValue,
+      final Iterator<?> iterator, final OPair<Direction, String> connection, final String[] iLabels, final int iSize) {
     super(iterator, iSize, iMultiValue);
     this.sourceVertex = iSourceVertex;
     this.targetVertex = iTargetVertex;
@@ -75,10 +75,10 @@ public class OrientEdgeIterator extends OLazyWrapperIterator<OrientEdge> {
 
     if (!(record instanceof ODocument)) {
       // SKIP IT
-      OLogManager.instance().warn(this,
-          "Found a record (%s) that is not an edge. Source vertex : %s, Target vertex : %s, Database : %s", rec,
-          sourceVertex != null ? sourceVertex.getIdentity() : null, targetVertex != null ? targetVertex.getIdentity() : null,
-          record.getDatabase().getURL());
+      OLogManager.instance()
+          .warn(this, "Found a record (%s) that is not an edge. Source vertex : %s, Target vertex : %s, Database : %s", rec,
+              sourceVertex != null ? sourceVertex.getIdentity() : null, targetVertex != null ? targetVertex.getIdentity() : null,
+              record.getDatabase().getURL());
       return null;
     }
 
@@ -106,11 +106,11 @@ public class OrientEdgeIterator extends OLazyWrapperIterator<OrientEdge> {
     if (immutableSchema.isVertexType()) {
       // DIRECT VERTEX, CREATE DUMMY EDGE
       if (connection.getKey() == Direction.OUT)
-        edge = this.sourceVertex.getGraph().getEdgeInstance( this.sourceVertex.getIdentity(), rec.getIdentity(),
-            connection.getValue());
+        edge = this.sourceVertex.getGraph()
+            .getEdgeInstance(this.sourceVertex.getIdentity(), rec.getIdentity(), connection.getValue());
       else
-        edge = this.sourceVertex.getGraph().getEdgeInstance( rec.getIdentity(), this.sourceVertex.getIdentity(),
-            connection.getValue());
+        edge = this.sourceVertex.getGraph()
+            .getEdgeInstance(rec.getIdentity(), this.sourceVertex.getIdentity(), connection.getValue());
     } else if (immutableSchema.isEdgeType()) {
       // EDGE
       edge = new OrientEdge(this.sourceVertex.getGraph(), rec.getIdentity(), connection.getValue());

@@ -113,7 +113,6 @@ public class OEngineLocalPaginated extends OEngineAbstract {
 
   /**
    * @param cacheSize Cache size in bytes.
-   *
    * @see OReadCache#changeMaximumAmountOfMemory(long)
    */
   public void changeCacheSize(final long cacheSize) {

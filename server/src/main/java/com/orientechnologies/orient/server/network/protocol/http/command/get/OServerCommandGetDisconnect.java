@@ -55,8 +55,8 @@ public class OServerCommandGetDisconnect extends OServerCommandAbstract {
       sendJsonError(iResponse, OHttpUtils.STATUS_AUTH_CODE, OHttpUtils.STATUS_AUTH_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN,
           "Logged out", null);
     } else {
-      iResponse.send(OHttpUtils.STATUS_AUTH_CODE, OHttpUtils.STATUS_AUTH_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN, "Logged out",
-          null);
+      iResponse
+          .send(OHttpUtils.STATUS_AUTH_CODE, OHttpUtils.STATUS_AUTH_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN, "Logged out", null);
     }
 
     return false;

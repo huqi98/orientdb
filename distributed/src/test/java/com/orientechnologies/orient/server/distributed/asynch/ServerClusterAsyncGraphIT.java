@@ -39,10 +39,10 @@ import org.junit.Test;
  * Check vertex and edge creation are propagated across all the nodes in asynchronous mode.
  */
 public class ServerClusterAsyncGraphIT extends AbstractServerClusterTest {
-  final static int SERVERS = 2;
-  private OVertex v1;
-  private OVertex v2;
-  private OVertex v3;
+  final static int     SERVERS = 2;
+  private      OVertex v1;
+  private      OVertex v2;
+  private      OVertex v3;
 
   public String getDatabaseName() {
     return "distributed-graphtest";

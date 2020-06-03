@@ -25,7 +25,6 @@ import com.orientechnologies.orient.core.metadata.sequence.OSequence;
 import com.orientechnologies.orient.core.sql.OCommandSQLParsingException;
 import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
-
 /**
  * Reset a sequence. It returns the first sequence number after reset.
  *

@@ -527,7 +527,6 @@ public class Orient extends OListenerManger<OOrientListener> {
    * Returns the engine by its name.
    *
    * @param engineName Engine name to retrieve
-   *
    * @return OEngine instance of found, otherwise null
    */
   public OEngine getEngine(final String engineName) {
@@ -543,7 +542,6 @@ public class Orient extends OListenerManger<OOrientListener> {
    * Obtains an {@link OEngine engine} instance with the given {@code engineName}, if it is {@link OEngine#isRunning() running}.
    *
    * @param engineName the name of the engine to obtain.
-   *
    * @return the obtained engine instance or {@code null} if no such engine known or the engine is not running.
    */
   public OEngine getEngineIfRunning(final String engineName) {
@@ -561,9 +559,7 @@ public class Orient extends OListenerManger<OOrientListener> {
    * not running, starts it.
    *
    * @param engineName the name of the engine to obtain.
-   *
    * @return the obtained running engine instance, never {@code null}.
-   *
    * @throws IllegalStateException if an engine with the given is not found or failed to start.
    */
   public OEngine getRunningEngine(final String engineName) {

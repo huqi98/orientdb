@@ -45,7 +45,8 @@ public class OQueryOperatorNotEquals2 extends OQueryOperatorEqualityNotNulls {
   }
 
   @Override
-  protected boolean evaluateExpression(final OIdentifiable iRecord, final OSQLFilterCondition iCondition, final Object iLeft, final Object iRight, OCommandContext iContext) {
+  protected boolean evaluateExpression(final OIdentifiable iRecord, final OSQLFilterCondition iCondition, final Object iLeft,
+      final Object iRight, OCommandContext iContext) {
     return !OQueryOperatorEquals.equals(iLeft, iRight);
   }
 
@@ -55,8 +56,8 @@ public class OQueryOperatorNotEquals2 extends OQueryOperatorEqualityNotNulls {
   }
 
   @Override
-  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, 
-          OCommandContext iContext, final ODocumentSerializer serializer) {
+  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, OCommandContext iContext,
+      final ODocumentSerializer serializer) {
     return !serializer.getComparator().isEqual(iFirstField, iSecondField);
   }
 

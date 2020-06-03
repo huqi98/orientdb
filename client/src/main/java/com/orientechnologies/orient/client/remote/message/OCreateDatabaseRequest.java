@@ -58,7 +58,7 @@ public class OCreateDatabaseRequest implements OBinaryRequest<OCreateDatabaseRes
   public boolean requireDatabaseSession() {
     return false;
   }
-  
+
   @Override
   public byte getCommand() {
     return OChannelBinaryProtocol.REQUEST_DB_CREATE;

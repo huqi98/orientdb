@@ -26,20 +26,19 @@ import java.io.*;
 
 /**
  * Helper class to serialize OStreamable objects.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OStreamableHelper {
   static final byte NULL         = 0;
   static final byte STREAMABLE   = 1;
   static final byte SERIALIZABLE = 2;
 
-  static final byte STRING       = 10;
-  static final byte INTEGER      = 11;
-  static final byte SHORT        = 12;
-  static final byte LONG         = 13;
-  static final byte BOOLEAN      = 14;
+  static final byte STRING  = 10;
+  static final byte INTEGER = 11;
+  static final byte SHORT   = 12;
+  static final byte LONG    = 13;
+  static final byte BOOLEAN = 14;
 
   private static ClassLoader streamableClassLoader;
 

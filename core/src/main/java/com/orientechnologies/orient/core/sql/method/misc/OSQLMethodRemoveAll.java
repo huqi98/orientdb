@@ -23,10 +23,9 @@ import com.orientechnologies.orient.core.db.record.OIdentifiable;
 
 /**
  * Remove all the occurrences of elements from a collection.
- * 
- * @see OSQLMethodRemove
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
+ * @see OSQLMethodRemove
  */
 public class OSQLMethodRemoveAll extends OAbstractSQLMethod {
 

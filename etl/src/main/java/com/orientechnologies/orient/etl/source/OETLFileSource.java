@@ -31,8 +31,8 @@ import java.util.logging.Level;
 import java.util.zip.GZIPInputStream;
 
 public class OETLFileSource extends OETLAbstractSource {
-  protected String fileName;
-  protected String path;
+  protected String            fileName;
+  protected String            path;
   protected boolean           lockFile    = false;
   protected long              byteParsed  = 0;
   protected long              byteToParse = -1;
@@ -44,7 +44,7 @@ public class OETLFileSource extends OETLAbstractSource {
   protected FileInputStream   fis         = null;
   protected FileLock          lock        = null;
   private   Charset           encoding    = Charset.forName("UTF-8");
-  private File input;
+  private   File              input;
 
   @Override
   public String getUnit() {

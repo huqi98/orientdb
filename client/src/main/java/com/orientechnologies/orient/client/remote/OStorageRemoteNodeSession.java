@@ -4,9 +4,9 @@ package com.orientechnologies.orient.client.remote;
  * Created by tglman on 12/04/16.
  */
 public class OStorageRemoteNodeSession {
-  private final String serverURL;
-  private Integer sessionId = -1;
-  private byte[]  token     = null;
+  private final String  serverURL;
+  private       Integer sessionId = -1;
+  private       byte[]  token     = null;
 
   public OStorageRemoteNodeSession(String serverURL, Integer uniqueClientSessionId) {
     this.serverURL = serverURL;

@@ -17,8 +17,8 @@ import java.util.concurrent.Executors;
  */
 public class AutoTxTest {
 
-  private static final String DB_URL = "memory:" + AutoTxTest.class.getSimpleName();
-  private static OrientGraph graph;
+  private static final String      DB_URL = "memory:" + AutoTxTest.class.getSimpleName();
+  private static       OrientGraph graph;
 
   @BeforeClass
   public static void before() {

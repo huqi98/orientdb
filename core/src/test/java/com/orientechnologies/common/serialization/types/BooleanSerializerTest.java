@@ -30,7 +30,7 @@ import java.nio.ByteOrder;
  */
 
 public class BooleanSerializerTest {
-  private static final int FIELD_SIZE = 1;
+  private static final int     FIELD_SIZE   = 1;
   private static final Boolean OBJECT_TRUE  = true;
   private static final Boolean OBJECT_FALSE = false;
   byte[] stream = new byte[FIELD_SIZE];

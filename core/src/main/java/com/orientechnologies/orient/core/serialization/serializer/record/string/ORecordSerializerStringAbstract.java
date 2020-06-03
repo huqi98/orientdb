@@ -46,9 +46,9 @@ import java.util.*;
 @SuppressWarnings("serial")
 public abstract class ORecordSerializerStringAbstract implements ORecordSerializer, Serializable {
   protected static final OProfiler PROFILER              = Orient.instance().getProfiler();
-  private static final char        DECIMAL_SEPARATOR     = '.';
-  private static final String      MAX_INTEGER_AS_STRING = String.valueOf(Integer.MAX_VALUE);
-  private static final int         MAX_INTEGER_DIGITS    = MAX_INTEGER_AS_STRING.length();
+  private static final   char      DECIMAL_SEPARATOR     = '.';
+  private static final   String    MAX_INTEGER_AS_STRING = String.valueOf(Integer.MAX_VALUE);
+  private static final   int       MAX_INTEGER_DIGITS    = MAX_INTEGER_AS_STRING.length();
 
   public static Object fieldTypeFromStream(final ODocument iDocument, OType iType, final Object iValue) {
     if (iValue == null)
@@ -146,8 +146,8 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
 
     case DECIMAL:
       simpleValueToStream(iBuffer, iType, iValue);
-      PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.decimal2string"), "Serialize decimal to string",
-          timer);
+      PROFILER
+          .stopChrono(PROFILER.getProcessMetric("serializer.record.string.decimal2string"), "Serialize decimal to string", timer);
       break;
 
     case LONG:
@@ -182,8 +182,8 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
 
     case DATETIME:
       simpleValueToStream(iBuffer, iType, iValue);
-      PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.datetime2string"), "Serialize datetime to string",
-          timer);
+      PROFILER
+          .stopChrono(PROFILER.getProcessMetric("serializer.record.string.datetime2string"), "Serialize datetime to string", timer);
       break;
 
     case LINK:
@@ -206,12 +206,14 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
       ORecordSerializerSchemaAware2CSV.INSTANCE
           .embeddedCollectionToStream(ODatabaseRecordThreadLocal.instance().getIfDefined(), iBuffer, null, null, iValue, true,
               false);
-      PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedList2string"),
-          "Serialize embeddedlist to string", timer);
+      PROFILER
+          .stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedList2string"), "Serialize embeddedlist to string",
+              timer);
       break;
 
     case EMBEDDEDMAP:
-      ORecordSerializerSchemaAware2CSV.INSTANCE.embeddedMapToStream(ODatabaseRecordThreadLocal.instance().getIfDefined(), iBuffer, null, null, iValue, true);
+      ORecordSerializerSchemaAware2CSV.INSTANCE
+          .embeddedMapToStream(ODatabaseRecordThreadLocal.instance().getIfDefined(), iBuffer, null, null, iValue, true);
       PROFILER.stopChrono(PROFILER.getProcessMetric("serializer.record.string.embedMap2string"), "Serialize embeddedmap to string",
           timer);
       break;
@@ -240,8 +242,7 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
    * treat all the number types numbers are postponed with a character that tells the type: b=byte, s=short, l=long, f=float,
    * d=double, t=date.
    *
-   * @param iValue
-   *          Value to parse
+   * @param iValue Value to parse
    * @return The closest type recognized
    */
   public static OType getType(final String iValue) {
@@ -310,7 +311,7 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
             else if (c == 'e') { //eg. 1e-06
               try {
                 Double.parseDouble(iValue);
-                return  OType.DOUBLE;
+                return OType.DOUBLE;
               } catch (Exception ignore) {
                 return OType.STRING;
               }
@@ -344,11 +345,9 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
   /**
    * Parses the field type char returning the closer type. Default is STRING. b=binary if iValue.length() >= 4 b=byte if
    * iValue.length() <= 3 s=short, l=long f=float d=double a=date t=datetime
-   * 
-   * @param iValue
-   *          Value to parse
-   * @param iCharType
-   *          Char value indicating the type
+   *
+   * @param iValue    Value to parse
+   * @param iCharType Char value indicating the type
    * @return The closest type recognized
    */
   public static OType getType(final String iValue, final char iCharType) {
@@ -395,8 +394,7 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
    * l=long, f=float, d=double, t=date. If starts with # it's a RecordID. Most of the code is equals to getType() but has been
    * copied to speed-up it.
    *
-   * @param iValue
-   *          Value to parse
+   * @param iValue Value to parse
    * @return The closest type recognized
    */
   public static Object getTypeValue(final String iValue) {
@@ -418,8 +416,8 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
           && iValue.charAt(iValue.length() - 1) == OStringSerializerHelper.LIST_END) {
         // LIST
         final ArrayList<String> coll = new ArrayList<String>();
-        OStringSerializerHelper.getCollection(iValue, 0, coll, OStringSerializerHelper.LIST_BEGIN,
-            OStringSerializerHelper.LIST_END, OStringSerializerHelper.COLLECTION_SEPARATOR);
+        OStringSerializerHelper.getCollection(iValue, 0, coll, OStringSerializerHelper.LIST_BEGIN, OStringSerializerHelper.LIST_END,
+            OStringSerializerHelper.COLLECTION_SEPARATOR);
         return coll;
       } else if (iValue.charAt(0) == OStringSerializerHelper.SET_BEGIN
           && iValue.charAt(iValue.length() - 1) == OStringSerializerHelper.SET_END) {
@@ -681,9 +679,9 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
     final long timer = PROFILER.startChrono();
 
     try {
-      return fromString(new String(iSource,"UTF-8"), iRecord, iFields);
+      return fromString(new String(iSource, "UTF-8"), iRecord, iFields);
     } catch (UnsupportedEncodingException e) {
-      throw OException.wrapException(new OSchemaException("Error reading record"),e);
+      throw OException.wrapException(new OSchemaException("Error reading record"), e);
     } finally {
 
       PROFILER
@@ -704,7 +702,8 @@ public abstract class ORecordSerializerStringAbstract implements ORecordSerializ
     }
   }
 
-  protected abstract StringBuilder toString(final ORecord iRecord, final StringBuilder iOutput, final String iFormat, boolean autoDetectCollectionType);
+  protected abstract StringBuilder toString(final ORecord iRecord, final StringBuilder iOutput, final String iFormat,
+      boolean autoDetectCollectionType);
 
   public boolean getSupportBinaryEvaluate() {
     return false;

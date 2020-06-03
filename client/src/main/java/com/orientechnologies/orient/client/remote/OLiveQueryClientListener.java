@@ -25,7 +25,6 @@ public class OLiveQueryClientListener {
    * Return true if the push request require an unregister
    *
    * @param pushRequest
-   *
    * @return
    */
   public boolean onEvent(OLiveQueryPushRequest pushRequest) {

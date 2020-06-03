@@ -145,7 +145,7 @@ public class ODatabaseDocumentTxPooled extends ODatabaseDocumentTx implements OD
     super.close();
   }
 
-//  @Override
+  //  @Override
   protected void checkOpenness() {
     if (ownerPool == null)
       throw new ODatabaseException(

@@ -64,7 +64,7 @@ public class CRUDObjectInheritanceTestSchemaFull extends ObjectDBBaseTest {
   public static final String EXPORT_DIR     = buildDirectory + File.separator + "objectSchemaTest/database.export.gz";
 
   protected long startRecordNumber;
-  private City   redmond = new City(new Country("Washington"), "Redmond");
+  private   City redmond = new City(new Country("Washington"), "Redmond");
 
   @Parameters(value = "url")
   public CRUDObjectInheritanceTestSchemaFull(@Optional String url) {

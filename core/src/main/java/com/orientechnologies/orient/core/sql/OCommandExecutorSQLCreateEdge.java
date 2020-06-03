@@ -234,7 +234,7 @@ public class OCommandExecutorSQLCreateEdge extends OCommandExecutorSQLSetAware i
       else if (toIds.isEmpty())
         throw new OCommandExecutionException("No edge has been created because no target vertices: " + this.toString());
       throw new OCommandExecutionException(
-              "No edge has been created between " + fromIds + " and " + toIds + ": " + this.toString());
+          "No edge has been created between " + fromIds + " and " + toIds + ": " + this.toString());
     }
     return edges;
 

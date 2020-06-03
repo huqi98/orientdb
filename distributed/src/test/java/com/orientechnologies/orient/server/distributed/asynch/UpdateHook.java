@@ -20,13 +20,13 @@ public class UpdateHook implements ORecordHook {
             throw new RuntimeException("out vertex can't be null");
           }
           if (doc.field("in") == null) {
-            throw new RuntimeException( "in vertex can't be null");
+            throw new RuntimeException("in vertex can't be null");
           }
         }
       }
     }
 
-  	if (iType.equals(TYPE.AFTER_CREATE) || iType.equals(TYPE.AFTER_UPDATE) || iType.equals(TYPE.AFTER_DELETE)) {
+    if (iType.equals(TYPE.AFTER_CREATE) || iType.equals(TYPE.AFTER_UPDATE) || iType.equals(TYPE.AFTER_DELETE)) {
       // OLogManager.instance().info(this, iType + ": " + iRecord + " at: " + System.currentTimeMillis());
     }
     return null;

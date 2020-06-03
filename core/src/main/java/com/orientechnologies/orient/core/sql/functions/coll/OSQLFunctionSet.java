@@ -37,7 +37,6 @@ import java.util.Set;
  * value is contained only once.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OSQLFunctionSet extends OSQLFunctionMultiValueAbstract<Set<Object>> {
   public static final String NAME = "set";

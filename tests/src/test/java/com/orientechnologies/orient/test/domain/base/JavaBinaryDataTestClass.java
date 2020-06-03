@@ -22,12 +22,12 @@ import javax.persistence.Version;
  */
 public class JavaBinaryDataTestClass {
   @Id
-  private Object     id;
+  private Object id;
   @Version
-  private Object     version;
+  private Object version;
 
   @Basic
-  private byte[]     binaryData;
+  private byte[] binaryData;
 
   public Object getId() {
     return id;

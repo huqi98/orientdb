@@ -31,7 +31,6 @@ import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-
 /**
  * @author Michael MacFadden
  */
@@ -471,9 +470,7 @@ public class OCommandExecutorSQLCreatePropertyTest {
     property = companyClass.getProperty("name");
     assertEquals(property.getName(), PROP_NAME);
 
-
     db.drop();
   }
-
 
 }

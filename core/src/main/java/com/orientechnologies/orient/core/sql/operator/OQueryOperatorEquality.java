@@ -32,9 +32,8 @@ import com.orientechnologies.orient.core.sql.filter.OSQLFilterItemFieldAll;
 
 /**
  * Base equality operator. It's an abstract class able to compare the equality between two values.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public abstract class OQueryOperatorEquality extends OQueryOperator {
 
@@ -55,12 +54,10 @@ public abstract class OQueryOperatorEquality extends OQueryOperator {
   protected abstract boolean evaluateExpression(final OIdentifiable iRecord, final OSQLFilterCondition iCondition,
       final Object iLeft, final Object iRight, OCommandContext iContext);
 
-  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, 
-                          final OCommandContext iContext, final ODocumentSerializer serializer) {     
-    final Object left = serializer.deserializeValue(iFirstField.bytes,
-        iFirstField.type, null);
-    final Object right = serializer.deserializeValue(iSecondField.bytes,
-        iFirstField.type, null);
+  public boolean evaluate(final OBinaryField iFirstField, final OBinaryField iSecondField, final OCommandContext iContext,
+      final ODocumentSerializer serializer) {
+    final Object left = serializer.deserializeValue(iFirstField.bytes, iFirstField.type, null);
+    final Object right = serializer.deserializeValue(iSecondField.bytes, iFirstField.type, null);
 
     return evaluateExpression(null, null, left, right, iContext);
   }

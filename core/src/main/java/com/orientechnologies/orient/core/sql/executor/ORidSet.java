@@ -8,8 +8,8 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * Special implementation of Java Set&lt;ORID&gt; to efficiently handle memory and performance.
- * It does not store actual RIDs, but it only keeps track that a RID was stored, so the iterator will return new instances.
+ * Special implementation of Java Set&lt;ORID&gt; to efficiently handle memory and performance. It does not store actual RIDs, but
+ * it only keeps track that a RID was stored, so the iterator will return new instances.
  *
  * @author Luigi Dell'Aquila
  */
@@ -25,9 +25,8 @@ public class ORidSet implements Set<ORID> {
    */
   protected long[][][] content = new long[8][][];
 
-  private long size = 0;
+  private   long      size      = 0;
   protected Set<ORID> negatives = new HashSet<>();
-
 
   protected int maxArraySize;
 
@@ -39,7 +38,6 @@ public class ORidSet implements Set<ORID> {
   }
 
   /**
-   *
    * @param bucketSize
    */
   public ORidSet(int bucketSize) {

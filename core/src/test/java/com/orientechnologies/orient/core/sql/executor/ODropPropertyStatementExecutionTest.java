@@ -17,16 +17,19 @@ import org.junit.Test;
 public class ODropPropertyStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:ODropPropertyStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testPlain() {
+  @Test
+  public void testPlain() {
     String className = "testPlain";
     String propertyName = "foo";
     OSchema schema = db.getMetadata().getSchema();
@@ -45,7 +48,8 @@ public class ODropPropertyStatementExecutionTest {
     Assert.assertNull(schema.getClass(className).getProperty(propertyName));
   }
 
-  @Test public void testDropIndexForce() {
+  @Test
+  public void testDropIndexForce() {
     String className = "testDropIndexForce";
     String propertyName = "foo";
     OSchema schema = db.getMetadata().getSchema();
@@ -67,7 +71,8 @@ public class ODropPropertyStatementExecutionTest {
     Assert.assertNull(schema.getClass(className).getProperty(propertyName));
   }
 
-  @Test public void testDropIndex() {
+  @Test
+  public void testDropIndex() {
 
     String className = "testDropIndex";
     String propertyName = "foo";

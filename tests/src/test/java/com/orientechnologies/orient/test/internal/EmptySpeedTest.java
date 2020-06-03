@@ -21,20 +21,19 @@ import com.orientechnologies.common.test.SpeedTestMonoThread;
 
 /**
  * CAST: 74651ms NO CAST:
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class EmptySpeedTest extends SpeedTestMonoThread {
-	private int	counter;
+  private int counter;
 
-	public EmptySpeedTest() {
-		super(100000000);
-	}
+  public EmptySpeedTest() {
+    super(100000000);
+  }
 
-	@Test(enabled = false)
-	@Override
-	public void cycle() {
-		counter++;
-	}
+  @Test(enabled = false)
+  @Override
+  public void cycle() {
+    counter++;
+  }
 }

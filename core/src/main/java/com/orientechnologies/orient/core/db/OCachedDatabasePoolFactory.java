@@ -2,12 +2,14 @@ package com.orientechnologies.orient.core.db;
 
 /**
  * Cached database pool factory which allows store database pools associated with users
+ *
  * @author Vitalii Honchar (weaxme@gmail.com)
  */
 public interface OCachedDatabasePoolFactory {
 
   /**
    * Get {@link ODatabasePoolInternal} from cache or create and cache new {@link ODatabasePoolInternal}
+   *
    * @param database name of database
    * @param username user name
    * @param password user password
@@ -17,6 +19,7 @@ public interface OCachedDatabasePoolFactory {
 
   /**
    * Close all cached pools and clear cache
+   *
    * @return this instance
    */
   OCachedDatabasePoolFactory reset();
@@ -28,6 +31,7 @@ public interface OCachedDatabasePoolFactory {
 
   /**
    * Check if factory is closed
+   *
    * @return true if factory is closed
    */
   boolean isClosed();

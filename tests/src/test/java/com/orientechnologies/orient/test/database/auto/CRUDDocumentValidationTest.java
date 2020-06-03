@@ -73,10 +73,8 @@ public class CRUDDocumentValidationTest extends DocumentDBBaseTest {
     record.clear();
     record.field("account", account);
     record.field("id", 23723);
-    record
-        .field(
-            "text",
-            "clfdkkjsd hfsdkjhf fjdkghjkfdhgjdfh gfdgjfdkhgfd skdjaksdjf skdjf sdkjfsd jfkldjfkjsdf kljdk fsdjf kldjgjdhjg khfdjgk hfjdg hjdfhgjkfhdgj kfhdjghrjg");
+    record.field("text",
+        "clfdkkjsd hfsdkjhf fjdkghjkfdhgjdfh gfdgjfdkhgfd skdjaksdjf skdjf sdkjfsd jfkldjfkjsdf kljdk fsdjf kldjgjdhjg khfdjgk hfjdg hjdfhgjkfhdgj kfhdjghrjg");
     record.save();
   }
 

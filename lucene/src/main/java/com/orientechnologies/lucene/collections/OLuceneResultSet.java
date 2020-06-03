@@ -73,7 +73,8 @@ public class OLuceneResultSet implements Set<OIdentifiable> {
     fetchFirstBatch();
     deletedMatchCount = calculateDeletedMatch();
 
-    final Map<String, Object> highlight = Optional.ofNullable(metadata.<Map>getProperty("highlight")).orElse(Collections.emptyMap());
+    final Map<String, Object> highlight = Optional.ofNullable(metadata.<Map>getProperty("highlight"))
+        .orElse(Collections.emptyMap());
 
     highlighted = Optional.ofNullable((List<String>) highlight.get("fields")).orElse(Collections.emptyList());
 

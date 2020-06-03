@@ -160,7 +160,7 @@ public class OCreateViewStatementExecutionTest {
     db.command(statement);
 
     Thread.sleep(1000);
-    
+
     db.command("UPDATE " + className + " SET surname = 'changed' WHERE name = 'name3'");
 
     Thread.sleep(1000);

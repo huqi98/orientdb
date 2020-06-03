@@ -490,7 +490,8 @@ public class OClassImplTest {
     assertNotNull(oSchema.createClass("$OClassImplTesttestCla23ssNameSyntax_12"));
     assertNotNull(oSchema.createClass("OClassImplTesttestC$la23ssNameSyntax_12"));
     assertNotNull(oSchema.createClass("oOClassImplTesttestC$la23ssNameSyntax_12"));
-    String[] validClassNamesSince30 = { "foo bar", "12", "#12", "12AAA", ",asdfasdf", "adsf,asdf", "asdf.sadf", ".asdf", "asdfaf.", "asdf:asdf" };
+    String[] validClassNamesSince30 = { "foo bar", "12", "#12", "12AAA", ",asdfasdf", "adsf,asdf", "asdf.sadf", ".asdf", "asdfaf.",
+        "asdf:asdf" };
     for (String s : validClassNamesSince30) {
       assertNotNull(oSchema.createClass(s));
     }

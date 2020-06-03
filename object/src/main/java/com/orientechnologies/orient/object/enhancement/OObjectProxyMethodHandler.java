@@ -61,10 +61,10 @@ import java.util.*;
 public class OObjectProxyMethodHandler implements MethodHandler {
 
   protected final Map<String, Integer> loadedFields;
-  protected final Set<ORID> orphans = new HashSet<ORID>();
-  protected ODocument   doc;
-  protected ProxyObject parentObject;
-  protected boolean     reading;
+  protected final Set<ORID>            orphans = new HashSet<ORID>();
+  protected       ODocument            doc;
+  protected       ProxyObject          parentObject;
+  protected       boolean              reading;
 
   public OObjectProxyMethodHandler(ODocument iDocument) {
     doc = iDocument;
@@ -108,7 +108,6 @@ public class OObjectProxyMethodHandler implements MethodHandler {
    * Method that detaches all fields contained in the document to the given object
    *
    * @param self :- The object containing this handler instance
-   *
    * @throws InvocationTargetException
    * @throws IllegalAccessException
    * @throws NoSuchMethodException
@@ -135,7 +134,6 @@ public class OObjectProxyMethodHandler implements MethodHandler {
    * Method that detaches all fields contained in the document to the given object
    *
    * @param self :- The object containing this handler instance
-   *
    * @throws InvocationTargetException
    * @throws IllegalAccessException
    * @throws NoSuchMethodException
@@ -204,7 +202,6 @@ public class OObjectProxyMethodHandler implements MethodHandler {
    * Method that attaches all data contained in the object to the associated document
    *
    * @param self :- The object containing this handler instance
-   *
    * @throws IllegalAccessException
    * @throws IllegalArgumentException
    * @throws InvocationTargetException

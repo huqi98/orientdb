@@ -28,8 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class OETLScriptImporterListener implements OETLImporterListener {
-  private final Map<String, String> events;
-  private Map<String, OCommandScript> scripts = new HashMap<String, OCommandScript>();
+  private final Map<String, String>         events;
+  private       Map<String, OCommandScript> scripts = new HashMap<String, OCommandScript>();
 
   public OETLScriptImporterListener() {
     events = new HashMap<String, String>();

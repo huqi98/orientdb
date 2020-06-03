@@ -7,8 +7,7 @@ import java.util.Collections;
 /**
  * Static Factories of OScriptResultSet objects
  * <p>
- * Used in script results with conversion to OResult for single iteration
- * Created by Enrico Risa on 27/01/17.
+ * Used in script results with conversion to OResult for single iteration Created by Enrico Risa on 27/01/17.
  */
 
 public class OScriptResultSets {

@@ -154,5 +154,5 @@ public class OBinaryToken implements OToken {
     long now = System.currentTimeMillis();
     return getExpiry() > now;
   }
-  
+
 }

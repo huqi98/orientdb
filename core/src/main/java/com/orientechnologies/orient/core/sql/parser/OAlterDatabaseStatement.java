@@ -34,7 +34,8 @@ public class OAlterDatabaseStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
     OInternalResultSet result = new OInternalResultSet();
     if (customPropertyName == null) {
       result.add(executeSimpleAlter(settingName, settingValue, ctx));
@@ -84,7 +85,8 @@ public class OAlterDatabaseStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("ALTER DATABASE ");
 
     if (customPropertyName != null) {
@@ -99,7 +101,8 @@ public class OAlterDatabaseStatement extends ODDLStatement {
     }
   }
 
-  @Override public OAlterDatabaseStatement copy() {
+  @Override
+  public OAlterDatabaseStatement copy() {
     OAlterDatabaseStatement result = new OAlterDatabaseStatement(-1);
     result.customPropertyName = customPropertyName == null ? null : customPropertyName.copy();
     result.customPropertyValue = customPropertyValue == null ? null : customPropertyValue.copy();
@@ -108,7 +111,8 @@ public class OAlterDatabaseStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -128,7 +132,8 @@ public class OAlterDatabaseStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = customPropertyName != null ? customPropertyName.hashCode() : 0;
     result = 31 * result + (customPropertyValue != null ? customPropertyValue.hashCode() : 0);
     result = 31 * result + (settingName != null ? settingName.hashCode() : 0);

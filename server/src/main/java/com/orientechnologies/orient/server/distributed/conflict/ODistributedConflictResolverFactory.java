@@ -19,7 +19,7 @@ import com.orientechnologies.common.factory.OConfigurableStatelessFactory;
 
 /**
  * Factory to manage the distributed conflict resolved implementations.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class ODistributedConflictResolverFactory extends OConfigurableStatelessFactory<String, ODistributedConflictResolver> {

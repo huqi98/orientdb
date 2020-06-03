@@ -14,11 +14,11 @@ import static org.junit.Assert.*;
  * @since 21.08.2014
  */
 public class OObjectLazyMapTest {
-  private final int idOfRootEntity     = 0;
-  private final int idOfFirstMapEntry  = 1;
-  private final int idOfSecondMapEntry = 2;
-  private final int invalidId          = 3;
-  private OObjectDatabaseTx databaseTx;
+  private final int               idOfRootEntity     = 0;
+  private final int               idOfFirstMapEntry  = 1;
+  private final int               idOfSecondMapEntry = 2;
+  private final int               invalidId          = 3;
+  private       OObjectDatabaseTx databaseTx;
 
   @Before
   public void setUp() throws Exception {

@@ -34,6 +34,4 @@ public interface ODistributedStrategy {
   Set<String> getNodesConcurInQuorum(ODistributedServerManager manager, ODistributedConfiguration cfg, ODistributedRequest request,
       Collection<String> iNodes, String databaseName, Object localResult);
 
-
-
 }

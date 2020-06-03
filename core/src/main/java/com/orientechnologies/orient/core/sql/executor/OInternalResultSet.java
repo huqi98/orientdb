@@ -12,8 +12,8 @@ import java.util.Optional;
  * Created by luigidellaquila on 07/07/16.
  */
 public class OInternalResultSet implements OResultSet, OResettable {
-  private List<OResult> content = new ArrayList<>();
-  private int           next    = 0;
+  private   List<OResult>  content = new ArrayList<>();
+  private   int            next    = 0;
   protected OExecutionPlan plan;
 
   @Override

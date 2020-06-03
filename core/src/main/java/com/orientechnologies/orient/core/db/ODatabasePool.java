@@ -139,7 +139,6 @@ public class ODatabasePool implements AutoCloseable {
    * Acquire a session from the pool, if no session are available will wait until a session is available or a timeout is reached
    *
    * @return a session from the pool.
-   *
    * @throws OAcquireTimeoutException in case the timeout for waiting for a session is reached.
    */
   public ODatabaseSession acquire() throws OAcquireTimeoutException {
@@ -155,6 +154,7 @@ public class ODatabasePool implements AutoCloseable {
 
   /**
    * Check if database pool is closed
+   *
    * @return true if database pool is closed
    */
   public boolean isClosed() {

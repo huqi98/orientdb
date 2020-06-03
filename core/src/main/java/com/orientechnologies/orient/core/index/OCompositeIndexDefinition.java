@@ -251,7 +251,7 @@ public class OCompositeIndexDefinition extends OAbstractIndexDefinition {
   }
 
   private static boolean addKey(OCompositeKey firstKey, List<OCompositeKey> compositeKeys, boolean containsCollection,
-                                Object keyValue) {
+      Object keyValue) {
     //in case of collection we split single composite key on several composite keys
     //each of those composite keys contain single collection item.
     //we can not contain more than single collection item in index
@@ -310,16 +310,16 @@ public class OCompositeIndexDefinition extends OAbstractIndexDefinition {
   }
 
   public void processChangeEvent(OMultiValueChangeEvent<?, ?> changeEvent, Map<OCompositeKey, Integer> keysToAdd,
-                                 Map<OCompositeKey, Integer> keysToRemove, Object... params) {
+      Map<OCompositeKey, Integer> keysToRemove, Object... params) {
 
     final OIndexDefinitionMultiValue indexDefinitionMultiValue = (OIndexDefinitionMultiValue) indexDefinitions
-            .get(multiValueDefinitionIndex);
+        .get(multiValueDefinitionIndex);
 
     final CompositeWrapperMap compositeWrapperKeysToAdd = new CompositeWrapperMap(keysToAdd, indexDefinitions, params,
-            multiValueDefinitionIndex);
+        multiValueDefinitionIndex);
 
     final CompositeWrapperMap compositeWrapperKeysToRemove = new CompositeWrapperMap(keysToRemove, indexDefinitions, params,
-            multiValueDefinitionIndex);
+        multiValueDefinitionIndex);
 
     indexDefinitionMultiValue.processChangeEvent(changeEvent, compositeWrapperKeysToAdd, compositeWrapperKeysToRemove);
   }
@@ -513,12 +513,12 @@ public class OCompositeIndexDefinition extends OAbstractIndexDefinition {
 
   private static final class CompositeWrapperMap implements Map<Object, Integer> {
     private final Map<OCompositeKey, Integer> underlying;
-    private final Object[] params;
-    private final List<OIndexDefinition> indexDefinitions;
-    private final int multiValueIndex;
+    private final Object[]                    params;
+    private final List<OIndexDefinition>      indexDefinitions;
+    private final int                         multiValueIndex;
 
     private CompositeWrapperMap(Map<OCompositeKey, Integer> underlying, List<OIndexDefinition> indexDefinitions, Object[] params,
-                                int multiValueIndex) {
+        int multiValueIndex) {
       this.underlying = underlying;
       this.params = params;
       this.multiValueIndex = multiValueIndex;

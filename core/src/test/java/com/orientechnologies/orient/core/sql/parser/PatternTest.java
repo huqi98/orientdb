@@ -10,10 +10,10 @@ import java.util.Set;
 /**
  * Created by luigidellaquila on 11/10/16.
  */
-public class PatternTest extends  OParserTestAbstract{
+public class PatternTest extends OParserTestAbstract {
 
   @Test
-  public void testSimplePattern(){
+  public void testSimplePattern() {
     String query = "MATCH {as:a, class:Person} return a";
     OrientSql parser = getParserFor(query);
     try {
@@ -22,7 +22,7 @@ public class PatternTest extends  OParserTestAbstract{
       Pattern pattern = stm.pattern;
       Assert.assertEquals(0, pattern.getNumOfEdges());
       Assert.assertEquals(1, pattern.getAliasToNode().size());
-      Assert.assertNotNull( pattern.getAliasToNode().get("a"));
+      Assert.assertNotNull(pattern.getAliasToNode().get("a"));
       Assert.assertEquals(1, pattern.getDisjointPatterns().size());
     } catch (ParseException e) {
       Assert.fail();
@@ -30,7 +30,7 @@ public class PatternTest extends  OParserTestAbstract{
   }
 
   @Test
-  public void testCartesianProduct(){
+  public void testCartesianProduct() {
     String query = "MATCH {as:a, class:Person}, {as:b, class:Person} return a, b";
     OrientSql parser = getParserFor(query);
     try {
@@ -59,9 +59,8 @@ public class PatternTest extends  OParserTestAbstract{
     }
   }
 
-
   @Test
-  public void testComplexCartesianProduct(){
+  public void testComplexCartesianProduct() {
     String query = "MATCH {as:a, class:Person}-->{as:b}, {as:c, class:Person}-->{as:d}-->{as:e}, {as:d, class:Foo}-->{as:f} return a, b";
     OrientSql parser = getParserFor(query);
     try {

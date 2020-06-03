@@ -10,7 +10,7 @@ public interface OBinaryCompareOperator {
 
   OBinaryCompareOperator copy();
 
-  default boolean isRangeOperator(){
+  default boolean isRangeOperator() {
     return false;
   }
 }

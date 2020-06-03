@@ -29,7 +29,6 @@ import javax.persistence.Version;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class JavaNoGenericCollectionsTestClass {
   @Id
@@ -37,9 +36,9 @@ public class JavaNoGenericCollectionsTestClass {
   @Version
   private Object version;
 
-  private Map    map  = new HashMap();
-  private List   list = new ArrayList();
-  private Set    set  = new HashSet();
+  private Map  map  = new HashMap();
+  private List list = new ArrayList();
+  private Set  set  = new HashSet();
 
   public String getId() {
     return id;

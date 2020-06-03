@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class OSecurityResourceSegment extends SimpleNode {
 
-  protected boolean star = false;
+  protected boolean     star = false;
   protected OIdentifier identifier;
 
   protected OSecurityResourceSegment next;
@@ -30,7 +30,6 @@ public class OSecurityResourceSegment extends SimpleNode {
   public OSecurityResourceSegment getNext() {
     return next;
   }
-
 
   @Override
   public void toString(Map<Object, Object> params, StringBuilder builder) {

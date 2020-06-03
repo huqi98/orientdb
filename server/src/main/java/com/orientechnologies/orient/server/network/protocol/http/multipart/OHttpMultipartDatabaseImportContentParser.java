@@ -26,7 +26,6 @@ import com.orientechnologies.orient.server.network.protocol.http.OHttpUtils;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OHttpMultipartDatabaseImportContentParser implements OHttpMultipartContentParser<InputStream> {
 

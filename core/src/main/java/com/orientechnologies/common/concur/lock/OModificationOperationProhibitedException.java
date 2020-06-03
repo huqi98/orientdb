@@ -25,7 +25,7 @@ import com.orientechnologies.orient.core.exception.OCoreException;
 
 /**
  * Exception is thrown in case DB is locked for modifications but modification request ist trying to be acquired.
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  * @since 03.07.12
  */

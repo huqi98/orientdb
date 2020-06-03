@@ -21,7 +21,6 @@ import javax.persistence.Version;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class IdentityChild {
   @Id

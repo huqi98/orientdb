@@ -11,24 +11,24 @@ import javax.persistence.Embedded;
  * Data object that collects things.
  */
 public class Collector {
-	@OId
-	private String							id;
+  @OId
+  private String id;
 
-	@OVersion
-	private String version;
+  @OVersion
+  private String version;
 
-	@Embedded
-	private Collection<String>	stringCollection;
+  @Embedded
+  private Collection<String> stringCollection;
 
-	public String getId() {
-		return id;
-	}
+  public String getId() {
+    return id;
+  }
 
-	public Collection<String> getStringCollection() {
-		return stringCollection;
-	}
+  public Collection<String> getStringCollection() {
+    return stringCollection;
+  }
 
-	public void setStringCollection(Collection<String> stringCollection) {
-		this.stringCollection = stringCollection;
-	}
+  public void setStringCollection(Collection<String> stringCollection) {
+    this.stringCollection = stringCollection;
+  }
 }

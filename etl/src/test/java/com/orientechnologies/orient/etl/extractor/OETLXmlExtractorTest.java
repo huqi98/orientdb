@@ -79,7 +79,6 @@ public class OETLXmlExtractorTest extends OETLBaseTest {
     final List<ODocument> cds = getResult();
     final Iterator<ODocument> it = cds.iterator();
 
-
     final ODocument doc1 = it.next();
     assertNotNull(doc1);
     assertEquals("Empire Burlesque", doc1.field("TITLE"));

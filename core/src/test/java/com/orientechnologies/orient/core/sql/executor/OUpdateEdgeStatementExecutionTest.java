@@ -17,7 +17,8 @@ import org.junit.Test;
 public class OUpdateEdgeStatementExecutionTest {
   static ODatabaseDocument database;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
 
     database = new ODatabaseDocumentTx("memory:OUpdateEdgeStatementExecutionTest");
     database.create();
@@ -30,7 +31,8 @@ public class OUpdateEdgeStatementExecutionTest {
     }
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     database.close();
   }
 
@@ -93,7 +95,7 @@ public class OUpdateEdgeStatementExecutionTest {
     result.close();
 
   }
-  
+
   @Test
   public void testUpdateEdgeOfTypeE() {
     //issue #6378
@@ -101,8 +103,7 @@ public class OUpdateEdgeStatementExecutionTest {
     ODocument v2 = database.command(new OCommandSQL("create vertex")).execute();
     ODocument v3 = database.command(new OCommandSQL("create vertex")).execute();
 
-    OResultSet edges = database
-        .command("create edge E from " + v1.getIdentity() + " to " + v2.getIdentity());
+    OResultSet edges = database.command("create edge E from " + v1.getIdentity() + " to " + v2.getIdentity());
     OResult edge = edges.next();
 
     database.command("UPDATE EDGE " + edge.getElement().get().getIdentity() + " SET in = " + v3.getIdentity());
@@ -118,7 +119,5 @@ public class OUpdateEdgeStatementExecutionTest {
     Assert.assertFalse(result.iterator().hasNext());
 
   }
-
-
 
 }

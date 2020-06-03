@@ -10,7 +10,7 @@ import org.junit.runners.JUnit4;
 
 /**
  * Test suite for OrientDB graph implementation that store edges using custom classes derived by labels.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 @RunWith(JUnit4.class)

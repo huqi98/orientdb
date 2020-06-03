@@ -26,9 +26,9 @@ public class OSBTreeRidBagConcurrencySingleRidBag {
   private final       AtomicInteger               positionCounter = new AtomicInteger();
   private final       ConcurrentSkipListSet<ORID> ridTree         = new ConcurrentSkipListSet<ORID>();
   private final       CountDownLatch              latch           = new CountDownLatch(1);
-  private ORID docContainerRid;
-  private          ExecutorService threadExecutor = Executors.newCachedThreadPool();
-  private volatile boolean         cont           = true;
+  private             ORID                        docContainerRid;
+  private             ExecutorService             threadExecutor  = Executors.newCachedThreadPool();
+  private volatile    boolean                     cont            = true;
 
   private int topThreshold;
   private int bottomThreshold;

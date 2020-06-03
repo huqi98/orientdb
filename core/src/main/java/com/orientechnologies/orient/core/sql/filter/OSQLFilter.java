@@ -60,14 +60,14 @@ public class OSQLFilter extends OSQLPredicate implements OCommandPredicate {
       if (e.getText() == null)
       // QUERY EXCEPTION BUT WITHOUT TEXT: NEST IT
       {
-        throw OException.wrapException(
-            new OQueryParsingException("Error on parsing query", parserText, parserGetCurrentPosition()), e);
+        throw OException
+            .wrapException(new OQueryParsingException("Error on parsing query", parserText, parserGetCurrentPosition()), e);
       }
 
       throw e;
     } catch (Exception e) {
-      throw OException.wrapException(new OQueryParsingException("Error on parsing query", parserText, parserGetCurrentPosition()),
-          e);
+      throw OException
+          .wrapException(new OQueryParsingException("Error on parsing query", parserText, parserGetCurrentPosition()), e);
     }
 
     this.rootCondition = resetOperatorPrecedence(rootCondition);

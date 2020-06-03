@@ -5,7 +5,7 @@ import com.orientechnologies.common.serialization.types.OIntegerSerializer;
 
 public class AbsoluteChange implements Change {
   public static final byte TYPE = 1;
-  private int value;
+  private             int  value;
 
   AbsoluteChange(int value) {
     this.value = value;

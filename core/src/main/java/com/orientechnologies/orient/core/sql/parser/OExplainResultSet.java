@@ -20,11 +20,13 @@ public class OExplainResultSet implements OResultSet {
     this.executionPlan = executionPlan;
   }
 
-  @Override public boolean hasNext() {
+  @Override
+  public boolean hasNext() {
     return hasNext;
   }
 
-  @Override public OResult next() {
+  @Override
+  public OResult next() {
     if (!hasNext) {
       throw new IllegalStateException();
     }
@@ -35,15 +37,18 @@ public class OExplainResultSet implements OResultSet {
     return result;
   }
 
-  @Override public void close() {
+  @Override
+  public void close() {
 
   }
 
-  @Override public Optional<OExecutionPlan> getExecutionPlan() {
+  @Override
+  public Optional<OExecutionPlan> getExecutionPlan() {
     return Optional.of(executionPlan);
   }
 
-  @Override public Map<String, Long> getQueryStats() {
+  @Override
+  public Map<String, Long> getQueryStats() {
     return new HashMap<>();
   }
 }

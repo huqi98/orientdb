@@ -32,12 +32,11 @@ import java.util.List;
 
 /**
  * Represents one or more object fields as value in the query condition.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public abstract class OSQLFilterItemFieldMultiAbstract extends OSQLFilterItemAbstract {
-  private List<String>         names;
+  private       List<String>   names;
   private final OClass         clazz;
   private final List<OCollate> collates = new ArrayList<OCollate>();
 

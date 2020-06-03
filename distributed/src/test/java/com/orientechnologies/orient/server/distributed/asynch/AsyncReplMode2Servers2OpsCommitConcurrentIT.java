@@ -16,8 +16,8 @@ import java.util.concurrent.CountDownLatch;
 @Ignore
 public class AsyncReplMode2Servers2OpsCommitConcurrentIT extends BareBoneBase2ServerTest {
 
-  private static final int TOTAL = 5;
-  private ORID vertex1Id;
+  private static final int  TOTAL = 5;
+  private              ORID vertex1Id;
   CountDownLatch counter = new CountDownLatch(2);
 
   @Override

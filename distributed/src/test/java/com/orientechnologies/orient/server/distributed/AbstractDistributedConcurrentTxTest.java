@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -43,13 +43,13 @@ import java.util.concurrent.atomic.AtomicLong;
  * Test distributed TX
  */
 public abstract class AbstractDistributedConcurrentTxTest extends AbstractDistributedWriteTest {
-//  protected ODatabasePool pool;
-  protected ORID          v;
+  //  protected ODatabasePool pool;
+  protected ORID       v;
   protected AtomicLong lockExceptions              = new AtomicLong(0l);
   protected boolean    expectedConcurrentException = true;
 
   class TxWriter implements Callable<Void> {
-    private final int    serverId;
+    private final int serverId;
 
     public TxWriter(final int iServerId) {
       serverId = iServerId;
@@ -127,12 +127,9 @@ public abstract class AbstractDistributedConcurrentTxTest extends AbstractDistri
 
     final long totalLockExceptions = lockExceptions.get();
 
-    if (expectedConcurrentException)
-    {
+    if (expectedConcurrentException) {
       Assert.assertTrue("lockExceptions are " + totalLockExceptions, totalLockExceptions > 0);
-    }
-    else
-    {
+    } else {
       Assert.assertTrue("lockExceptions are " + totalLockExceptions, totalLockExceptions == 0);
     }
   }
@@ -175,8 +172,8 @@ public abstract class AbstractDistributedConcurrentTxTest extends AbstractDistri
             + "', 'surname': 'Mayes" + uniqueId + "', 'birthday': '" + ODatabaseRecordThreadLocal.instance().get().getStorage()
             .getConfiguration().getDateFormatInstance().format(new Date()) + "', 'children': '" + uniqueId + "', 'saved': 0}"))
         .execute();
-        
-    return getVertex((ODocument)result);
+
+    return getVertex((ODocument) result);
   }
 
   protected void updateVertex(OVertex v) {

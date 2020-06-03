@@ -13,12 +13,12 @@ import java.util.Map;
 
 public class OLuceneClassIndexContext {
 
-  protected final OIndexDefinition definition;
-  protected final String           name;
-  protected final boolean          automatic;
-  protected final ODocument        metadata;
+  protected final OIndexDefinition     definition;
+  protected final String               name;
+  protected final boolean              automatic;
+  protected final ODocument            metadata;
   protected final Map<String, Boolean> fieldsToStore = new HashMap<String, Boolean>();
-  protected final OClass indexClass;
+  protected final OClass               indexClass;
 
   public OLuceneClassIndexContext(OSchema schema, OIndexDefinition definition, String name, boolean automatic, ODocument metadata) {
     this.definition = definition;

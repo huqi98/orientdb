@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 
 public class OFetchPlanItem extends SimpleNode {
 
-  protected Boolean  star;
-  protected OInteger leftDepth;
-  protected boolean leftStar = false;
-  protected OInteger rightDepth;
+  protected Boolean      star;
+  protected OInteger     leftDepth;
+  protected boolean      leftStar   = false;
+  protected OInteger     rightDepth;
   protected List<String> fieldChain = new ArrayList<String>();
 
   public OFetchPlanItem(int id) {

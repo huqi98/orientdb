@@ -15,20 +15,22 @@ import java.util.List;
 public class OCreateUserStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OCreateUserStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testPlain() {
+  @Test
+  public void testPlain() {
     String name = "testPlain";
     OResultSet result = db.command("CREATE USER test IDENTIFIED BY foo ROLE admin");
     result.close();
-
 
     result = db.query("SELECT name, roles.name as roles FROM OUser WHERE name = 'test'");
     Assert.assertTrue(result.hasNext());
@@ -40,8 +42,6 @@ public class OCreateUserStatementExecutionTest {
 
     result.close();
 
-
   }
-
 
 }

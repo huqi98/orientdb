@@ -33,12 +33,12 @@ import java.util.Map.Entry;
 /**
  * Compute the mode (or multimodal) value for a field. The scores in the field's distribution that occurs more frequently. Nulls are
  * ignored in the calculation.
- * 
+ *
  * @author Fabrizio Fortino
  */
 public class OSQLFunctionMode extends OSQLFunctionAbstract {
 
-  public static final String   NAME     = "mode";
+  public static final String NAME = "mode";
 
   private Map<Object, Integer> seen     = new HashMap<Object, Integer>();
   private int                  max      = 0;

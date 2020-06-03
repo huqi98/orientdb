@@ -39,9 +39,9 @@ import com.orientechnologies.orient.core.serialization.OMemoryStream;
  */
 @SuppressWarnings({ "unchecked" })
 public class ORecordBytes extends ORecordAbstract implements OBlob {
-  private static final long   serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-  private static final byte[] EMPTY_SOURCE     = new byte[] {};
+  private static final byte[] EMPTY_SOURCE = new byte[] {};
 
   public ORecordBytes() {
     setup(ODatabaseRecordThreadLocal.instance().getIfDefined());
@@ -111,8 +111,7 @@ public class ORecordBytes extends ORecordAbstract implements OBlob {
    * Reads the input stream in memory. This is less efficient than {@link #fromInputStream(InputStream, int)} because allocation is
    * made multiple times. If you already know the input size use {@link #fromInputStream(InputStream, int)}.
    *
-   * @param in
-   *          Input Stream, use buffered input stream wrapper to speed up reading
+   * @param in Input Stream, use buffered input stream wrapper to speed up reading
    * @return Buffer read from the stream. It's also the internal buffer size in bytes
    * @throws IOException
    */
@@ -138,16 +137,13 @@ public class ORecordBytes extends ORecordAbstract implements OBlob {
   }
 
   /**
-   * Reads the input stream in memory specifying the maximum bytes to read. This is more efficient than
-   * {@link #fromInputStream(InputStream)} because allocation is made only once.
+   * Reads the input stream in memory specifying the maximum bytes to read. This is more efficient than {@link
+   * #fromInputStream(InputStream)} because allocation is made only once.
    *
-   * @param in
-   *          Input Stream, use buffered input stream wrapper to speed up reading
-   * @param maxSize
-   *          Maximum size to read
+   * @param in      Input Stream, use buffered input stream wrapper to speed up reading
+   * @param maxSize Maximum size to read
    * @return Buffer count of bytes that are read from the stream. It's also the internal buffer size in bytes
-   * @throws IOException
-   *           if an I/O error occurs.
+   * @throws IOException if an I/O error occurs.
    */
   public int fromInputStream(final InputStream in, final int maxSize) throws IOException {
     final byte[] buffer = new byte[maxSize];

@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 package com.orientechnologies.orient.core.sql.functions.graph;
 
 import com.orientechnologies.orient.core.command.OBasicCommandContext;
@@ -42,7 +42,7 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 /*
-* @author Saeed Tabrizi (saeed a_t  nowcando.com)
+ * @author Saeed Tabrizi (saeed a_t  nowcando.com)
  */
 public class OSQLFunctionAstarTest {
   private static int dbCounter = 0;
@@ -51,22 +51,24 @@ public class OSQLFunctionAstarTest {
   private ODatabaseDocument graph;
 
   private OVertex           v0;
-  private OVertex            v1;
-  private OVertex            v2;
-  private OVertex            v3;
-  private OVertex            v4;
-  private OVertex            v5;
-  private OVertex            v6;
+  private OVertex           v1;
+  private OVertex           v2;
+  private OVertex           v3;
+  private OVertex           v4;
+  private OVertex           v5;
+  private OVertex           v6;
   private OSQLFunctionAstar functionAstar;
 
-  @Before public void setUp() throws Exception {
+  @Before
+  public void setUp() throws Exception {
 
     setUpDatabase();
 
     functionAstar = new OSQLFunctionAstar();
   }
 
-  @After public void tearDown() throws Exception {
+  @After
+  public void tearDown() throws Exception {
     graph.close();
     orientDB.close();
   }
@@ -200,17 +202,17 @@ public class OSQLFunctionAstarTest {
 
   }
 
-  @Test public void test1Execute() throws Exception {
+  @Test
+  public void test1Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
     options.put(OSQLFunctionAstar.PARAM_EDGE_TYPE_NAMES, new String[] { "has_path" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v1, v4, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v1, v4, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(4, result.size());
@@ -220,17 +222,17 @@ public class OSQLFunctionAstarTest {
     assertEquals(v4, result.get(3));
   }
 
-  @Test public void test2Execute() throws Exception {
+  @Test
+  public void test2Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
     options.put(OSQLFunctionAstar.PARAM_EDGE_TYPE_NAMES, new String[] { "has_path" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
     assertEquals(3, result.size());
     assertEquals(v1, result.get(0));
@@ -239,7 +241,8 @@ public class OSQLFunctionAstarTest {
 
   }
 
-  @Test public void test3Execute() throws Exception {
+  @Test
+  public void test3Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -247,10 +250,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_VERTEX_AXIS_NAMES, new String[] { "lat", "lon" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(3, result.size());
@@ -260,7 +262,8 @@ public class OSQLFunctionAstarTest {
 
   }
 
-  @Test public void test4Execute() throws Exception {
+  @Test
+  public void test4Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -268,10 +271,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_VERTEX_AXIS_NAMES, new String[] { "lat", "lon", "alt" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v1, v6, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(3, result.size());
@@ -281,7 +283,8 @@ public class OSQLFunctionAstarTest {
 
   }
 
-  @Test public void test5Execute() throws Exception {
+  @Test
+  public void test5Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -289,10 +292,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_VERTEX_AXIS_NAMES, new String[] { "lat", "lon" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v3, v5, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v3, v5, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(3, result.size());
@@ -302,7 +304,8 @@ public class OSQLFunctionAstarTest {
 
   }
 
-  @Test public void test6Execute() throws Exception {
+  @Test
+  public void test6Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -310,10 +313,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_VERTEX_AXIS_NAMES, new String[] { "lat", "lon" });
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(6, result.size());
@@ -325,7 +327,8 @@ public class OSQLFunctionAstarTest {
     assertEquals(v1, result.get(5));
   }
 
-  @Test public void test7Execute() throws Exception {
+  @Test
+  public void test7Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, "out");
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -334,10 +337,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_HEURISTIC_FORMULA, "EucliDEAN");
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(6, result.size());
@@ -349,7 +351,8 @@ public class OSQLFunctionAstarTest {
     assertEquals(v1, result.get(5));
   }
 
-  @Test public void test8Execute() throws Exception {
+  @Test
+  public void test8Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, ODirection.OUT);
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -359,10 +362,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_HEURISTIC_FORMULA, HeuristicFormula.EUCLIDEANNOSQR);
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(5, result.size());
@@ -373,7 +375,8 @@ public class OSQLFunctionAstarTest {
     assertEquals(v1, result.get(4));
   }
 
-  @Test public void test9Execute() throws Exception {
+  @Test
+  public void test9Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, ODirection.BOTH);
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -383,10 +386,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_HEURISTIC_FORMULA, HeuristicFormula.MAXAXIS);
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(3, result.size());
@@ -395,7 +397,8 @@ public class OSQLFunctionAstarTest {
     assertEquals(v1, result.get(2));
   }
 
-  @Test public void test10Execute() throws Exception {
+  @Test
+  public void test10Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, ODirection.OUT);
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -406,10 +409,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_CUSTOM_HEURISTIC_FORMULA, "myCustomHeuristic");
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(6, result.size());
@@ -421,7 +423,8 @@ public class OSQLFunctionAstarTest {
     assertEquals(v1, result.get(5));
   }
 
-  @Test public void test11Execute() throws Exception {
+  @Test
+  public void test11Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, ODirection.OUT);
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -434,17 +437,17 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_CUSTOM_HEURISTIC_FORMULA, "myCustomHeuristic");
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(0, result.size());
 
   }
 
-  @Test public void test12Execute() throws Exception {
+  @Test
+  public void test12Execute() throws Exception {
     Map<String, Object> options = new HashMap<String, Object>();
     options.put(OSQLFunctionAstar.PARAM_DIRECTION, ODirection.OUT);
     options.put(OSQLFunctionAstar.PARAM_PARALLEL, true);
@@ -457,10 +460,9 @@ public class OSQLFunctionAstarTest {
     options.put(OSQLFunctionAstar.PARAM_CUSTOM_HEURISTIC_FORMULA, "myCustomHeuristic");
     OBasicCommandContext ctx = new OBasicCommandContext();
     ctx.setDatabase(graph);
-    final List<OVertex> result = functionAstar
-        .execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    final List<OVertex> result = functionAstar.execute(null, null, null, new Object[] { v6, v1, "'weight'", options }, ctx);
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(4, result.size());
@@ -480,8 +482,8 @@ public class OSQLFunctionAstarTest {
     for (Object x : r) {
       result.add(x);
     }
-    try(OResultSet rs = graph.query("select count(*) as count from has_path")){
-      assertEquals((Object)16L, rs.next().getProperty("count"));
+    try (OResultSet rs = graph.query("select count(*) as count from has_path")) {
+      assertEquals((Object) 16L, rs.next().getProperty("count"));
     }
 
     assertEquals(4, result.size());

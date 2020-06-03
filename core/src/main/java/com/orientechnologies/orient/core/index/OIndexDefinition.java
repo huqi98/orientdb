@@ -26,12 +26,12 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 import java.util.List;
 
 /**
- * Presentation of index that is used information and contained in document
- * {@link com.orientechnologies.orient.core.metadata.schema.OClass} .
- * 
+ * Presentation of index that is used information and contained in document {@link com.orientechnologies.orient.core.metadata.schema.OClass}
+ * .
+ * <p>
  * This object cannot be created directly, use {@link com.orientechnologies.orient.core.metadata.schema.OClass} manipulation method
  * instead.
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com), Artem Orobets
  */
 public interface OIndexDefinition extends OIndexCallback {
@@ -42,7 +42,7 @@ public interface OIndexDefinition extends OIndexCallback {
 
   /**
    * @return Names of fields and their index modifiers (like "by value" for fields that hold <code>Map</code> values) which given
-   *         index is used to calculate key value. Order of fields is important.
+   * index is used to calculate key value. Order of fields is important.
    */
   List<String> getFieldsToIndex();
 
@@ -68,25 +68,20 @@ public interface OIndexDefinition extends OIndexCallback {
 
   /**
    * Calculates key value by passed in parameters.
-   * 
+   * <p>
    * If it is impossible to calculate key value by given parameters <code>null</code> will be returned.
-   * 
-   * @param params
-   *          Parameters from which index key will be calculated.
-   * 
+   *
+   * @param params Parameters from which index key will be calculated.
    * @return Key value or null if calculation is impossible.
    */
   Object createValue(List<?> params);
 
   /**
    * Calculates key value by passed in parameters.
-   * 
+   * <p>
    * If it is impossible to calculate key value by given parameters <code>null</code> will be returned.
-   * 
-   * 
-   * @param params
-   *          Parameters from which index key will be calculated.
-   * 
+   *
+   * @param params Parameters from which index key will be calculated.
    * @return Key value or null if calculation is impossible.
    */
   Object createValue(Object... params);
@@ -94,7 +89,7 @@ public interface OIndexDefinition extends OIndexCallback {
   /**
    * Returns amount of parameters that are used to calculate key value. It does not mean that all parameters should be supplied. It
    * only means that if you provide more parameters they will be ignored and will not participate in index key calculation.
-   * 
+   *
    * @return Amount of that are used to calculate key value. Call result should be equals to {@code getTypes().length}.
    */
   int getParamCount();
@@ -102,23 +97,22 @@ public interface OIndexDefinition extends OIndexCallback {
   /**
    * Return types of values from which index key consist. In case of index that is built on single document property value single
    * array that contains property type will be returned. In case of composite indexes result will contain several key types.
-   * 
+   *
    * @return Types of values from which index key consist.
    */
   OType[] getTypes();
 
   /**
    * Serializes internal index state to document.
-   * 
+   *
    * @return Document that contains internal index state.
    */
   ODocument toStream();
 
   /**
    * Deserialize internal index state from document.
-   * 
-   * @param document
-   *          Serialized index presentation.
+   *
+   * @param document Serialized index presentation.
    */
   void fromStream(ODocument document);
 

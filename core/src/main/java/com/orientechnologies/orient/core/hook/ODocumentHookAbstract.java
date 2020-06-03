@@ -57,7 +57,6 @@ public abstract class ODocumentHookAbstract implements ORecordHook {
    * It's called just before to create the new document.
    *
    * @param iDocument The document to create
-   *
    * @return True if the document has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeCreate(final ODocument iDocument) {
@@ -92,7 +91,6 @@ public abstract class ODocumentHookAbstract implements ORecordHook {
    * It's called just before to read the document.
    *
    * @param iDocument The document to read
-   *
    * @return True if the document has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeRead(final ODocument iDocument) {
@@ -127,7 +125,6 @@ public abstract class ODocumentHookAbstract implements ORecordHook {
    * It's called just before to update the document.
    *
    * @param iDocument The document to update
-   *
    * @return True if the document has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeUpdate(final ODocument iDocument) {
@@ -162,7 +159,6 @@ public abstract class ODocumentHookAbstract implements ORecordHook {
    * It's called just before to delete the document.
    *
    * @param iDocument The document to delete
-   *
    * @return True if the document has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeDelete(final ODocument iDocument) {

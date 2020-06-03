@@ -29,12 +29,12 @@ import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
 public class OPhysicalPosition implements OSerializableStream, Externalizable {
-  private static final int binarySize = OBinaryProtocol.SIZE_LONG + OBinaryProtocol.SIZE_BYTE + OBinaryProtocol.SIZE_INT
-      + OBinaryProtocol.SIZE_INT;
-  public long             clusterPosition;
-  public byte             recordType;
-  public int              recordVersion = 0;
-  public int              recordSize;
+  private static final int  binarySize    =
+      OBinaryProtocol.SIZE_LONG + OBinaryProtocol.SIZE_BYTE + OBinaryProtocol.SIZE_INT + OBinaryProtocol.SIZE_INT;
+  public               long clusterPosition;
+  public               byte recordType;
+  public               int  recordVersion = 0;
+  public               int  recordSize;
 
   public OPhysicalPosition() {
   }

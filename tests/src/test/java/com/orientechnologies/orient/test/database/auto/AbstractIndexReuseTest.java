@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeClass;
 import com.orientechnologies.orient.core.Orient;
 
 public abstract class AbstractIndexReuseTest extends DocumentDBBaseTest {
-  private JMXConnector     jmxConnector;
-  protected OProfiler  profiler;
+  private   JMXConnector jmxConnector;
+  protected OProfiler    profiler;
 
   public AbstractIndexReuseTest(final String iURL) {
     super(iURL);
@@ -44,7 +44,7 @@ public abstract class AbstractIndexReuseTest extends DocumentDBBaseTest {
 //      final ObjectName onProfiler = new ObjectName("OrientDB:type=Profiler");
     // return JMX.newMBeanProxy(mbsc, onProfiler, OProfiler.class, false);
 //    } else {
-      return Orient.instance().getProfiler();
+    return Orient.instance().getProfiler();
 //    }
   }
 }

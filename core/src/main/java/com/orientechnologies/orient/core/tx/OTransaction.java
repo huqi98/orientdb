@@ -63,7 +63,6 @@ public interface OTransaction extends OBasicTransaction {
    * in memory to guarantee the repeatable reads. This affects the used RAM and speed (because JVM Garbage Collector job).
    *
    * @param iIsolationLevel Isolation level to set
-   *
    * @return Current object to allow call in chain
    */
   OTransaction setIsolationLevel(ISOLATION_LEVEL iIsolationLevel);
@@ -122,6 +121,7 @@ public interface OTransaction extends OBasicTransaction {
    * </ol>
    * <p>
    * So you practically unable to work in multithreaded environment and keep data consistent.
+   *
    * @deprecated This option has no effect
    */
   @Deprecated

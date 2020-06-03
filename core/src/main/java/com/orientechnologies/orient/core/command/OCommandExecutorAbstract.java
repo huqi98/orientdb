@@ -35,9 +35,8 @@ import java.util.*;
 
 /**
  * Abstract implementation of Executor Command interface.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 @SuppressWarnings("unchecked")
 public abstract class OCommandExecutorAbstract extends OBaseParser implements OCommandExecutor {

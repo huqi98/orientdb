@@ -25,6 +25,5 @@ import com.orientechnologies.orient.core.command.OCommandContext;
  */
 public interface OETLPipelineComponent extends OETLComponent {
 
-
   void setContext(OCommandContext context);
 }

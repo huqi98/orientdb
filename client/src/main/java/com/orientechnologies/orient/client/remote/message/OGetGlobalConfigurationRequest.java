@@ -49,7 +49,7 @@ public class OGetGlobalConfigurationRequest implements OBinaryRequest<OGetGlobal
   public boolean requireDatabaseSession() {
     return false;
   }
-  
+
   @Override
   public OGetGlobalConfigurationResponse createResponse() {
     return new OGetGlobalConfigurationResponse();

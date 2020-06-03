@@ -24,7 +24,8 @@ public class OConsoleStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     OInternalResultSet result = new OInternalResultSet();
     OResultInternal item = new OResultInternal();
     Object msg = "" + message.execute((OIdentifiable) null, ctx);
@@ -52,21 +53,24 @@ public class OConsoleStatement extends OSimpleExecStatement {
 
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("CONSOLE.");
     logLevel.toString(params, builder);
     builder.append(" ");
     message.toString(params, builder);
   }
 
-  @Override public OConsoleStatement copy() {
+  @Override
+  public OConsoleStatement copy() {
     OConsoleStatement result = new OConsoleStatement(-1);
     result.logLevel = logLevel == null ? null : logLevel.copy();
     result.message = message == null ? null : message.copy();
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -82,7 +86,8 @@ public class OConsoleStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = logLevel != null ? logLevel.hashCode() : 0;
     result = 31 * result + (message != null ? message.hashCode() : 0);
     return result;

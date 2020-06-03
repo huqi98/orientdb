@@ -58,8 +58,8 @@ public class DateTest extends DocumentDBBaseTest {
     doc2.reload();
     Assert.assertTrue(doc2.field("date", Date.class) instanceof Date);
 
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select * from Order where date >= ? and context = 'test'")).execute(begin);
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select * from Order where date >= ? and context = 'test'")).execute(begin);
 
     Assert.assertEquals(result.size(), 2);
   }
@@ -75,8 +75,9 @@ public class DateTest extends DocumentDBBaseTest {
     doc.field("date", ODateHelper.now(), OType.DATETIME);
     doc.save();
 
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select * from Order where date >= ? and context = 'testPrecision'")).execute(dateAsString);
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select * from Order where date >= ? and context = 'testPrecision'"))
+        .execute(dateAsString);
 
     Assert.assertEquals(result.size(), 1);
   }
@@ -102,7 +103,8 @@ public class DateTest extends DocumentDBBaseTest {
 
     database.command(new OCommandSQL("CREATE VERTEX TimeTest SET firstname = ?, birthDate = ?")).execute("Robert", date);
 
-    final List<ODocument> result = database.query(new OSQLSynchQuery<ODocument>("select from TimeTest where firstname = ?"), "Robert");
+    final List<ODocument> result = database
+        .query(new OSQLSynchQuery<ODocument>("select from TimeTest where firstname = ?"), "Robert");
     Assert.assertEquals(result.size(), 1);
     Assert.assertEquals(result.get(0).field("birthDate"), date);
   }

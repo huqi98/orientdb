@@ -33,8 +33,8 @@ public class RemoteProtocolCommandsTest extends DocumentDBBaseTest {
 
   @Test(enabled = false)
   public void testConnect() throws Exception {
-    final OServerAdmin admin = new OServerAdmin("remote:localhost:" + serverPort).connect("root",
-        ODatabaseHelper.getServerRootPassword());
+    final OServerAdmin admin = new OServerAdmin("remote:localhost:" + serverPort)
+        .connect("root", ODatabaseHelper.getServerRootPassword());
     admin.close();
   }
 
@@ -67,8 +67,8 @@ public class RemoteProtocolCommandsTest extends DocumentDBBaseTest {
     ODocument doc = new ODocument("RidCreationTestClass");
     doc.field("test", "test");
     ORecordId bad = new ORecordId(-1, -1);
-    OStorageOperationResult<OPhysicalPosition> res = storage.createRecord(bad, doc.toStream(), doc.getVersion(),
-        ODocument.RECORD_TYPE, null);
+    OStorageOperationResult<OPhysicalPosition> res = storage
+        .createRecord(bad, doc.toStream(), doc.getVersion(), ODocument.RECORD_TYPE, null);
 
     // assertTrue(" the cluster is not valid", bad.clusterId >= 0);
     String ids = "";

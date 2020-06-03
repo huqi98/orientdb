@@ -19,14 +19,10 @@ package com.orientechnologies.orient.core.schedule;
 import java.util.Map;
 
 /**
- * Scheduler interface.
-<<<<<<< HEAD
- * 
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
-=======
+ * Scheduler interface. <<<<<<< HEAD
  *
- * @author Luca Garulli
->>>>>>> 1b627a8... HA: fixed issues with distributed scheduler events
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com) =======
+ * @author Luca Garulli >>>>>>> 1b627a8... HA: fixed issues with distributed scheduler events
  * @author henryzhao81-at-gmail.com
  * @since Mar 28, 2013
  */

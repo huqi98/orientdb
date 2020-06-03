@@ -33,16 +33,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server (quorum=2)
- * - server3 is isolated (simulated by shutdown)
- * - 5 threads on both server1 and server2 write 100 records
- * - server3 joins the cluster
- * - server3 receive the delta from the cluster
- * - check consistency
+ * It checks the consistency in the cluster with the following scenario: - 3 server (quorum=2) - server3 is isolated (simulated by
+ * shutdown) - 5 threads on both server1 and server2 write 100 records - server3 joins the cluster - server3 receive the delta from
+ * the cluster - check consistency
  *
  * @author Gabriele Ponzi
- * @email  <gabriele.ponzi--at--gmail.com>
+ * @email <gabriele.ponzi--at--gmail.com>
  */
 
 public class IsolatedNodeRejoinScenarioIT extends AbstractScenarioTest {
@@ -116,8 +112,7 @@ public class IsolatedNodeRejoinScenarioIT extends AbstractScenarioTest {
       public Boolean call(ODatabaseDocument db) {
         final boolean ok = db.countClass("Person") >= 1000L;
         if (!ok)
-          System.out.println(
-              "FOUND " + db.countClass("Person") + " people on server 0 instead of expected " + 1000L);
+          System.out.println("FOUND " + db.countClass("Person") + " people on server 0 instead of expected " + 1000L);
         return ok;
       }
     }, 10000);
@@ -127,8 +122,7 @@ public class IsolatedNodeRejoinScenarioIT extends AbstractScenarioTest {
       public Boolean call(ODatabaseDocument db) {
         final boolean ok = db.countClass("Person") >= 1000L;
         if (!ok)
-          System.out.println(
-              "FOUND " + db.countClass("Person") + " people on server 1 instead of expected " + 1000L);
+          System.out.println("FOUND " + db.countClass("Person") + " people on server 1 instead of expected " + 1000L);
         return ok;
       }
     }, 10000);
@@ -147,7 +141,7 @@ public class IsolatedNodeRejoinScenarioIT extends AbstractScenarioTest {
       else if (result.size() > 1)
         fail(result.size() + " records found with id = '" + uniqueId + "'!");
     } finally {
-     	dbServer.close();
+      dbServer.close();
     }
     return result.get(0);
   }

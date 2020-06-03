@@ -47,7 +47,7 @@ public class OLuceneAnalyzerFactory {
   }
 
   private void setDefaultAnalyzerForRequestedKind(final OIndexDefinition index, final AnalyzerKind kind, final ODocument metadata,
-                                                  final String prefix, final OLucenePerFieldAnalyzerWrapper analyzer) {
+      final String prefix, final OLucenePerFieldAnalyzerWrapper analyzer) {
     final String specializedAnalyzerFQN = metadata.field(kind.toString());
     if (specializedAnalyzerFQN != null) {
       for (final String field : index.getFields()) {
@@ -58,7 +58,7 @@ public class OLuceneAnalyzerFactory {
   }
 
   private void setSpecializedAnalyzersForEachField(final OIndexDefinition index, final AnalyzerKind kind, final ODocument metadata,
-                                                   final String prefix, final OLucenePerFieldAnalyzerWrapper analyzer) {
+      final String prefix, final OLucenePerFieldAnalyzerWrapper analyzer) {
     for (final String field : index.getFields()) {
       final String analyzerName = field + "_" + kind.toString();
       final String analyzerStopwords = analyzerName + "_stopwords";

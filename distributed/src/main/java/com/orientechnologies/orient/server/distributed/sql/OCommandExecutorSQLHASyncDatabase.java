@@ -45,8 +45,8 @@ import java.util.Map;
  */
 @SuppressWarnings("unchecked")
 public class OCommandExecutorSQLHASyncDatabase extends OCommandExecutorSQLAbstract implements OCommandDistributedReplicateRequest {
-  public static final String NAME = "HA SYNC DATABASE";
-  private OHaSyncDatabaseStatement parsedStatement;
+  public static final String                   NAME = "HA SYNC DATABASE";
+  private             OHaSyncDatabaseStatement parsedStatement;
 
   public OCommandExecutorSQLHASyncDatabase parse(final OCommandRequest iRequest) {
     init((OCommandRequestText) iRequest);

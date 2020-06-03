@@ -208,8 +208,8 @@ public class HALocalGraphIT extends AbstractServerClusterTxTest {
               if (useSQL) {
                 boolean update = true;
                 boolean isException = false;
-                String sql = "Update Test set prop5='" + System.currentTimeMillis() + "', updateTime='" + new Date()
-                    .toString() + "' where prop2='v2-1'";
+                String sql = "Update Test set prop5='" + System.currentTimeMillis() + "', updateTime='" + new Date().toString()
+                    + "' where prop2='v2-1'";
                 for (int k = 0; k < 10 && update; k++) {
                   try {
                     graph.command(new OCommandSQL(sql)).execute();

@@ -23,13 +23,12 @@ import com.orientechnologies.orient.core.command.OCommandContext;
 
 /**
  * Resolve variables by using a context.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (luca.garulli--at--assetdata.it)
- * 
  */
 public class OContextVariableResolver implements OVariableParserListener {
-  public static final String    VAR_BEGIN = "${";
-  public static final String    VAR_END   = "}";
+  public static final String VAR_BEGIN = "${";
+  public static final String VAR_END   = "}";
 
   private final OCommandContext context;
 

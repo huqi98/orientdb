@@ -30,7 +30,6 @@ import com.orientechnologies.common.log.OLogManager;
  * Server plugin information
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OServerPluginInfo {
   private final String              name;

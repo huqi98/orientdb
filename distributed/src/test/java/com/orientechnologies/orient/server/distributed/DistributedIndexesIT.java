@@ -46,7 +46,7 @@ public class DistributedIndexesIT extends AbstractServerClusterTest {
   @Override
   protected void executeTest() throws Exception {
 
-    ODatabaseDocument db = serverInstance.get(1).getServerInstance().getContext().open(getDatabaseName(),"admin","admin");
+    ODatabaseDocument db = serverInstance.get(1).getServerInstance().getContext().open(getDatabaseName(), "admin", "admin");
     try {
 
       testIndexUsage(db);

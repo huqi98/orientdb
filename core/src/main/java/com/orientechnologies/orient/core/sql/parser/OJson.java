@@ -63,7 +63,7 @@ public class OJson extends SimpleNode {
     return doc;
   }
 
-  private ODocument toDocument(OResult source, OCommandContext ctx, String className){
+  private ODocument toDocument(OResult source, OCommandContext ctx, String className) {
     ODocument retDoc = new ODocument(className);
     for (OJsonItem item : items) {
       String name = item.getLeftValue();
@@ -78,17 +78,17 @@ public class OJson extends SimpleNode {
 
   /**
    * choosing return type is based on existence of @class and @type field in JSON
+   *
    * @param source
    * @param ctx
    * @return
    */
-  public Object toObjectDetermineType(OResult source, OCommandContext ctx){
+  public Object toObjectDetermineType(OResult source, OCommandContext ctx) {
     String className = getClassNameForDocument(ctx);
     String type = getTypeForDocument(ctx);
     if (className != null || (type != null && "d".equalsIgnoreCase(type))) {
       return toDocument(source, ctx, className);
-    }
-    else{
+    } else {
       return toMap(source, ctx);
     }
   }

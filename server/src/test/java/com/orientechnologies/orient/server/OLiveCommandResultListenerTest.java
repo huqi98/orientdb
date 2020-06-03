@@ -77,7 +77,6 @@ public class OLiveCommandResultListenerTest {
     connection.getData().setSerializationImpl(ORecordSerializerNetwork.NAME);
     Mockito.when(server.getClientConnectionManager()).thenReturn(manager);
 
-
   }
 
   @Test

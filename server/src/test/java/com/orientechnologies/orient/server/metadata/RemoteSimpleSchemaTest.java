@@ -18,10 +18,10 @@ import static org.junit.Assert.assertTrue;
 
 public class RemoteSimpleSchemaTest {
 
-  private static final String SERVER_DIRECTORY = "./target/metadata-push";
-  private OServer           server;
-  private OrientDB          orientDB;
-  private ODatabaseDocument database;
+  private static final String            SERVER_DIRECTORY = "./target/metadata-push";
+  private              OServer           server;
+  private              OrientDB          orientDB;
+  private              ODatabaseDocument database;
 
   @Before
   public void before() throws Exception {
@@ -53,7 +53,6 @@ public class RemoteSimpleSchemaTest {
     assertFalse(database.getMetadata().getSchema().existsClass("test"));
   }
 
-
   @Test
   public void testWithSpecialCharacters() {
     database.createClass("test-foo");
@@ -61,7 +60,6 @@ public class RemoteSimpleSchemaTest {
     database.getMetadata().getSchema().dropClass("test-foo");
     assertFalse(database.getMetadata().getSchema().existsClass("test-foo"));
   }
-
 
   @After
   public void after() {

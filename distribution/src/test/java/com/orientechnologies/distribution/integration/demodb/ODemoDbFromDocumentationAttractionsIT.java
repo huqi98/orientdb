@@ -15,16 +15,16 @@ import java.util.stream.Collectors;
 
 public class ODemoDbFromDocumentationAttractionsIT extends OIntegrationTestTemplate {
 
-    @Test
-    public void test_Attractions_Example_1() throws Exception {
-        OResultSet resultSet = db.query(
-                "MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}\n"
-                        + "RETURN $pathelements");
+  @Test
+  public void test_Attractions_Example_1() throws Exception {
+    OResultSet resultSet = db.query(
+        "MATCH {class: Customers, as: customer, where: (OrderedId=1)}--{Class: Attractions, as: attraction}\n"
+            + "RETURN $pathelements");
 
-        final List<OResult> results = resultSet.stream().collect(Collectors.toList());
-        Assert.assertEquals(results.size(), 8);
+    final List<OResult> results = resultSet.stream().collect(Collectors.toList());
+    Assert.assertEquals(results.size(), 8);
 
-        resultSet.close();
-    }
+    resultSet.close();
+  }
 
 }

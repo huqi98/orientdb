@@ -88,7 +88,6 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     super.afterClass();
   }
 
-
   public ObjectTreeTest() {
   }
 
@@ -108,7 +107,8 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     public CustomClass() {
     }
 
-    public CustomClass(String iName, Long iAge, CustomType iCustom, List<CustomType> iCustomTypeList, Set<CustomType> iCustomTypeSet, Map<Long, CustomType> iCustomTypeMap) {
+    public CustomClass(String iName, Long iAge, CustomType iCustom, List<CustomType> iCustomTypeList,
+        Set<CustomType> iCustomTypeSet, Map<Long, CustomType> iCustomTypeMap) {
       name = iName;
       age = iAge;
       custom = iCustom;
@@ -212,10 +212,12 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     Country italy = database.newInstance(Country.class, "Italy");
 
     Profile garibaldi = database.newInstance(Profile.class, "GGaribaldi", "Giuseppe", "Garibaldi", null);
-    garibaldi.setLocation(database.newInstance(Address.class, "Residence", database.newInstance(City.class, italy, "Rome"), "Piazza Navona, 1"));
+    garibaldi.setLocation(
+        database.newInstance(Address.class, "Residence", database.newInstance(City.class, italy, "Rome"), "Piazza Navona, 1"));
 
     Profile bonaparte = database.newInstance(Profile.class, "NBonaparte", "Napoleone", "Bonaparte", garibaldi);
-    bonaparte.setLocation(database.newInstance(Address.class, "Residence", garibaldi.getLocation().getCity(), "Piazza di Spagna, 111"));
+    bonaparte
+        .setLocation(database.newInstance(Address.class, "Residence", garibaldi.getLocation().getCity(), "Piazza di Spagna, 111"));
     database.save(bonaparte);
 
     Assert.assertEquals(database.countClass("Profile"), beginProfiles + 2);
@@ -235,13 +237,15 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     Profile p2 = resultset.get(1);
 
     Assert.assertNotSame(p1, p2);
-    Assert.assertSame(OObjectEntitySerializer.getDocument((Proxy) p1.getLocation().getCity()), OObjectEntitySerializer.getDocument((Proxy) p2.getLocation().getCity()));
+    Assert.assertSame(OObjectEntitySerializer.getDocument((Proxy) p1.getLocation().getCity()),
+        OObjectEntitySerializer.getDocument((Proxy) p2.getLocation().getCity()));
   }
 
   @Test(dependsOnMethods = "testCityEquality")
   public void testSaveCircularLink() {
     Profile winston = database.newInstance(Profile.class, "WChurcill", "Winston", "Churcill", null);
-    winston.setLocation(database.newInstance(Address.class, "Residence", database.newInstance(City.class, database.newInstance(Country.class, "England"), "London"), "unknown"));
+    winston.setLocation(database.newInstance(Address.class, "Residence",
+        database.newInstance(City.class, database.newInstance(Country.class, "England"), "London"), "unknown"));
 
     Profile nicholas = database.newInstance(Profile.class, "NChurcill", "Nicholas ", "Churcill", winston);
     nicholas.setLocation(winston.getLocation());
@@ -273,7 +277,8 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     startRecordNumber = database.countClass("Profile");
 
     Profile bObama = database.newInstance(Profile.class, "ThePresident", "Barack", "Obama", null);
-    bObama.setLocation(database.newInstance(Address.class, "Residence", database.newInstance(City.class, database.newInstance(Country.class, "Hawaii"), "Honolulu"), "unknown"));
+    bObama.setLocation(database.newInstance(Address.class, "Residence",
+        database.newInstance(City.class, database.newInstance(Country.class, "Hawaii"), "Honolulu"), "unknown"));
     bObama.addFollower(database.newInstance(Profile.class, "PresidentSon1", "Malia Ann", "Obama", bObama));
     bObama.addFollower(database.newInstance(Profile.class, "PresidentSon2", "Natasha", "Obama", bObama));
 
@@ -285,7 +290,8 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
   public void testQueryMultiCircular() {
     Assert.assertEquals(database.countClass("Profile"), startRecordNumber + 3);
 
-    List<ODocument> result = database.getUnderlying().command(new OSQLSynchQuery<ODocument>("select * from Profile where name = 'Barack' and surname = 'Obama'")).execute();
+    List<ODocument> result = database.getUnderlying()
+        .command(new OSQLSynchQuery<ODocument>("select * from Profile where name = 'Barack' and surname = 'Obama'")).execute();
 
     Assert.assertEquals(result.size(), 1);
 
@@ -299,7 +305,9 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
         for (ODocument follower : followers) {
           Assert.assertTrue(((Collection<ODocument>) follower.field("followings")).contains(profile));
 
-          System.out.println("- follower: " + follower.field("name") + " " + follower.field("surname") + " (parent: " + follower.field("name") + " " + follower.field("surname") + ")");
+          System.out.println(
+              "- follower: " + follower.field("name") + " " + follower.field("surname") + " (parent: " + follower.field("name")
+                  + " " + follower.field("surname") + ")");
         }
       }
     }
@@ -946,7 +954,8 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
       Map<Long, CustomType> customTypeMap = new HashMap<Long, CustomType>();
       customTypeMap.put(1L, new CustomType(104L));
 
-      CustomClass pojo = database.newInstance(CustomClass.class, "test", 33L, new CustomType(101L), customTypesList, customTypeSet, customTypeMap);
+      CustomClass pojo = database
+          .newInstance(CustomClass.class, "test", 33L, new CustomType(101L), customTypesList, customTypeSet, customTypeMap);
       Assert.assertEquals(serialized, 4);
       Assert.assertEquals(unserialized, 0);
 
@@ -1217,7 +1226,6 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     }
   }
 
-
   @Test
   public void testSave() {
 
@@ -1296,7 +1304,6 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
     }
   }
 
-
   public static class RefChild {
 
     @Id
@@ -1307,7 +1314,6 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
 
     @OneToOne
     private OtherThing otherThing;
-
 
     public Serializable getId() {
       return id;
@@ -1336,7 +1342,6 @@ public class ObjectTreeTest extends ObjectDBBaseTest {
 
     private RefParent relationToParent1;
     private RefParent relationToParent2;
-
 
     public Serializable getId() {
       return id;

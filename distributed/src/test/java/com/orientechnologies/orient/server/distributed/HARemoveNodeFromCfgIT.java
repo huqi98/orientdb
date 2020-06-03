@@ -29,8 +29,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Distributed TX test against "plocal" protocol + shutdown and restart of a node.
  */
 public class HARemoveNodeFromCfgIT extends AbstractServerClusterTxTest {
-  final static int      SERVERS      = 3;
-  private AtomicBoolean lastNodeIsUp = new AtomicBoolean(true);
+  final static int           SERVERS      = 3;
+  private      AtomicBoolean lastNodeIsUp = new AtomicBoolean(true);
 
   @Test
   public void test() throws Exception {
@@ -60,14 +60,11 @@ public class HARemoveNodeFromCfgIT extends AbstractServerClusterTxTest {
         .containsKey("dbstatus." + removedServer + "." + getDatabaseName()));
 
     banner("SIMULATE SOFT SHUTDOWN OF SERVER " + (SERVERS - 1));
-    
+
 //    ODatabaseDocument database = serverInstance.get(SERVERS - 1).getEmbeddedDatabase(getDatabaseName());
-    
+
 // System.out.println("---- database isClosed = " + database.isClosed());
 
-
-    
-    
     serverInstance.get(SERVERS - 1).shutdownServer();
 
     lastNodeIsUp.set(false);

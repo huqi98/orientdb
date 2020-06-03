@@ -101,7 +101,6 @@ public class ODistributedResponseManagerImpl implements ODistributedResponseMana
    * Not synchronized, it's called when a message arrives
    *
    * @param response Received response to collect
-   *
    * @return True if all the nodes responded, otherwise false
    */
   public boolean collectResponse(final ODistributedResponse response) {
@@ -220,7 +219,6 @@ public class ODistributedResponseManagerImpl implements ODistributedResponseMana
   /**
    * @param localNodeName
    * @param localResult
-   *
    * @return
    */
   public boolean setLocalResult(final String localNodeName, final Object localResult) {
@@ -253,7 +251,6 @@ public class ODistributedResponseManagerImpl implements ODistributedResponseMana
    * Waits until the minimum responses are collected or timeout occurs. If "waitForLocalNode" wait also for local node.
    *
    * @return True if the received responses are major or equals then the expected synchronous responses, otherwise false
-   *
    * @throws InterruptedException
    */
   public boolean waitForSynchronousResponses() throws InterruptedException {

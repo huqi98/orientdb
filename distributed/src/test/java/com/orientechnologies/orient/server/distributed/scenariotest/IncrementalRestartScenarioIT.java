@@ -105,7 +105,7 @@ public class IncrementalRestartScenarioIT extends AbstractScenarioTest {
     private final String          databaseUrl;
     private       List<ServerRun> serverInstances;
     private       List<ServerRun> executeWritesOnServers;
-    private int initialCount = 0;
+    private       int             initialCount = 0;
 
     public TestQuorum2(List<ServerRun> serverInstances) {
 
@@ -225,7 +225,7 @@ public class IncrementalRestartScenarioIT extends AbstractScenarioTest {
     private final String          databaseUrl2;
     private       List<ServerRun> serverInstances;
     private       List<ServerRun> executeWritesOnServers;
-    private int initialCount = 0;
+    private       int             initialCount = 0;
 
     public TestQuorum1(List<ServerRun> serverInstances) {
 

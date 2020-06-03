@@ -62,9 +62,10 @@ public class OAlterClusterStatement extends ODDLStatement {
     Object finalValue = attributeValue.execute((OIdentifiable) null, ctx);
 
     final com.orientechnologies.orient.core.storage.OCluster.ATTRIBUTES attribute = Arrays.stream(OCluster.ATTRIBUTES.values())
-            .filter(e -> e.name().equalsIgnoreCase(notNull(attributeName.getStringValue()))).findAny()
-            .orElseThrow(() -> new UnsupportedOperationException("Unknown class attribute '" + attributeName
-                    + "'. Supported attributes are: " + noDeprecatedValues(OCluster.ATTRIBUTES.values())));
+        .filter(e -> e.name().equalsIgnoreCase(notNull(attributeName.getStringValue()))).findAny().orElseThrow(
+            () -> new UnsupportedOperationException(
+                "Unknown class attribute '" + attributeName + "'. Supported attributes are: " + noDeprecatedValues(
+                    OCluster.ATTRIBUTES.values())));
 
     final OStorage storage = ((ODatabaseDocumentInternal) ctx.getDatabase()).getStorage();
     for (final int clusterId : clustersToUpdate) {

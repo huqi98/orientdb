@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * Repair database tool.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @since v2.2.0
  */
@@ -96,8 +96,9 @@ public class ODatabaseRepair extends ODatabaseTool {
                     fixedLinks++;
                     changed = true;
                     if (verbose)
-                      message("\n--- reset link " + ((OIdentifiable) v).getIdentity() + " as item " + i
-                          + " in collection of field '" + fieldName + "' (rid=" + doc.getIdentity() + ")");
+                      message(
+                          "\n--- reset link " + ((OIdentifiable) v).getIdentity() + " as item " + i + " in collection of field '"
+                              + fieldName + "' (rid=" + doc.getIdentity() + ")");
                   }
                 }
               }
@@ -124,8 +125,7 @@ public class ODatabaseRepair extends ODatabaseTool {
   /**
    * Checks if the link must be fixed.
    *
-   * @param fieldValue
-   *          Field containing the OIdentifiable (RID or Record)
+   * @param fieldValue Field containing the OIdentifiable (RID or Record)
    * @return true to fix it, otherwise false
    */
   protected boolean fixLink(final Object fieldValue) {

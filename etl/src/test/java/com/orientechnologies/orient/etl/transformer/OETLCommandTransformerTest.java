@@ -47,9 +47,8 @@ public class OETLCommandTransformerTest extends OETLBaseTest {
         //        + "       'log': 'DEBUG',\n"
 
         + "        'dbURL': 'memory:" + name.getMethodName() + "',\n" + "        'dbType': 'graph',\n"
-        + "        'useLightweightEdges': false ,\n"
-        + "         \"classes\": [\n" + "        {\"name\":\"Person\", \"extends\": \"V\" }" + "      ]" + "      }\n" + "    }\n"
-        + "}");
+        + "        'useLightweightEdges': false ,\n" + "         \"classes\": [\n"
+        + "        {\"name\":\"Person\", \"extends\": \"V\" }" + "      ]" + "      }\n" + "    }\n" + "}");
 
     proc.execute();
     ODatabaseDocument db = proc.getLoader().getPool().acquire();

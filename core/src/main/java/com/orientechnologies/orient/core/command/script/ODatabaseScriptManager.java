@@ -29,14 +29,13 @@ import javax.script.ScriptException;
 
 /**
  * Manages Script engines per database. Parsing of function library is done only the first time and when changes.
- * 
- * @see OCommandScript
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
+ * @see OCommandScript
  */
 public class ODatabaseScriptManager {
-  private final OScriptManager                                  scriptManager;
-  protected OPartitionedObjectPoolFactory<String, ScriptEngine> pooledEngines;
+  private final OScriptManager                                      scriptManager;
+  protected     OPartitionedObjectPoolFactory<String, ScriptEngine> pooledEngines;
 
   public ODatabaseScriptManager(final OScriptManager iScriptManager, final String iDatabaseName) {
     scriptManager = iScriptManager;

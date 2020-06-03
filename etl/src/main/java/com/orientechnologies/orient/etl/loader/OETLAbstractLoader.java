@@ -38,5 +38,4 @@ public abstract class OETLAbstractLoader extends OETLAbstractComponent implement
     return progress.get();
   }
 
-
 }

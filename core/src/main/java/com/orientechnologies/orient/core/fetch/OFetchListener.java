@@ -26,9 +26,8 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
  * Listener interface used while fetching records.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public interface OFetchListener {
   /**
@@ -38,7 +37,7 @@ public interface OFetchListener {
 
   /**
    * Fetch the linked field.
-   * 
+   *
    * @param iRoot
    * @param iFieldName
    * @param iLinked

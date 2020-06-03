@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 
 package com.orientechnologies.orient.object.jpa.parsing;
 
@@ -51,30 +51,36 @@ public final class PersistenceXmlUtil {
   /**
    * URI for the JPA persistence namespace
    */
-  public static final String            PERSISTENCE_NS_URI        = "http://java.sun.com/xml/ns/persistence";
+  public static final String PERSISTENCE_NS_URI = "http://java.sun.com/xml/ns/persistence";
 
-  private static final SchemaFactory    schemaFactory             = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
-  private static final SAXParserFactory parserFactory             = SAXParserFactory.newInstance();
+  private static final SchemaFactory    schemaFactory = SchemaFactory.newInstance(W3C_XML_SCHEMA_NS_URI);
+  private static final SAXParserFactory parserFactory = SAXParserFactory.newInstance();
 
   static {
     parserFactory.setNamespaceAware(true);
   }
 
-  /** The persistence xml root */
-  public static final String            PERSISTENCE_XML_ROOT      = "META-INF/";
+  /**
+   * The persistence xml root
+   */
+  public static final String PERSISTENCE_XML_ROOT = "META-INF/";
 
-  public static final String            PERSISTENCE_XML_BASE_NAME = "persistence.xml";
-  /** The persistence XSD location */
-  public static final String            PERSISTENCE_XSD_DIR       = PERSISTENCE_XML_ROOT + "persistence/";
-  /** The persistence XML location */
-  public static final String            PERSISTENCE_XML           = PERSISTENCE_XML_ROOT + PERSISTENCE_XML_BASE_NAME;
+  public static final String PERSISTENCE_XML_BASE_NAME = "persistence.xml";
+  /**
+   * The persistence XSD location
+   */
+  public static final String PERSISTENCE_XSD_DIR       = PERSISTENCE_XML_ROOT + "persistence/";
+  /**
+   * The persistence XML location
+   */
+  public static final String PERSISTENCE_XML           = PERSISTENCE_XML_ROOT + PERSISTENCE_XML_BASE_NAME;
 
   private PersistenceXmlUtil() {
   }
 
   /**
    * Parse the persistence.xml files referenced by the URLs in the collection
-   * 
+   *
    * @param persistenceXml
    * @return A collection of parsed persistence units, or null if nothing has been found
    */
@@ -93,7 +99,7 @@ public final class PersistenceXmlUtil {
 
   /**
    * Parse the persistence.xml files referenced by the URLs in the collection
-   * 
+   *
    * @param persistenceXml
    * @return A collection of parsed persistence units.
    * @throws IOException
@@ -155,16 +161,15 @@ public final class PersistenceXmlUtil {
   }
 
   /**
-   * @param is
-   *          - xml file to be validated
+   * @param is      - xml file to be validated
    * @param handler
    * @return handler for chained calls
    * @throws ParserConfigurationException
    * @throws SAXException
    * @throws IOException
    */
-  protected static <T extends DefaultHandler> T parse(InputStream is, T handler) throws ParserConfigurationException, SAXException,
-      IOException {
+  protected static <T extends DefaultHandler> T parse(InputStream is, T handler)
+      throws ParserConfigurationException, SAXException, IOException {
     try {
       SAXParser parser = parserFactory.newSAXParser();
       parser.parse(is, handler);

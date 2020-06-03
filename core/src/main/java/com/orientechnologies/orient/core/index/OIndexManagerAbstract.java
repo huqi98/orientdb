@@ -65,9 +65,9 @@ public abstract class OIndexManagerAbstract extends ODocumentWrapperNoClass impl
   protected final Map<String, Map<OMultiKey, Set<OIndex>>> classPropertyIndex = new ConcurrentHashMap<>();
   protected       Map<String, OIndex>                      indexes            = new ConcurrentHashMap<>();
   protected       String                                   defaultClusterName = OMetadataDefault.CLUSTER_INDEX_NAME;
-  protected       String                                      manualClusterName  = OMetadataDefault.CLUSTER_MANUAL_INDEX_NAME;
-  private         AtomicInteger                               writeLockNesting   = new AtomicInteger();
-  private         ReadWriteLock                               lock               = new ReentrantReadWriteLock();
+  protected       String                                   manualClusterName  = OMetadataDefault.CLUSTER_MANUAL_INDEX_NAME;
+  private         AtomicInteger                            writeLockNesting   = new AtomicInteger();
+  private         ReadWriteLock                            lock               = new ReentrantReadWriteLock();
 
   @SuppressWarnings("WeakerAccess")
   public OIndexManagerAbstract() {
@@ -301,8 +301,7 @@ public abstract class OIndexManagerAbstract extends ODocumentWrapperNoClass impl
     return transactionalResult;
   }
 
-  public Set<OIndex> getClassInvolvedIndexes(ODatabaseDocumentInternal database, final String className,
-      final String... fields) {
+  public Set<OIndex> getClassInvolvedIndexes(ODatabaseDocumentInternal database, final String className, final String... fields) {
     return getClassInvolvedIndexes(database, className, Arrays.asList(fields));
   }
 

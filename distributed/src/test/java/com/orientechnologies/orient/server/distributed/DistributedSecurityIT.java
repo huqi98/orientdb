@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -46,7 +46,7 @@ public class DistributedSecurityIT extends AbstractServerClusterTest {
   protected void executeTest() throws Exception {
     for (int s = 0; s < SERVERS; ++s) {
 
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().getContext().open(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().getContext().open(getDatabaseName(), "admin", "admin");
 
       try {
 

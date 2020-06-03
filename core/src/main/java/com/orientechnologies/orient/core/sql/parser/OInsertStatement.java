@@ -21,9 +21,9 @@ public class OInsertStatement extends OStatement {
   OInsertBody      insertBody;
   OProjection      returnStatement;
   OSelectStatement selectStatement;
-  boolean selectInParentheses = false;
-  boolean selectWithFrom      = false;
-  boolean unsafe              = false;
+  boolean          selectInParentheses = false;
+  boolean          selectWithFrom      = false;
+  boolean          unsafe              = false;
 
   public OInsertStatement(int id) {
     super(id);
@@ -75,7 +75,8 @@ public class OInsertStatement extends OStatement {
     }
   }
 
-  @Override public OInsertStatement copy() {
+  @Override
+  public OInsertStatement copy() {
     OInsertStatement result = new OInsertStatement(-1);
     result.targetClass = targetClass == null ? null : targetClass.copy();
     result.targetClusterName = targetClusterName == null ? null : targetClusterName.copy();
@@ -90,7 +91,8 @@ public class OInsertStatement extends OStatement {
     return result;
   }
 
-  @Override public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -113,7 +115,8 @@ public class OInsertStatement extends OStatement {
     return new OLocalResultSet(executionPlan);
   }
 
-  @Override public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -137,7 +140,8 @@ public class OInsertStatement extends OStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -169,7 +173,8 @@ public class OInsertStatement extends OStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = targetClass != null ? targetClass.hashCode() : 0;
     result = 31 * result + (targetClusterName != null ? targetClusterName.hashCode() : 0);
     result = 31 * result + (targetCluster != null ? targetCluster.hashCode() : 0);

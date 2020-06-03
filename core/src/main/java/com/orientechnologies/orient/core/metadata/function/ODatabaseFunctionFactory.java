@@ -29,9 +29,8 @@ import com.orientechnologies.orient.core.sql.functions.OSQLFunctionFactory;
 
 /**
  * Dynamic function factory bound to the database's functions
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class ODatabaseFunctionFactory implements OSQLFunctionFactory {
   @Override

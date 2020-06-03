@@ -99,9 +99,9 @@ public class OChannelBinaryProtocol {
   // IMPORT
   public static final byte REQUEST_DB_IMPORT = 98;
 
-  public static final byte SUBSCRIBE_PUSH                 = 100;
-  public static final byte UNSUBSCRIBE_PUSH               = 101;
-  public static final byte EXPERIMENTAL                   = 102;
+  public static final byte SUBSCRIBE_PUSH   = 100;
+  public static final byte UNSUBSCRIBE_PUSH = 101;
+  public static final byte EXPERIMENTAL     = 102;
 
   // REMOTE SB-TREE COLLECTIONS
   public static final byte REQUEST_CREATE_SBTREE_BONSAI            = 110;
@@ -109,7 +109,6 @@ public class OChannelBinaryProtocol {
   public static final byte REQUEST_SBTREE_BONSAI_FIRST_KEY         = 112;
   public static final byte REQUEST_SBTREE_BONSAI_GET_ENTRIES_MAJOR = 113;
   public static final byte REQUEST_RIDBAG_GET_SIZE                 = 114;
-
 
   // TASK
   public static final byte DISTRIBUTED_REQUEST             = 120;

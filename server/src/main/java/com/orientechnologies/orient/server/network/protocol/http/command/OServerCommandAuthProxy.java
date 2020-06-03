@@ -26,17 +26,16 @@ import java.util.Arrays;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OServerCommandAuthProxy extends OServerCommandPatternAbstract {
 
   public static final String DATABASE_CONF     = "database";
   public static final String USERNAME_CONF     = "username";
   public static final String USERPASSWORD_CONF = "userpassword";
-  private final String       authentication;
-  private String             databaseName;
-  private String             userName;
-  private String             userPassword;
+  private final       String authentication;
+  private             String databaseName;
+  private             String userName;
+  private             String userPassword;
 
   public OServerCommandAuthProxy(OServerCommandConfiguration iConfig) {
     super(iConfig);

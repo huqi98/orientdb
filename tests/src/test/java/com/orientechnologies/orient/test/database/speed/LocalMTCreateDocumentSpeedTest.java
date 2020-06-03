@@ -23,17 +23,17 @@ import java.util.concurrent.*;
  */
 @Test
 public class LocalMTCreateDocumentSpeedTest {
-  private static final Random                   random          = new Random();
-  private ODatabaseDocumentTx                   database;
-  private Date                                  date            = new Date();
-  private CountDownLatch                        latch           = new CountDownLatch(1);
-  private List<Future>                          futures;
-  private volatile boolean                      stop            = false;
-  private ExecutorService                       executorService = Executors.newCachedThreadPool();
+  private static final Random              random          = new Random();
+  private              ODatabaseDocumentTx database;
+  private              Date                date            = new Date();
+  private              CountDownLatch      latch           = new CountDownLatch(1);
+  private              List<Future>        futures;
+  private volatile     boolean             stop            = false;
+  private              ExecutorService     executorService = Executors.newCachedThreadPool();
 
-  private final List<String>                    users           = new ArrayList<String>();
+  private final List<String> users = new ArrayList<String>();
 
-  private final OPartitionedDatabasePoolFactory poolFactory     = new OPartitionedDatabasePoolFactory();
+  private final OPartitionedDatabasePoolFactory poolFactory = new OPartitionedDatabasePoolFactory();
 
   @BeforeClass
   public void init() {
@@ -81,8 +81,8 @@ public class LocalMTCreateDocumentSpeedTest {
     System.out.println("Doc count : " + database.countClass("Account"));
 
     for (int i = 0; i < 8; i++)
-      futures.add(executorService.submit(new Reader(database.countClass("Account"), database.getMetadata().getSchema()
-          .getClass("Account").getDefaultClusterId())));
+      futures.add(executorService.submit(new Reader(database.countClass("Account"),
+          database.getMetadata().getSchema().getClass("Account").getDefaultClusterId())));
 
     latch.countDown();
 
@@ -142,8 +142,8 @@ public class LocalMTCreateDocumentSpeedTest {
 
   private final class Reader implements Callable<Long> {
 
-    private final int   docCount;
-    private final int   clusterId;
+    private final   int docCount;
+    private final   int clusterId;
     public volatile int size;
 
     public Reader(long docCount, int clusterId) {

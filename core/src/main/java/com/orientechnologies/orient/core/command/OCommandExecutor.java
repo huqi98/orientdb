@@ -26,38 +26,33 @@ import java.util.Set;
 
 /**
  * Generic GOF command pattern implementation.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface OCommandExecutor {
 
   /**
    * Parse the request. Once parsed the command can be executed multiple times by using the execute() method.
-   * 
-   * @param iRequest
-   *          Command request implementation.
-   * 
-   * @see #execute(Map<Object, Object>...)
+   *
+   * @param iRequest Command request implementation.
    * @return
+   * @see #execute(Map<Object, Object>...)
    */
   <RET extends OCommandExecutor> RET parse(OCommandRequest iRequest);
 
   /**
    * Execute the requested command parsed previously.
-   * 
-   * @param iArgs
-   *          Optional variable arguments to pass to the command.
-   * 
-   * @see #parse(OCommandRequest)
+   *
+   * @param iArgs Optional variable arguments to pass to the command.
    * @return
+   * @see #parse(OCommandRequest)
    */
   Object execute(final Map<Object, Object> iArgs);
 
   /**
    * Set the listener invoked while the command is executing.
-   * 
-   * @param progressListener
-   *          OProgressListener implementation
+   *
+   * @param progressListener OProgressListener implementation
    * @return
    */
   <RET extends OCommandExecutor> RET setProgressListener(OProgressListener progressListener);
@@ -84,9 +79,9 @@ public interface OCommandExecutor {
 
   /**
    * Returns the security operation type use to check about security.
-   * 
-   * @see com.orientechnologies.orient.core.metadata.security.ORole PERMISSION_*
+   *
    * @return
+   * @see com.orientechnologies.orient.core.metadata.security.ORole PERMISSION_*
    */
   int getSecurityOperationType();
 

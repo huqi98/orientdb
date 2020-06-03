@@ -331,7 +331,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * Method that detaches all fields contained in the document to the given object. It returns by default a proxied instance.
    *
    * @param iPojo :- the object to detach
-   *
    * @return the detached object
    */
   public <RET> RET detach(final Object iPojo) {
@@ -345,7 +344,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * @param iPojo                    :- the object to detach
    * @param returnNonProxiedInstance :- defines if the return object will be a proxied instance or not. If set to TRUE and the
    *                                 object does not contains @Id and @Version fields it could procude data replication
-   *
    * @return the object serialized or with detached data
    */
   public <RET> RET detach(final Object iPojo, boolean returnNonProxiedInstance) {
@@ -360,7 +358,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * @param iPojo                    :- the object to detach
    * @param returnNonProxiedInstance :- defines if the return object will be a proxied instance or not. If set to TRUE and the
    *                                 object does not contains @Id and @Version fields it could procude data replication
-   *
    * @return the object serialized or with detached data
    */
   public <RET> RET detachAll(final Object iPojo, boolean returnNonProxiedInstance) {
@@ -1024,7 +1021,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * Converts an array of parameters: if a POJO is used, then replace it with its record id.
    *
    * @param iArgs Array of parameters as Object
-   *
    * @see #convertParameter(Object)
    */
   protected void convertParameters(final Object... iArgs) {
@@ -1073,7 +1069,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * Convert a parameter: if a POJO is used, then replace it with its record id.
    *
    * @param iParameter Parameter to convert, if applicable
-   *
    * @see #convertParameters(Object...)
    */
   protected Object convertParameter(final Object iParameter) {
@@ -1131,7 +1126,6 @@ public class OObjectDatabaseTx extends ODatabaseWrapperAbstract<ODatabaseDocumen
    * enabled.
    *
    * @param iValue True to enable, false to disable it.
-   *
    * @see #isRetainObjects()
    */
   @Deprecated

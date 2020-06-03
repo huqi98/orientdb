@@ -60,12 +60,11 @@ public class OLuceneMixIndexTest extends OLuceneBaseTest {
   @Test
   public void testMixCompositeQuery() {
 
-    OResultSet docs = db.query(
-        "select * from Song where  author = 'Hornsby' and search_index('Song.composite','title:mountain')=true ");
+    OResultSet docs = db
+        .query("select * from Song where  author = 'Hornsby' and search_index('Song.composite','title:mountain')=true ");
     assertThat(docs).hasSize(1);
     docs.close();
-    docs = db.query(
-        "select * from Song where author = 'Hornsby' and search_index('Song.composite','lyrics:happy')=true ");
+    docs = db.query("select * from Song where author = 'Hornsby' and search_index('Song.composite','lyrics:happy')=true ");
 
     assertThat(docs).hasSize(1);
     docs.close();

@@ -15,17 +15,20 @@ public class OPermission extends SimpleNode {
     super(p, id);
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append(permission);
   }
 
-  @Override public OPermission copy() {
+  @Override
+  public OPermission copy() {
     OPermission result = new OPermission(-1);
     result.permission = permission;
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -39,7 +42,8 @@ public class OPermission extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return permission != null ? permission.hashCode() : 0;
   }
 }

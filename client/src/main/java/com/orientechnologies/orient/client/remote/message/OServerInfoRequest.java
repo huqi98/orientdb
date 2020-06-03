@@ -55,7 +55,7 @@ public class OServerInfoRequest implements OBinaryRequest<OServerInfoResponse> {
   public boolean requireDatabaseSession() {
     return false;
   }
-  
+
   @Override
   public OBinaryResponse execute(OBinaryRequestExecutor ex) {
     return ex.executeServerInfo(this);

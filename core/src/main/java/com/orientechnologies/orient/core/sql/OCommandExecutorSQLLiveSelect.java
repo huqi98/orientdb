@@ -46,10 +46,10 @@ import java.util.Random;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OCommandExecutorSQLLiveSelect extends OCommandExecutorSQLSelect implements OLiveQueryListener {
-  public static final String KEYWORD_LIVE_SELECT = "LIVE SELECT";
-  private ODatabaseDocument execDb;
-  private int               token;
-  private static final Random random = new Random();
+  public static final  String            KEYWORD_LIVE_SELECT = "LIVE SELECT";
+  private              ODatabaseDocument execDb;
+  private              int               token;
+  private static final Random            random              = new Random();
 
   public OCommandExecutorSQLLiveSelect() {
 
@@ -158,7 +158,8 @@ public class OCommandExecutorSQLLiveSelect extends OCommandExecutorSQLSelect imp
     }
     OSecurityInternal security = ((ODatabaseDocumentInternal) execDb).getSharedContext().getSecurity();
     boolean allowedByPolicy = security.canRead((ODatabaseSession) execDb, value.getRecord());
-    return allowedByPolicy && ORestrictedAccessHook.isAllowed((ODatabaseDocumentInternal) execDb, (ODocument) value.getRecord(), ORestrictedOperation.ALLOW_READ, false);
+    return allowedByPolicy && ORestrictedAccessHook
+        .isAllowed((ODatabaseDocumentInternal) execDb, (ODocument) value.getRecord(), ORestrictedOperation.ALLOW_READ, false);
   }
 
   private boolean matchesFilters(OIdentifiable value) {

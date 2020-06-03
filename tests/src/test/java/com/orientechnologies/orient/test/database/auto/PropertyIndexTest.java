@@ -159,8 +159,10 @@ public class PropertyIndexTest extends DocumentDBBaseTest {
     new ODocument("PropertyIndexTestClass").fields("prop0", doc, "prop1", "testComposite1").save();
     new ODocument("PropertyIndexTestClass").fields("prop0", doc).save();
 
-    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne0").getInternal().size(), prev0 + 1);
-    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne1").getInternal().size(), prev1);
+    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne0").getInternal().size(),
+        prev0 + 1);
+    Assert
+        .assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne1").getInternal().size(), prev1);
   }
 
   @Test(dependsOnMethods = { "testIndexingCompositeRIDAndOthers" })
@@ -176,8 +178,10 @@ public class PropertyIndexTest extends DocumentDBBaseTest {
 
     database.commit();
 
-    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne0").getInternal().size(), prev0 + 1);
-    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne1").getInternal().size(), prev1);
+    Assert.assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne0").getInternal().size(),
+        prev0 + 1);
+    Assert
+        .assertEquals(database.getMetadata().getIndexManagerInternal().getIndex(database, "propOne1").getInternal().size(), prev1);
   }
 
   @Test

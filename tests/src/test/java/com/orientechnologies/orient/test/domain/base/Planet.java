@@ -26,21 +26,20 @@ import javax.persistence.Version;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class Planet {
 
   @Id
-  private String                 id;
+  private String id;
 
   @Version
-  private Integer                version;
+  private Integer version;
 
-  private String                 name;
+  private String name;
 
-  private int                    distanceSun;
+  private int distanceSun;
 
-  private List<Satellite>        satellites    = new ArrayList<Satellite>();
+  private List<Satellite> satellites = new ArrayList<Satellite>();
 
   private Map<String, Satellite> satellitesMap = new HashMap<String, Satellite>();
 

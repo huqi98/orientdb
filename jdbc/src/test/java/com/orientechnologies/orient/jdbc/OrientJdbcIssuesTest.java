@@ -32,8 +32,7 @@ public class OrientJdbcIssuesTest extends OrientJdbcDbPerMethodTemplateTest {
     stmt.close();
 
     stmt = conn.createStatement();
-    OrientJdbcResultSet resSet = (OrientJdbcResultSet) stmt
-        .executeQuery("select firstName , lastName , address, amount from Demo");
+    OrientJdbcResultSet resSet = (OrientJdbcResultSet) stmt.executeQuery("select firstName , lastName , address, amount from Demo");
 
     while (resSet.next()) {
       HashMap<String, Object> item = new HashMap<String, Object>();

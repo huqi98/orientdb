@@ -1,6 +1,5 @@
 package com.orientechnologies.orient.object.db.entity;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +13,7 @@ public class Person {
 
   public Person() {
     this.name = "Unknown";
-    this.placeToCar = new HashMap<String,Car>();
+    this.placeToCar = new HashMap<String, Car>();
   }
 
   public Person(String name, Map<String, Car> placeToCar) {
@@ -62,9 +61,6 @@ public class Person {
 
   @Override
   public String toString() {
-    return "Person{" +
-             "name='" + name + '\'' +
-             ", placeToCar=" + placeToCar +
-             '}';
+    return "Person{" + "name='" + name + '\'' + ", placeToCar=" + placeToCar + '}';
   }
 }

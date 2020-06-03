@@ -30,7 +30,6 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.concurrent.locks.AbstractOwnableSynchronizer;
 import java.util.concurrent.locks.LockSupport;
 
-
 /**
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  * @since 8/18/14
@@ -38,7 +37,7 @@ import java.util.concurrent.locks.LockSupport;
 public class OReadersWriterSpinLock extends AbstractOwnableSynchronizer {
   private static final long serialVersionUID = 7975120282194559960L;
 
-  private final transient LongAdder distributedCounter;
+  private final transient LongAdder                       distributedCounter;
   private final transient AtomicReference<WNode>          tail      = new AtomicReference<WNode>();
   private final transient ThreadLocal<OModifiableInteger> lockHolds = new InitOModifiableInteger();
 
@@ -54,11 +53,10 @@ public class OReadersWriterSpinLock extends AbstractOwnableSynchronizer {
   }
 
   /**
-   * Tries to acquire lock during provided interval of time and returns either if provided time interval was passed or
-   * if lock was acquired.
+   * Tries to acquire lock during provided interval of time and returns either if provided time interval was passed or if lock was
+   * acquired.
    *
    * @param timeout Timeout during of which we should wait for read lock.
-   *
    * @return <code>true</code> if read lock was acquired.
    */
   public boolean tryAcquireReadLock(long timeout) {
@@ -255,6 +253,6 @@ public class OReadersWriterSpinLock extends AbstractOwnableSynchronizer {
     private final ConcurrentHashMap<Thread, Boolean> waitingReaders = new ConcurrentHashMap<Thread, Boolean>();
 
     private volatile boolean locked = true;
-    private volatile Thread waitingWriter;
+    private volatile Thread  waitingWriter;
   }
 }

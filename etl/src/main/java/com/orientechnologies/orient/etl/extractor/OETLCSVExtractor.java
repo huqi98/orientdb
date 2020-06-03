@@ -35,23 +35,22 @@ import java.util.*;
 import java.util.logging.Level;
 
 /**
- * An extractor based on Apache Commons CSV
- * Created by frank on 10/5/15.
+ * An extractor based on Apache Commons CSV Created by frank on 10/5/15.
  */
 public class OETLCSVExtractor extends OETLAbstractSourceExtractor {
 
-  private static String NULL_STRING = "NULL";
-  protected OETLExtractedItem next;
-  private Map<String, OType> columnTypes     = new HashMap<String, OType>();
-  private long               skipFrom        = -1;
-  private long               skipTo          = -1;
-  private Character          stringCharacter = '"';
-  private boolean            unicode         = true;
-  private Iterator<CSVRecord> recordIterator;
-  private CSVFormat           csvFormat;
-  private String nullValue      = NULL_STRING;
-  private String dateFormat     = "yyyy-MM-dd";
-  private String dateTimeFormat = "yyyy-MM-dd hh:mm";
+  private static String              NULL_STRING     = "NULL";
+  protected      OETLExtractedItem   next;
+  private        Map<String, OType>  columnTypes     = new HashMap<String, OType>();
+  private        long                skipFrom        = -1;
+  private        long                skipTo          = -1;
+  private        Character           stringCharacter = '"';
+  private        boolean             unicode         = true;
+  private        Iterator<CSVRecord> recordIterator;
+  private        CSVFormat           csvFormat;
+  private        String              nullValue       = NULL_STRING;
+  private        String              dateFormat      = "yyyy-MM-dd";
+  private        String              dateTimeFormat  = "yyyy-MM-dd hh:mm";
 
   @Override
   public ODocument getConfiguration() {

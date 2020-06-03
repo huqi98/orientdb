@@ -155,7 +155,6 @@ public class OCachedDatabasePoolFactoryImpl implements OCachedDatabasePoolFactor
     return this;
   }
 
-
   /**
    * @throws IllegalStateException if pool factory is closed
    */

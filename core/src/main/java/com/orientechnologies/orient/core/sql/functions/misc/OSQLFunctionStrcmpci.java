@@ -20,7 +20,6 @@ import com.orientechnologies.orient.core.db.record.OIdentifiable;
 import com.orientechnologies.orient.core.sql.functions.OSQLFunctionAbstract;
 
 /**
- *
  * @author mdjurovi
  */
 public class OSQLFunctionStrcmpci extends OSQLFunctionAbstract {
@@ -30,9 +29,10 @@ public class OSQLFunctionStrcmpci extends OSQLFunctionAbstract {
   public OSQLFunctionStrcmpci() {
     super(NAME, 2, 2);
   }
-  
+
   @Override
-  public Object execute(Object iThis, OIdentifiable iCurrentRecord, Object iCurrentResult, Object[] iParams, OCommandContext iContext) {
+  public Object execute(Object iThis, OIdentifiable iCurrentRecord, Object iCurrentResult, Object[] iParams,
+      OCommandContext iContext) {
     String s1 = null;
     String s2 = null;
 
@@ -68,5 +68,5 @@ public class OSQLFunctionStrcmpci extends OSQLFunctionAbstract {
   public String getSyntax() {
     return "strcmpci(<arg1>, <arg2>)";
   }
-  
+
 }

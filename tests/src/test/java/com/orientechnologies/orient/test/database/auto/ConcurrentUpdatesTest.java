@@ -38,7 +38,7 @@ public class ConcurrentUpdatesTest extends DocumentDBBaseTest {
 
   private final AtomicLong counter      = new AtomicLong();
   private final AtomicLong totalRetries = new AtomicLong();
-  private boolean mvccEnabled;
+  private       boolean    mvccEnabled;
 
   @Parameters(value = "url")
   public ConcurrentUpdatesTest(@Optional String url) {
@@ -47,8 +47,8 @@ public class ConcurrentUpdatesTest extends DocumentDBBaseTest {
 
   class OptimisticUpdateField implements Runnable {
 
-    ORID rid1;
-    ORID rid2;
+    ORID   rid1;
+    ORID   rid2;
     String fieldValue = null;
     String threadName;
     String url;
@@ -109,7 +109,7 @@ public class ConcurrentUpdatesTest extends DocumentDBBaseTest {
   }
 
   class PessimisticUpdate implements Runnable {
-    String fieldValue = null;
+    String  fieldValue = null;
     ORID    rid;
     String  threadName;
     boolean lock;

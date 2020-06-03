@@ -186,11 +186,11 @@ public class OGraphBatchInsertTest extends TestCase {
     batch.setVertexProperties(3L, vertexProps);
 
     batch.end();
-    
-		OrientGraph g = new OrientGraph(dbUrl, "admin", "admin");
 
-    Iterable<Vertex> result = g.command(
-        new OSQLSynchQuery<Vertex>("select expand(out().in().out().out().in().out()) from V where uid = ?")).execute(1L);
+    OrientGraph g = new OrientGraph(dbUrl, "admin", "admin");
+
+    Iterable<Vertex> result = g
+        .command(new OSQLSynchQuery<Vertex>("select expand(out().in().out().out().in().out()) from V where uid = ?")).execute(1L);
 
     for (Vertex v : result) {
       assertEquals("bar", v.getProperty("foo"));
@@ -218,7 +218,8 @@ public class OGraphBatchInsertTest extends TestCase {
     OrientGraph g = new OrientGraph(dbUrl, "admin", "admin");
 
     Iterable<Vertex> result = g.command(
-        new OSQLSynchQuery<Vertex>("select expand(out().in().out().out().in().out().out().in().out()) from V where uid = ?")).execute(0L);
+        new OSQLSynchQuery<Vertex>("select expand(out().in().out().out().in().out().out().in().out()) from V where uid = ?"))
+        .execute(0L);
 
     boolean found = false;
     for (Vertex v : result) {

@@ -65,7 +65,6 @@ public class OMailPlugin extends OServerPluginAbstract implements OScriptInjecti
    * Sends an email. Supports the following configuration: subject, message, to, cc, bcc, date, attachments
    *
    * @param iMessage Configuration as Map<String,Object>
-   *
    * @throws ParseException
    */
   public void send(final Map<String, Object> iMessage) {

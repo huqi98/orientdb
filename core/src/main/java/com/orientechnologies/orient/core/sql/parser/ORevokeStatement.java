@@ -16,10 +16,10 @@ import java.util.Objects;
 
 public class ORevokeStatement extends OSimpleExecStatement {
 
-  protected OPermission permission;
-  protected boolean revokePolicy = false;
+  protected OPermission              permission;
+  protected boolean                  revokePolicy = false;
   protected OSecurityResourceSegment securityResource;
-  protected OIdentifier actor;
+  protected OIdentifier              actor;
 
   public ORevokeStatement(int id) {
     super(id);
@@ -104,13 +104,13 @@ public class ORevokeStatement extends OSimpleExecStatement {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o)
+      return true;
+    if (o == null || getClass() != o.getClass())
+      return false;
     ORevokeStatement that = (ORevokeStatement) o;
-    return revokePolicy == that.revokePolicy &&
-            Objects.equals(permission, that.permission) &&
-            Objects.equals(securityResource, that.securityResource) &&
-            Objects.equals(actor, that.actor);
+    return revokePolicy == that.revokePolicy && Objects.equals(permission, that.permission) && Objects
+        .equals(securityResource, that.securityResource) && Objects.equals(actor, that.actor);
   }
 
   @Override

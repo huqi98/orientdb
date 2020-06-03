@@ -11,14 +11,16 @@ import org.junit.Test;
  */
 public class DistinctExecutionStepTest {
 
-  @Test public void test() {
+  @Test
+  public void test() {
     OCommandContext ctx = new OBasicCommandContext();
     DistinctExecutionStep step = new DistinctExecutionStep(ctx, false);
 
     AbstractExecutionStep prev = new AbstractExecutionStep(ctx, false) {
       boolean done = false;
 
-      @Override public OResultSet syncPull(OCommandContext ctx, int nRecords) throws OTimeoutException {
+      @Override
+      public OResultSet syncPull(OCommandContext ctx, int nRecords) throws OTimeoutException {
         OInternalResultSet result = new OInternalResultSet();
         if (!done) {
           for (int i = 0; i < 10; i++) {

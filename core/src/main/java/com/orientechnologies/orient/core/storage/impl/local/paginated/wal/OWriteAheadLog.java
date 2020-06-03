@@ -84,7 +84,6 @@ public interface OWriteAheadLog {
    * sure.
    *
    * @param lsn Maximum value of LSN till WAL will be cut.
-   *
    * @return <code>true</code> if some portion of WAL will be cut and <code>false</code> if WAL left untouched.
    */
   boolean cutTill(OLogSequenceNumber lsn) throws IOException;
@@ -110,7 +109,6 @@ public interface OWriteAheadLog {
    * to limit value of LSN after which WAL may be cut.
    *
    * @param lsn LSN after which cut of the WAL is not allowed.
-   *
    * @see #removeCutTillLimit(OLogSequenceNumber)
    * @see #cutTill(OLogSequenceNumber)
    */
@@ -121,7 +119,6 @@ public interface OWriteAheadLog {
    * used to limit value of LSN after which WAL may be cut.
    *
    * @param lsn LSN after which cut of the WAL is not allowed.
-   *
    * @see #removeCutTillLimit(OLogSequenceNumber)
    * @see #cutTill(OLogSequenceNumber)
    */

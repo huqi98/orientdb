@@ -606,34 +606,38 @@ public class SchemaTest extends DocumentDBBaseTest {
     database.command("create property " + className + "." + propertyName.toLowerCase(Locale.ENGLISH) + " STRING");
 
     database.command(
-        "create index " + className + "." + propertyName.toLowerCase(Locale.ENGLISH) + " on " + className + "(" + propertyName.toLowerCase(Locale.ENGLISH)
-            + ") NOTUNIQUE");
+        "create index " + className + "." + propertyName.toLowerCase(Locale.ENGLISH) + " on " + className + "(" + propertyName
+            .toLowerCase(Locale.ENGLISH) + ") NOTUNIQUE");
     database.command(
-        "create index " + className + "." + propertyName.toUpperCase(Locale.ENGLISH) + " on " + className + "(" + propertyName.toUpperCase(Locale.ENGLISH)
-            + ") NOTUNIQUE");
+        "create index " + className + "." + propertyName.toUpperCase(Locale.ENGLISH) + " on " + className + "(" + propertyName
+            .toUpperCase(Locale.ENGLISH) + ") NOTUNIQUE");
 
-    database.command(
-        "insert into " + className + " set " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'FOO', " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'foo'");
-    database.command(
-        "insert into " + className + " set " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'BAR', " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'bar'");
+    database.command("insert into " + className + " set " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'FOO', " + propertyName
+        .toLowerCase(Locale.ENGLISH) + " = 'foo'");
+    database.command("insert into " + className + " set " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'BAR', " + propertyName
+        .toLowerCase(Locale.ENGLISH) + " = 'bar'");
 
-    try (OResultSet rs = database.command("select from " + className + " where " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'foo'")) {
+    try (OResultSet rs = database
+        .command("select from " + className + " where " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'foo'")) {
       Assert.assertTrue(rs.hasNext());
       rs.next();
       Assert.assertFalse(rs.hasNext());
     }
 
-    try (OResultSet rs = database.command("select from " + className + " where " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'FOO'")) {
+    try (OResultSet rs = database
+        .command("select from " + className + " where " + propertyName.toLowerCase(Locale.ENGLISH) + " = 'FOO'")) {
       Assert.assertFalse(rs.hasNext());
     }
 
-    try (OResultSet rs = database.command("select from " + className + " where " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'FOO'")) {
+    try (OResultSet rs = database
+        .command("select from " + className + " where " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'FOO'")) {
       Assert.assertTrue(rs.hasNext());
       rs.next();
       Assert.assertFalse(rs.hasNext());
     }
 
-    try (OResultSet rs = database.command("select from " + className + " where " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'foo'")) {
+    try (OResultSet rs = database
+        .command("select from " + className + " where " + propertyName.toUpperCase(Locale.ENGLISH) + " = 'foo'")) {
       Assert.assertFalse(rs.hasNext());
     }
 
@@ -653,7 +657,8 @@ public class SchemaTest extends DocumentDBBaseTest {
   }
 
   private void swapClusters(ODatabaseDocumentInternal databaseDocumentTx, int i) {
-    databaseDocumentTx.command(new OCommandSQL("CREATE CLASS TestRenameClusterNew extends TestRenameClusterOriginal clusters 2")).execute();
+    databaseDocumentTx.command(new OCommandSQL("CREATE CLASS TestRenameClusterNew extends TestRenameClusterOriginal clusters 2"))
+        .execute();
 
     databaseDocumentTx.command(new OCommandSQL("INSERT INTO TestRenameClusterNew (iteration) VALUES(" + i + ")")).execute();
 

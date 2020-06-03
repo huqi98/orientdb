@@ -38,7 +38,7 @@ import com.orientechnologies.orient.core.metadata.security.OUser;
 
 public class OEntityManager {
   private static Map<String, OEntityManager> databaseInstances = new HashMap<String, OEntityManager>();
-  private OEntityManagerClassHandler         classHandler      = new OEntityManagerClassHandler();
+  private        OEntityManagerClassHandler  classHandler      = new OEntityManagerClassHandler();
 
   protected OEntityManager() {
     OLogManager.instance().debug(this, "Registering entity manager");
@@ -58,7 +58,7 @@ public class OEntityManager {
 
   /**
    * Create a POJO by its class name.
-   * 
+   *
    * @see #registerEntityClasses(String)
    */
   public synchronized Object createPojo(final String iClassName) throws OConfigurationException {
@@ -86,9 +86,8 @@ public class OEntityManager {
 
   /**
    * Returns the Java class by its name
-   * 
-   * @param iClassName
-   *          Simple class name without the package
+   *
+   * @param iClassName Simple class name without the package
    * @return Returns the Java class by its name
    */
   public synchronized Class<?> getEntityClass(final String iClassName) {
@@ -105,9 +104,8 @@ public class OEntityManager {
 
   /**
    * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
-   * 
-   * @param iPackageName
-   *          The base package
+   *
+   * @param iPackageName The base package
    */
   public synchronized void deregisterEntityClasses(final String iPackageName, final ClassLoader iClassLoader) {
     OLogManager.instance().debug(this, "Discovering entity classes inside package: %s", iPackageName);
@@ -139,9 +137,8 @@ public class OEntityManager {
 
   /**
    * Registers provided classes
-   * 
-   * @param iClassNames
-   *          to be registered
+   *
+   * @param iClassNames to be registered
    */
   public synchronized void registerEntityClasses(final Collection<String> iClassNames) {
     registerEntityClasses(iClassNames, Thread.currentThread().getContextClassLoader());
@@ -149,9 +146,8 @@ public class OEntityManager {
 
   /**
    * Registers provided classes
-   * 
-   * @param iClassNames
-   *          to be registered
+   *
+   * @param iClassNames  to be registered
    * @param iClassLoader
    */
   public synchronized void registerEntityClasses(final Collection<String> iClassNames, final ClassLoader iClassLoader) {
@@ -166,9 +162,8 @@ public class OEntityManager {
 
   /**
    * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
-   * 
-   * @param iPackageName
-   *          The base package
+   *
+   * @param iPackageName The base package
    */
   public synchronized void registerEntityClasses(final String iPackageName) {
     registerEntityClasses(iPackageName, Thread.currentThread().getContextClassLoader());
@@ -176,9 +171,8 @@ public class OEntityManager {
 
   /**
    * Scans all classes accessible from the context class loader which belong to the given package and subpackages.
-   * 
-   * @param iPackageName
-   *          The base package
+   *
+   * @param iPackageName The base package
    * @param iClassLoader
    */
   public synchronized void registerEntityClasses(final String iPackageName, final ClassLoader iClassLoader) {
@@ -212,11 +206,8 @@ public class OEntityManager {
   /**
    * Scans all classes accessible from the context class loader which belong to the given class and all it's attributes - classes.
    *
-   * @param aClass
-   *          The class to start from
-   * @param recursive
-   *          Beginning from the class, it will register all classes that are direct or indirect a attribute class
-   *
+   * @param aClass    The class to start from
+   * @param recursive Beginning from the class, it will register all classes that are direct or indirect a attribute class
    */
   public synchronized void registerEntityClasses(Class<?> aClass, boolean recursive) {
     if (recursive) {
@@ -235,7 +226,7 @@ public class OEntityManager {
 
   /**
    * Sets the received handler as default and merges the classes all together.
-   * 
+   *
    * @param iClassHandler
    */
   public synchronized void setClassHandler(final OEntityManagerClassHandler iClassHandler) {

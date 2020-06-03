@@ -16,7 +16,8 @@ public class OCommandLineOption extends SimpleNode {
     super(p, id);
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("-");
     name.toString(params, builder);
   }
@@ -27,7 +28,8 @@ public class OCommandLineOption extends SimpleNode {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -41,7 +43,8 @@ public class OCommandLineOption extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return name != null ? name.hashCode() : 0;
   }
 }

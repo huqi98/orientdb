@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.core.conflict;
@@ -31,7 +31,7 @@ import com.orientechnologies.orient.core.storage.OStorageOperationResult;
 
 /**
  * Auto merges new record with the existent. Collections are also merged, item by item.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OAutoMergeRecordConflictStrategy extends OVersionRecordConflictStrategy {

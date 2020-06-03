@@ -27,7 +27,7 @@ import java.util.Date;
 
 /**
  * Transforms a value to datetime. If the conversion is not possible, null is returned.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
@@ -53,7 +53,8 @@ public class OSQLMethodAsDateTime extends OAbstractSQLMethod {
         return new Date(((Number) iThis).longValue());
       } else {
         try {
-          return ODatabaseRecordThreadLocal.instance().get().getStorage().getConfiguration().getDateTimeFormatInstance().parse(iThis.toString());
+          return ODatabaseRecordThreadLocal.instance().get().getStorage().getConfiguration().getDateTimeFormatInstance()
+              .parse(iThis.toString());
         } catch (ParseException e) {
           OLogManager.instance().error(this, "Error during %s execution", e, NAME);
           // IGNORE IT: RETURN NULL

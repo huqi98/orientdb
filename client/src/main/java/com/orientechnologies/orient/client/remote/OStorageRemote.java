@@ -1774,7 +1774,6 @@ public class OStorageRemote extends OStorageAbstract implements OStorageProxy, O
    * Acquire a network channel from the pool. Don't lock the write stream since the connection usage is exclusive.
    *
    * @param iCommand id. Ids described at {@link OChannelBinaryProtocol}
-   *
    * @return connection to server
    */
   public OChannelBinaryAsynchClient beginRequest(final OChannelBinaryAsynchClient network, final byte iCommand,

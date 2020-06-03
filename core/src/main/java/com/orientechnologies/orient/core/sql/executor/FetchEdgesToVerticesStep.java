@@ -22,12 +22,13 @@ public class FetchEdgesToVerticesStep extends AbstractExecutionStep {
   private final OIdentifier targetCluster;
   private final OIdentifier targetClass;
 
-  private boolean inited = false;
+  private boolean         inited = false;
   private Iterator        toIter;
   private OEdge           nextEdge;
   private Iterator<OEdge> currentToEdgesIter;
 
-  public FetchEdgesToVerticesStep(String toAlias, OIdentifier targetClass, OIdentifier targetCluster, OCommandContext ctx, boolean profilingEnabled) {
+  public FetchEdgesToVerticesStep(String toAlias, OIdentifier targetClass, OIdentifier targetCluster, OCommandContext ctx,
+      boolean profilingEnabled) {
     super(ctx, profilingEnabled);
     this.toAlias = toAlias;
     this.targetClass = targetClass;

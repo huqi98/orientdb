@@ -19,9 +19,11 @@ package com.orientechnologies.common.serialization.types;
 import com.orientechnologies.orient.core.storage.impl.local.paginated.wal.OWALChanges;
 import com.orientechnologies.orient.core.storage.impl.local.paginated.wal.OWALChangesTree;
 import org.junit.Before;
-import org.junit.Assert;import org.junit.Before;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.Test;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -33,8 +35,8 @@ import java.nio.ByteOrder;
 public class ByteSerializerTest {
   private static final int FIELD_SIZE = 1;
   byte[] stream = new byte[FIELD_SIZE];
-  private static final Byte OBJECT = 1;
-  private OByteSerializer byteSerializer;
+  private static final Byte            OBJECT = 1;
+  private              OByteSerializer byteSerializer;
 
   @Before
   public void beforeClass() {

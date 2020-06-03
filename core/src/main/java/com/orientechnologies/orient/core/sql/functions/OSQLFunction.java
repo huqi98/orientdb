@@ -44,7 +44,6 @@ public interface OSQLFunction {
    * @param iCurrentResult TODO
    * @param iParams        : function parameters, number is ensured to be within minParams and maxParams.
    * @param iContext       : object calling this function
-   *
    * @return function result, can be null. Special cases : can be null if function aggregate results, can be null if function filter
    * results : this mean result is excluded
    */
@@ -141,7 +140,6 @@ public interface OSQLFunction {
    * This method correspond to distributed query execution
    *
    * @param resultsToMerge is the results that comes from different nodes
-   *
    * @return is the valid merged result
    */
   public Object mergeDistributedResult(List<Object> resultsToMerge);

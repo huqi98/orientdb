@@ -40,13 +40,13 @@ import java.util.concurrent.TimeUnit;
 @Test(groups = "Query")
 public class LiveQueryTest extends DocumentDBBaseTest implements OCommandOutputListener {
 
-  private final CountDownLatch latch = new CountDownLatch(2);
-  private CountDownLatch unLatch = new CountDownLatch(1);
+  private final CountDownLatch latch   = new CountDownLatch(2);
+  private       CountDownLatch unLatch = new CountDownLatch(1);
 
   class MyLiveQueryListener implements OLiveResultListener {
 
     public List<ORecordOperation> ops = new ArrayList<ORecordOperation>();
-    public int unsubscribe;
+    public int                    unsubscribe;
 
     @Override
     public void onLiveResult(int iLiveToken, ORecordOperation iOp) throws OException {
@@ -54,11 +54,13 @@ public class LiveQueryTest extends DocumentDBBaseTest implements OCommandOutputL
       latch.countDown();
     }
 
-    @Override public void onError(int iLiveToken) {
+    @Override
+    public void onError(int iLiveToken) {
 
     }
 
-    @Override public void onUnsubscribe(int iLiveToken) {
+    @Override
+    public void onUnsubscribe(int iLiveToken) {
       unsubscribe = iLiveToken;
       unLatch.countDown();
 
@@ -98,7 +100,7 @@ public class LiveQueryTest extends DocumentDBBaseTest implements OCommandOutputL
       Assert.assertEquals(((ODocument) doc.record).field("name"), "foo");
     }
     unLatch.await(1, TimeUnit.MINUTES);
-    Assert.assertEquals(listener.unsubscribe,token);
+    Assert.assertEquals(listener.unsubscribe, token);
   }
 
   @Override

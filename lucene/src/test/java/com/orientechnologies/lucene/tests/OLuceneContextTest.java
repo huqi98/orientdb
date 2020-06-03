@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.lucene.tests;
@@ -47,8 +47,7 @@ public class OLuceneContextTest extends OLuceneBaseTest {
   @Test
   public void shouldReturnScore() {
 
-    OResultSet docs = db
-        .query("select *,$score from Song where search_index('Song.title', 'title:man')= true ");
+    OResultSet docs = db.query("select *,$score from Song where search_index('Song.title', 'title:man')= true ");
 
     List<OResult> results = docs.stream().collect(Collectors.toList());
 
@@ -58,9 +57,7 @@ public class OLuceneContextTest extends OLuceneBaseTest {
     //results are ordered by score desc
     for (OResult doc : results) {
       Float score = doc.getProperty("$score");
-      assertThat(score)
-          .isNotNull()
-          .isLessThanOrEqualTo(latestScore);
+      assertThat(score).isNotNull().isLessThanOrEqualTo(latestScore);
       latestScore = score;
     }
     docs.close();
@@ -68,8 +65,8 @@ public class OLuceneContextTest extends OLuceneBaseTest {
 
   @Test
   public void shouldReturnTotalHits() throws Exception {
-    OResultSet docs = db.query(
-        "select *,$totalHits,$Song_title_totalHits from Song where search_class('title:man')= true  limit 1");
+    OResultSet docs = db
+        .query("select *,$totalHits,$Song_title_totalHits from Song where search_class('title:man')= true  limit 1");
 
     List<OResult> results = docs.stream().collect(Collectors.toList());
     assertThat(results).hasSize(1);

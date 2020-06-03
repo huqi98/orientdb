@@ -133,7 +133,6 @@ public abstract class OrientTransactionalGraph extends OrientBaseGraph implement
   public void setAutoStartTx(boolean autoStartTx) {
     makeActive();
 
-
     final boolean showWarning;
     if (!autoStartTx && isAutoStartTx() && getDatabase() != null && getDatabase().getTransaction().isActive()) {
       if (getDatabase().getTransaction().getEntryCount() == 0) {
@@ -143,7 +142,7 @@ public abstract class OrientTransactionalGraph extends OrientBaseGraph implement
         showWarning = true;
     } else
       showWarning = false;
-    
+
     super.setAutoStartTx(autoStartTx);
 
     if (showWarning)

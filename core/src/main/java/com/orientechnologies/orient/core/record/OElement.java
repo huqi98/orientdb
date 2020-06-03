@@ -42,7 +42,6 @@ public interface OElement extends ORecord {
    *
    * @param name  the property name
    * @param <RET>
-   *
    * @return Returns the property value
    */
   <RET> RET getProperty(String name);
@@ -51,7 +50,6 @@ public interface OElement extends ORecord {
    * Check if a property exists in the Element
    *
    * @param propertyName
-   *
    * @return true if exists otherwise false.
    */
   boolean hasProperty(final String propertyName);

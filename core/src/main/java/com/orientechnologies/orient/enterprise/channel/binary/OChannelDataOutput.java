@@ -14,7 +14,7 @@ public interface OChannelDataOutput {
 
   OChannelDataOutput writeBoolean(final boolean iContent) throws IOException;
 
-  OChannelDataOutput writeInt(final int iContent) throws IOException ;
+  OChannelDataOutput writeInt(final int iContent) throws IOException;
 
   OChannelDataOutput writeLong(final long iContent) throws IOException;
 

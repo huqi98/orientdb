@@ -1,6 +1,6 @@
 /*
  *
-   *  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
  *  *
  *  * Licensed under the Apache License, Version 2.0 (the "License");
  *  * you may not use this file except in compliance with the License.
@@ -57,15 +57,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LuceneAutomaticBackupRestoreTest {
 
   private final static String DBNAME = "OLuceneAutomaticBackupRestoreTest";
-  private File tempFolder;
+  private              File   tempFolder;
 
   @Rule
   public TestName name = new TestName();
 
   private OrientDB orientDB;
-  private String URL       = null;
-  private String BACKUPDIR = null;
-  private String BACKUFILE = null;
+  private String   URL       = null;
+  private String   BACKUPDIR = null;
+  private String   BACKUFILE = null;
 
   private OServer                   server;
   private ODatabaseDocumentInternal db;
@@ -143,7 +143,7 @@ public class LuceneAutomaticBackupRestoreTest {
   public static void afterClass() {
     final Orient orient = Orient.instance();
 
-    if (orient !=null) {
+    if (orient != null) {
       orient.shutdown();
       orient.startup();
     }
@@ -210,7 +210,7 @@ public class LuceneAutomaticBackupRestoreTest {
 
     assertThat(db.countClass("City")).isEqualTo(1);
 
-    OIndex index = db.getMetadata().getIndexManagerInternal().getIndex(db,"City.name");
+    OIndex index = db.getMetadata().getIndexManagerInternal().getIndex(db, "City.name");
 
     assertThat(index).isNotNull();
     assertThat(index.getType()).isEqualTo(OClass.INDEX_TYPE.FULLTEXT.name());
@@ -282,7 +282,7 @@ public class LuceneAutomaticBackupRestoreTest {
 
     assertThat(db.countClass("City")).isEqualTo(1);
 
-    OIndex index = db.getMetadata().getIndexManagerInternal().getIndex(db,"City.name");
+    OIndex index = db.getMetadata().getIndexManagerInternal().getIndex(db, "City.name");
 
     assertThat(index).isNotNull();
     assertThat(index.getType()).isEqualTo(OClass.INDEX_TYPE.FULLTEXT.name());

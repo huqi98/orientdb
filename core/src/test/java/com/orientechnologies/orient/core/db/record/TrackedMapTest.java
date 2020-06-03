@@ -24,7 +24,8 @@ public class TrackedMapTest {
 
     map.put("key1", "value1");
 
-    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(OMultiValueChangeEvent.OChangeType.ADD, "key1", "value1", null);
+    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(
+        OMultiValueChangeEvent.OChangeType.ADD, "key1", "value1", null);
     Assert.assertEquals(event, map.getTimeLine().getMultiValueChangeEvents().get(0));
     Assert.assertTrue(map.isModified());
     Assert.assertTrue(doc.isDirty());
@@ -46,8 +47,8 @@ public class TrackedMapTest {
     map.enableTracking(doc);
 
     map.put("key1", "value2");
-    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(OMultiValueChangeEvent.OChangeType.UPDATE, "key1", "value2",
-        "value1");
+    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(
+        OMultiValueChangeEvent.OChangeType.UPDATE, "key1", "value2", "value1");
     Assert.assertEquals(event, map.getTimeLine().getMultiValueChangeEvents().get(0));
     Assert.assertTrue(map.isModified());
     Assert.assertTrue(doc.isDirty());
@@ -123,8 +124,8 @@ public class TrackedMapTest {
     map.disableTracking(doc);
     map.enableTracking(doc);
 
-    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(OMultiValueChangeEvent.OChangeType.REMOVE, "key1", null,
-        "value1");
+    OMultiValueChangeEvent<Object, Object> event = new OMultiValueChangeEvent<Object, Object>(
+        OMultiValueChangeEvent.OChangeType.REMOVE, "key1", null, "value1");
     map.remove("key1");
     Assert.assertEquals(event, map.getTimeLine().getMultiValueChangeEvents().get(0));
     Assert.assertTrue(map.isModified());

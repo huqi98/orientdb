@@ -21,7 +21,8 @@ public class OBeginStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     ctx.getDatabase().begin();
     OInternalResultSet result = new OInternalResultSet();
     OResultInternal item = new OResultInternal();
@@ -34,7 +35,8 @@ public class OBeginStatement extends OSimpleExecStatement {
     return result;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("BEGIN");
     if (isolation != null) {
       builder.append(" ISOLATION ");
@@ -42,13 +44,15 @@ public class OBeginStatement extends OSimpleExecStatement {
     }
   }
 
-  @Override public OBeginStatement copy() {
+  @Override
+  public OBeginStatement copy() {
     OBeginStatement result = new OBeginStatement(-1);
     result.isolation = isolation == null ? null : isolation.copy();
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -62,7 +66,8 @@ public class OBeginStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return isolation != null ? isolation.hashCode() : 0;
   }
 }

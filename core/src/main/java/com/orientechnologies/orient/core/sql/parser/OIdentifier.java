@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class OIdentifier extends SimpleNode {
 
-  protected String value;
+  protected String  value;
   protected boolean quoted = false;
 
   /**

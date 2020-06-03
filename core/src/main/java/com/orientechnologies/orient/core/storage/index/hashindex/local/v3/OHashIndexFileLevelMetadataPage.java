@@ -38,7 +38,7 @@ public final class OHashIndexFileLevelMetadataPage extends ODurablePage {
   private static final int VALUE_SERIALIZER_ID_OFFSET = KEY_SERIALIZER_ID_OFFSET + OByteSerializer.BYTE_SIZE;
   private static final int METADATA_ARRAY_OFFSET      = VALUE_SERIALIZER_ID_OFFSET + OByteSerializer.BYTE_SIZE;
 
-  private static final int ITEM_SIZE                  = OByteSerializer.BYTE_SIZE + 3 * OLongSerializer.LONG_SIZE;
+  private static final int ITEM_SIZE = OByteSerializer.BYTE_SIZE + 3 * OLongSerializer.LONG_SIZE;
 
   OHashIndexFileLevelMetadataPage(OCacheEntry cacheEntry, boolean isNewPage) {
     super(cacheEntry);

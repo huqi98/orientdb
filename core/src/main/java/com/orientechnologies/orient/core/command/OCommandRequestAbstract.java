@@ -37,20 +37,19 @@ import java.util.*;
 public abstract class OCommandRequestAbstract implements OCommandRequestInternal, ODistributedCommand {
   protected OCommandResultListener resultListener;
   protected OProgressListener      progressListener;
-  protected int              limit           = -1;
-  protected long             timeoutMs       = OGlobalConfiguration.COMMAND_TIMEOUT.getValueAsLong();
-  protected TIMEOUT_STRATEGY timeoutStrategy = TIMEOUT_STRATEGY.EXCEPTION;
-  protected Map<Object, Object> parameters;
-  protected String  fetchPlan       = null;
-  protected boolean useCache        = false;
-  protected boolean cacheableResult = false;
+  protected int                    limit           = -1;
+  protected long                   timeoutMs       = OGlobalConfiguration.COMMAND_TIMEOUT.getValueAsLong();
+  protected TIMEOUT_STRATEGY       timeoutStrategy = TIMEOUT_STRATEGY.EXCEPTION;
+  protected Map<Object, Object>    parameters;
+  protected String                 fetchPlan       = null;
+  protected boolean                useCache        = false;
+  protected boolean                cacheableResult = false;
   protected OCommandContext        context;
   protected OAsyncReplicationOk    onAsyncReplicationOk;
   protected OAsyncReplicationError onAsyncReplicationError;
 
-  private final Set<String> nodesToExclude = new HashSet<String>();
-  private boolean recordResultSet = true;
-
+  private final Set<String> nodesToExclude  = new HashSet<String>();
+  private       boolean     recordResultSet = true;
 
   protected OCommandRequestAbstract() {
   }
@@ -105,7 +104,6 @@ public abstract class OCommandRequestAbstract implements OCommandRequestInternal
     onAsyncReplicationOk = iCallback;
     return this;
   }
-
 
   /**
    * Defines a callback to call in case of error during the asynchronous replication.
@@ -222,7 +220,6 @@ public abstract class OCommandRequestAbstract implements OCommandRequestInternal
     nodesToExclude.remove(node);
   }
 
-
   public OAsyncReplicationOk getOnAsyncReplicationOk() {
     return onAsyncReplicationOk;
   }
@@ -230,7 +227,6 @@ public abstract class OCommandRequestAbstract implements OCommandRequestInternal
   public OAsyncReplicationError getOnAsyncReplicationError() {
     return onAsyncReplicationError;
   }
-
 
   @Override
   public void setRecordResultSet(boolean recordResultSet) {

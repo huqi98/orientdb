@@ -23,9 +23,8 @@ import com.orientechnologies.orient.server.distributed.ODistributedException;
 
 /**
  * Exception thrown when a database is requested but it is older then the one owned by the requester.
- * 
+ *
  * @author Luca Garulli (l.garulli--at--orientdb.com)
- * 
  */
 public class ODatabaseIsOldException extends ODistributedException {
   public ODatabaseIsOldException(final ODatabaseIsOldException exception) {

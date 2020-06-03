@@ -75,7 +75,7 @@ public final class OCommandRequest implements OBinaryRequest<OCommandResponse> {
   public byte getCommand() {
     return OChannelBinaryProtocol.REQUEST_COMMAND;
   }
-  
+
   @Override
   public String getDescription() {
     return "Execute remote command";

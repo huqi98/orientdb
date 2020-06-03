@@ -10,7 +10,7 @@ import org.junit.*;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class ORevokeStatementExecutionTest {
-  static OrientDB orient;
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -36,7 +36,6 @@ public class ORevokeStatementExecutionTest {
     this.db = null;
   }
 
-
   @Test
   public void testSimple() {
     ORole testRole = db.getMetadata().getSecurity().createRole("testRole", OSecurityRole.ALLOW_MODES.DENY_ALL_BUT);
@@ -49,9 +48,8 @@ public class ORevokeStatementExecutionTest {
     Assert.assertFalse(testRole.allow(ORule.ResourceGeneric.SERVER, "remove", ORole.PERMISSION_EXECUTE));
   }
 
-
   @Test
-  public void testRemovePolicy(){
+  public void testRemovePolicy() {
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
 
     db.createClass("Person");
@@ -61,7 +59,8 @@ public class ORevokeStatementExecutionTest {
     policy.setReadRule("name = 'foo'");
     security.saveSecurityPolicy(db, policy);
     security.setSecurityPolicy(db, security.getRole(db, "reader"), "database.class.Person", policy);
-    Assert.assertEquals("testPolicy", security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
+    Assert.assertEquals("testPolicy",
+        security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person").getName());
     db.command("REVOKE POLICY ON database.class.Person FROM reader").close();
     Assert.assertNull(security.getSecurityPolicies(db, security.getRole(db, "reader")).get("database.class.Person"));
   }

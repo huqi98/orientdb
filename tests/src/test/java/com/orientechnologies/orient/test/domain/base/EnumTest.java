@@ -18,8 +18,7 @@ package com.orientechnologies.orient.test.domain.base;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public enum EnumTest {
-	ENUM1, ENUM2, ENUM3
+  ENUM1, ENUM2, ENUM3
 }

@@ -9,24 +9,24 @@ import javax.persistence.Id;
  */
 public class LazyChild {
 
-    @Id
-    private ORID id;
+  @Id
+  private ORID id;
 
-    private String name;
+  private String name;
 
-    public ORID getId() {
-        return id;
-    }
+  public ORID getId() {
+    return id;
+  }
 
-    public void setId(ORID id) {
-        this.id = id;
-    }
+  public void setId(ORID id) {
+    this.id = id;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 }

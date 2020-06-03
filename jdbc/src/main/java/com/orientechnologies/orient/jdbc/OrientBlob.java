@@ -1,18 +1,15 @@
 /**
  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- * 	http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ * <p>
  * For more information: http://orientdb.com
  */
 package com.orientechnologies.orient.jdbc;
@@ -67,7 +64,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#length()
    */
   public long length() throws SQLException {
@@ -84,7 +81,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#getBytes(long, int)
    */
   public byte[] getBytes(long pos, int length) throws SQLException {
@@ -142,7 +139,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#getBinaryStream()
    */
   public InputStream getBinaryStream() throws SQLException {
@@ -151,7 +148,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#position(byte[], long)
    */
   public long position(byte[] pattern, long start) throws SQLException {
@@ -160,7 +157,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#position(java.sql.Blob, long)
    */
   public long position(Blob pattern, long start) throws SQLException {
@@ -169,7 +166,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#setBytes(long, byte[])
    */
   public int setBytes(long pos, byte[] bytes) throws SQLException {
@@ -178,7 +175,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#setBytes(long, byte[], int, int)
    */
   public int setBytes(long pos, byte[] bytes, int offset, int len) throws SQLException {
@@ -187,7 +184,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#setBinaryStream(long)
    */
   public OutputStream setBinaryStream(long pos) throws SQLException {
@@ -196,7 +193,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#truncate(long)
    */
   public void truncate(long len) throws SQLException {
@@ -208,7 +205,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#free()
    */
   public void free() throws SQLException {
@@ -217,7 +214,7 @@ public class OrientBlob implements Blob {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see java.sql.Blob#getBinaryStream(long, long)
    */
   public InputStream getBinaryStream(long pos, long length) throws SQLException {
@@ -242,7 +239,7 @@ public class OrientBlob implements Blob {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.io.InputStream#read()
      */
     @Override

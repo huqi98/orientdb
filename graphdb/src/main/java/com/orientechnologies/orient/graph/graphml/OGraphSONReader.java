@@ -31,14 +31,13 @@ import java.util.Set;
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OGraphSONReader {
-  private static final JsonFactory jsonFactory = new MappingJsonFactory();
-  private final Graph              graph;
-  private OCommandOutputListener   output;
-  private long                     inputSize;
+  private static final JsonFactory            jsonFactory = new MappingJsonFactory();
+  private final        Graph                  graph;
+  private              OCommandOutputListener output;
+  private              long                   inputSize;
 
   /**
-   * @param graph
-   *          the graph to populate with the JSON data
+   * @param graph the graph to populate with the JSON data
    */
   public OGraphSONReader(final Graph graph) {
     this.graph = graph;
@@ -47,10 +46,8 @@ public class OGraphSONReader {
   /**
    * Input the JSON stream data into the graph. In practice, usually the provided graph is empty.
    *
-   * @param jsonInputStream
-   *          an InputStream of JSON data
-   * @throws IOException
-   *           thrown when the JSON data is not correctly formatted
+   * @param jsonInputStream an InputStream of JSON data
+   * @throws IOException thrown when the JSON data is not correctly formatted
    */
   public void inputGraph(final InputStream jsonInputStream) throws IOException {
     inputGraph(jsonInputStream, 1000);
@@ -59,10 +56,8 @@ public class OGraphSONReader {
   /**
    * Input the JSON stream data into the graph. In practice, usually the provided graph is empty.
    *
-   * @param filename
-   *          name of a file of JSON data
-   * @throws IOException
-   *           thrown when the JSON data is not correctly formatted
+   * @param filename name of a file of JSON data
+   * @throws IOException thrown when the JSON data is not correctly formatted
    */
   public void inputGraph(final String filename) throws IOException {
     inputGraph(filename, 1000);
@@ -79,12 +74,10 @@ public class OGraphSONReader {
   /**
    * Input the JSON stream data into the graph. More control over how data is streamed is provided by this method.
    *
-   * @param filename
-   *          name of a file of JSON data
-   * @param bufferSize
-   *          the amount of elements to hold in memory before committing a transactions (only valid for TransactionalGraphs)
-   * @throws IOException
-   *           thrown when the JSON data is not correctly formatted
+   * @param filename   name of a file of JSON data
+   * @param bufferSize the amount of elements to hold in memory before committing a transactions (only valid for
+   *                   TransactionalGraphs)
+   * @throws IOException thrown when the JSON data is not correctly formatted
    */
   public void inputGraph(final String filename, int bufferSize, final Set<String> edgePropertyKeys,
       final Set<String> vertexPropertyKeys) throws IOException {
@@ -104,12 +97,10 @@ public class OGraphSONReader {
   /**
    * Input the JSON stream data into the graph. More control over how data is streamed is provided by this method.
    *
-   * @param jsonInputStream
-   *          an InputStream of JSON data
-   * @param bufferSize
-   *          the amount of elements to hold in memory before committing a transactions (only valid for TransactionalGraphs)
-   * @throws IOException
-   *           thrown when the JSON data is not correctly formatted
+   * @param jsonInputStream an InputStream of JSON data
+   * @param bufferSize      the amount of elements to hold in memory before committing a transactions (only valid for
+   *                        TransactionalGraphs)
+   * @throws IOException thrown when the JSON data is not correctly formatted
    */
   public void inputGraph(final InputStream jsonInputStream, int bufferSize, final Set<String> edgePropertyKeys,
       final Set<String> vertexPropertyKeys) throws IOException {

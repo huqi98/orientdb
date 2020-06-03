@@ -32,9 +32,8 @@ public class OClassLoaderHelper {
   /**
    * Switch to the OrientDb classloader before lookups on ServiceRegistry for implementation of the given Class. Useful under OSGI
    * and generally under applications where jars are loaded by another class loader
-   * 
-   * @param clazz
-   *          the class to lookup foor
+   *
+   * @param clazz the class to lookup foor
    * @return an Iterator on the class implementation
    */
   public static synchronized <T extends Object> Iterator<T> lookupProviderWithOrientClassLoader(Class<T> clazz) {

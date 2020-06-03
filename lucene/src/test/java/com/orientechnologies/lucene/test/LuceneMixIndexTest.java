@@ -51,22 +51,22 @@ public class LuceneMixIndexTest extends BaseLuceneTest {
   @Test
   public void testMixQuery() {
 
-    List<ODocument> docs = db.query(
-        new OSQLSynchQuery<ODocument>("select * from Song where  author = 'Hornsby' and [title,lyrics]  LUCENE \"(title:mountain)\" "));
+    List<ODocument> docs = db.query(new OSQLSynchQuery<ODocument>(
+        "select * from Song where  author = 'Hornsby' and [title,lyrics]  LUCENE \"(title:mountain)\" "));
 
     Assert.assertEquals(1, docs.size());
 
-    docs = db.query(
-        new OSQLSynchQuery<ODocument>("select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:mountain)\" "));
+    docs = db.query(new OSQLSynchQuery<ODocument>(
+        "select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:mountain)\" "));
 
     Assert.assertEquals(1, docs.size());
 
-    docs = db.query(
-        new OSQLSynchQuery<ODocument>("select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:ballad)\" "));
+    docs = db.query(new OSQLSynchQuery<ODocument>(
+        "select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:ballad)\" "));
     Assert.assertEquals(0, docs.size());
 
-    docs = db
-        .query(new OSQLSynchQuery<ODocument>("select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:ballad)\" "));
+    docs = db.query(new OSQLSynchQuery<ODocument>(
+        "select * from Song where  author = 'Hornsby' and [title,lyrics] LUCENE \"(title:ballad)\" "));
     Assert.assertEquals(0, docs.size());
 
   }
@@ -80,8 +80,8 @@ public class LuceneMixIndexTest extends BaseLuceneTest {
 
     Assert.assertEquals(1, docs.size());
 
-    docs = db
-        .query(new OSQLSynchQuery<ODocument>("select * from Song where author = 'Hornsby' and [title,lyrics] LUCENE \"lyrics:happy\" "));
+    docs = db.query(
+        new OSQLSynchQuery<ODocument>("select * from Song where author = 'Hornsby' and [title,lyrics] LUCENE \"lyrics:happy\" "));
 
     Assert.assertEquals(1, docs.size());
 

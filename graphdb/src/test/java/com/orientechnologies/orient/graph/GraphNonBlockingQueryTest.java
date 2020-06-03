@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutionException;
 
-
 /**
  * Created by tglman on 01/07/16.
  */

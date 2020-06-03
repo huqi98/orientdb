@@ -48,12 +48,14 @@ public class PolymorphicQueryTest extends DocumentDBBaseTest {
     database.command(new OCommandSQL("create property IndexInSubclassesTestBase.name string")).execute();
 
     database.command(new OCommandSQL("create class IndexInSubclassesTestChild1 extends IndexInSubclassesTestBase")).execute();
-    database.command(
-        new OCommandSQL("create index IndexInSubclassesTestChild1.name on IndexInSubclassesTestChild1 (name) notunique")).execute();
+    database
+        .command(new OCommandSQL("create index IndexInSubclassesTestChild1.name on IndexInSubclassesTestChild1 (name) notunique"))
+        .execute();
 
     database.command(new OCommandSQL("create class IndexInSubclassesTestChild2 extends IndexInSubclassesTestBase")).execute();
-    database.command(
-        new OCommandSQL("create index IndexInSubclassesTestChild2.name on IndexInSubclassesTestChild2 (name) notunique")).execute();
+    database
+        .command(new OCommandSQL("create index IndexInSubclassesTestChild2.name on IndexInSubclassesTestChild2 (name) notunique"))
+        .execute();
 
     database.command(new OCommandSQL("create class IndexInSubclassesTestBaseFail")).execute();
     database.command(new OCommandSQL("create property IndexInSubclassesTestBaseFail.name string")).execute();
@@ -280,8 +282,8 @@ public class PolymorphicQueryTest extends DocumentDBBaseTest {
     }
 
     // crashed with OIOException, issue #3632
-    List<ODocument> result = database.query(new OSQLSynchQuery<ODocument>(
-        "SELECT FROM GenericCrash WHERE @class='GenericCrash' ORDER BY @rid DESC"));
+    List<ODocument> result = database
+        .query(new OSQLSynchQuery<ODocument>("SELECT FROM GenericCrash WHERE @class='GenericCrash' ORDER BY @rid DESC"));
 
     Assert.assertEquals(result.size(), 2);
     for (ODocument doc : result) {

@@ -32,7 +32,7 @@ import java.util.Map;
 
 /**
  * Index definition for index which is bound to field with type {@link OType#LINKBAG} .
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  * @since 1/30/14
  */
@@ -101,7 +101,7 @@ public class OPropertyRidBagIndexDefinition extends OAbstractIndexDefinitionMult
   }
 
   @Override
-  public String toCreateIndexDDL(String indexName, String indexType,String engine) {
-    return createIndexDDLWithoutFieldType(indexName, indexType,engine).toString();
+  public String toCreateIndexDDL(String indexName, String indexType, String engine) {
+    return createIndexDDLWithoutFieldType(indexName, indexType, engine).toString();
   }
 }

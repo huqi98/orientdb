@@ -48,12 +48,12 @@ public class OStressTester {
     PLOCAL, MEMORY, REMOTE, DISTRIBUTED
   }
 
-  private final ODatabaseIdentifier     databaseIdentifier;
-  private OConsoleProgressWriter        consoleProgressWriter;
-  private final OStressTesterSettings   settings;
+  private final ODatabaseIdentifier    databaseIdentifier;
+  private       OConsoleProgressWriter consoleProgressWriter;
+  private final OStressTesterSettings  settings;
 
   private static final OWorkloadFactory workloadFactory = new OWorkloadFactory();
-  private List<OWorkload>               workloads       = new ArrayList<OWorkload>();
+  private              List<OWorkload>  workloads       = new ArrayList<OWorkload>();
 
   public OStressTester(final List<OWorkload> workloads, ODatabaseIdentifier databaseIdentifier,
       final OStressTesterSettings settings) throws Exception {

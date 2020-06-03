@@ -15,12 +15,10 @@
  */
 package com.orientechnologies.orient.core.storage.cache.chm;
 
-
 /**
- * An admission policy to the cache. A page replacement policy always admits new entries and chooses
- * a victim to remove if the cache exceeds a maximum size. An admission policy augments the eviction
- * policy by letting the cache not accept the new entry, based on the assumption that the victim is
- * more likely to be used again.
+ * An admission policy to the cache. A page replacement policy always admits new entries and chooses a victim to remove if the cache
+ * exceeds a maximum size. An admission policy augments the eviction policy by letting the cache not accept the new entry, based on
+ * the assumption that the victim is more likely to be used again.
  *
  * @author ben.manes@gmail.com (Ben Manes)
  */

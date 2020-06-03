@@ -32,22 +32,19 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
   @Test
   public void shouldSearchOnSingleIndex() throws Exception {
 
-    OResultSet resultSet = db
-        .query("SELECT from Song where SEARCH_INDEX('Song.title', 'BELIEVE') = true");
+    OResultSet resultSet = db.query("SELECT from Song where SEARCH_INDEX('Song.title', 'BELIEVE') = true");
 
 //    resultSet.getExecutionPlan().ifPresent(x -> System.out.println(x.prettyPrint(0, 2)));
     assertThat(resultSet).hasSize(2);
 
     resultSet.close();
 
-    resultSet = db
-        .query("SELECT from Song where SEARCH_INDEX('Song.title', \"bel*\") = true");
+    resultSet = db.query("SELECT from Song where SEARCH_INDEX('Song.title', \"bel*\") = true");
 
     assertThat(resultSet).hasSize(3);
     resultSet.close();
 
-    resultSet = db
-        .query("SELECT from Song where SEARCH_INDEX('Song.title', 'bel*') = true");
+    resultSet = db.query("SELECT from Song where SEARCH_INDEX('Song.title', 'bel*') = true");
 
     assertThat(resultSet).hasSize(3);
 
@@ -57,8 +54,7 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
   @Test
   public void shouldFindNothingOnEmptyQuery() throws Exception {
 
-    OResultSet resultSet = db
-        .query("SELECT from Song where SEARCH_INDEX('Song.title', '') = true");
+    OResultSet resultSet = db.query("SELECT from Song where SEARCH_INDEX('Song.title', '') = true");
 
 //    resultSet.getExecutionPlan().ifPresent(x -> System.out.println(x.prettyPrint(0, 2)));
     assertThat(resultSet).hasSize(0);
@@ -66,7 +62,6 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
     resultSet.close();
 
   }
-
 
   @Test
 //  @Ignore
@@ -96,9 +91,8 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
   @Test
   public void shouldSearhOnTwoIndexesInAND() throws Exception {
 
-    OResultSet resultSet = db
-        .query(
-            "SELECT from Song where SEARCH_INDEX('Song.title', 'tambourine') = true AND SEARCH_INDEX('Song.author', 'Bob') = true ");
+    OResultSet resultSet = db.query(
+        "SELECT from Song where SEARCH_INDEX('Song.title', 'tambourine') = true AND SEARCH_INDEX('Song.author', 'Bob') = true ");
 
     assertThat(resultSet).hasSize(1);
     resultSet.close();
@@ -108,9 +102,8 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
   @Test
   public void shouldSearhOnTwoIndexesWithLeadingWildcardInAND() throws Exception {
 
-    OResultSet resultSet = db
-        .query(
-            "SELECT from Song where SEARCH_INDEX('Song.title', 'tambourine') = true AND SEARCH_INDEX('Song.author', 'Bob', {'allowLeadingWildcard': true}) = true ");
+    OResultSet resultSet = db.query(
+        "SELECT from Song where SEARCH_INDEX('Song.title', 'tambourine') = true AND SEARCH_INDEX('Song.author', 'Bob', {'allowLeadingWildcard': true}) = true ");
 
     assertThat(resultSet).hasSize(1);
     resultSet.close();
@@ -123,6 +116,5 @@ public class OLuceneSearchOnIndexFunctionTest extends BaseLuceneTest {
     db.query("SELECT from Song where SEARCH_INDEX('Song.wrongName', 'tambourine') = true ").close();
 
   }
-
 
 }

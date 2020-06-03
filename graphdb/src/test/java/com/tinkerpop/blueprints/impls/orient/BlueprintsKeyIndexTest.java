@@ -25,7 +25,8 @@ public class BlueprintsKeyIndexTest {
       /* create key index */
       graph.createKeyIndex(KEY_NAME, Vertex.class);
 
-      /* create the root vertex */{
+      /* create the root vertex */
+      {
         final Vertex v = graph.addVertex(null);
         v.setProperty(KEY_NAME, ROOT_NODE_NAME); /* as key index */
         graph.commit();
@@ -52,7 +53,8 @@ public class BlueprintsKeyIndexTest {
       /* create key index */
       // graph.createKeyIndex("name", Vertex.class);
 
-      /* create the root vertex */{
+      /* create the root vertex */
+      {
         final Vertex v = graph.addVertex(null);
         v.setProperty(KEY_NAME, ROOT_NODE_NAME); /* as key index */
         graph.commit();
@@ -80,7 +82,8 @@ public class BlueprintsKeyIndexTest {
       /* create key index */
       // graph.createKeyIndex("name", Vertex.class);
 
-      /* create the root vertex */{
+      /* create the root vertex */
+      {
         Vertex v = graph.addVertex("class:Test");
         v.setProperty(KEY_NAME, ROOT_NODE_NAME); /* as key index */
 

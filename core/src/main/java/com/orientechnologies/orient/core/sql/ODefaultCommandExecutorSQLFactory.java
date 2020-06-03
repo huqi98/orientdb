@@ -62,8 +62,7 @@ public class ODefaultCommandExecutorSQLFactory implements OCommandExecutorSQLFac
     commands.put(OCommandExecutorSQLCreateCluster.KEYWORD_CREATE + " " + OCommandExecutorSQLCreateCluster.KEYWORD_CLUSTER,
         OCommandExecutorSQLCreateCluster.class);
     commands.put(OCommandExecutorSQLCreateCluster.KEYWORD_CREATE + " " + OCommandExecutorSQLCreateCluster.KEYWORD_BLOB + " "
-            + OCommandExecutorSQLCreateCluster.KEYWORD_CLUSTER,
-        OCommandExecutorSQLCreateCluster.class);
+        + OCommandExecutorSQLCreateCluster.KEYWORD_CLUSTER, OCommandExecutorSQLCreateCluster.class);
     commands.put(OCommandExecutorSQLAlterClass.KEYWORD_ALTER + " " + OCommandExecutorSQLAlterClass.KEYWORD_CLASS,
         OCommandExecutorSQLAlterClass.class);
     commands.put(OCommandExecutorSQLCreateProperty.KEYWORD_CREATE + " " + OCommandExecutorSQLCreateProperty.KEYWORD_PROPERTY,
@@ -103,7 +102,6 @@ public class ODefaultCommandExecutorSQLFactory implements OCommandExecutorSQLFac
     commands.put(OCommandExecutorSQLOptimizeDatabase.KEYWORD_OPTIMIZE, OCommandExecutorSQLOptimizeDatabase.class);
 
     commands.put(OProfileStorageStatement.KEYWORD_PROFILE, OCommandExecutorToOStatementWrapper.class);
-
 
     //GRAPH
 

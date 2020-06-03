@@ -35,12 +35,11 @@ import java.util.Set;
  * the SYMMETRIC DIFFERENCE between the collections received as parameters. Works also with no collection values.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OSQLFunctionSymmetricDifference extends OSQLFunctionMultiValueAbstract<Set<Object>> {
   public static final String NAME = "symmetricDifference";
 
-  private Set<Object>        rejected;
+  private Set<Object> rejected;
 
   public OSQLFunctionSymmetricDifference() {
     super(NAME, 1, -1);

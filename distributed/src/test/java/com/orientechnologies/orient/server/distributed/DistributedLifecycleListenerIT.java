@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * Tests the behavior of hooks in distributed configuration.
  */
 public class DistributedLifecycleListenerIT extends AbstractServerClusterTest implements ODistributedLifecycleListener {
-  private final static int                                               SERVERS        = 2;
+  private final static int SERVERS = 2;
 
   private final AtomicLong                                               beforeNodeJoin = new AtomicLong();
   private final AtomicLong                                               afterNodeJoin  = new AtomicLong();

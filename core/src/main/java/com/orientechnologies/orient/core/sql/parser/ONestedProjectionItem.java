@@ -15,7 +15,7 @@ public class ONestedProjectionItem extends SimpleNode {
   protected boolean star = false;
 
   protected OExpression expression;
-  protected boolean rightWildcard = false;
+  protected boolean     rightWildcard = false;
 
   protected ONestedProjection expansion;
   protected OIdentifier       alias;
@@ -49,7 +49,6 @@ public class ONestedProjectionItem extends SimpleNode {
    * </ul>
    *
    * @param propertyName
-   *
    * @return
    */
   public boolean matches(String propertyName) {

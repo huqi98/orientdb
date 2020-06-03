@@ -79,7 +79,7 @@ public interface OCommandCache {
 
   /**
    * Total number of stored queries.
-   * 
+   *
    * @return non-negative number
    */
   int size();
@@ -87,8 +87,7 @@ public interface OCommandCache {
   /**
    * Invalidates results of given cluster.
    *
-   * @param iCluster
-   *          Cluster name
+   * @param iCluster Cluster name
    */
   void invalidateResultsOfCluster(final String iCluster);
 

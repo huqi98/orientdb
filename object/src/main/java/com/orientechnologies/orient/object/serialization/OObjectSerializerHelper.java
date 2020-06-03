@@ -645,7 +645,6 @@ import java.util.Map.Entry;
    * Returns the declared generic types of a class.
    *
    * @param iObject Class to examine
-   *
    * @return The array of Type if any, otherwise null
    */
   public static Type[] getGenericTypes(final Object iObject) {

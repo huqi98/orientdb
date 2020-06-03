@@ -29,16 +29,15 @@ import java.util.*;
 /**
  * ResultSet implementation that allows concurrent population.
  *
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  * @param <T>
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OSQLAsynchQuery
  */
 public class OConcurrentLegacyResultSet<T> implements OLegacyResultSet<T> {
-  protected final transient Object             waitForNextItem   = new Object();
-  protected final transient Object             waitForCompletion = new Object();
-  protected final transient OBasicLegacyResultSet<T> wrapped;
-  protected transient volatile boolean         completed         = false;
+  protected final transient    Object                   waitForNextItem   = new Object();
+  protected final transient    Object                   waitForCompletion = new Object();
+  protected final transient    OBasicLegacyResultSet<T> wrapped;
+  protected transient volatile boolean                  completed         = false;
 
   public OConcurrentLegacyResultSet() {
     this.wrapped = new OBasicLegacyResultSet<T>();

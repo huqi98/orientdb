@@ -69,7 +69,6 @@ public class OIndexManagerShared extends OIndexManagerAbstract {
    * @param clusterIdsToIndex ids of clusters that index should track for changes.
    * @param progressListener  listener to track task progress.
    * @param metadata          document with additional properties that can be used by index engine.
-   *
    * @return a newly created index instance
    */
   public OIndex createIndex(ODatabaseDocumentInternal database, final String iName, final String iType,
@@ -90,7 +89,6 @@ public class OIndexManagerShared extends OIndexManagerAbstract {
    * @param progressListener  listener to track task progress.
    * @param metadata          document with additional properties that can be used by index engine.
    * @param algorithm         tip to an index factory what algorithm to use
-   *
    * @return a newly created index instance
    */
   public OIndex createIndex(ODatabaseDocumentInternal database, final String iName, String type,

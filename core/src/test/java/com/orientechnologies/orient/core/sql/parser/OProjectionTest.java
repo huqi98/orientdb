@@ -47,7 +47,6 @@ public class OProjectionTest {
 
   }
 
-
   @Test
   public void testValidate() throws ParseException {
     OrientSql parser = getParserFor("select expand(foo)  from V");
@@ -55,11 +54,12 @@ public class OProjectionTest {
     stm.getProjection().validate();
 
     try {
-      getParserFor("select expand(foo), bar  from V").parse();;
+      getParserFor("select expand(foo), bar  from V").parse();
+      ;
       Assert.fail();
-    }catch(OCommandSQLParsingException ex){
+    } catch (OCommandSQLParsingException ex) {
 
-    }catch(Exception x){
+    } catch (Exception x) {
       Assert.fail();
     }
 
@@ -70,6 +70,5 @@ public class OProjectionTest {
     OrientSql osql = new OrientSql(is);
     return osql;
   }
-
 
 }

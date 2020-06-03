@@ -30,50 +30,50 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement(name = "orient-server")
 public class OServerConfiguration {
-  public static final String                        FILE_NAME            = "server-config.xml";
+  public static final String                        FILE_NAME          = "server-config.xml";
   // private static final String HEADER = "OrientDB Server configuration";
-  public static final OServerStorageConfiguration[] EMPTY_CONFIG_ARRAY   = new OServerStorageConfiguration[0];
+  public static final OServerStorageConfiguration[] EMPTY_CONFIG_ARRAY = new OServerStorageConfiguration[0];
   @XmlTransient
-  public String                                     location;
+  public              String                        location;
 
   @XmlElementWrapper
   @XmlElementRef(type = OServerHandlerConfiguration.class)
-  public List<OServerHandlerConfiguration>          handlers;
+  public List<OServerHandlerConfiguration> handlers;
 
   @XmlElementWrapper
   @XmlElementRef(type = OServerHookConfiguration.class)
-  public List<OServerHookConfiguration>             hooks;
+  public List<OServerHookConfiguration> hooks;
 
   @XmlElementRef(type = OServerNetworkConfiguration.class)
-  public OServerNetworkConfiguration                network;
+  public OServerNetworkConfiguration network;
 
   @XmlElementWrapper
   @XmlElementRef(type = OServerStorageConfiguration.class)
-  public OServerStorageConfiguration[]              storages;
+  public OServerStorageConfiguration[] storages;
 
   @XmlElementWrapper(required = false)
   @XmlElementRef(type = OServerUserConfiguration.class)
-  public OServerUserConfiguration[]                 users;
+  public OServerUserConfiguration[] users;
 
   @XmlElementRef(type = OServerSecurityConfiguration.class)
-  public OServerSecurityConfiguration               security;
+  public OServerSecurityConfiguration security;
 
   @XmlElementWrapper
   @XmlElementRef(type = OServerEntryConfiguration.class)
-  public OServerEntryConfiguration[]                properties;
+  public OServerEntryConfiguration[] properties;
 
   @XmlElementRef(type = OServerDistributedConfiguration.class)
   public OServerDistributedConfiguration distributed;
 
-  public boolean                                    isAfterFirstTime;
+  public boolean isAfterFirstTime;
 
-  public static final String                        DEFAULT_CONFIG_FILE  = "config/orientdb-server-config.xml";
+  public static final String DEFAULT_CONFIG_FILE = "config/orientdb-server-config.xml";
 
-  public static final String                        PROPERTY_CONFIG_FILE = "orientdb.config.file";
+  public static final String PROPERTY_CONFIG_FILE = "orientdb.config.file";
 
-  public static final String                        DEFAULT_ROOT_USER    = "root";
-  public static final String                        GUEST_USER           = "guest";
-  public static final String                        GUEST_PASS           = "guest";
+  public static final String DEFAULT_ROOT_USER = "root";
+  public static final String GUEST_USER        = "guest";
+  public static final String GUEST_PASS        = "guest";
 
   /**
    * Empty constructor for JAXB
@@ -99,9 +99,8 @@ public class OServerConfiguration {
 
   /**
    * Returns the property value configured, if any.
-   * 
-   * @param iName
-   *          Property name to find
+   *
+   * @param iName Property name to find
    */
   public String getProperty(final String iName) {
     return getProperty(iName, null);
@@ -109,11 +108,9 @@ public class OServerConfiguration {
 
   /**
    * Returns the property value configured, if any.
-   * 
-   * @param iName
-   *          Property name to find
-   * @param iDefaultValue
-   *          Default value returned if not found
+   *
+   * @param iName         Property name to find
+   * @param iDefaultValue Default value returned if not found
    */
   public String getProperty(final String iName, final String iDefaultValue) {
     if (properties == null)

@@ -11,9 +11,8 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests the "asList()" method implemented by the OSQLMethodAsList class.  Note
- * that the only input to the execute() method from the OSQLMethod interface
- * that is used is the ioResult argument (the 4th argument).
+ * Tests the "asList()" method implemented by the OSQLMethodAsList class.  Note that the only input to the execute() method from the
+ * OSQLMethod interface that is used is the ioResult argument (the 4th argument).
  *
  * @author Michael MacFadden
  */

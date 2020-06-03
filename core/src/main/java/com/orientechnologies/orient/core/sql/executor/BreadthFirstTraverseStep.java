@@ -30,7 +30,6 @@ public class BreadthFirstTraverseStep extends AbstractTraverseStep {
           item.getIdentity().ifPresent(x -> stack.add(x));
           ((OResultInternal) item).setMetadata("$stack", stack);
 
-
           List<OIdentifiable> path = new ArrayList<>();
           path.add(item.getIdentity().get());
           ((OResultInternal) item).setMetadata("$path", path);

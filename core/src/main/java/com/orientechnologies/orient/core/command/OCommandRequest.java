@@ -23,7 +23,7 @@ import com.orientechnologies.orient.core.command.OCommandContext.TIMEOUT_STRATEG
 
 /**
  * Generic GOF command pattern implementation. Execute a command passing the optional arguments "iArgs" and returns an Object.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public interface OCommandRequest {
@@ -31,20 +31,18 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "LIMIT" instead
-   * 
+   * <p>
    * Returns the limit of result set. -1 means no limits.
-   * 
    */
 
   int getLimit();
 
   /**
    * This api is deprecated use sql keyword "LIMIT" instead
-   * 
+   * <p>
    * Sets the maximum items the command can returns. -1 means no limits.
-   * 
-   * @param iLimit
-   *          -1 = no limit. 1 to N to limit the result set.
+   *
+   * @param iLimit -1 = no limit. 1 to N to limit the result set.
    * @return
    */
   @Deprecated
@@ -52,9 +50,9 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "TIMEOUT" instead
-   * 
+   * <p>
    * Returns the command timeout. 0 means no timeout.
-   * 
+   *
    * @return
    */
   @Deprecated
@@ -62,9 +60,9 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "TIMEOUT" instead
-   * 
+   * <p>
    * Returns the command timeout strategy between the defined ones.
-   * 
+   *
    * @return
    */
   @Deprecated
@@ -72,9 +70,9 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "TIMEOUT" instead
-   * 
+   * <p>
    * Sets the command timeout. When the command execution time is major than the timeout the command returns
-   * 
+   *
    * @param timeout
    */
   @Deprecated
@@ -87,9 +85,9 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "FETCHPLAN" instead
-   * 
+   * <p>
    * Returns the fetch plan if any
-   * 
+   *
    * @return Fetch plan as unique string or null if it was not defined.
    */
   @Deprecated
@@ -97,13 +95,13 @@ public interface OCommandRequest {
 
   /**
    * This api is deprecated use sql keyword "FETCHPLAN" instead
-   * 
+   * <p>
    * Set the fetch plan. The format is:
-   * 
+   *
    * <pre>
    * &lt;field&gt;:&lt;depth-level&gt;*
    * </pre>
-   * 
+   * <p>
    * Where:
    * <ul>
    * <li><b>field</b> is the name of the field to specify the depth-level. <b>*</b> wildcard means any fields</li>
@@ -111,13 +109,13 @@ public interface OCommandRequest {
    * </ul>
    * Uses the blank spaces to separate the fields strategies.<br>
    * Example:
-   * 
+   *
    * <pre>
    * children:-1 parent:0 sibling:3 *:0
    * </pre>
-   * 
+   *
    * <br>
-   * 
+   *
    * @param iFetchPlan
    * @return
    */

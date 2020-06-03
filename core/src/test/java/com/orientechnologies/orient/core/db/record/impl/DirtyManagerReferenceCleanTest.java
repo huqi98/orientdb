@@ -33,7 +33,6 @@ public class DirtyManagerReferenceCleanTest {
     db.drop();
   }
 
-
   @Test
   public void testReferDeletedDocument() {
     ODocument doc = new ODocument();

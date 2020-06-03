@@ -23,9 +23,9 @@ import com.orientechnologies.orient.core.exception.OCoreException;
 
 public class OCommandScriptException extends OCoreException {
 
-  private String            text;
-  private int               position;
-  private static final long serialVersionUID = -7430575036316163711L;
+  private              String text;
+  private              int    position;
+  private static final long   serialVersionUID = -7430575036316163711L;
 
   private static String makeMessage(String message, int position, String text) {
     if (text == null)

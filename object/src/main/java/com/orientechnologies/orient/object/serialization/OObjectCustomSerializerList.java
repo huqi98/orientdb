@@ -28,12 +28,12 @@ import com.orientechnologies.orient.object.enhancement.OObjectEntitySerializer;
 
 @SuppressWarnings({ "unchecked" })
 public class OObjectCustomSerializerList<TYPE> implements List<TYPE>, OObjectLazyCustomSerializer<List<TYPE>>, Serializable {
-  private static final long       serialVersionUID = -8541477416577361792L;
+  private static final long serialVersionUID = -8541477416577361792L;
 
-  private ORecord              sourceRecord;
+  private       ORecord           sourceRecord;
   private final List<Object>      serializedList;
-  private final ArrayList<Object> list             = new ArrayList<Object>();
-  private boolean                 converted        = false;
+  private final ArrayList<Object> list      = new ArrayList<Object>();
+  private       boolean           converted = false;
   private final Class<?>          deserializeClass;
 
   public OObjectCustomSerializerList(final Class<?> iDeserializeClass, final ORecord iSourceRecord,
@@ -46,8 +46,8 @@ public class OObjectCustomSerializerList<TYPE> implements List<TYPE>, OObjectLaz
     }
   }
 
-  public OObjectCustomSerializerList(final Class<?> iDeserializeClass, final ORecord iSourceRecord,
-      final List<Object> iRecordList, final Collection<? extends TYPE> iSourceList) {
+  public OObjectCustomSerializerList(final Class<?> iDeserializeClass, final ORecord iSourceRecord, final List<Object> iRecordList,
+      final Collection<? extends TYPE> iSourceList) {
     this.sourceRecord = iSourceRecord;
     this.serializedList = iRecordList;
     this.deserializeClass = iDeserializeClass;
@@ -238,9 +238,8 @@ public class OObjectCustomSerializerList<TYPE> implements List<TYPE>, OObjectLaz
 
   /**
    * Convert the item requested.
-   * 
-   * @param iIndex
-   *          Position of the item to convert
+   *
+   * @param iIndex Position of the item to convert
    */
   private void convert(final int iIndex) {
     if (converted)

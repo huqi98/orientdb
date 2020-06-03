@@ -41,14 +41,16 @@ public class OHazelcastMergeStrategy implements MapMergePolicy {
   public Object merge(final String mapName, final EntryView mergingEntry, final EntryView existingEntry) {
     if (existingEntry.getValue() == null) {
       // NOT PRESENT, USE THE NEW VALUE
-      OLogManager.instance().debug(this, "Merge Strategy map=" + mapName + " key=" + mergingEntry.getKey() + ": "
-          + mergingEntry.getValue() + "/" + existingEntry.getValue() + " returning " + mergingEntry.getValue());
+      OLogManager.instance().debug(this,
+          "Merge Strategy map=" + mapName + " key=" + mergingEntry.getKey() + ": " + mergingEntry.getValue() + "/" + existingEntry
+              .getValue() + " returning " + mergingEntry.getValue());
 
       return mergingEntry.getValue();
     }
 
-    OLogManager.instance().debug(this, "Merge Strategy map=" + mapName + " key=" + mergingEntry.getKey() + ": "
-        + mergingEntry.getValue() + "/" + existingEntry.getValue() + " returning " + existingEntry.getValue());
+    OLogManager.instance().debug(this,
+        "Merge Strategy map=" + mapName + " key=" + mergingEntry.getKey() + ": " + mergingEntry.getValue() + "/" + existingEntry
+            .getValue() + " returning " + existingEntry.getValue());
 
     return existingEntry.getValue();
   }

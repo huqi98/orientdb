@@ -55,7 +55,7 @@ public class ODistributedConfiguration {
   protected static final String EXECUTION_MODE             = "executionMode";
   protected static final String EXECUTION_MODE_SYNCHRONOUS = "synchronous";
 
-  protected final ODocument configuration;
+  protected final        ODocument            configuration;
   protected static final List<String>         DEFAULT_CLUSTER_NAME = Collections.singletonList(ALL_WILDCARD);
   private static         ThreadLocal<Integer> overwriteWriteQuorum = new ThreadLocal<Integer>();
 
@@ -118,7 +118,6 @@ public class ODistributedConfiguration {
    * Returns the execution mode if synchronous.
    *
    * @param iClusterName Cluster name, or null for *
-   *
    * @return true = synchronous, false = asynchronous, null = undefined
    */
   public Boolean isExecutionModeSynchronous(final String iClusterName) {
@@ -242,7 +241,8 @@ public class ODistributedConfiguration {
   }
 
   /**
-   * Returns the clusters where a server is owner. This is used when a cluster must be selected: locality is always the best choice.
+   * Returns the clusters where a server is owner. This is used when a cluster must be selected: locality is always the best
+   * choice.
    *
    * @param iClusterNames Set of cluster names
    * @param iNode         Node
@@ -630,7 +630,6 @@ public class ODistributedConfiguration {
    * Returns the list of servers in a data center.
    *
    * @param dataCenter Data center name
-   *
    * @throws OConfigurationException if the list of servers is not found in data center configuration
    */
   public List<String> getDataCenterServers(final String dataCenter) {
@@ -700,7 +699,7 @@ public class ODistributedConfiguration {
   /**
    * Returns the read quorum.
    *
-   * @param clusterName    Cluster name, or null for *
+   * @param clusterName            Cluster name, or null for *
    * @param totalConfiguredServers Total node available
    */
   public int getReadQuorum(final String clusterName, final int totalConfiguredServers, final String server) {
@@ -737,9 +736,7 @@ public class ODistributedConfiguration {
    * Gets the document representing the cluster configuration.
    *
    * @param iClusterName Cluster name, or null for *
-   *
    * @return Always a ODocument
-   *
    * @throws OConfigurationException in case "clusters" field is not found in configuration
    */
   protected ODocument getClusterConfiguration(String iClusterName) {
@@ -766,9 +763,7 @@ public class ODistributedConfiguration {
    * Gets the document representing the dc configuration.
    *
    * @param dataCenter Data center name
-   *
    * @return Always a ODocument
-   *
    * @throws OConfigurationException if the data center configuration is not found
    */
   private ODocument getDataCenterConfiguration(final String dataCenter) {

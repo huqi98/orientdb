@@ -43,9 +43,10 @@ public class OETLLoadTransformerTest extends OETLBaseTest {
   @Test
   public void shouldNotUpdateExistingVertices() throws Exception {
     //update graph with CSV: avoid num to be casted to integer forcing string
-    configure(" {source: { content: { value: 'num,name\n10000,FirstNameUpdated' } }, " + "extractor : { csv: {} }," + " transformers: ["
-        + "{load: {  joinFieldName:'num', lookup:'Person.num'}}, " + "{vertex: { class:'Person', skipDuplicates: false}}" + "],"
-        + "loader: { orientdb: { dbURL: 'memory:" + name.getMethodName() + "', dbType:'graph', tx: true} } }");
+    configure(
+        " {source: { content: { value: 'num,name\n10000,FirstNameUpdated' } }, " + "extractor : { csv: {} }," + " transformers: ["
+            + "{load: {  joinFieldName:'num', lookup:'Person.num'}}, " + "{vertex: { class:'Person', skipDuplicates: false}}" + "],"
+            + "loader: { orientdb: { dbURL: 'memory:" + name.getMethodName() + "', dbType:'graph', tx: true} } }");
 
     ODatabasePool pool = proc.getLoader().getPool();
     ODatabaseDocument db = pool.acquire();
@@ -102,9 +103,11 @@ public class OETLLoadTransformerTest extends OETLBaseTest {
   public void shouldLoadVertexOnDuplicatedInputSet() throws Exception {
 
     //CSV contains duplicated data
-    configure("{source: { content: { value: 'num,name\n10000,FirstName\n10001,SecondName\n10000,FirstNameUpdated' } }, extractor : { csv: {} },"
-        + " transformers: [{load: { joinFieldName:'num', lookup:'Person.num'}}, {vertex: {class:'Person', skipDuplicates: true}}]," + " "
-        + "loader: { orientdb: { dbURL: 'memory:" + name.getMethodName() + "', dbType:'graph', useLightweightEdges:false } } }");
+    configure(
+        "{source: { content: { value: 'num,name\n10000,FirstName\n10001,SecondName\n10000,FirstNameUpdated' } }, extractor : { csv: {} },"
+            + " transformers: [{load: { joinFieldName:'num', lookup:'Person.num'}}, {vertex: {class:'Person', skipDuplicates: true}}],"
+            + " " + "loader: { orientdb: { dbURL: 'memory:" + name.getMethodName()
+            + "', dbType:'graph', useLightweightEdges:false } } }");
 
     ODatabasePool pool = proc.getLoader().getPool();
     ODatabaseDocument db = pool.acquire();
@@ -134,7 +137,8 @@ public class OETLLoadTransformerTest extends OETLBaseTest {
 
   @Test
   public void loadVerticesCreateEdges() throws Exception {
-    String csv = "depot,store,StartDate,EndDate\n" + "BK,1431,20150212,99991231\n" + "BK,1432,20150119,99991231\n" + "DL,1438,20170506,99991231\n";
+    String csv = "depot,store,StartDate,EndDate\n" + "BK,1431,20150212,99991231\n" + "BK,1432,20150119,99991231\n"
+        + "DL,1438,20170506,99991231\n";
 
     //CSV contains duplicated data
     configure("{source: { content: { value: '" + csv + "' } }, extractor : { csv: {} },"

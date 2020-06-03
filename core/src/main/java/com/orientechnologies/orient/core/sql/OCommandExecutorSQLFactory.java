@@ -22,7 +22,7 @@ import java.util.Set;
 
 /**
  * Factory to register new OCommandExecutorSQL.
- * 
+ *
  * @author Johann Sorel (Geomatys)
  */
 public interface OCommandExecutorSQLFactory {
@@ -34,11 +34,10 @@ public interface OCommandExecutorSQLFactory {
 
   /**
    * Create command for the given name. returned command may be a new instance each time or a constant.
-   * 
+   *
    * @param name
    * @return OCommandExecutorSQLAbstract : created command
-   * @throws OCommandExecutionException
-   *           : when command creation fail
+   * @throws OCommandExecutionException : when command creation fail
    */
   OCommandExecutor createCommand(String name) throws OCommandExecutionException;
 }

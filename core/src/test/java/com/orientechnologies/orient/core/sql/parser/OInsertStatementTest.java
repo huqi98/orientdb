@@ -92,7 +92,6 @@ public class OInsertStatementTest {
         + "Shared\":0}");
   }
 
-
   @Test
   public void testInsertSelectNoTarget() {
     checkRightSyntax("insert into Bookmark from select #12:0");

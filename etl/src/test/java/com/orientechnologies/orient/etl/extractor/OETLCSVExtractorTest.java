@@ -32,7 +32,6 @@ public class OETLCSVExtractorTest extends OETLBaseTest {
     assertEquals("Jay", doc.field("name"));
     assertEquals("Miner", doc.field("surname"));
 
-
   }
 
   @Test

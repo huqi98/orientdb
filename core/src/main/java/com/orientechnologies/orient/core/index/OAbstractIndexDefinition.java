@@ -32,7 +32,7 @@ import com.orientechnologies.orient.core.type.ODocumentWrapperNoClass;
  */
 public abstract class OAbstractIndexDefinition extends ODocumentWrapperNoClass implements OIndexDefinition {
   protected OCollate collate           = new ODefaultCollate();
-  private boolean    nullValuesIgnored = true;
+  private   boolean  nullValuesIgnored = true;
 
   protected OAbstractIndexDefinition() {
     super(new ODocument().setTrackingChanges(false));

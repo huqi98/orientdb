@@ -17,11 +17,10 @@ import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 import com.orientechnologies.orient.core.db.ODatabase;
 
 /**
- * Wraps a {@link ODocumentFieldHandlingStrategy} to be accessed statically.<br/>
- * The strategy to be used is set via {@link OGlobalConfiguration#DOCUMENT_BINARY_MAPPING} and the possible values are
- * {@link ODocumentFieldHandlingStrategyFactory#SIMPLE}, {@link ODocumentFieldHandlingStrategyFactory#SINGLE_ORECORD_BYTES} or
- * {@link ODocumentFieldHandlingStrategyFactory#SPLIT_ORECORD_BYTES}.
- * 
+ * Wraps a {@link ODocumentFieldHandlingStrategy} to be accessed statically.<br/> The strategy to be used is set via {@link
+ * OGlobalConfiguration#DOCUMENT_BINARY_MAPPING} and the possible values are {@link ODocumentFieldHandlingStrategyFactory#SIMPLE},
+ * {@link ODocumentFieldHandlingStrategyFactory#SINGLE_ORECORD_BYTES} or {@link ODocumentFieldHandlingStrategyFactory#SPLIT_ORECORD_BYTES}.
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class ODocumentFieldHandler {

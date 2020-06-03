@@ -70,9 +70,9 @@ public class OrientGraphFactoryEncryptionTest {
   public void shouldQueryDESEncryptedDatabase() {
     OrientGraphFactory graphFactory = new OrientGraphFactory("plocal:" + dbPath);
 
-    if(graphFactory.exists()) {
+    if (graphFactory.exists()) {
       graphFactory.drop();
-    }else{
+    } else {
       graphFactory.close();
     }
     graphFactory = new OrientGraphFactory("plocal:" + dbPath);

@@ -32,9 +32,8 @@ import java.util.Set;
 
 /**
  * SQL UPDATE command.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OCommandExecutorSQLDelegate extends OCommandExecutorSQLAbstract implements OCommandDistributedReplicateRequest {
   protected OCommandExecutor delegate;

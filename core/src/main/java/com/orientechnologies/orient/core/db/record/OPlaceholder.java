@@ -32,9 +32,8 @@ import java.io.IOException;
 
 /**
  * Base interface for identifiable objects. This abstraction is required to use ORID and ORecord in many points.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OPlaceholder implements OIdentifiable, OStreamable {
   private ORecordId rid;
@@ -115,8 +114,8 @@ public class OPlaceholder implements OIdentifiable, OStreamable {
 
   @Override
   public void lock(final boolean iExclusive) {
-    ODatabaseRecordThreadLocal.instance().get().getTransaction().lockRecord(this,
-        iExclusive ? OStorage.LOCKING_STRATEGY.EXCLUSIVE_LOCK : OStorage.LOCKING_STRATEGY.SHARED_LOCK);
+    ODatabaseRecordThreadLocal.instance().get().getTransaction()
+        .lockRecord(this, iExclusive ? OStorage.LOCKING_STRATEGY.EXCLUSIVE_LOCK : OStorage.LOCKING_STRATEGY.SHARED_LOCK);
   }
 
   @Override

@@ -21,7 +21,7 @@ import java.io.IOException;
 
 /**
  * Immutable number representing the position in WAL file (LSN).
- * 
+ *
  * @author Andrey Lomakin (a.lomakin-at-orientdb.com)
  * @since 29.04.13
  */

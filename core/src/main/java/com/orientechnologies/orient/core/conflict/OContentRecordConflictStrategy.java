@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.core.conflict;
@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Record conflict strategy that check the records content: if content is the same, se the higher version number.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OContentRecordConflictStrategy extends OVersionRecordConflictStrategy {

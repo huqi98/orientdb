@@ -27,9 +27,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /**
- *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class ODistributedResponse {
   private ODistributedResponseManager distributedResponseManager;

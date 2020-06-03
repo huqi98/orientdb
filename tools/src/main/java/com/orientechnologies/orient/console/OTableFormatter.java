@@ -44,20 +44,20 @@ public class OTableFormatter {
   protected static final String           MORE           = "...";
   protected static final SimpleDateFormat DEF_DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 
-  protected       OPair<String, Boolean>           columnSorting   = null;
-  protected final Map<String, ALIGNMENT>           columnAlignment = new HashMap<String, ALIGNMENT>();
-  protected final Map<String, Map<String, String>> columnMetadata  = new HashMap<String, Map<String, String>>();
-  protected final Set<String>                      columnHidden    = new HashSet<String>();
-  protected final Set<String>                      prefixedColumns = new LinkedHashSet<String>(
+  protected       OPair<String, Boolean>           columnSorting        = null;
+  protected final Map<String, ALIGNMENT>           columnAlignment      = new HashMap<String, ALIGNMENT>();
+  protected final Map<String, Map<String, String>> columnMetadata       = new HashMap<String, Map<String, String>>();
+  protected final Set<String>                      columnHidden         = new HashSet<String>();
+  protected final Set<String>                      prefixedColumns      = new LinkedHashSet<String>(
       Arrays.asList(new String[] { "#", "@RID", "@CLASS" }));
-  protected final OTableOutput out;
-  protected int     maxMultiValueEntries = 10;
-  protected int     minColumnSize        = 4;
-  protected int     maxWidthSize         = 150;
-  protected String  nullValue            = "";
-  private   boolean leftBorder           = true;
-  private   boolean rightBorder          = true;
-  private ODocument footer;
+  protected final OTableOutput                     out;
+  protected       int                              maxMultiValueEntries = 10;
+  protected       int                              minColumnSize        = 4;
+  protected       int                              maxWidthSize         = 150;
+  protected       String                           nullValue            = "";
+  private         boolean                          leftBorder           = true;
+  private         boolean                          rightBorder          = true;
+  private         ODocument                        footer;
 
   public interface OTableOutput {
     void onMessage(String text, Object... args);
@@ -456,7 +456,6 @@ public class OTableFormatter {
    *
    * @param resultSet
    * @param limit
-   *
    * @return
    */
   private Map<String, Integer> parseColumns(final Collection<? extends OIdentifiable> resultSet, final int limit) {

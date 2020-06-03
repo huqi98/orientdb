@@ -39,24 +39,24 @@ import java.util.Collections;
 import java.util.Map;
 
 public class OSecurityManager {
-  public static final String            HASH_ALGORITHM                 = "SHA-256";
-  public static final String            HASH_ALGORITHM_PREFIX          = "{" + HASH_ALGORITHM + "}";
+  public static final String HASH_ALGORITHM        = "SHA-256";
+  public static final String HASH_ALGORITHM_PREFIX = "{" + HASH_ALGORITHM + "}";
 
-  public static final String            PBKDF2_ALGORITHM               = "PBKDF2WithHmacSHA1";
-  public static final String            PBKDF2_ALGORITHM_PREFIX        = "{" + PBKDF2_ALGORITHM + "}";
+  public static final String PBKDF2_ALGORITHM        = "PBKDF2WithHmacSHA1";
+  public static final String PBKDF2_ALGORITHM_PREFIX = "{" + PBKDF2_ALGORITHM + "}";
 
-  public static final String            PBKDF2_SHA256_ALGORITHM        = "PBKDF2WithHmacSHA256";
-  public static final String            PBKDF2_SHA256_ALGORITHM_PREFIX = "{" + PBKDF2_SHA256_ALGORITHM + "}";
+  public static final String PBKDF2_SHA256_ALGORITHM        = "PBKDF2WithHmacSHA256";
+  public static final String PBKDF2_SHA256_ALGORITHM_PREFIX = "{" + PBKDF2_SHA256_ALGORITHM + "}";
 
-  public static final int               SALT_SIZE                      = 24;
-  public static final int               HASH_SIZE                      = 24;
+  public static final int SALT_SIZE = 24;
+  public static final int HASH_SIZE = 24;
 
-  private static final OSecurityManager instance                       = new OSecurityManager();
-  private volatile OSecurityFactory     securityFactory                = new OSecuritySharedFactory();
+  private static final OSecurityManager instance        = new OSecurityManager();
+  private volatile     OSecurityFactory securityFactory = new OSecuritySharedFactory();
 
-  private MessageDigest                 md;
+  private MessageDigest md;
 
-  private static Map<String, byte[]>    SALT_CACHE                     = null;
+  private static Map<String, byte[]> SALT_CACHE = null;
 
   static {
     final int cacheSize = OGlobalConfiguration.SECURITY_USER_PASSWORD_SALT_CACHE_SIZE.getValueAsInteger();
@@ -90,8 +90,7 @@ public class OSecurityManager {
   /**
    * Checks if an hash string matches a password, based on the algorithm found on hash string.
    *
-   * @param iHash
-   *          Hash string. Can contain the algorithm as prefix in the format <code>{ALGORITHM}-HASH</code>.
+   * @param iHash     Hash string. Can contain the algorithm as prefix in the format <code>{ALGORITHM}-HASH</code>.
    * @param iPassword
    * @return
    */
@@ -122,10 +121,8 @@ public class OSecurityManager {
   /**
    * Hashes the input string.
    *
-   * @param iInput
-   *          String to hash
-   * @param iIncludeAlgorithm
-   *          Include the algorithm used or not
+   * @param iInput            String to hash
+   * @param iIncludeAlgorithm Include the algorithm used or not
    * @return
    */
   public String createHash(final String iInput, final String iAlgorithm, final boolean iIncludeAlgorithm) {

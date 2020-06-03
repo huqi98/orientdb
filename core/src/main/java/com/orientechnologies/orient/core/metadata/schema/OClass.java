@@ -45,19 +45,12 @@ public interface OClass extends Comparable<OClass> {
   }
 
   enum INDEX_TYPE {
-    UNIQUE(true),
-    NOTUNIQUE(true),
-    FULLTEXT(true),
+    UNIQUE(true), NOTUNIQUE(true), FULLTEXT(true),
     /**
      * @deprecated can be used only as manual index and manual indexes are deprecated and will be removed
      */
-    @Deprecated
-    DICTIONARY(false),
-    PROXY(true),
-    UNIQUE_HASH_INDEX(true),
-    NOTUNIQUE_HASH_INDEX(true),
-    DICTIONARY_HASH_INDEX(false),
-    SPATIAL(true);
+    @Deprecated DICTIONARY(false), PROXY(true), UNIQUE_HASH_INDEX(true), NOTUNIQUE_HASH_INDEX(true), DICTIONARY_HASH_INDEX(
+        false), SPATIAL(true);
 
     private boolean automaticIndexable;
 
@@ -125,10 +118,10 @@ public interface OClass extends Comparable<OClass> {
    *
    * @param iPropertyName the name of the property.
    * @param iType         the type of the property.
-   * @param iLinkedClass  in case of property of type LINK,LINKLIST,LINKSET,LINKMAP,EMBEDDED,EMBEDDEDLIST,EMBEDDEDSET,EMBEDDEDMAP can be
-   *                      specified a linked class in all the other cases should be null
-   * @param iUnsafe       if true avoid to check the persistent data for compatibility, should be used only if all persistent data is compatible
-   *                      with the property
+   * @param iLinkedClass  in case of property of type LINK,LINKLIST,LINKSET,LINKMAP,EMBEDDED,EMBEDDEDLIST,EMBEDDEDSET,EMBEDDEDMAP
+   *                      can be specified a linked class in all the other cases should be null
+   * @param iUnsafe       if true avoid to check the persistent data for compatibility, should be used only if all persistent data
+   *                      is compatible with the property
    * @return the created property.
    */
   OProperty createProperty(String iPropertyName, OType iType, OClass iLinkedClass, boolean iUnsafe);
@@ -140,10 +133,10 @@ public interface OClass extends Comparable<OClass> {
    *
    * @param iPropertyName the name of the property.
    * @param iType         the type of the property.
-   * @param iLinkedType   in case of property of type EMBEDDEDLIST,EMBEDDEDSET,EMBEDDEDMAP can be specified a linked type in all the other cases
-   *                      should be null
-   * @param iUnsafe       if true avoid to check the persistent data for compatibility, should be used only if all persistent data is compatible
-   *                      with the property
+   * @param iLinkedType   in case of property of type EMBEDDEDLIST,EMBEDDEDSET,EMBEDDEDMAP can be specified a linked type in all the
+   *                      other cases should be null
+   * @param iUnsafe       if true avoid to check the persistent data for compatibility, should be used only if all persistent data
+   *                      is compatible with the property
    * @return the created property.
    */
   OProperty createProperty(String iPropertyName, OType iType, OType iLinkedType, boolean iUnsafe);
@@ -171,8 +164,7 @@ public interface OClass extends Comparable<OClass> {
   OClass addCluster(String iClusterName);
 
   /**
-   * Removes all data in the cluster with given name.
-   * As result indexes for this class will be rebuilt.
+   * Removes all data in the cluster with given name. As result indexes for this class will be rebuilt.
    *
    * @param clusterName Name of cluster to be truncated.
    * @return Instance of current object.
@@ -319,8 +311,8 @@ public interface OClass extends Comparable<OClass> {
    * @param iProgressListener Progress listener.
    * @param metadata          Additional parameters which will be added in index configuration document as "metadata" field.
    * @param algorithm         Algorithm to use for indexing.
-   * @param fields            Field names from which index will be created. @return Class index registered inside of given class ans associated with
-   *                          database index.
+   * @param fields            Field names from which index will be created. @return Class index registered inside of given class ans
+   *                          associated with database index.
    */
   OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata, String algorithm,
       String... fields);
@@ -332,8 +324,8 @@ public interface OClass extends Comparable<OClass> {
    * @param iType             Index type.
    * @param iProgressListener Progress listener.
    * @param metadata          Additional parameters which will be added in index configuration document as "metadata" field.
-   * @param fields            Field names from which index will be created. @return Class index registered inside of given class ans associated with
-   *                          database index.
+   * @param fields            Field names from which index will be created. @return Class index registered inside of given class ans
+   *                          associated with database index.
    */
   OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata, String... fields);
 

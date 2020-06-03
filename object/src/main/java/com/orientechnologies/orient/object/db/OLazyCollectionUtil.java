@@ -10,9 +10,9 @@ import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
  */
 public class OLazyCollectionUtil {
 
-    /**
-     * Gets the current thread database as a ODatabasePojoAbstract, wrapping it where necessary.
-     */
+  /**
+   * Gets the current thread database as a ODatabasePojoAbstract, wrapping it where necessary.
+   */
   protected static OObjectDatabaseTx getDatabase() {
     ODatabaseInternal<?> databaseOwner = ODatabaseRecordThreadLocal.instance().get().getDatabaseOwner();
     if (databaseOwner instanceof OObjectDatabaseTx) {

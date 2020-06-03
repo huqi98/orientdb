@@ -21,9 +21,8 @@ package com.orientechnologies.orient.core.metadata.function;
 
 /**
  * Wrapper of function with additional utility methods to help inside functions.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OFunctionUtilWrapper {
 

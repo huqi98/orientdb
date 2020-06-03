@@ -272,7 +272,8 @@ public class DbListenerTest extends DocumentDBBaseTest {
     database.open("admin", "admin");
 
     database.begin(TXTYPE.OPTIMISTIC);
-    ODocument rec = database.<ODocument>newInstance().field("name", "Jay").save(database.getClusterNameById(database.getDefaultClusterId()));
+    ODocument rec = database.<ODocument>newInstance().field("name", "Jay")
+        .save(database.getClusterNameById(database.getDefaultClusterId()));
     database.commit();
 
     final DocumentChangeListener cl = new DocumentChangeListener(database);

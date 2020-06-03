@@ -41,7 +41,6 @@ public class TestGraphOperations {
     orientDB.close();
   }
 
-
   @Test
   public void testEdgeUniqueConstraint() {
 

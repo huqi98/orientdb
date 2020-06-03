@@ -18,8 +18,6 @@ public class GraphCreateEdgeWithoutClassTest {
     graph.setUseVertexFieldsForEdgeLabels(true);
     try {
 
-
-
       OrientVertex test = graph.addVertex("class:V");
       test.setProperty("name", "foo");
       test.save();
@@ -27,17 +25,14 @@ public class GraphCreateEdgeWithoutClassTest {
       test1.setProperty("name", "bar");
       test1.save();
       graph.commit();
-      graph
-          .command(new OCommandSQL(
-              "create edge FooBar from (select from V where name='foo') to (select from V where name = 'bar')"))
+      graph.command(
+          new OCommandSQL("create edge FooBar from (select from V where name='foo') to (select from V where name = 'bar')"))
           .execute();
       graph.commit();
 
-      Iterable<OrientElement> res = graph
-          .command(
-              new OSQLSynchQuery("select out as f1, out_ as f2, out_edgetestedge as f3, out_FooBar as f4, outE() as f5 from v where name = 'foo'"))
+      Iterable<OrientElement> res = graph.command(new OSQLSynchQuery(
+          "select out as f1, out_ as f2, out_edgetestedge as f3, out_FooBar as f4, outE() as f5 from v where name = 'foo'"))
           .execute();
-
 
       boolean found = false;
       for (OrientElement oDocument : res) {

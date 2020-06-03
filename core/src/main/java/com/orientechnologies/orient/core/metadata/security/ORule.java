@@ -22,7 +22,6 @@ public class ORule implements Serializable {
       private static final long serialVersionUID = 1L;
     };
 
-
     public static final ResourceGeneric FUNCTION          = new ResourceGeneric("FUNCTION", ODatabaseSecurityResources.FUNCTION) {
       private static final long serialVersionUID = 1L;
     };

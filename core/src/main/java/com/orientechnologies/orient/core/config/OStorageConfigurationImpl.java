@@ -594,9 +594,9 @@ public class OStorageConfigurationImpl implements OSerializableStream, OStorageC
             mulitvalue = false;
           }
 
-          final IndexEngineData indexEngineData = new IndexEngineData(Integer.MIN_VALUE, name, algorithm, indexType, durableInNonTxMode, version,
-              apiVersion, mulitvalue, valueSerializerId, keySerializerId, isAutomatic, types, nullValuesSupport, keySize,
-              encryption, encryptionOptions, engineProperties);
+          final IndexEngineData indexEngineData = new IndexEngineData(Integer.MIN_VALUE, name, algorithm, indexType,
+              durableInNonTxMode, version, apiVersion, mulitvalue, valueSerializerId, keySerializerId, isAutomatic, types,
+              nullValuesSupport, keySize, encryption, encryptionOptions, engineProperties);
 
           indexEngines.put(name, indexEngineData);
         }

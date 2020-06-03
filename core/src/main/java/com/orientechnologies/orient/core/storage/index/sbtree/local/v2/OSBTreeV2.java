@@ -252,8 +252,9 @@ public class OSBTreeV2<K, V> extends ODurableComponent implements OSBTree<K, V> 
               true);
           OSBTreeBucketV2<K, V> keyBucket = new OSBTreeBucketV2<>(keyBucketCacheEntry);
 
-          final byte[] oldRawValue = bucketSearchResult.itemIndex > -1 ? keyBucket
-              .getRawValue(bucketSearchResult.itemIndex, keySerializer, valueSerializer) : null;
+          final byte[] oldRawValue = bucketSearchResult.itemIndex > -1 ?
+              keyBucket.getRawValue(bucketSearchResult.itemIndex, keySerializer, valueSerializer) :
+              null;
           final V oldValue;
           if (oldRawValue == null) {
             oldValue = null;
@@ -1451,9 +1452,9 @@ public class OSBTreeV2<K, V> extends ODurableComponent implements OSBTree<K, V> 
               @SuppressWarnings("ObjectAllocationInLoop")
               OSBTreeBucketV2.SBTreeEntry<K, V> entry = bucket.getEntry(itemIndex, keySerializer, valueSerializer);
 
-              if (toKey != null && (toKeyInclusive
-                  ? comparator.compare(entry.key, toKey) > 0
-                  : comparator.compare(entry.key, toKey) >= 0)) {
+              if (toKey != null && (toKeyInclusive ?
+                  comparator.compare(entry.key, toKey) > 0 :
+                  comparator.compare(entry.key, toKey) >= 0)) {
                 return true;
               }
 
@@ -1650,9 +1651,9 @@ public class OSBTreeV2<K, V> extends ODurableComponent implements OSBTree<K, V> 
               @SuppressWarnings("ObjectAllocationInLoop")
               OSBTreeBucketV2.SBTreeEntry<K, V> entry = bucket.getEntry(itemIndex, keySerializer, valueSerializer);
 
-              if (fromKey != null && (fromKeyInclusive
-                  ? comparator.compare(entry.key, fromKey) < 0
-                  : comparator.compare(entry.key, fromKey) <= 0)) {
+              if (fromKey != null && (fromKeyInclusive ?
+                  comparator.compare(entry.key, fromKey) < 0 :
+                  comparator.compare(entry.key, fromKey) <= 0)) {
                 return true;
               }
 

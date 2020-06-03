@@ -630,8 +630,9 @@ public class OSelectExecutionPlanner {
   }
 
   private static boolean isCountOnly(QueryPlanningInfo info) {
-    if (info.aggregateProjection == null || info.projection == null || info.aggregateProjection.getItems().size() != 1
-            || info.projection.getItems().stream().filter(x -> !x.getProjectionAliasAsString().startsWith("_$$$ORDER_BY_ALIAS$$$_")).count() != 1) {
+    if (info.aggregateProjection == null || info.projection == null || info.aggregateProjection.getItems().size() != 1 ||
+        info.projection.getItems().stream().filter(x -> !x.getProjectionAliasAsString().startsWith("_$$$ORDER_BY_ALIAS$$$_"))
+            .count() != 1) {
       return false;
     }
     OProjectionItem item = info.aggregateProjection.getItems().get(0);
@@ -2195,9 +2196,8 @@ public class OSelectExecutionPlanner {
         .map(index -> buildIndexSearchDescriptor(ctx, index, block, clazz)).filter(Objects::nonNull)
         .filter(x -> x.keyCondition != null).filter(x -> x.keyCondition.getSubBlocks().size() > 0).collect(Collectors.toList());
 
-    List<IndexSearchDescriptor> fullTextIndexDescriptors = indexes.stream().filter(
-        idx -> idx.getType().equalsIgnoreCase("FULLTEXT"))
-        .filter(idx -> !idx.getAlgorithm().equalsIgnoreCase("LUCENE"))
+    List<IndexSearchDescriptor> fullTextIndexDescriptors = indexes.stream()
+        .filter(idx -> idx.getType().equalsIgnoreCase("FULLTEXT")).filter(idx -> !idx.getAlgorithm().equalsIgnoreCase("LUCENE"))
         .map(idx -> buildIndexSearchDescriptorForFulltext(ctx, idx, block, clazz)).filter(Objects::nonNull)
         .filter(x -> x.keyCondition != null).filter(x -> x.keyCondition.getSubBlocks().size() > 0).collect(Collectors.toList());
 

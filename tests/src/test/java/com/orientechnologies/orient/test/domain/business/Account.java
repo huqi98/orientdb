@@ -30,18 +30,18 @@ import com.orientechnologies.orient.core.record.impl.ORecordBytes;
 
 public class Account {
   @Id
-  private Object            rid;
+  private Object rid;
 
-  private int               id;
-  private String            name;
-  private String            surname;
-  private Date              birthDate;
-  private float             salary;
+  private int    id;
+  private String name;
+  private String surname;
+  private Date   birthDate;
+  private float  salary;
 
   @OneToMany(orphanRemoval = true)
-  private List<Address>     addresses   = new ArrayList<Address>();
+  private List<Address> addresses = new ArrayList<Address>();
 
-  private byte[]            thumbnail;
+  private           byte[]  thumbnail;
   private transient byte[]  photo;
   private transient boolean initialized = false;
 

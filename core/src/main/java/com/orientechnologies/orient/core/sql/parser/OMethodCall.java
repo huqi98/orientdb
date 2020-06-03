@@ -25,7 +25,7 @@ public class OMethodCall extends SimpleNode {
   static Set<String> bidirectionalMethods = new HashSet<String>(
       Arrays.asList(new String[] { "out", "in", "both", "oute", "ine", "inv", "outv", "bothe", "bothv" }));
 
-  protected OIdentifier methodName;
+  protected OIdentifier       methodName;
   protected List<OExpression> params = new ArrayList<OExpression>();
 
   private Boolean calculatedIsGraph = null;

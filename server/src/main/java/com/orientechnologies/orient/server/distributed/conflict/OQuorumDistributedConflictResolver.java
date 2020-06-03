@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://www.orientechnologies.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed.conflict;

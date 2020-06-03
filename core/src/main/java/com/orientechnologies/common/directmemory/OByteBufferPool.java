@@ -128,7 +128,6 @@ public final class OByteBufferPool implements OByteBufferPoolMXBean {
    * otherwise new memory chunk is allocated from direct memory.
    *
    * @param clear Whether returned buffer should be filled with zeros before return.
-   *
    * @return Direct memory buffer instance.
    */
   public final OPointer acquireDirect(boolean clear) {
@@ -159,7 +158,6 @@ public final class OByteBufferPool implements OByteBufferPoolMXBean {
    * Put buffer which is not used any more back to the pool or frees direct memory if pool is full.
    *
    * @param pointer Not used instance of buffer.
-   *
    * @see OGlobalConfiguration#DIRECT_MEMORY_POOL_LIMIT
    */
   public final void release(OPointer pointer) {

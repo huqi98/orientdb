@@ -44,15 +44,14 @@ import java.util.Set;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OObjectEntityEnhancer {
 
-  private static final OObjectEntityEnhancer       instance              = new OObjectEntityEnhancer();
-  private final Map<Class<?>, OObjectMethodFilter> customMethodFilters   = new HashMap<Class<?>, OObjectMethodFilter>();
-  private final OObjectMethodFilter                defaultMethodFilter   = new OObjectMethodFilter();
+  private static final OObjectEntityEnhancer              instance            = new OObjectEntityEnhancer();
+  private final        Map<Class<?>, OObjectMethodFilter> customMethodFilters = new HashMap<Class<?>, OObjectMethodFilter>();
+  private final        OObjectMethodFilter                defaultMethodFilter = new OObjectMethodFilter();
 
-  public static final String                       ENHANCER_CLASS_PREFIX = "orientdb_";
+  public static final String ENHANCER_CLASS_PREFIX = "orientdb_";
 
   public OObjectEntityEnhancer() {
   }
@@ -215,7 +214,7 @@ public class OObjectEntityEnhancer {
   @SuppressWarnings({ "rawtypes", "unchecked" })
   protected void initDocument(Class<?> iClass, Object iInstance, ODocument iDocument, ODatabaseObject db)
       throws IllegalArgumentException, IllegalAccessException {
-    for (Class<?> currentClass = iClass; currentClass != Object.class;) {
+    for (Class<?> currentClass = iClass; currentClass != Object.class; ) {
       for (Field f : currentClass.getDeclaredFields()) {
         if (f.getName().equals("this$0"))
           continue;
@@ -253,8 +252,9 @@ public class OObjectEntityEnhancer {
     }
   }
 
-  protected <T> T createInstanceNoParameters(Class<T> iProxiedClass, Class<?> iOriginalClass) throws SecurityException,
-      NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException {
+  protected <T> T createInstanceNoParameters(Class<T> iProxiedClass, Class<?> iOriginalClass)
+      throws SecurityException, NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException,
+      InvocationTargetException {
     T instanceToReturn = null;
     final Class<?> enclosingClass = OObjectEntitySerializer.getEnclosingClass(iOriginalClass);
 
@@ -279,8 +279,9 @@ public class OObjectEntityEnhancer {
 
   }
 
-  protected <T> T createInstanceNoParameters(Class<T> iProxiedClass, Object iEnclosingInstance) throws SecurityException,
-      NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException, InvocationTargetException {
+  protected <T> T createInstanceNoParameters(Class<T> iProxiedClass, Object iEnclosingInstance)
+      throws SecurityException, NoSuchMethodException, IllegalArgumentException, InstantiationException, IllegalAccessException,
+      InvocationTargetException {
     T instanceToReturn = null;
     final Class<?> enclosingClass = iEnclosingInstance.getClass();
 

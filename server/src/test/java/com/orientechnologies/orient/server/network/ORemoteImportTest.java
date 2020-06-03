@@ -27,8 +27,8 @@ import static org.junit.Assert.assertTrue;
  */
 public class ORemoteImportTest {
 
-  private static final String SERVER_DIRECTORY = "./target/db";
-  private OServer server;
+  private static final String  SERVER_DIRECTORY = "./target/db";
+  private              OServer server;
 
   @Before
   public void before() throws Exception {

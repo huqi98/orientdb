@@ -22,14 +22,10 @@ import com.orientechnologies.orient.core.db.record.OProxedResource;
 import java.util.Map;
 
 /**
- * Proxy implementation of the Scheduler.
-<<<<<<< HEAD
- * 
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
-=======
+ * Proxy implementation of the Scheduler. <<<<<<< HEAD
  *
- * @author Luca Garulli
->>>>>>> 1b627a8... HA: fixed issues with distributed scheduler events
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com) =======
+ * @author Luca Garulli >>>>>>> 1b627a8... HA: fixed issues with distributed scheduler events
  * @author henryzhao81-at-gmail.com
  * @since Mar 28, 2013
  */

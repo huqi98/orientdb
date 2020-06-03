@@ -25,7 +25,7 @@ public class OSqlUpdateContentValidationTest {
       db.command(new OCommandSQL("update " + res.getIdentity() + " CONTENT {\"testNormal\":\"by\"}")).execute();
       Assert.fail("Error on update of a record removing a readonly property");
     } catch (OValidationException val) {
-      
+
     }
     db.close();
   }

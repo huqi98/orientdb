@@ -40,15 +40,15 @@ import com.orientechnologies.orient.core.Orient;
 import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 import com.orientechnologies.orient.core.storage.OStorage;
 
-public abstract class ODatabasePoolAbstract<DB extends ODatabaseInternal> extends OAdaptiveLock implements
-    OResourcePoolListener<String, DB>, OOrientListener {
+public abstract class ODatabasePoolAbstract<DB extends ODatabaseInternal> extends OAdaptiveLock
+    implements OResourcePoolListener<String, DB>, OOrientListener {
 
-  private final HashMap<String, OReentrantResourcePool<String, DB>> pools = new HashMap<String, OReentrantResourcePool<String, DB>>();
-  protected Object                                                  owner;
-  private int                                                       maxSize;
-  private int                                                       timeout;
-  private volatile Timer                                            evictionTask;
-  private Evictor                                                   evictor;
+  private final    HashMap<String, OReentrantResourcePool<String, DB>> pools = new HashMap<String, OReentrantResourcePool<String, DB>>();
+  protected        Object                                              owner;
+  private          int                                                 maxSize;
+  private          int                                                 timeout;
+  private volatile Timer                                               evictionTask;
+  private          Evictor                                             evictor;
 
   /**
    * The idle object evictor {@link TimerTask}.
@@ -119,8 +119,7 @@ public abstract class ODatabasePoolAbstract<DB extends ODatabaseInternal> extend
 
   public ODatabasePoolAbstract(final Object iOwner, final int iMinSize, final int iMaxSize, final int iTimeout,
       final long idleTimeoutMillis, final long timeBetweenEvictionRunsMillis) {
-    super(true, OGlobalConfiguration.STORAGE_LOCK_TIMEOUT
-        .getValueAsInteger(), true);
+    super(true, OGlobalConfiguration.STORAGE_LOCK_TIMEOUT.getValueAsInteger(), true);
 
     maxSize = iMaxSize;
     timeout = iTimeout;
@@ -138,8 +137,8 @@ public abstract class ODatabasePoolAbstract<DB extends ODatabaseInternal> extend
     return acquire(iURL, iUserName, iUserPassword, null);
   }
 
-  public DB acquire(final String iURL, final String iUserName, final String iUserPassword, final Map<String, Object> iOptionalParams)
-      throws OLockException {
+  public DB acquire(final String iURL, final String iUserName, final String iUserPassword,
+      final Map<String, Object> iOptionalParams) throws OLockException {
     final String dbPooledName = OIOUtils.getUnixFileName(iUserName + "@" + iURL);
     OReentrantResourcePool<String, DB> pool;
     lock();

@@ -95,7 +95,7 @@ public class JournaledTxStreamingTest {
     Assert.assertFalse(buildDir.exists());
   }
 
-//  @Test
+  //  @Test
   public void testStreaming() throws IOException {
     Deque<Integer> txs = new ArrayDeque<>();
 

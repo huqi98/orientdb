@@ -23,7 +23,7 @@ public class OSQLFunctionIndexKeySizeTest {
     try (OResultSet rs = db.query("select indexKeySize('testindex') as foo")) {
       Assert.assertTrue(rs.hasNext());
       OResult item = rs.next();
-      Assert.assertEquals((Object)2L, item.getProperty("foo"));
+      Assert.assertEquals((Object) 2L, item.getProperty("foo"));
       Assert.assertFalse(rs.hasNext());
     }
     db.close();

@@ -71,7 +71,7 @@ public class OJMXPlugin extends OServerPluginAbstract {
 
   /*
    * (non-Javadoc)
-   * 
+   *
    * @see com.orientechnologies.orient.server.handler.OServerHandlerAbstract#shutdown()
    */
   @Override

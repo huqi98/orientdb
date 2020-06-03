@@ -29,7 +29,7 @@ import java.util.Set;
 
 /**
  * Live Query command operator executor factory.
- * 
+ *
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OLiveCommandExecutorSQLFactory implements OCommandExecutorSQLFactory {

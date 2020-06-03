@@ -35,36 +35,35 @@ import com.orientechnologies.orient.core.record.impl.ODocument;
 public class DbDeleteTest extends DocumentDBBaseTest {
   private String testPath;
 
-	@Parameters(value = { "url", "testPath" })
-	public DbDeleteTest(@Optional String url, String testPath) {
-		super(url);
-		this.testPath = testPath;
-	}
+  @Parameters(value = { "url", "testPath" })
+  public DbDeleteTest(@Optional String url, String testPath) {
+    super(url);
+    this.testPath = testPath;
+  }
 
-	@BeforeClass
-	@Override
-	public void beforeClass() throws Exception {
-		super.beforeClass();
-		database.close();
-	}
+  @BeforeClass
+  @Override
+  public void beforeClass() throws Exception {
+    super.beforeClass();
+    database.close();
+  }
 
-	@AfterClass
-	@Override
-	public void afterClass() throws Exception {
-	}
+  @AfterClass
+  @Override
+  public void afterClass() throws Exception {
+  }
 
-	@BeforeMethod
-	@Override
-	public void beforeMethod() throws Exception {
-	}
+  @BeforeMethod
+  @Override
+  public void beforeMethod() throws Exception {
+  }
 
-	@AfterMethod
-	@Override
-	public void afterMethod() throws Exception {
-	}
+  @AfterMethod
+  @Override
+  public void afterMethod() throws Exception {
+  }
 
-
-	public void testDbDeleteNoCredential() throws IOException {
+  public void testDbDeleteNoCredential() throws IOException {
     ODatabaseDocument db = new ODatabaseDocumentTx(url);
     try {
       db.drop();

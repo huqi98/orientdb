@@ -36,7 +36,7 @@ public class HAClusterStrategyIT extends AbstractHARemoveNode {
   @Override
   public void executeTest() throws Exception {
     final ODatabaseDocument g = serverInstance.get(0).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
-    
+
     g.createVertexClass("Test");
     g.close();
 
@@ -58,7 +58,7 @@ public class HAClusterStrategyIT extends AbstractHARemoveNode {
       v.setProperty("firstName", "Roger");
       v.setProperty("lastName", "Smith");
       v.save();
-      
+
       graph.commit();
 
       graph.close();

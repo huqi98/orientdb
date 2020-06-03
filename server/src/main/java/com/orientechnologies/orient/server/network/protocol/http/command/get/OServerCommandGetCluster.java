@@ -35,8 +35,7 @@ public class OServerCommandGetCluster extends OServerCommandAuthenticatedDbAbstr
 
   @Override
   public boolean execute(final OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {
-    String[] urlParts = checkSyntax(iRequest.getUrl(),
-        3,
+    String[] urlParts = checkSyntax(iRequest.getUrl(), 3,
         "Syntax error: cluster/<database>/<cluster-name>[/<limit>]<br>Limit is optional and is setted to 20 by default. Set expressely to 0 to have no limits.");
 
     iRequest.getData().commandInfo = "Browse cluster";

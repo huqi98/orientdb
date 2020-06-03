@@ -32,10 +32,11 @@ import com.orientechnologies.orient.enterprise.channel.binary.OResponseProcessin
  */
 @Test(groups = "sql-select")
 public class SQLMetadataTest extends DocumentDBBaseTest {
-	@Parameters(value = "url")
-	public SQLMetadataTest(@Optional String url) {
-		super(url);
-	}
+  @Parameters(value = "url")
+  public SQLMetadataTest(@Optional String url) {
+    super(url);
+  }
+
   @Test
   public void querySchemaClasses() {
     List<ODocument> result = database.command(new OSQLSynchQuery<ODocument>("select expand(classes) from metadata:schema"))
@@ -46,9 +47,8 @@ public class SQLMetadataTest extends DocumentDBBaseTest {
 
   @Test
   public void querySchemaProperties() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>(
-            "select expand(properties) from (select expand(classes) from metadata:schema) where name = 'OUser'")).execute();
+    List<ODocument> result = database.command(new OSQLSynchQuery<ODocument>(
+        "select expand(properties) from (select expand(classes) from metadata:schema) where name = 'OUser'")).execute();
 
     Assert.assertTrue(result.size() != 0);
   }

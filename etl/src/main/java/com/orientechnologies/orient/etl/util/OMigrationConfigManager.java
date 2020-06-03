@@ -38,9 +38,7 @@ public class OMigrationConfigManager {
   private static final String configurationDirectoryName = "etl-config/";
   private static final String configFileDefaultName      = "migration-config.json";           // path ORIENTDB_HOME/<db-name>/teleporter-config/migration-config.json
 
-
   /**
-   *
    * @param migrationConfig
    * @param outOrientGraphUri
    * @param configName
@@ -61,14 +59,14 @@ public class OMigrationConfigManager {
   }
 
   /**
-   *
    * @param migrationConfig
    * @param outOrientGraphUri
    * @param configName
    * @return Configuration file path.
    * @throws IOException
    */
-  public static String writeConfigurationInTargetDB(String migrationConfig, String outOrientGraphUri, String configName) throws IOException {
+  public static String writeConfigurationInTargetDB(String migrationConfig, String outOrientGraphUri, String configName)
+      throws IOException {
 
     String outDBConfigPath = prepareConfigDirectoryForWriting(outOrientGraphUri, configName);
     OFileManager.writeFileFromText(migrationConfig, outDBConfigPath, false);
@@ -112,6 +110,5 @@ public class OMigrationConfigManager {
     outDBConfigPath = outDBConfigPath.replace("plocal:", "");
     return outDBConfigPath;
   }
-
 
 }

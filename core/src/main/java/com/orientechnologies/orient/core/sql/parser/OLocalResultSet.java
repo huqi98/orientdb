@@ -18,14 +18,12 @@ import java.util.Optional;
  */
 public class OLocalResultSet implements OResultSet {
 
-  private OResultSet lastFetch = null;
+  private       OResultSet             lastFetch = null;
   private final OInternalExecutionPlan executionPlan;
-  private boolean finished = false;
+  private       boolean                finished  = false;
 
   long totalExecutionTime = 0;
-  long startTime = 0;
-
-
+  long startTime          = 0;
 
   public OLocalResultSet(OInternalExecutionPlan executionPlan) {
     this.executionPlan = executionPlan;
@@ -35,7 +33,7 @@ public class OLocalResultSet implements OResultSet {
   private boolean fetchNext() {
     long begin = System.currentTimeMillis();
     try {
-      if(lastFetch == null) {
+      if (lastFetch == null) {
         startTime = begin;
       }
       lastFetch = executionPlan.fetchNext(100);
@@ -81,10 +79,10 @@ public class OLocalResultSet implements OResultSet {
       if (db != null) {
         final OSecurityUser user = db.getUser();
         final String userString = user != null ? user.toString() : null;
-        Orient.instance().getProfiler()
-            .stopChrono("db." + ODatabaseRecordThreadLocal.instance().get().getName() + ".command.sql." + executionPlan.getStatement(),
-                "Command executed against the database", System.currentTimeMillis() - totalExecutionTime, "db.*.command.*", null,
-                userString);
+        Orient.instance().getProfiler().stopChrono(
+            "db." + ODatabaseRecordThreadLocal.instance().get().getName() + ".command.sql." + executionPlan.getStatement(),
+            "Command executed against the database", System.currentTimeMillis() - totalExecutionTime, "db.*.command.*", null,
+            userString);
       }
     }
   }

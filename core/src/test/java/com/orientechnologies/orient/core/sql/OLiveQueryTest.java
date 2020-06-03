@@ -124,13 +124,14 @@ public class OLiveQueryTest {
       OClass clazz = db.getMetadata().getSchema().createClass("test");
 
       int defaultCluster = clazz.getDefaultClusterId();
-      final OStorage storage = ((ODatabaseDocumentInternal)db).getStorage();
+      final OStorage storage = ((ODatabaseDocumentInternal) db).getStorage();
 
       MyLiveQueryListener listener = new MyLiveQueryListener(new CountDownLatch(1));
 
       db.query(new OLiveQuery<ODocument>("live select from cluster:" + storage.getClusterNameById(defaultCluster), listener));
 
-      db.command(new OCommandSQL("insert into cluster:" + storage.getClusterNameById(defaultCluster) + " set name = 'foo', surname = 'bar'")).execute();
+      db.command(new OCommandSQL(
+          "insert into cluster:" + storage.getClusterNameById(defaultCluster) + " set name = 'foo', surname = 'bar'")).execute();
 
       try {
         Assert.assertTrue(listener.latch.await(1, TimeUnit.MINUTES));

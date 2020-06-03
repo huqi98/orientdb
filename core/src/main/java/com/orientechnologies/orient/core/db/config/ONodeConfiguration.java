@@ -4,12 +4,12 @@ import java.util.UUID;
 
 public class ONodeConfiguration {
   //Node name is redundant because it can come also from user configuration appart been stored in the node identity
-  private String                 nodeName;
-  private String                 groupName;
-  private String                 groupPassword;
-  private int                    quorum;
-  private Integer                tcpPort;
-  private OMulticastConfguration multicast;
+  private String                   nodeName;
+  private String                   groupName;
+  private String                   groupPassword;
+  private int                      quorum;
+  private Integer                  tcpPort;
+  private OMulticastConfguration   multicast;
   private OUDPUnicastConfiguration udpUnicast;
 
   protected ONodeConfiguration() {
@@ -26,7 +26,7 @@ public class ONodeConfiguration {
   }
 
   protected ONodeConfiguration(String nodeName, String groupName, String groupPassword, int quorum, Integer tcpPort,
-                               OUDPUnicastConfiguration unicastConfig) {
+      OUDPUnicastConfiguration unicastConfig) {
     this.nodeName = nodeName;
     this.groupName = groupName;
     this.groupPassword = groupPassword;

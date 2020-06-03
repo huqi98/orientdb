@@ -37,7 +37,7 @@ import java.util.Map;
 public class OCommandExecutorSQLLiveUnsubscribe extends OCommandExecutorSQLAbstract implements OCommandDistributedReplicateRequest {
   public static final String KEYWORD_LIVE_UNSUBSCRIBE = "LIVE UNSUBSCRIBE";
 
-  protected String           unsubscribeToken;
+  protected String unsubscribeToken;
 
   public OCommandExecutorSQLLiveUnsubscribe() {
   }
@@ -53,8 +53,8 @@ public class OCommandExecutorSQLLiveUnsubscribe extends OCommandExecutorSQLAbstr
 
       return result;
     } catch (Exception e) {
-      OLogManager.instance().warn(this,
-          "error unsubscribing token " + unsubscribeToken + ": " + e.getClass().getName() + " - " + e.getMessage());
+      OLogManager.instance()
+          .warn(this, "error unsubscribing token " + unsubscribeToken + ": " + e.getClass().getName() + " - " + e.getMessage());
       ODocument result = new ODocument();
       result.field("error-unsubscribe", unsubscribeToken);
       result.field("error-description", e.getMessage());

@@ -31,12 +31,12 @@ public class OCloseRequest implements OBinaryRequest<OBinaryResponse> {
   public String getDescription() {
     return "Close Database";
   }
-  
+
   @Override
   public boolean requireDatabaseSession() {
     return false;
   }
-  
+
   @Override
   public OBinaryResponse createResponse() {
     return null;

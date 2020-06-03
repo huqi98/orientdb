@@ -5,5 +5,5 @@ import com.orientechnologies.orient.core.command.OCommandContext;
 public interface OTemporaryRidGenerator {
 
   int getTemporaryRIDCounter(final OCommandContext iContext);
-  
+
 }

@@ -27,27 +27,27 @@ import java.util.Set;
 
 /**
  * Contains the profiling data abount timing.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OProfilerEntry {
-  public String      name    = null;
-  public long        entries = 0;
-  public long        last    = 0;
-  public long        min     = 999999999;
-  public long        max     = 0;
-  public float       average = 0;
-  public long        total   = 0;
-  public final long  firstExecution;
-  public long        lastExecution;
+  public       String name    = null;
+  public       long   entries = 0;
+  public       long   last    = 0;
+  public       long   min     = 999999999;
+  public       long   max     = 0;
+  public       float  average = 0;
+  public       long   total   = 0;
+  public final long   firstExecution;
+  public       long   lastExecution;
 
-  public String      payLoad;
-  public String      description;
+  public String payLoad;
+  public String description;
 
-  public long        lastResetEntries = 0;
-  public long        lastReset;
+  public long lastResetEntries = 0;
+  public long lastReset;
 
-  public Set<String> users   = new HashSet<String>();
+  public Set<String> users = new HashSet<String>();
 
   public OProfilerEntry() {
     firstExecution = System.currentTimeMillis();
@@ -111,7 +111,8 @@ public class OProfilerEntry {
 
   @Override
   public String toString() {
-    return String.format("Profiler entry [%s]: total=%d, average=%.2f, items=%d, last=%d, max=%d, min=%d", name, total, average,
-        entries, last, max, min);
+    return String
+        .format("Profiler entry [%s]: total=%d, average=%.2f, items=%d, last=%d, max=%d, min=%d", name, total, average, entries,
+            last, max, min);
   }
 }

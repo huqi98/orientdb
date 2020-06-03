@@ -33,7 +33,7 @@ import java.util.Map;
  * re-merges the cluster again.
  */
 public class SplitBraiNetworkTestTempIT extends AbstractHARemoveNode {
-  final static int     SERVERS = 3;
+  final static int SERVERS = 3;
 
   private OProxyServer hzProxy;
   private OProxyServer server1And2Proxy;

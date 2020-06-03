@@ -33,17 +33,13 @@ import java.util.concurrent.Callable;
 import static org.junit.Assert.fail;
 
 /**
- * It checks the consistency in the cluster with the following scenario:
- * - 3 server (quorum=2)
- * - 5 threads write 100 records on server1 and server2
- * - meanwhile after 1/3 of to-write records server3 goes in deadlock (backup), and after 2/3 of to-write records goes up.
- * - check that changes are propagated on server2
- * - deadlock-ending on server3
- * - after a while check that last
+ * It checks the consistency in the cluster with the following scenario: - 3 server (quorum=2) - 5 threads write 100 records on
+ * server1 and server2 - meanwhile after 1/3 of to-write records server3 goes in deadlock (backup), and after 2/3 of to-write
+ * records goes up. - check that changes are propagated on server2 - deadlock-ending on server3 - after a while check that last
  * changes are propagated on server3.
  *
  * @author Gabriele Ponzi
- * @email  <gabriele.ponzi--at--gmail.com>
+ * @email <gabriele.ponzi--at--gmail.com>
  */
 
 public class NodeInDeadlockScenarioIT extends AbstractScenarioTest {
@@ -123,66 +119,65 @@ public class NodeInDeadlockScenarioIT extends AbstractScenarioTest {
           try {
             // CRASH LAST SERVER try {
             executeWhen(new Callable<Boolean>() {
-              // CONDITION
-              @Override
-              public Boolean call() throws Exception {
-                final ODatabaseDocument database = getDatabase(0);
-                try {
-                  long recordCount = database.countClass("Person");
-                  boolean condition = recordCount > (count * writerCount * (SERVERS - 1) + baseCount) * 1 / 3;
-                  return condition;
-                } finally {
-                  database.close();
-                }
-              }
-            }, // ACTION
+                          // CONDITION
+                          @Override
+                          public Boolean call() throws Exception {
+                            final ODatabaseDocument database = getDatabase(0);
+                            try {
+                              long recordCount = database.countClass("Person");
+                              boolean condition = recordCount > (count * writerCount * (SERVERS - 1) + baseCount) * 1 / 3;
+                              return condition;
+                            } finally {
+                              database.close();
+                            }
+                          }
+                        }, // ACTION
                 new Callable() {
-              @Override
-              public Object call() throws Exception {
-                Assert.assertTrue("Insert was too fast", inserting);
+                  @Override
+                  public Object call() throws Exception {
+                    Assert.assertTrue("Insert was too fast", inserting);
 
-                banner("STARTING BACKUP SERVER " + (SERVERS - 1));
+                    banner("STARTING BACKUP SERVER " + (SERVERS - 1));
 
-                ODatabaseDocument g = null;
-                if(databaseExists(SERVERS - 1)){
-                  g = getDatabase(SERVERS - 1);
-                }else{
-                  createDatabase(SERVERS - 1);
-                  g = getDatabase(SERVERS - 1);
-                }
-
-
-                backupInProgress = true;
-                File file = null;
-                try {
-                  file = File.createTempFile("orientdb_test_backup", ".zip");
-                  if (file.exists())
-                    Assert.assertTrue(file.delete());
-
-                  g.backup(new FileOutputStream(file), null, new Callable<Object>() {
-                    @Override
-                    public Object call() throws Exception {
-
-                      Thread.sleep(5000);
-
-                      return null;
+                    ODatabaseDocument g = null;
+                    if (databaseExists(SERVERS - 1)) {
+                      g = getDatabase(SERVERS - 1);
+                    } else {
+                      createDatabase(SERVERS - 1);
+                      g = getDatabase(SERVERS - 1);
                     }
-                  }, null, 9, 1000000);
 
-                } catch (IOException e) {
-                  e.printStackTrace();
-                } finally {
-                  banner("COMPLETED BACKUP SERVER " + (SERVERS - 1));
-                  backupInProgress = false;
+                    backupInProgress = true;
+                    File file = null;
+                    try {
+                      file = File.createTempFile("orientdb_test_backup", ".zip");
+                      if (file.exists())
+                        Assert.assertTrue(file.delete());
 
-                  g.close();
+                      g.backup(new FileOutputStream(file), null, new Callable<Object>() {
+                        @Override
+                        public Object call() throws Exception {
 
-                  if (file != null)
-                    file.delete();
-                }
-                return null;
-              }
-            });
+                          Thread.sleep(5000);
+
+                          return null;
+                        }
+                      }, null, 9, 1000000);
+
+                    } catch (IOException e) {
+                      e.printStackTrace();
+                    } finally {
+                      banner("COMPLETED BACKUP SERVER " + (SERVERS - 1));
+                      backupInProgress = false;
+
+                      g.close();
+
+                      if (file != null)
+                        file.delete();
+                    }
+                    return null;
+                  }
+                });
 
           } catch (Exception e) {
             e.printStackTrace();
@@ -201,8 +196,9 @@ public class NodeInDeadlockScenarioIT extends AbstractScenarioTest {
       public Boolean call(ODatabaseDocument db) {
         final boolean ok = db.countClass("Person") >= count * writerCount * (SERVERS - 1) + baseCount;
         if (!ok)
-          System.out.println("FOUND " + db.countClass("Person") + " people instead of expected "
-              + (count * writerCount * (SERVERS - 1) + baseCount));
+          System.out.println(
+              "FOUND " + db.countClass("Person") + " people instead of expected " + (count * writerCount * (SERVERS - 1)
+                  + baseCount));
         return ok;
       }
     }, 10000);

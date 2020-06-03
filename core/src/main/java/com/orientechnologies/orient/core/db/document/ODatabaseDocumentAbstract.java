@@ -554,7 +554,6 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    *
    * @param type Hook type. Define when hook is called.
    * @param id   Record received in the callback
-   *
    * @return True if the input record is changed, otherwise false
    */
   public ORecordHook.RESULT callbackHooks(final ORecordHook.TYPE type, final OIdentifiable id) {
@@ -1328,7 +1327,6 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    * Creates a document with specific class.
    *
    * @param iClassName the name of class that should be used as a class of created document.
-   *
    * @return new instance of document.
    */
   @Override
@@ -1607,9 +1605,7 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    * called.
    *
    * @param iRecord Record to save.
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
-   *
    * @throws OConcurrentModificationException if the version of the document is different by the version contained in the database.
    * @throws OValidationException             if the document breaks some validation constraints defined in the schema
    * @see #setMVCC(boolean), {@link #isMVCC()}
@@ -1636,9 +1632,7 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    *                               exception is thrown
    * @param iRecordCreatedCallback callback that is called after creation of new record
    * @param iRecordUpdatedCallback callback that is called after record update
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
-   *
    * @throws OConcurrentModificationException if the version of the document is different by the version contained in the database.
    * @throws OValidationException             if the document breaks some validation constraints defined in the schema
    * @see #setMVCC(boolean), {@link #isMVCC()}
@@ -1663,9 +1657,7 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    *
    * @param iRecord      Record to save
    * @param iClusterName Cluster name where to save the record
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
-   *
    * @throws OConcurrentModificationException if the version of the document is different by the version contained in the database.
    * @throws OValidationException             if the document breaks some validation constraints defined in the schema
    * @see #setMVCC(boolean), {@link #isMVCC()}, ODocument#validate()
@@ -1694,9 +1686,7 @@ public abstract class ODatabaseDocumentAbstract extends OListenerManger<ODatabas
    *                               exception is thrown
    * @param iRecordCreatedCallback callback that is called after creation of new record
    * @param iRecordUpdatedCallback callback that is called after record update
-   *
    * @return The Database instance itself giving a "fluent interface". Useful to call multiple methods in chain.
-   *
    * @throws OConcurrentModificationException if the version of the document is different by the version contained in the database.
    * @throws OValidationException             if the document breaks some validation constraints defined in the schema
    * @see #setMVCC(boolean), {@link #isMVCC()}, ODocument#validate()

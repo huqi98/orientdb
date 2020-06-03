@@ -15,7 +15,7 @@ public class ORightBinaryCondition extends SimpleNode {
 
   OBinaryCompareOperator operator;
 
-  boolean not = false;
+  boolean     not = false;
   OInOperator inOperator;
 
   OExpression right;

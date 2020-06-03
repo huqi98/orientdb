@@ -30,12 +30,12 @@ import java.util.Arrays;
  * @author bogdan
  */
 public class ORecordBytesTest {
-  private static final int SMALL_ARRAY = 3;
-  private static final int BIG_ARRAY   = 7;
-  private static final int FULL_ARRAY  = 5;
-  private InputStream inputStream;
-  private InputStream emptyStream;
-  private OBlob       testedInstance;
+  private static final int         SMALL_ARRAY = 3;
+  private static final int         BIG_ARRAY   = 7;
+  private static final int         FULL_ARRAY  = 5;
+  private              InputStream inputStream;
+  private              InputStream emptyStream;
+  private              OBlob       testedInstance;
 
   private static void assertArrayEquals(byte[] actual, byte[] expected) {
     assert actual.length == expected.length;
@@ -167,7 +167,7 @@ public class ORecordBytesTest {
   private static final class NotFullyAvailableAtTheTimeInputStream extends InputStream {
 
     private final byte[] data;
-    private int pos = -1;
+    private       int    pos = -1;
     private       int    interrupt;
 
     private NotFullyAvailableAtTheTimeInputStream(byte[] data, int interrupt) {

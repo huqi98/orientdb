@@ -19,16 +19,19 @@ import java.util.Set;
 public class OTruncateRecordStatementExecutionTest {
   static ODatabaseDocument database;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     database = new ODatabaseDocumentTx("memory:OTruncateRecordStatementExecutionTest");
     database.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     database.close();
   }
 
-  @Test public void truncateRecord() {
+  @Test
+  public void truncateRecord() {
     if (!database.getMetadata().getSchema().existsClass("truncateRecord"))
       database.command("create class truncateRecord");
 
@@ -55,11 +58,13 @@ public class OTruncateRecordStatementExecutionTest {
     Assert.assertEquals(database.countClass("truncateRecord"), total - truncatedRecords);
   }
 
-  @Test public void truncateNonExistingRecord() {
+  @Test
+  public void truncateNonExistingRecord() {
     if (!database.getMetadata().getSchema().existsClass("truncateNonExistingRecord"))
       database.command("create class truncateNonExistingRecord");
 
-    OResultSet records = database.command("truncate record [ #" + database.getClusterIdByName("truncateNonExistingRecord") + ":99999999 ]");
+    OResultSet records = database
+        .command("truncate record [ #" + database.getClusterIdByName("truncateNonExistingRecord") + ":99999999 ]");
 
     Assert.assertEquals(toList(records).size(), 0);
   }

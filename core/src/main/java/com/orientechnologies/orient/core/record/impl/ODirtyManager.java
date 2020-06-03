@@ -32,9 +32,9 @@ import java.util.Map.Entry;
  */
 public class ODirtyManager {
 
-  private ODirtyManager                       overrider;
-  private Set<ORecord>                        newRecords;
-  private Set<ORecord>                        updateRecords;
+  private ODirtyManager overrider;
+  private Set<ORecord>  newRecords;
+  private Set<ORecord>  updateRecords;
 
   public void setDirty(ORecord record) {
     ODirtyManager real = getReal();
@@ -84,7 +84,6 @@ public class ODirtyManager {
    *
    * @param target
    * @param source
-   *
    * @return
    */
   private static Set<ORecord> mergeSet(Set<ORecord> target, Set<ORecord> source) {

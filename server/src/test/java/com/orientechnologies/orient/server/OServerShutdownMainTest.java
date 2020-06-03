@@ -64,7 +64,6 @@ public class OServerShutdownMainTest {
     if (server.isActive())
       server.shutdown();
 
-
     Orient.instance().shutdown();
     OFileUtils.deleteRecursively(new File("./target/testhome"));
     Orient.instance().startup();

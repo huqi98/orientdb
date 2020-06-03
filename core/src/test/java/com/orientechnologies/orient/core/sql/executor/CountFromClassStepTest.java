@@ -11,25 +11,25 @@ import org.junit.Test;
  */
 public class CountFromClassStepTest extends TestUtilsFixture {
 
-    private static final String ALIAS = "size";
+  private static final String ALIAS = "size";
 
-    @Test
-    public void shouldCountRecordsOfClass() {
-        String className = createClassInstance().getName();
-        for (int i = 0; i < 20; i++) {
-            ODocument document = new ODocument(className);
-            document.save();
-        }
-
-      OIdentifier classIdentifier = new OIdentifier(className);
-
-        OBasicCommandContext context = new OBasicCommandContext();
-        context.setDatabase(database);
-        CountFromClassStep step = new CountFromClassStep(classIdentifier, ALIAS, context, false);
-
-        OResultSet result = step.syncPull(context, 20);
-        Assert.assertEquals(20, (long) result.next().getProperty(ALIAS));
-        Assert.assertFalse(result.hasNext());
+  @Test
+  public void shouldCountRecordsOfClass() {
+    String className = createClassInstance().getName();
+    for (int i = 0; i < 20; i++) {
+      ODocument document = new ODocument(className);
+      document.save();
     }
+
+    OIdentifier classIdentifier = new OIdentifier(className);
+
+    OBasicCommandContext context = new OBasicCommandContext();
+    context.setDatabase(database);
+    CountFromClassStep step = new CountFromClassStep(classIdentifier, ALIAS, context, false);
+
+    OResultSet result = step.syncPull(context, 20);
+    Assert.assertEquals(20, (long) result.next().getProperty(ALIAS));
+    Assert.assertFalse(result.hasNext());
+  }
 
 }

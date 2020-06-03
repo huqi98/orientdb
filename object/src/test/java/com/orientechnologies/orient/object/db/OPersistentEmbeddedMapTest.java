@@ -18,7 +18,7 @@ import java.util.Map;
 public class OPersistentEmbeddedMapTest {
 
   private OPartitionedDatabasePool pool;
-  private OObjectDatabaseTx createdDb;
+  private OObjectDatabaseTx        createdDb;
 
   @Before
   public void setup() {

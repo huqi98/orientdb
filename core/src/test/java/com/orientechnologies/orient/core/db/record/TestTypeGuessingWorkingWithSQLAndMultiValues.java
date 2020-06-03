@@ -4,7 +4,11 @@ import com.orientechnologies.orient.core.command.script.OCommandScript;
 import com.orientechnologies.orient.core.db.document.ODatabaseDocumentTx;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 import com.orientechnologies.orient.core.sql.OCommandSQL;
-import org.junit.Assert;import org.junit.Before; import org.junit.After;import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
+
 import java.util.Collection;
 
 /**
@@ -19,9 +23,9 @@ public class TestTypeGuessingWorkingWithSQLAndMultiValues {
     db = new ODatabaseDocumentTx("memory:" + TestTypeGuessingWorkingWithSQLAndMultiValues.class.getSimpleName());
     db.create();
 
-    db.command(
-        new OCommandScript("sql", "create class Address\n" + "create property Address.street String\n"
-            + "create property Address.city String\n" + "\n" + "create class Client\n" + "create property Client.name String\n"
+    db.command(new OCommandScript("sql",
+        "create class Address\n" + "create property Address.street String\n" + "create property Address.city String\n" + "\n"
+            + "create class Client\n" + "create property Client.name String\n"
             + "create property Client.phones embeddedSet String\n" + "create property Client.addresses embeddedList Address\n"))
         .execute();
   }
@@ -29,12 +33,9 @@ public class TestTypeGuessingWorkingWithSQLAndMultiValues {
   @Test
   public void testLinkedValue() {
 
-    Iterable<ODocument> result = db
-        .command(
-            new OCommandScript(
-                "sql",
-                "insert into client set name = 'James Bond', phones = ['1234', '34567'], addresses = [{'city':'Shanghai', 'zip':'3999'}, {'city':'New York', 'street':'57th Ave'}]\n"
-                    + "update client add addresses = [{'@type':'d','@class':'Address','city':'London', 'zip':'67373'}] return after"))
+    Iterable<ODocument> result = db.command(new OCommandScript("sql",
+        "insert into client set name = 'James Bond', phones = ['1234', '34567'], addresses = [{'city':'Shanghai', 'zip':'3999'}, {'city':'New York', 'street':'57th Ave'}]\n"
+            + "update client add addresses = [{'@type':'d','@class':'Address','city':'London', 'zip':'67373'}] return after"))
         .execute();
 
     Assert.assertTrue(result.iterator().hasNext());

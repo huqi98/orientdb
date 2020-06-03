@@ -64,7 +64,7 @@ public final class OCountRequest implements OBinaryRequest<OCountResponse> {
   public byte getCommand() {
     return OChannelBinaryProtocol.REQUEST_CLUSTER_COUNT;
   }
-  
+
   @Override
   public String getDescription() {
     return "Count cluster elements";
@@ -87,6 +87,5 @@ public final class OCountRequest implements OBinaryRequest<OCountResponse> {
   public OBinaryResponse execute(OBinaryRequestExecutor executor) {
     return executor.executeCountCluster(this);
   }
-  
-  
+
 }

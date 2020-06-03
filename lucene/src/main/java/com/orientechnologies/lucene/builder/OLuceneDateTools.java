@@ -37,9 +37,7 @@ public class OLuceneDateTools {
    * number of milliseconds since January 1, 1970, 00:00:00 GMT.
    *
    * @param dateString the date string to be converted
-   *
    * @return the number of milliseconds since January 1, 1970, 00:00:00 GMT
-   *
    * @throws ParseException if <code>dateString</code> is not in the expected format
    */
   public static long stringToTime(String dateString) throws ParseException {
@@ -52,9 +50,7 @@ public class OLuceneDateTools {
    * Date object.
    *
    * @param dateString the date string to be converted
-   *
    * @return the parsed time as a Date object
-   *
    * @throws ParseException if <code>dateString</code> is not in the expected format
    */
   public static Date stringToDate(String dateString) throws ParseException {
@@ -118,8 +114,7 @@ public class OLuceneDateTools {
     }
 
     /**
-     * this method returns the name of the resolution
-     * in lowercase (for backwards compatibility)
+     * this method returns the name of the resolution in lowercase (for backwards compatibility)
      */
     @Override
     public String toString() {

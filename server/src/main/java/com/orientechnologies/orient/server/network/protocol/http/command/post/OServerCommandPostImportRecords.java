@@ -38,10 +38,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class OServerCommandPostImportRecords extends OServerCommandDocumentAbstract {
-  private static final char     CSV_SEPARATOR     = ',';
-  private static final char     CSV_STR_DELIMITER = '"';
+  private static final char CSV_SEPARATOR     = ',';
+  private static final char CSV_STR_DELIMITER = '"';
 
-  private static final String[] NAMES             = { "POST|importRecords/*" };
+  private static final String[] NAMES = { "POST|importRecords/*" };
 
   @Override
   public boolean execute(final OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {
@@ -126,20 +126,20 @@ public class OServerCommandPostImportRecords extends OServerCommandDocumentAbstr
 
           } catch (Exception e) {
             errors++;
-            output.append(String.format("#%d: line %d column %s (%d) value '%s': '%s'\n", errors, line, column, col, parsedCell,
-                e.toString()));
+            output.append(String
+                .format("#%d: line %d column %s (%d) value '%s': '%s'\n", errors, line, column, col, parsedCell, e.toString()));
           }
         }
 
         final float elapsed = (System.currentTimeMillis() - start) / 1000;
 
-        String message = String
-            .format(
-                "Import of records of class '%s' completed in %5.3f seconds. Line parsed: %d, imported: %d, error: %d\nDetailed messages:\n%s",
-                cls.getName(), elapsed, line, imported, errors, output);
+        String message = String.format(
+            "Import of records of class '%s' completed in %5.3f seconds. Line parsed: %d, imported: %d, error: %d\nDetailed messages:\n%s",
+            cls.getName(), elapsed, line, imported, errors, output);
 
-        iResponse.send(OHttpUtils.STATUS_CREATED_CODE, OHttpUtils.STATUS_CREATED_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN,
-            message, null);
+        iResponse
+            .send(OHttpUtils.STATUS_CREATED_CODE, OHttpUtils.STATUS_CREATED_DESCRIPTION, OHttpUtils.CONTENT_TEXT_PLAIN, message,
+                null);
         return false;
 
       } else

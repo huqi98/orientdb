@@ -10,9 +10,8 @@ import java.util.HashMap;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests the "asMap()" method implemented by the OSQLMethodAsMap class.  Note
- * that the only input to the execute() method from the OSQLMethod interface
- * that is used is the ioResult argument (the 4th argument).
+ * Tests the "asMap()" method implemented by the OSQLMethodAsMap class.  Note that the only input to the execute() method from the
+ * OSQLMethod interface that is used is the ioResult argument (the 4th argument).
  *
  * @author Michael MacFadden
  */

@@ -74,7 +74,7 @@ public class ORecordAttribute extends SimpleNode {
     if (name.equalsIgnoreCase("@rid")) {
       return iCurrentRecord.getIdentity().orElse(null);
     } else if (name.equalsIgnoreCase("@class")) {
-      return iCurrentRecord.toElement().getSchemaType().map(x->x.getName()).orElse(null);
+      return iCurrentRecord.toElement().getSchemaType().map(x -> x.getName()).orElse(null);
     } else if (name.equalsIgnoreCase("@version")) {
       return iCurrentRecord.getRecord().map(r -> r.getVersion()).orElse(null);
     }

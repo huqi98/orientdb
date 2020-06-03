@@ -42,17 +42,17 @@ public class OLuceneAnalyzerFactoryTest {
     when(indexDef.getClassName()).thenReturn("Song");
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void createAnalyzerNullIndexDefinition() {
     analyzerFactory.createAnalyzer(null, INDEX, metadata);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void createAnalyzerNullIndex() {
     analyzerFactory.createAnalyzer(indexDef, null, metadata);
   }
 
-  @Test (expected = IllegalArgumentException.class)
+  @Test(expected = IllegalArgumentException.class)
   public void createAnalyzerNullMetadata() {
     analyzerFactory.createAnalyzer(indexDef, INDEX, null);
   }

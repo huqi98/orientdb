@@ -92,7 +92,8 @@ public class OSBTreeCollectionManagerShared extends OSBTreeCollectionManagerAbst
   }
 
   @Override
-  public OSBTreeBonsai<OIdentifiable, Integer> createAndLoadTree(OAtomicOperation atomicOperation, int clusterId) throws IOException {
+  public OSBTreeBonsai<OIdentifiable, Integer> createAndLoadTree(OAtomicOperation atomicOperation, int clusterId)
+      throws IOException {
     checkAccess();
 
     return super.createAndLoadTree(atomicOperation, clusterId);

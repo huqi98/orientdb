@@ -43,16 +43,14 @@ public interface OIndexFactory {
 
   /**
    * Creates an index.
-   * 
-   * @param indexType
-   *          index type
+   *
+   * @param indexType index type
    * @return OIndexInternal
-   * @throws OConfigurationException
-   *           if index creation failed
+   * @throws OConfigurationException if index creation failed
    */
-  OIndexInternal createIndex(String name, OStorage storage, String indexType, String algorithm,
-      String valueContainerAlgorithm, ODocument metadata, int version) throws OConfigurationException;
+  OIndexInternal createIndex(String name, OStorage storage, String indexType, String algorithm, String valueContainerAlgorithm,
+      ODocument metadata, int version) throws OConfigurationException;
 
-  OBaseIndexEngine createIndexEngine(int indexId, String algorithm, String name, Boolean durableInNonTxMode, OStorage storage, int version,
-      int apiVersion, boolean multiValue, Map<String, String> engineProperties);
+  OBaseIndexEngine createIndexEngine(int indexId, String algorithm, String name, Boolean durableInNonTxMode, OStorage storage,
+      int version, int apiVersion, boolean multiValue, Map<String, String> engineProperties);
 }

@@ -25,23 +25,23 @@ import org.testng.annotations.Test;
  */
 @Test
 public class LockMultithreadingTest {
-  private static final int               CREATOR_THREAD_COUNT       = 10;
-  private static final int               UPDATER_THREAD_COUNT       = 10;
-  private static final int               DELETOR_THREAD_COUNT       = 10;
-  private static final int               DOCUMENT_COUNT             = 10000000;
-  private static final String            URL                        = "plocal:megatest1";
-  private ODatabaseDocumentTx            db;
+  private static final int                 CREATOR_THREAD_COUNT = 10;
+  private static final int                 UPDATER_THREAD_COUNT = 10;
+  private static final int                 DELETOR_THREAD_COUNT = 10;
+  private static final int                 DOCUMENT_COUNT       = 10000000;
+  private static final String              URL                  = "plocal:megatest1";
+  private              ODatabaseDocumentTx db;
 
-  private static final String            STUDENT_CLASS_NAME         = "Student";
-  private static final String            TRANSACTIONAL_WORD         = "Transactional";
+  private static final String STUDENT_CLASS_NAME = "Student";
+  private static final String TRANSACTIONAL_WORD = "Transactional";
 
-  private AtomicInteger                  createCounter              = new AtomicInteger(0);
-  private AtomicInteger                  deleteCounter              = new AtomicInteger(0);
+  private AtomicInteger createCounter = new AtomicInteger(0);
+  private AtomicInteger deleteCounter = new AtomicInteger(0);
 
-  private final ExecutorService          executorService            = Executors.newFixedThreadPool(2 * DOCUMENT_COUNT
-                                                                        + UPDATER_THREAD_COUNT);
-  private ConcurrentSkipListSet<Integer> deleted                    = new ConcurrentSkipListSet<Integer>();
-  private CountDownLatch                 countDownLatch             = new CountDownLatch(1);
+  private final ExecutorService                executorService = Executors
+      .newFixedThreadPool(2 * DOCUMENT_COUNT + UPDATER_THREAD_COUNT);
+  private       ConcurrentSkipListSet<Integer> deleted         = new ConcurrentSkipListSet<Integer>();
+  private       CountDownLatch                 countDownLatch  = new CountDownLatch(1);
 
   private class NonTransactionalAdder implements Callable<Void> {
     public Void call() throws Exception {
@@ -81,8 +81,8 @@ public class LockMultithreadingTest {
         List<ODocument> execute;
         System.out.println(Thread.currentThread() + " : before search cycle(update)" + updateCounter);
         do {
-          execute = db.command(new OSQLSynchQuery<Object>("select * from " + STUDENT_CLASS_NAME + " where counter = ?")).execute(
-              updateCounter);
+          execute = db.command(new OSQLSynchQuery<Object>("select * from " + STUDENT_CLASS_NAME + " where counter = ?"))
+              .execute(updateCounter);
 
         } while (!deleted.contains(updateCounter) && (execute == null || execute.isEmpty()));
         if (!deleted.contains(updateCounter)) {
@@ -116,7 +116,8 @@ public class LockMultithreadingTest {
       int number = deleteCounter.getAndIncrement();
       while (number < DOCUMENT_COUNT) {
         //wait while necessary document will be created
-        while (number > createCounter.get());
+        while (number > createCounter.get())
+          ;
         try {
           ODatabaseRecordThreadLocal.instance().set(db);
 

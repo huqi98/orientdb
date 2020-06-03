@@ -13,7 +13,6 @@ public class OSecurityPolicyTest {
   static OrientDB orientDB;
   ODatabaseSession db;
 
-
   @BeforeClass
   public static void beforeClass() {
     orientDB = new OrientDB("plocal:.", OrientDBConfig.defaultConfig());
@@ -73,7 +72,6 @@ public class OSecurityPolicyTest {
     policy.setDeleteRule("name = 'delete'");
     policy.setExecuteRule("name = 'execute'");
 
-
     security.saveSecurityPolicy(db, policy);
     policy = security.getSecurityPolicy(db, "test");
     Assert.assertNotNull(policy);
@@ -84,7 +82,6 @@ public class OSecurityPolicyTest {
     Assert.assertEquals("name = 'delete'", policy.getDeleteRule());
     Assert.assertEquals("name = 'execute'", policy.getExecuteRule());
   }
-
 
   @Test
   public void testInvalidPredicates() {

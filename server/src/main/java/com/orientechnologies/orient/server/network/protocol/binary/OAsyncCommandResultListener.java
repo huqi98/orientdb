@@ -42,7 +42,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Asynchronous command result manager. As soon as a record is returned by the command is sent over the wire.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OAsyncCommandResultListener extends OAbstractCommandResultListener {
 

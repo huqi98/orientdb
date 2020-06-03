@@ -35,7 +35,6 @@ import java.io.IOException;
  * Base class for Tasks to be executed remotely.
  *
  * @author Luca Garulli (l.garulli--at--orientdb.com)
- *
  */
 public abstract class OAbstractRemoteTask implements ORemoteTask {
   public static final    int[] ALL         = new int[] { -1 };

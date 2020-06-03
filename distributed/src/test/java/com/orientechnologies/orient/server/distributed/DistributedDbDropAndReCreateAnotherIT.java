@@ -26,7 +26,7 @@ import com.orientechnologies.orient.core.db.document.ODatabaseDocument;
  */
 public class DistributedDbDropAndReCreateAnotherIT extends AbstractServerClusterTxTest {
   final static int SERVERS       = 3;
-  private int      lastServerNum = 0;
+  private      int lastServerNum = 0;
 
   @Test
   public void test() throws Exception {
@@ -67,9 +67,8 @@ public class DistributedDbDropAndReCreateAnotherIT extends AbstractServerCluster
 
       checkSameClusters();
 
-      try(ODatabaseDocument graph = server.getServerInstance().openDatabase(getDatabaseName(), "admin", "admin"))
-      {
-      	onAfterDatabaseCreation(graph);
+      try (ODatabaseDocument graph = server.getServerInstance().openDatabase(getDatabaseName(), "admin", "admin")) {
+        onAfterDatabaseCreation(graph);
       }
 
       checkThePersonClassIsPresentOnAllTheServers();

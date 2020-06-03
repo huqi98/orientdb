@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -80,7 +80,7 @@ public class ServerClusterSchemaIT extends AbstractServerClusterTest {
     for (int s = 0; s < SERVERS; ++s) {
       System.out.println("Add vertices on server " + s + "...");
 
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
 
       try {
         for (int i = 0; i < SERVERS; ++i) {
@@ -99,7 +99,7 @@ public class ServerClusterSchemaIT extends AbstractServerClusterTest {
     for (int s = 0; s < SERVERS; ++s) {
       System.out.println("Add vertices in TX on server " + s + "...");
 
-      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(),"admin","admin");
+      ODatabaseDocument g = serverInstance.get(s).getServerInstance().openDatabase(getDatabaseName(), "admin", "admin");
       g.begin();
 
       try {

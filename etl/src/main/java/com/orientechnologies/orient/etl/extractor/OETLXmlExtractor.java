@@ -34,7 +34,7 @@ import java.util.*;
 public class OETLXmlExtractor extends OETLAbstractSourceExtractor {
   protected List               items           = new ArrayList();
   private   Collection<String> tagsAsAttribute = new HashSet<String>();
-  private String rootNode;
+  private   String             rootNode;
 
   @Override
   public void configure(ODocument iConfiguration, OCommandContext iContext) {

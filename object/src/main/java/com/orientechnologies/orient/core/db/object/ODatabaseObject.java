@@ -60,7 +60,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * Browses all the records of the specified cluster.
    *
    * @param iClusterName Cluster name to iterate
-   *
    * @return Iterator of Object instances
    */
   <RET> OObjectIteratorClusterInterface<RET> browseCluster(String iClusterName);
@@ -69,7 +68,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * Browses all the records of the specified class.
    *
    * @param iClusterClass Class name to iterate
-   *
    * @return Iterator of Object instances
    */
   <RET> OObjectIteratorClassInterface<RET> browseClass(Class<RET> iClusterClass);
@@ -85,7 +83,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * Counts the entities contained in the specified class and sub classes (polymorphic).
    *
    * @param iClassName Class name
-   *
    * @return Total entities
    */
   long countClass(String iClassName);
@@ -95,7 +92,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    *
    * @param iClassName   Class name
    * @param iPolymorphic True if consider also the sub classes, otherwise false
-   *
    * @return Total entities
    */
   long countClass(String iClassName, final boolean iPolymorphic);
@@ -104,7 +100,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * Creates a new entity of the specified class.
    *
    * @param iType Class name where to originate the instance
-   *
    * @return New instance
    */
   <T> T newInstance(Class<T> iType);
@@ -121,7 +116,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * a detached non proxied instance @see {@link OObjectEntitySerializer.detach(T, ODatabaseObject)}
    *
    * @param iPojo :- the object to detach
-   *
    * @return the detached object
    */
   <RET> RET detach(final Object iPojo);
@@ -133,7 +127,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * @param iPojo                    :- the object to detach
    * @param returnNonProxiedInstance :- defines if the return object will be a proxied instance or not. If set to TRUE and the
    *                                 object does not contains @Id and @Version fields it could procude data replication
-   *
    * @return the object serialized or with detached data
    */
   <RET> RET detach(final Object iPojo, boolean returnNonProxiedInstance);
@@ -144,7 +137,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    *
    * @param <RET>
    * @param iPojo :- the objects to detach
-   *
    * @return the object serialized or with detached data
    */
   default <RET> RET detachAll(final Object iPojo) {
@@ -159,7 +151,6 @@ public interface ODatabaseObject extends ODatabase<Object>, OUserObject2RecordHa
    * @param iPojo                    :- the objects to detach
    * @param returnNonProxiedInstance :- defines if the return object will be a proxied instance or not. If set to TRUE and the
    *                                 object does not contains @Id and @Version fields it could procude data replication
-   *
    * @return the object serialized or with detached data
    */
   <RET> RET detachAll(final Object iPojo, boolean returnNonProxiedInstance);

@@ -21,7 +21,7 @@ import com.orientechnologies.orient.core.metadata.schema.OImmutableClass;
 
 /**
  * Represents an Edge class.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public class OrientEdgeType extends OrientElementType {

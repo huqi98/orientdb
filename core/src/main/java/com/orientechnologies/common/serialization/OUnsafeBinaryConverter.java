@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 
 package com.orientechnologies.common.serialization;
 
@@ -34,13 +34,12 @@ import sun.misc.Unsafe;
  */
 @SuppressWarnings("restriction")
 public class OUnsafeBinaryConverter implements OBinaryConverter {
-  public static final OUnsafeBinaryConverter INSTANCE             = new OUnsafeBinaryConverter();
+  public static final OUnsafeBinaryConverter INSTANCE = new OUnsafeBinaryConverter();
 
-  private static final Unsafe                theUnsafe;
-  private static final long                  BYTE_ARRAY_OFFSET;
+  private static final Unsafe theUnsafe;
+  private static final long   BYTE_ARRAY_OFFSET;
 
-  private static final boolean               useOnlyAlignedAccess = OGlobalConfiguration.DIRECT_MEMORY_ONLY_ALIGNED_ACCESS
-                                                                      .getValueAsBoolean();
+  private static final boolean useOnlyAlignedAccess = OGlobalConfiguration.DIRECT_MEMORY_ONLY_ALIGNED_ACCESS.getValueAsBoolean();
 
   static {
     theUnsafe = (Unsafe) AccessController.doPrivileged(new PrivilegedAction<Object>() {
@@ -92,11 +91,11 @@ public class OUnsafeBinaryConverter implements OBinaryConverter {
     }
 
     if (byteOrder.equals(ByteOrder.BIG_ENDIAN))
-      return (short) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET)) << 8 | (theUnsafe.getByte(buffer, index
-          + BYTE_ARRAY_OFFSET + 1) & 0xff));
+      return (short) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET)) << 8 | (
+          theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1) & 0xff));
 
-    return (short) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) & 0xff) | (theUnsafe.getByte(buffer, index
-        + BYTE_ARRAY_OFFSET + 1) << 8));
+    return (short) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) & 0xff) | (
+        theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1) << 8));
   }
 
   public void putInt(byte[] buffer, int pointer, int value, ByteOrder byteOrder) {
@@ -132,16 +131,16 @@ public class OUnsafeBinaryConverter implements OBinaryConverter {
     }
 
     if (byteOrder.equals(ByteOrder.BIG_ENDIAN)) {
-      return ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET)) << 24)
-          | ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 1)) << 16)
-          | ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 2)) << 8)
-          | (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 3));
+      return ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET)) << 24) | (
+          (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 1)) << 16) | (
+          (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 2)) << 8) | (0xFF & theUnsafe
+          .getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 3));
     }
 
-    return (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET))
-        | ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 1)) << 8)
-        | ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 2)) << 16)
-        | ((0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 3)) << 24);
+    return (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET)) | (
+        (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 1)) << 8) | (
+        (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 2)) << 16) | (
+        (0xFF & theUnsafe.getByte(buffer, pointer + BYTE_ARRAY_OFFSET + 3)) << 24);
   }
 
   public void putLong(byte[] buffer, int index, long value, ByteOrder byteOrder) {
@@ -183,23 +182,23 @@ public class OUnsafeBinaryConverter implements OBinaryConverter {
     }
 
     if (byteOrder.equals(ByteOrder.BIG_ENDIAN))
-      return ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET)) << 56)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1)) << 48)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 2)) << 40)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 3)) << 32)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 4)) << 24)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 5)) << 16)
-          | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 6)) << 8)
-          | (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 7));
+      return ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET)) << 56) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1)) << 48) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 2)) << 40) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 3)) << 32) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 4)) << 24) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 5)) << 16) | (
+          (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 6)) << 8) | (0xFFL & theUnsafe
+          .getByte(buffer, index + BYTE_ARRAY_OFFSET + 7));
 
-    return (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET))
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1)) << 8)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 2)) << 16)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 3)) << 24)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 4)) << 32)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 5)) << 40)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 6)) << 48)
-        | ((0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 7)) << 56);
+    return (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET)) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1)) << 8) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 2)) << 16) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 3)) << 24) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 4)) << 32) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 5)) << 40) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 6)) << 48) | (
+        (0xFFL & theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 7)) << 56);
   }
 
   public void putChar(byte[] buffer, int index, char character, ByteOrder byteOrder) {
@@ -230,11 +229,11 @@ public class OUnsafeBinaryConverter implements OBinaryConverter {
     }
 
     if (byteOrder.equals(ByteOrder.BIG_ENDIAN))
-      return (char) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) << 8) | (theUnsafe.getByte(buffer, index
-          + BYTE_ARRAY_OFFSET + 1) & 0xff));
+      return (char) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) << 8) | (
+          theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1) & 0xff));
 
-    return (char) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) & 0xff) | (theUnsafe.getByte(buffer, index
-        + BYTE_ARRAY_OFFSET + 1) << 8));
+    return (char) ((theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET) & 0xff) | (
+        theUnsafe.getByte(buffer, index + BYTE_ARRAY_OFFSET + 1) << 8));
   }
 
   public boolean nativeAccelerationUsed() {

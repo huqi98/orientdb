@@ -12,9 +12,9 @@ import java.util.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OCommandExecutorSQLScriptTest {
-  private static String DB_STORAGE = "memory";
-  private static String DB_NAME    = "OCommandExecutorSQLScriptTest";
-  public ODatabaseDocumentTx db;
+  private static String              DB_STORAGE = "memory";
+  private static String              DB_NAME    = "OCommandExecutorSQLScriptTest";
+  public         ODatabaseDocumentTx db;
 
   @After
   public void after() throws Exception {

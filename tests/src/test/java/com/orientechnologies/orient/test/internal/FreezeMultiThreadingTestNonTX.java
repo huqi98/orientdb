@@ -44,35 +44,35 @@ import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 
 @Test
 public class FreezeMultiThreadingTestNonTX {
-  private static final int               TRANSACTIONAL_CREATOR_THREAD_COUNT = 2;
-  private static final int               TRANSACTIONAL_UPDATER_THREAD_COUNT = 2;
-  private static final int               TRANSACTIONAL_DELETER_THREAD_COUNT = 2;
+  private static final int TRANSACTIONAL_CREATOR_THREAD_COUNT = 2;
+  private static final int TRANSACTIONAL_UPDATER_THREAD_COUNT = 2;
+  private static final int TRANSACTIONAL_DELETER_THREAD_COUNT = 2;
 
-  private static final int               CREATOR_THREAD_COUNT               = 10;
-  private static final int               UPDATER_THREAD_COUNT               = 10;
-  private static final int               DELETER_THREAD_COUNT               = 10;
+  private static final int CREATOR_THREAD_COUNT = 10;
+  private static final int UPDATER_THREAD_COUNT = 10;
+  private static final int DELETER_THREAD_COUNT = 10;
 
-  private static final int               DOCUMENT_COUNT                     = 1000;
+  private static final int DOCUMENT_COUNT = 1000;
 
-  private static final int               TRANSACTIONAL_DOCUMENT_COUNT       = 1000;
+  private static final int TRANSACTIONAL_DOCUMENT_COUNT = 1000;
 
-  private static final String            URL                                = "remote:localhost/FreezeMultiThreadingTestNonTX";
+  private static final String URL = "remote:localhost/FreezeMultiThreadingTestNonTX";
 
-  private static final String            STUDENT_CLASS_NAME                 = "Student";
-  private static final String            TRANSACTIONAL_WORD                 = "Transactional";
+  private static final String STUDENT_CLASS_NAME = "Student";
+  private static final String TRANSACTIONAL_WORD = "Transactional";
 
-  private AtomicInteger                  createCounter                      = new AtomicInteger(0);
-  private AtomicInteger                  deleteCounter                      = new AtomicInteger(0);
+  private AtomicInteger createCounter = new AtomicInteger(0);
+  private AtomicInteger deleteCounter = new AtomicInteger(0);
 
-  private AtomicInteger                  transactionalCreateCounter         = new AtomicInteger(0);
-  private AtomicInteger                  transactionalDeleteCounter         = new AtomicInteger(0);
+  private AtomicInteger transactionalCreateCounter = new AtomicInteger(0);
+  private AtomicInteger transactionalDeleteCounter = new AtomicInteger(0);
 
-  private final ExecutorService          executorService                    = Executors.newFixedThreadPool(CREATOR_THREAD_COUNT
-                                                                                + UPDATER_THREAD_COUNT + DELETER_THREAD_COUNT + 1);
-  private ConcurrentSkipListSet<Integer> deleted                            = new ConcurrentSkipListSet<Integer>();
+  private final ExecutorService                executorService = Executors
+      .newFixedThreadPool(CREATOR_THREAD_COUNT + UPDATER_THREAD_COUNT + DELETER_THREAD_COUNT + 1);
+  private       ConcurrentSkipListSet<Integer> deleted         = new ConcurrentSkipListSet<Integer>();
 
-  private ConcurrentSkipListSet<Integer> deletedInTransaction               = new ConcurrentSkipListSet<Integer>();
-  private CountDownLatch                 countDownLatch                     = new CountDownLatch(1);
+  private ConcurrentSkipListSet<Integer> deletedInTransaction = new ConcurrentSkipListSet<Integer>();
+  private CountDownLatch                 countDownLatch       = new CountDownLatch(1);
 
   private class NonTransactionalAdder implements Callable<Void> {
     public Void call() throws Exception {
@@ -438,10 +438,10 @@ public class FreezeMultiThreadingTestNonTX {
           ODatabaseHelper.freezeDatabase(database);
           database.open("admin", "admin");
 
-          final List<ODocument> beforeNonTxDocuments = database.query(new OSQLSynchQuery<Object>("select from "
-              + STUDENT_CLASS_NAME));
-          final List<ODocument> beforeTxDocuments = database.query(new OSQLSynchQuery<Object>("select from " + TRANSACTIONAL_WORD
-              + STUDENT_CLASS_NAME));
+          final List<ODocument> beforeNonTxDocuments = database
+              .query(new OSQLSynchQuery<Object>("select from " + STUDENT_CLASS_NAME));
+          final List<ODocument> beforeTxDocuments = database
+              .query(new OSQLSynchQuery<Object>("select from " + TRANSACTIONAL_WORD + STUDENT_CLASS_NAME));
 
           database.close();
 
@@ -450,10 +450,10 @@ public class FreezeMultiThreadingTestNonTX {
             Thread.sleep(10000);
           } finally {
             database.open("admin", "admin");
-            final List<ODocument> afterNonTxDocuments = database.query(new OSQLSynchQuery<Object>("select from "
-                + STUDENT_CLASS_NAME));
-            final List<ODocument> afterTxDocuments = database.query(new OSQLSynchQuery<Object>("select from " + TRANSACTIONAL_WORD
-                + STUDENT_CLASS_NAME));
+            final List<ODocument> afterNonTxDocuments = database
+                .query(new OSQLSynchQuery<Object>("select from " + STUDENT_CLASS_NAME));
+            final List<ODocument> afterTxDocuments = database
+                .query(new OSQLSynchQuery<Object>("select from " + TRANSACTIONAL_WORD + STUDENT_CLASS_NAME));
             assertDocumentAreEquals(beforeNonTxDocuments, afterNonTxDocuments);
             assertDocumentAreEquals(beforeTxDocuments, afterTxDocuments);
 
@@ -519,7 +519,6 @@ public class FreezeMultiThreadingTestNonTX {
     transactionalStudent.createIndex("index5", OClass.INDEX_TYPE.NOTUNIQUE, "counter2");
     transactionalStudent.createIndex("index6", OClass.INDEX_TYPE.NOTUNIQUE, "counter", "counter2");
 
-
     System.out.println("*in before***********CLOSE************************************");
     database.close();
   }
@@ -571,7 +570,8 @@ public class FreezeMultiThreadingTestNonTX {
     if (firstDocs.size() != secondDocs.size())
       Assert.fail();
 
-    outer: for (final ODocument firstDoc : firstDocs) {
+    outer:
+    for (final ODocument firstDoc : firstDocs) {
       for (final ODocument secondDoc : secondDocs) {
         if (firstDoc.equals(secondDoc)) {
           final ODatabaseDocumentInternal databaseRecord = ODatabaseRecordThreadLocal.instance().get();

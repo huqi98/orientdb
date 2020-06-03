@@ -5,7 +5,7 @@ import com.orientechnologies.common.serialization.types.OIntegerSerializer;
 
 public class DiffChange implements Change {
   public static final byte TYPE = 0;
-  private int delta;
+  private             int  delta;
 
   public DiffChange(int delta) {
     this.delta = delta;

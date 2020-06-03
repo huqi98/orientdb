@@ -38,8 +38,8 @@ public class SQLDeleteEdgeTest extends DocumentDBBaseTest {
         new OCommandSQL("CREATE EDGE testFromToTwoE from " + result.get(1).getIdentity() + " to " + result.get(0).getIdentity()))
         .execute();
 
-    List<OIdentifiable> resultTwo = database.query(new OSQLSynchQuery<ODocument>("select expand(outE()) from "
-        + result.get(1).getIdentity()));
+    List<OIdentifiable> resultTwo = database
+        .query(new OSQLSynchQuery<ODocument>("select expand(outE()) from " + result.get(1).getIdentity()));
     Assert.assertEquals(resultTwo.size(), 2);
 
     database.command(
@@ -71,8 +71,8 @@ public class SQLDeleteEdgeTest extends DocumentDBBaseTest {
         new OCommandSQL("CREATE EDGE testFromTwoE from " + result.get(1).getIdentity() + " to " + result.get(0).getIdentity()))
         .execute();
 
-    List<OIdentifiable> resultTwo = database.query(new OSQLSynchQuery<ODocument>("select expand(outE()) from "
-        + result.get(1).getIdentity()));
+    List<OIdentifiable> resultTwo = database
+        .query(new OSQLSynchQuery<ODocument>("select expand(outE()) from " + result.get(1).getIdentity()));
     Assert.assertEquals(resultTwo.size(), 2);
 
     database.command(new OCommandSQL("DELETE EDGE testFromTwoE from " + result.get(1).getIdentity())).execute();
@@ -102,8 +102,8 @@ public class SQLDeleteEdgeTest extends DocumentDBBaseTest {
         new OCommandSQL("CREATE EDGE testToTwoE from " + result.get(1).getIdentity() + " to " + result.get(0).getIdentity()))
         .execute();
 
-    List<OIdentifiable> resultTwo = database.query(new OSQLSynchQuery<ODocument>("select expand(outE()) from "
-        + result.get(1).getIdentity()));
+    List<OIdentifiable> resultTwo = database
+        .query(new OSQLSynchQuery<ODocument>("select expand(outE()) from " + result.get(1).getIdentity()));
     Assert.assertEquals(resultTwo.size(), 2);
 
     database.command(new OCommandSQL("DELETE EDGE testToTwoE to " + result.get(0).getIdentity())).execute();
@@ -203,8 +203,8 @@ public class SQLDeleteEdgeTest extends DocumentDBBaseTest {
     database.command(new OCommandSQL("create edge FromInStringE from " + v1.getIdentity() + " to " + v2.getIdentity())).execute();
     database.command(new OCommandSQL("create edge FromInStringE from " + v1.getIdentity() + " to " + v3.getIdentity())).execute();
 
-    List<OIdentifiable> result = database.query(new OSQLSynchQuery<ODocument>(
-        "SELECT expand(out()[name = ' FROM ']) FROM FromInStringV"));
+    List<OIdentifiable> result = database
+        .query(new OSQLSynchQuery<ODocument>("SELECT expand(out()[name = ' FROM ']) FROM FromInStringV"));
     Assert.assertEquals(result.size(), 1);
 
     result = database.query(new OSQLSynchQuery<ODocument>("SELECT expand(in()[name = ' from ']) FROM FromInStringV"));

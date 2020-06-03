@@ -211,9 +211,9 @@ public class OSchedulerTest {
   private static class TestScheduleDatabaseFactory implements ODatabaseThreadLocalFactory {
 
     private final OrientDB context;
-    private final String database;
-    private final String username;
-    private final String password;
+    private final String   database;
+    private final String   username;
+    private final String   password;
 
     public TestScheduleDatabaseFactory(OrientDB context, String database, String username, String password) {
       this.context = context;

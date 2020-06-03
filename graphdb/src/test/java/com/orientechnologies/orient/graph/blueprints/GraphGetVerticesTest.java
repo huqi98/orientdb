@@ -33,7 +33,6 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Gabriele Ponzi
  * @email gabriele.ponzi@gmail.com
- *
  */
 
 public class GraphGetVerticesTest {

@@ -63,10 +63,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class OCommandExecutorScript extends OCommandExecutorAbstract
     implements OCommandDistributedReplicateRequest, OTemporaryRidGenerator {
-  private static final int MAX_DELAY = 100;
-  protected OCommandScript request;
-  protected DISTRIBUTED_EXECUTION_MODE executionMode = DISTRIBUTED_EXECUTION_MODE.LOCAL;
-  protected AtomicInteger              serialTempRID = new AtomicInteger(0);
+  private static final int                        MAX_DELAY     = 100;
+  protected            OCommandScript             request;
+  protected            DISTRIBUTED_EXECUTION_MODE executionMode = DISTRIBUTED_EXECUTION_MODE.LOCAL;
+  protected            AtomicInteger              serialTempRID = new AtomicInteger(0);
 
   public OCommandExecutorScript() {
   }

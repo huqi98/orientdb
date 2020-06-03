@@ -16,7 +16,7 @@ import java.util.Map;
 public class ODropClusterStatement extends ODDLStatement {
   protected OIdentifier name;
   protected OInteger    id;
-  protected boolean ifExists = false;
+  protected boolean     ifExists = false;
 
   public ODropClusterStatement(int id) {
     super(id);

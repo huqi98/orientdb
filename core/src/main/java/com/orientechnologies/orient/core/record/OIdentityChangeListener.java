@@ -8,14 +8,14 @@ public interface OIdentityChangeListener {
 
   /**
    * Called before the change of the identity is made.
-   * 
+   *
    * @param record
    */
   void onBeforeIdentityChange(ORecord record);
 
   /**
    * called afer the change of the identity is made.
-   * 
+   *
    * @param record
    */
   void onAfterIdentityChange(ORecord record);

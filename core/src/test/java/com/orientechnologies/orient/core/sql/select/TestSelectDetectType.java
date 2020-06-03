@@ -28,7 +28,7 @@ public class TestSelectDetectType {
 
     List<ODocument> res = db.query(new OSQLSynchQuery<ODocument>("select ty.type() from ( select 1.021484375 as ty)"));
     System.out.println(res.get(0));
-    assertEquals(res.get(0).field("ty"),"DOUBLE");
+    assertEquals(res.get(0).field("ty"), "DOUBLE");
   }
 
   @After

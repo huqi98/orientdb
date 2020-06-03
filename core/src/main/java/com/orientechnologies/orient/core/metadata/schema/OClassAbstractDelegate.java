@@ -29,7 +29,7 @@ import java.util.Set;
 
 /**
  * Abstract Delegate for OClass interface.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public abstract class OClassAbstractDelegate implements OClass {

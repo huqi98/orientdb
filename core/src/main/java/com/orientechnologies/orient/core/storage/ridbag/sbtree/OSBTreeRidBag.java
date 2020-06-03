@@ -936,7 +936,6 @@ public class OSBTreeRidBag implements ORidBagDelegate {
    * Removes entry with given key from {@link #newEntries}.
    *
    * @param identifiable key to remove
-   *
    * @return true if entry have been removed
    */
   private boolean removeFromNewEntries(final OIdentifiable identifiable) {

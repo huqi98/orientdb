@@ -62,6 +62,7 @@ public class OETLFieldTransformerTest extends OETLBaseTest {
     assertEquals("Miner", doc.field("surname"));
     assertEquals("Miner", doc.field("test"));
   }
+
   @Test
   public void testToLowerCase() {
     configure(
@@ -92,8 +93,8 @@ public class OETLFieldTransformerTest extends OETLBaseTest {
   public void testSave() {
     configure("{source: { content: { value: 'name,surname\nJay,Miner' } }, " + "extractor : { csv: {} }, " + "transformers: ["
         + "{field:{log:'DEBUG',fieldName:'@class', value:'Test'}}, "
-        + "{field:{log:'DEBUG', fieldName:'test', value: 33, save:true}}" + "], "
-        + "loader: { orientdb: { dbURL: 'memory:" + name.getMethodName() + "' } } }");
+        + "{field:{log:'DEBUG', fieldName:'test', value: 33, save:true}}" + "], " + "loader: { orientdb: { dbURL: 'memory:" + name
+        .getMethodName() + "' } } }");
     proc.execute();
     ODatabaseDocument db = proc.getLoader().getPool().acquire();
 

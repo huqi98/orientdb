@@ -1,6 +1,5 @@
 package com.orientechnologies.orient.server.distributed.impl;
 
-
 import com.orientechnologies.orient.server.distributed.*;
 import com.orientechnologies.orient.server.distributed.impl.task.OTransactionPhase1Task;
 import com.orientechnologies.orient.server.distributed.impl.task.OTransactionPhase1TaskResult;
@@ -85,7 +84,7 @@ public class ONewDistributedResponseManager implements ODistributedResponseManag
         interrupted = true;
       }
     }
-    return quorumReached  ;
+    return quorumReached;
   }
 
   @Override

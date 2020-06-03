@@ -12,7 +12,7 @@ import java.util.List;
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OCreateSecurityPolicyStatementExecutionTest {
-  static OrientDB orient;
+  static  OrientDB         orient;
   private ODatabaseSession db;
 
   @BeforeClass
@@ -38,7 +38,6 @@ public class OCreateSecurityPolicyStatementExecutionTest {
     this.db = null;
   }
 
-
   @Test
   public void testPlain() {
     OResultSet result = db.command("CREATE SECURITY POLICY foo");
@@ -46,6 +45,5 @@ public class OCreateSecurityPolicyStatementExecutionTest {
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
     Assert.assertNotNull(security.getSecurityPolicy((ODatabaseSession) db, "foo"));
   }
-
 
 }

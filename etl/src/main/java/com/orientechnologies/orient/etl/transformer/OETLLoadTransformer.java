@@ -32,11 +32,11 @@ import java.util.logging.Level;
 public class OETLLoadTransformer extends OETLAbstractLookupTransformer {
   @Override
   public ODocument getConfiguration() {
-    return new ODocument().fromJSON(
-        "{parameters:[" + getCommonConfigurationParameters() + "," + "{joinFieldName:{optional:false,description:'field name containing the value to join'}},"
-            + "{lookup:{optional:false,description:'<Class>.<property> or Query to execute'}},"
-            + "{unresolvedLinkAction:{optional:true,description:'action when a unresolved link is found',values:" + stringArray2Json(ACTION.values()) + "}}],"
-            + "input:['ODocument'],output:'ODocument'}");
+    return new ODocument().fromJSON("{parameters:[" + getCommonConfigurationParameters() + ","
+        + "{joinFieldName:{optional:false,description:'field name containing the value to join'}},"
+        + "{lookup:{optional:false,description:'<Class>.<property> or Query to execute'}},"
+        + "{unresolvedLinkAction:{optional:true,description:'action when a unresolved link is found',values:" + stringArray2Json(
+        ACTION.values()) + "}}]," + "input:['ODocument'],output:'ODocument'}");
   }
 
   @Override

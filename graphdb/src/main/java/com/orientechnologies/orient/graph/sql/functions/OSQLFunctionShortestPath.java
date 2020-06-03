@@ -42,7 +42,6 @@ import java.util.*;
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @deprecated see {@link com.orientechnologies.orient.core.sql.functions.graph.OSQLFunctionShortestPath} instead
- *
  */
 @Deprecated
 public class OSQLFunctionShortestPath extends OSQLFunctionMathAbstract {
@@ -75,7 +74,7 @@ public class OSQLFunctionShortestPath extends OSQLFunctionMathAbstract {
 
     private OrientVertex current;
     private OrientVertex currentRight;
-    public Integer maxDepth;
+    public  Integer      maxDepth;
   }
 
   public List<ORID> execute(Object iThis, final OIdentifiable iCurrentRecord, final Object iCurrentResult, final Object[] iParams,

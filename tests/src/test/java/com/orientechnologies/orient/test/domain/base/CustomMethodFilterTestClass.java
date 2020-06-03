@@ -20,7 +20,6 @@ import java.util.List;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class CustomMethodFilterTestClass {
 

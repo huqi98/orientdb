@@ -32,7 +32,6 @@ public interface ODistributedLifecycleListener {
    * Called when a node is joining the cluster. Return false to deny the join.
    *
    * @param iNode Node name that is joining
-   *
    * @return true to allow the join, otherwise false
    */
   boolean onNodeJoining(String iNode);
@@ -57,7 +56,6 @@ public interface ODistributedLifecycleListener {
    * @param iNode         The node name
    * @param iDatabaseName Database name
    * @param iNewStatus    The new status
-   *
    * @since 2.2.0
    */
   void onDatabaseChangeStatus(String iNode, String iDatabaseName, ODistributedServerManager.DB_STATUS iNewStatus);

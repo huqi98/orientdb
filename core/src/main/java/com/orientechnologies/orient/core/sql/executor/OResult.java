@@ -21,7 +21,6 @@ public interface OResult {
    *
    * @param name the property name
    * @param <T>
-   *
    * @return the property value. If the property value is a persistent record, it only returns the RID. See also  {@link
    * #getElementProperty(String)}  {@link #getVertexProperty(String)} {@link #getEdgeProperty(String)} {@link
    * #getBlobProperty(String)}
@@ -32,7 +31,6 @@ public interface OResult {
    * returns an OElement property from the result
    *
    * @param name the property name
-   *
    * @return the property value. Null if the property is not defined or if it's not an OElement
    */
   OElement getElementProperty(String name);
@@ -41,7 +39,6 @@ public interface OResult {
    * returns an OVertex property from the result
    *
    * @param name the property name
-   *
    * @return the property value. Null if the property is not defined or if it's not an OVertex
    */
   OVertex getVertexProperty(String name);
@@ -50,7 +47,6 @@ public interface OResult {
    * returns an OEdge property from the result
    *
    * @param name the property name
-   *
    * @return the property value. Null if the property is not defined or if it's not an OEdge
    */
   OEdge getEdgeProperty(String name);
@@ -59,7 +55,6 @@ public interface OResult {
    * returns an OEdge property from the result
    *
    * @param name the property name
-   *
    * @return the property value. Null if the property is not defined or if it's not an OEdge
    */
   OBlob getBlobProperty(String name);
@@ -106,7 +101,6 @@ public interface OResult {
    * return metadata related to current result given a key
    *
    * @param key the metadata key
-   *
    * @return metadata related to current result given a key
    */
   Object getMetadata(String key);

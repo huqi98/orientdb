@@ -38,18 +38,18 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Wrapper for OPrifileStorageStatement command (for compatibility with the old executor architecture,
- * this component should be removed)
- * 
+ * Wrapper for OPrifileStorageStatement command (for compatibility with the old executor architecture, this component should be
+ * removed)
+ *
  * @author Luigi Dell'Aquila (l.dellaquila-(at)-orientdb.com)
  */
 public class OCommandExecutorToOStatementWrapper implements OCommandExecutor {
 
   protected OSQLAsynchQuery<ODocument> request;
   private   OCommandContext            context;
-  private   OProgressListener progressListener;
+  private   OProgressListener          progressListener;
 
-  protected OStatement        statement;
+  protected OStatement statement;
 
   @SuppressWarnings("unchecked")
   @Override

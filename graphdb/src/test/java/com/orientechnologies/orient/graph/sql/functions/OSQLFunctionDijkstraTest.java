@@ -37,7 +37,7 @@ public class OSQLFunctionDijkstraTest {
 
   private void setUpDatabase() {
     graph = new OrientGraph("memory:OSQLFunctionDijkstraTest");
-		graph.createEdgeType("weight");
+    graph.createEdgeType("weight");
 
     v1 = graph.addVertex(null);
     v2 = graph.addVertex(null);
@@ -63,8 +63,8 @@ public class OSQLFunctionDijkstraTest {
 
   @Test
   public void testExecute() throws Exception {
-    final List<OrientVertex> result = functionDijkstra.execute(null, null, null, new Object[] { v1, v4, "'weight'" },
-        new OBasicCommandContext());
+    final List<OrientVertex> result = functionDijkstra
+        .execute(null, null, null, new Object[] { v1, v4, "'weight'" }, new OBasicCommandContext());
 
     assertEquals(4, result.size());
     assertEquals(v1, result.get(0));

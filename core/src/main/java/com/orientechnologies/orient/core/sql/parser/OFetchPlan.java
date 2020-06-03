@@ -41,7 +41,8 @@ public class OFetchPlan extends SimpleNode {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -55,7 +56,8 @@ public class OFetchPlan extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return items != null ? items.hashCode() : 0;
   }
 

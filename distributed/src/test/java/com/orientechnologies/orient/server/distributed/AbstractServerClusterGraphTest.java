@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.server.distributed;
@@ -39,13 +39,13 @@ import java.util.concurrent.Callable;
  * Test distributed TX
  */
 public abstract class AbstractServerClusterGraphTest extends AbstractServerClusterInsertTest {
-  protected ORID rootVertexId;
-  protected Object lock = new Object();
-  private ODatabasePool dbPool;
+  protected ORID          rootVertexId;
+  protected Object        lock = new Object();
+  private   ODatabasePool dbPool;
 
   class TxWriter implements Callable<Void> {
-    private final int    serverId;
-    private final int    threadId;
+    private final int serverId;
+    private final int threadId;
 
     public TxWriter(final int iServerId, final int iThreadId) {
       serverId = iServerId;

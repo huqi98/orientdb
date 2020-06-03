@@ -23,13 +23,13 @@ import com.orientechnologies.orient.core.sql.functions.OSQLFunctionRuntime;
 
 /**
  * Delegates the execution to a function.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OSQLMethodFunctionDelegate extends OAbstractSQLMethod {
 
-  public static final String  NAME = "function";
-  private OSQLFunctionRuntime func;
+  public static final String              NAME = "function";
+  private             OSQLFunctionRuntime func;
 
   public OSQLMethodFunctionDelegate(final OSQLFunction f) {
     super(NAME);

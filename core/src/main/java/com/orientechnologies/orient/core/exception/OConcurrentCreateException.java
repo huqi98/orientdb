@@ -30,17 +30,16 @@ import java.util.Objects;
  * retry to re-execute the operation.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OConcurrentCreateException extends ONeedRetryException implements OHighLevelException {
 
   private static final long serialVersionUID = 1L;
 
-  private ORID              expectedRid;
-  private ORID              actualRid;
+  private ORID expectedRid;
+  private ORID actualRid;
 
   public OConcurrentCreateException(OConcurrentCreateException exception) {
-    super(exception,null);
+    super(exception, null);
 
     this.expectedRid = exception.expectedRid;
     this.actualRid = exception.actualRid;

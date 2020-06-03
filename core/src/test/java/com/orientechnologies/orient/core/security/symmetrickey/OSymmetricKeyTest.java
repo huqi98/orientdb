@@ -17,59 +17,58 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author S. Colin Leister
- * 
  */
 public class OSymmetricKeyTest {
 
-  private void command(ODatabaseDocumentTx db, String sql, Object ... params) {
+  private void command(ODatabaseDocumentTx db, String sql, Object... params) {
     db.command(new OCommandSQL(sql)).execute(params);
   }
 
   @Test
   public void shouldTestDefaultConstructor() throws Exception {
-  	 OSymmetricKey sk = new OSymmetricKey();
+    OSymmetricKey sk = new OSymmetricKey();
 
     String msgToEncrypt = "Please, encrypt this!";
 
-  	 String magic = sk.encrypt(msgToEncrypt);
-  	 
-  	 String decryptedMsg = sk.decryptAsString(magic);
-  	 
-  	 System.out.println("decryptedMsg = " + decryptedMsg);
-  	 
-  	 assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
+    String magic = sk.encrypt(msgToEncrypt);
+
+    String decryptedMsg = sk.decryptAsString(magic);
+
+    System.out.println("decryptedMsg = " + decryptedMsg);
+
+    assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
   }
 
   @Test
   public void shouldTestSpecificAESKey() throws Exception {
-  	 OSymmetricKey sk = new OSymmetricKey("AES", "8BC7LeGkFbmHEYNTz5GwDw==");
+    OSymmetricKey sk = new OSymmetricKey("AES", "8BC7LeGkFbmHEYNTz5GwDw==");
 
     String msgToEncrypt = "Please, encrypt this!";
 
-  	 String magic = sk.encrypt("AES/CBC/PKCS5Padding", msgToEncrypt);
-  	 
-  	 String decryptedMsg = sk.decryptAsString(magic);
-  	 
-  	 System.out.println("decryptedMsg = " + decryptedMsg);
-  	 
-  	 assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
+    String magic = sk.encrypt("AES/CBC/PKCS5Padding", msgToEncrypt);
+
+    String decryptedMsg = sk.decryptAsString(magic);
+
+    System.out.println("decryptedMsg = " + decryptedMsg);
+
+    assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
   }
 
   @Test
   public void shouldTestGeneratedAESKey() throws Exception {
-  	 OSymmetricKey sk = new OSymmetricKey("AES", "AES/CBC/PKCS5Padding", 128);
+    OSymmetricKey sk = new OSymmetricKey("AES", "AES/CBC/PKCS5Padding", 128);
 
     String key = sk.getBase64Key();
 
     String msgToEncrypt = "Please, encrypt this!";
 
-  	 String magic = sk.encrypt(msgToEncrypt);
-  	 
-  	 OSymmetricKey sk2 = new OSymmetricKey("AES", key);
-  	 
-  	 String decryptedMsg = sk2.decryptAsString(magic);
-  	 
-  	 assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
+    String magic = sk.encrypt(msgToEncrypt);
+
+    OSymmetricKey sk2 = new OSymmetricKey("AES", key);
+
+    String decryptedMsg = sk2.decryptAsString(magic);
+
+    assertThat(msgToEncrypt).isEqualTo(decryptedMsg);
   }
 
 /* Fails under develop

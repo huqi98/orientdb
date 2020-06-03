@@ -22,22 +22,22 @@ import org.testng.annotations.Parameters;
 import com.orientechnologies.orient.core.record.ORecord;
 
 public class OrientTest {
-	protected static String	url;
+  protected static String url;
 
-	@Parameters(value = "url")
-	public OrientTest(String iURL) {
-		url = iURL;
-	}
+  @Parameters(value = "url")
+  public OrientTest(String iURL) {
+    url = iURL;
+  }
 
-	public static void printRecords(List<? extends ORecord> iRecords) {
-		int i = 0;
-		for (ORecord record : iRecords) {
-			printRecord(i, record);
-		}
-	}
+  public static void printRecords(List<? extends ORecord> iRecords) {
+    int i = 0;
+    for (ORecord record : iRecords) {
+      printRecord(i, record);
+    }
+  }
 
-	public static void printRecord(int i, final Object iRecord) {
-		if (iRecord != null)
-			System.out.println(String.format("%-3d: %s", i, iRecord.toString()));
-	}
+  public static void printRecord(int i, final Object iRecord) {
+    if (iRecord != null)
+      System.out.println(String.format("%-3d: %s", i, iRecord.toString()));
+  }
 }

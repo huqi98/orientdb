@@ -151,7 +151,6 @@ public class SchemaIndexTest extends DocumentDBBaseTest {
     database.getMetadata().getSchema().dropClass(oclass.getName());
   }
 
-
   private void assertContains(int[] clusterIds, int clusterId) {
     boolean contains = false;
     for (int cluster : clusterIds) {

@@ -113,7 +113,8 @@ public class ODocumentTrackingNestedCollectionsTest {
     subObjects.add(new ODocument());
 
     assertTrue(document.isDirty());
-    List<OMultiValueChangeEvent<Object, Object>> multiValueChangeEvents = ((OTrackedMultiValue<Object, Object>)subObjects).getTimeLine().getMultiValueChangeEvents();
+    List<OMultiValueChangeEvent<Object, Object>> multiValueChangeEvents = ((OTrackedMultiValue<Object, Object>) subObjects)
+        .getTimeLine().getMultiValueChangeEvents();
     assertEquals(1, multiValueChangeEvents.get(0).getKey());
     assertEquals("one", multiValueChangeEvents.get(0).getValue());
     assertEquals(2, multiValueChangeEvents.get(1).getKey());
@@ -142,7 +143,8 @@ public class ODocumentTrackingNestedCollectionsTest {
     subObjects.put("two", new ODocument());
 
     assertTrue(document.isDirty());
-    List<OMultiValueChangeEvent<Object, Object>> multiValueChangeEvents = ((OTrackedMultiValue<Object, Object>)subObjects).getTimeLine().getMultiValueChangeEvents();
+    List<OMultiValueChangeEvent<Object, Object>> multiValueChangeEvents = ((OTrackedMultiValue<Object, Object>) subObjects)
+        .getTimeLine().getMultiValueChangeEvents();
     assertEquals("one", multiValueChangeEvents.get(0).getKey());
     assertEquals("String", multiValueChangeEvents.get(0).getValue());
     assertEquals("two", multiValueChangeEvents.get(1).getKey());

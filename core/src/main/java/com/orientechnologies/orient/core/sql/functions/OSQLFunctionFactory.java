@@ -20,7 +20,6 @@ import java.util.Set;
 import com.orientechnologies.orient.core.exception.OCommandExecutionException;
 
 /**
- * 
  * @author Johann Sorel (Geomatys)
  */
 public interface OSQLFunctionFactory {
@@ -34,11 +33,10 @@ public interface OSQLFunctionFactory {
 
   /**
    * Create function for the given name. returned function may be a new instance each time or a constant.
-   * 
+   *
    * @param name
    * @return OSQLFunction : created function
-   * @throws OCommandExecutionException
-   *           : when function creation fail
+   * @throws OCommandExecutionException : when function creation fail
    */
   OSQLFunction createFunction(String name) throws OCommandExecutionException;
 

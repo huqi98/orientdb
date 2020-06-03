@@ -28,10 +28,10 @@ import com.orientechnologies.orient.test.database.base.OrientMonoThreadTest;
 
 @Test(enabled = false)
 public class LocalCreateBinarySpeedTest extends OrientMonoThreadTest {
-  private ODatabaseDocumentTx database;
-  private ORecordBytes     record;
-  private final static int RECORD_SIZE = 512;
-  private byte[]           recordContent;
+  private              ODatabaseDocumentTx database;
+  private              ORecordBytes        record;
+  private final static int                 RECORD_SIZE = 512;
+  private              byte[]              recordContent;
 
   public static void main(String[] iArgs) throws InstantiationException, IllegalAccessException {
     LocalCreateBinarySpeedTest test = new LocalCreateBinarySpeedTest();

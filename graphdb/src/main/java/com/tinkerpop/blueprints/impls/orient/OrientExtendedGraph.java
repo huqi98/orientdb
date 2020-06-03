@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.tinkerpop.blueprints.impls.orient;
@@ -30,7 +30,7 @@ import com.tinkerpop.blueprints.*;
 
 /**
  * OrientDB extension to Blueprints standard.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabaseDocumentTx>, KeyIndexableGraph {
@@ -43,11 +43,9 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * (Blueprints Extension) Creates a temporary vertex setting the initial field values. The vertex is not saved and the transaction
    * is not started.
-   * 
-   * @param iClassName
-   *          Vertex's class name
-   * @param prop
-   *          Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
+   *
+   * @param iClassName Vertex's class name
+   * @param prop       Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
    * @return added vertex
    */
   OrientVertex addTemporaryVertex(String iClassName, Object... prop);
@@ -55,10 +53,8 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * (Blueprints Extension) Creates a new unconnected vertex in the Graph setting the initial field values.
    *
-   * @param id
-   *          Optional, can contains the Edge's class name by prefixing with "class:"
-   * @param prop
-   *          Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
+   * @param id   Optional, can contains the Edge's class name by prefixing with "class:"
+   * @param prop Fields must be a odd pairs of key/value or a single object as Map containing entries as key/value pairs
    * @return The new OrientVertex created
    */
   Vertex addVertex(Object id, Object... prop);
@@ -70,17 +66,15 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
 
   /**
    * Returns the persistent class for type iTypeName as OrientVertexType instance.
-   * 
-   * @param iTypeName
-   *          Vertex class name
+   *
+   * @param iTypeName Vertex class name
    */
   OrientVertexType getVertexType(String iTypeName);
 
   /**
    * Creates a new Vertex persistent class.
-   * 
-   * @param iClassName
-   *          Vertex class name
+   *
+   * @param iClassName Vertex class name
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName);
@@ -88,22 +82,18 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * Creates a new Vertex persistent class.
    *
-   * @param iClassName
-   *          Vertex class name
-   * @param clusters
-   *          The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used. In v2.2
-   *          and later, the number of clusters are proportioned to the amount of cores found on the machine
+   * @param iClassName Vertex class name
+   * @param clusters   The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used.
+   *                   In v2.2 and later, the number of clusters are proportioned to the amount of cores found on the machine
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName, int clusters);
 
   /**
    * Creates a new Vertex persistent class specifying the super class.
-   * 
-   * @param iClassName
-   *          Vertex class name
-   * @param iSuperClassName
-   *          Vertex class name to extend
+   *
+   * @param iClassName      Vertex class name
+   * @param iSuperClassName Vertex class name to extend
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName, String iSuperClassName);
@@ -111,24 +101,20 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * Creates a new Vertex persistent class specifying the super class.
    *
-   * @param iClassName
-   *          Vertex class name
-   * @param iSuperClassName
-   *          Vertex class name to extend
-   * @param clusters
-   *          The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used. In v2.2
-   *          and later, the number of clusters are proportioned to the amount of cores found on the machine
+   * @param iClassName      Vertex class name
+   * @param iSuperClassName Vertex class name to extend
+   * @param clusters        The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is
+   *                        used. In v2.2 and later, the number of clusters are proportioned to the amount of cores found on the
+   *                        machine
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName, String iSuperClassName, int clusters);
 
   /**
    * Creates a new Vertex persistent class specifying the super class.
-   * 
-   * @param iClassName
-   *          Vertex class name
-   * @param iSuperClass
-   *          OClass Vertex to extend
+   *
+   * @param iClassName  Vertex class name
+   * @param iSuperClass OClass Vertex to extend
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName, OClass iSuperClass);
@@ -136,22 +122,18 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * Creates a new Vertex persistent class specifying the super class.
    *
-   * @param iClassName
-   *          Vertex class name
-   * @param iSuperClass
-   *          OClass Vertex to extend
-   * @param clusters
-   *          The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used. In v2.2
-   *          and later, the number of clusters are proportioned to the amount of cores found on the machine
+   * @param iClassName  Vertex class name
+   * @param iSuperClass OClass Vertex to extend
+   * @param clusters    The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used.
+   *                    In v2.2 and later, the number of clusters are proportioned to the amount of cores found on the machine
    * @return OrientVertexType instance representing the persistent class
    */
   OrientVertexType createVertexType(String iClassName, OClass iSuperClass, int clusters);
 
   /**
    * Drop a vertex class.
-   * 
-   * @param iTypeName
-   *          Vertex class name
+   *
+   * @param iTypeName Vertex class name
    */
   void dropVertexType(String iTypeName);
 
@@ -162,39 +144,33 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
 
   /**
    * Returns the persistent class for type iTypeName as OrientEdgeType instance.
-   * 
-   * @param iTypeName
-   *          Edge class name
+   *
+   * @param iTypeName Edge class name
    */
   OrientEdgeType getEdgeType(String iTypeName);
 
   /**
    * Creates a new Edge persistent class.
-   * 
-   * @param iClassName
-   *          Edge class name
+   *
+   * @param iClassName Edge class name
    * @return OrientEdgeType instance representing the persistent class
    */
   OrientEdgeType createEdgeType(String iClassName);
 
   /**
    * Creates a new Edge persistent class specifying the super class.
-   * 
-   * @param iClassName
-   *          Edge class name
-   * @param iSuperClassName
-   *          Edge class name to extend
+   *
+   * @param iClassName      Edge class name
+   * @param iSuperClassName Edge class name to extend
    * @return OrientEdgeType instance representing the persistent class
    */
   OrientEdgeType createEdgeType(String iClassName, String iSuperClassName);
 
   /**
    * Creates a new Edge persistent class specifying the super class.
-   * 
-   * @param iClassName
-   *          Edge class name
-   * @param iSuperClass
-   *          OClass Edge to extend
+   *
+   * @param iClassName  Edge class name
+   * @param iSuperClass OClass Edge to extend
    * @return OrientEdgeType instance representing the persistent class
    */
   OrientEdgeType createEdgeType(String iClassName, OClass iSuperClass);
@@ -202,30 +178,25 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
   /**
    * Creates a new Edge persistent class specifying the super class.
    *
-   * @param iClassName
-   *          Edge class name
-   * @param iSuperClass
-   *          OClass Edge to extend
-   * @param clusters
-   *          The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used. In v2.2
-   *          and later, the number of clusters are proportioned to the amount of cores found on the machine
+   * @param iClassName  Edge class name
+   * @param iSuperClass OClass Edge to extend
+   * @param clusters    The number of clusters to create for the new class. By default the MINIMUMCLUSTERS database setting is used.
+   *                    In v2.2 and later, the number of clusters are proportioned to the amount of cores found on the machine
    * @return OrientEdgeType instance representing the persistent class
    */
   OrientEdgeType createEdgeType(String iClassName, OClass iSuperClass, int clusters);
 
   /**
    * Drops an edge class.
-   * 
-   * @param iTypeName
-   *          Edge class name
+   *
+   * @param iTypeName Edge class name
    */
   void dropEdgeType(String iTypeName);
 
   /**
    * Detaches a Graph Element to be used offline. All the changes will be committed on further @attach call.
-   * 
-   * @param iElement
-   *          Graph element to detach
+   *
+   * @param iElement Graph element to detach
    * @return The detached element
    * @see #attach(OrientElement)
    */
@@ -233,9 +204,8 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
 
   /**
    * Attaches a previously detached Graph Element to the current Graph. All the pending changes will be committed.
-   * 
-   * @param iElement
-   *          Graph element to attach
+   *
+   * @param iElement Graph element to attach
    * @return The attached element
    * @see #detach(OrientElement)
    */
@@ -243,7 +213,7 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
 
   /**
    * Returns a GraphQuery object to execute queries against the Graph.
-   * 
+   *
    * @return new GraphQuery instance
    */
   @Override
@@ -256,36 +226,35 @@ public interface OrientExtendedGraph extends IndexableGraph, MetaGraph<ODatabase
 
   /**
    * Executes commands against the graph. Commands are executed outside transaction.
-   * 
-   * @param iCommand
-   *          Command request between SQL, GREMLIN and SCRIPT commands
+   *
+   * @param iCommand Command request between SQL, GREMLIN and SCRIPT commands
    */
   OCommandRequest command(OCommandRequest iCommand);
 
   /**
    * Counts the vertices in graph.
-   * 
+   *
    * @return Long as number of total vertices
    */
   long countVertices();
 
   /**
    * Counts the vertices in graph of a particular class.
-   * 
+   *
    * @return Long as number of total vertices
    */
   long countVertices(String iClassName);
 
   /**
    * Counts the edges in graph. Edge counting works only if useLightweightEdges is false.
-   * 
+   *
    * @return Long as number of total edges
    */
   long countEdges();
 
   /**
    * Counts the edges in graph of a particular class. Edge counting works only if useLightweightEdges is false.
-   * 
+   *
    * @return Long as number of total edges
    */
   long countEdges(String iClassName);

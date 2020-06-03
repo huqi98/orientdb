@@ -15,16 +15,19 @@ import static com.orientechnologies.orient.core.sql.executor.ExecutionPlanPrintU
 public class OBeginStatementExecutionTest {
   static ODatabaseDocument db;
 
-  @BeforeClass public static void beforeClass() {
+  @BeforeClass
+  public static void beforeClass() {
     db = new ODatabaseDocumentTx("memory:OBeginStatementExecutionTest");
     db.create();
   }
 
-  @AfterClass public static void afterClass() {
+  @AfterClass
+  public static void afterClass() {
     db.close();
   }
 
-  @Test public void testBegin() {
+  @Test
+  public void testBegin() {
     Assert.assertTrue(db.getTransaction() == null || !db.getTransaction().isActive());
     OResultSet result = db.command("begin");
     printExecutionPlan(null, result);
@@ -36,6 +39,5 @@ public class OBeginStatementExecutionTest {
     Assert.assertFalse(db.getTransaction() == null || !db.getTransaction().isActive());
     db.commit();
   }
-
 
 }

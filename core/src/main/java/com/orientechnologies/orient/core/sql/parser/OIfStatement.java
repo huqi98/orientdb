@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 
 public class OIfStatement extends OStatement {
   protected OBooleanExpression expression;
-  protected List<OStatement> statements     = new ArrayList<OStatement>();
-  protected List<OStatement> elseStatements = new ArrayList<OStatement>();//TODO support ELSE in the SQL syntax
+  protected List<OStatement>   statements     = new ArrayList<OStatement>();
+  protected List<OStatement>   elseStatements = new ArrayList<OStatement>();//TODO support ELSE in the SQL syntax
 
   public OIfStatement(int id) {
     super(id);
@@ -60,7 +60,7 @@ public class OIfStatement extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OIfExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OIfExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     OExecutionStepInternal last = executionPlan.executeUntilReturn();
@@ -92,7 +92,7 @@ public class OIfStatement extends OStatement {
     if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
     } else {
-      executionPlan = (OIfExecutionPlan)createExecutionPlanNoCache(ctx, false);
+      executionPlan = (OIfExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }
 
     OExecutionStepInternal last = executionPlan.executeUntilReturn();

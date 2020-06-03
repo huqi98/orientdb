@@ -133,9 +133,7 @@ public abstract class OPropertyImpl implements OProperty {
    *
    * @param iType One of types supported. <ul> <li>UNIQUE: Doesn't allow duplicates</li> <li>NOTUNIQUE: Allow duplicates</li>
    *              <li>FULLTEXT: Indexes single word for full text search</li> </ul>
-   *
    * @return
-   *
    * @see {@link OClass#createIndex(String, OClass.INDEX_TYPE, String...)} instead.
    */
   public OIndex createIndex(final OClass.INDEX_TYPE iType) {
@@ -147,9 +145,7 @@ public abstract class OPropertyImpl implements OProperty {
    * suggest to remove the index, make the massive insert and recreate it.
    *
    * @param iType
-   *
    * @return
-   *
    * @see {@link OClass#createIndex(String, OClass.INDEX_TYPE, String...)} instead.
    */
   public OIndex createIndex(final String iType) {

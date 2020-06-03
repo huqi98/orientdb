@@ -1,17 +1,14 @@
 /**
  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
  * <p>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
  * <p>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
  * <p>
  * For more information: http://www.orientdb.com
  */
@@ -81,13 +78,12 @@ public class LuceneSpatialWithinTest extends BaseSpatialLuceneTest {
     db.command("insert into Polygon set geometry = ST_Buffer(ST_GeomFromText('POINT(50 50)'), 40)");
 
     db.command("create index Polygon.g on Polygon(geometry) SPATIAL ENGINE LUCENE");
-    OResultSet execute = db.query(
-        "SELECT from Polygon where ST_Within(geometry, ST_Buffer(ST_GeomFromText('POINT(50 50)'), 50)) = true");
+    OResultSet execute = db
+        .query("SELECT from Polygon where ST_Within(geometry, ST_Buffer(ST_GeomFromText('POINT(50 50)'), 50)) = true");
 
     assertThat(execute).hasSize(2);
 
-    execute = db.query(
-        "SELECT from Polygon where ST_Within(geometry, ST_Buffer(ST_GeomFromText('POINT(50 50)'), 30)) = true");
+    execute = db.query("SELECT from Polygon where ST_Within(geometry, ST_Buffer(ST_GeomFromText('POINT(50 50)'), 30)) = true");
 
     assertThat(execute).hasSize(1);
 

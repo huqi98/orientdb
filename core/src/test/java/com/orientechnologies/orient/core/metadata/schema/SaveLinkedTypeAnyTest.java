@@ -65,5 +65,4 @@ public class SaveLinkedTypeAnyTest {
     Assert.assertEquals(coll.iterator().next(), 4);
   }
 
-
 }

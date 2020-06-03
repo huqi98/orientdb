@@ -20,7 +20,7 @@ import java.util.Set;
 public class ClassIteratorTest {
   private static final boolean             RECREATE_DATABASE = true;
   private static       ODatabaseDocumentTx db                = null;
-  private Set<String> names;
+  private              Set<String>         names;
 
   private static void initializeDatabase() {
     db = new ODatabaseDocumentTx("memory:" + ClassIteratorTest.class.getSimpleName());

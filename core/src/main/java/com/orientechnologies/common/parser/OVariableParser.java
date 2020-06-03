@@ -24,7 +24,7 @@ import com.orientechnologies.common.log.OLogManager;
 
 /**
  * Resolve entity class and descriptors using the paths configured.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (luca.garulli--at--assetdata.it)
  */
 public class OVariableParser {

@@ -18,13 +18,12 @@ public class OFromClause extends SimpleNode {
   public OFromClause(OrientSql p, int id) {
     super(p, id);
   }
-  
+
   public void toString(Map<Object, Object> params, StringBuilder builder) {
     if (item != null) {
       item.toString(params, builder);
     }
   }
-
 
   public OFromItem getItem() {
     return item;
@@ -35,12 +34,13 @@ public class OFromClause extends SimpleNode {
   }
 
   public OFromClause copy() {
-    OFromClause result= new OFromClause(-1);
+    OFromClause result = new OFromClause(-1);
     result.item = item.copy();
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -54,7 +54,8 @@ public class OFromClause extends SimpleNode {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return item != null ? item.hashCode() : 0;
   }
 

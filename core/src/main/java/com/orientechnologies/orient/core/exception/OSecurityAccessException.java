@@ -25,8 +25,8 @@ import com.orientechnologies.orient.core.storage.impl.local.paginated.base.ODura
 
 public class OSecurityAccessException extends OSecurityException implements OHighLevelException {
 
-  private static final long serialVersionUID = -8486291378415776372L;
-  private String            databaseName;
+  private static final long   serialVersionUID = -8486291378415776372L;
+  private              String databaseName;
 
   public OSecurityAccessException(OSecurityAccessException exception) {
     super(exception);

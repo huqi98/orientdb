@@ -8,7 +8,7 @@ import com.orientechnologies.common.exception.OHighLevelException;
  */
 public class NotEmptyComponentCanNotBeRemovedException extends OException implements OHighLevelException {
 
-  public NotEmptyComponentCanNotBeRemovedException(NotEmptyComponentCanNotBeRemovedException  exception) {
+  public NotEmptyComponentCanNotBeRemovedException(NotEmptyComponentCanNotBeRemovedException exception) {
     super(exception);
   }
 

@@ -45,7 +45,6 @@ public class OMultiValue {
    * Checks if a class is a multi-value type.
    *
    * @param iType Class to check
-   *
    * @return true if it's an array, a collection or a map, otherwise false
    */
   public static boolean isMultiValue(final Class<?> iType) {
@@ -59,7 +58,6 @@ public class OMultiValue {
    * Checks if the object is a multi-value type.
    *
    * @param iObject Object to check
-   *
    * @return true if it's an array, a collection or a map, otherwise false
    */
   public static boolean isMultiValue(final Object iObject) {
@@ -74,7 +72,6 @@ public class OMultiValue {
    * Returns the size of the multi-value object
    *
    * @param iObject Multi-value object (array, collection or map)
-   *
    * @return the size of the multi value object
    */
   public static int getSize(final Object iObject) {
@@ -110,7 +107,6 @@ public class OMultiValue {
    * Returns the first item of the Multi-value object (array, collection or map)
    *
    * @param iObject Multi-value object (array, collection or map)
-   *
    * @return The first item if any
    */
   public static Object getFirstValue(final Object iObject) {
@@ -141,7 +137,6 @@ public class OMultiValue {
    * Returns the last item of the Multi-value object (array, collection or map)
    *
    * @param iObject Multi-value object (array, collection or map)
-   *
    * @return The last item if any
    */
   public static Object getLastValue(final Object iObject) {
@@ -179,7 +174,6 @@ public class OMultiValue {
    *
    * @param iObject Multi-value object (array, collection or map)
    * @param iIndex  integer as the position requested
-   *
    * @return The first item if any
    */
   public static Object getValue(final Object iObject, final int iIndex) {
@@ -377,7 +371,6 @@ public class OMultiValue {
    * Returns a stringified version of the multi-value object.
    *
    * @param iObject Multi-value object (array, collection or map)
-   *
    * @return a stringified version of the multi-value object.
    */
   public static String toString(final Object iObject) {
@@ -428,7 +421,6 @@ public class OMultiValue {
    *
    * @param iObject MultiValue where to add value(s)
    * @param iToAdd  Single value, array of values or collections of values. Map are not supported.
-   *
    * @return
    */
   public static Object add(final Object iObject, final Object iToAdd) {
@@ -526,7 +518,6 @@ public class OMultiValue {
    * @param iToRemove       Single value, array of values or collections of values. Map are not supported.
    * @param iAllOccurrences True if the all occurrences must be removed or false of only the first one (Like
    *                        java.util.Collection.remove())
-   *
    * @return
    */
   public static Object remove(Object iObject, Object iToRemove, final boolean iAllOccurrences) {

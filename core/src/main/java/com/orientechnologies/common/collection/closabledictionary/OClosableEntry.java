@@ -31,15 +31,14 @@ public class OClosableEntry<K, V extends OClosableItem> {
   private static final long STATUS_DEAD = 5;
 
   /**
-   * Because entry may be acquired by several threads acquired status instead of single constant is presented as number of
-   * acquires and is stored in 4 most significant bytes of {@link #state} field.
+   * Because entry may be acquired by several threads acquired status instead of single constant is presented as number of acquires
+   * and is stored in 4 most significant bytes of {@link #state} field.
    */
   private static final long ACQUIRED_OFFSET = 32;
 
   public static boolean isOpen(long state) {
     return state == STATUS_OPEN;
   }
-
 
   private OClosableEntry<K, V> next;
 

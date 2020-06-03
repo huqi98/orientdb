@@ -37,10 +37,10 @@ import com.orientechnologies.orient.server.network.protocol.http.multipart.OHttp
 public class OServerCommandPostImportDatabase extends OHttpMultipartRequestCommand<String, InputStream>
     implements OCommandOutputListener {
 
-  protected static final String[] NAMES = { "POST|import/*" };
-  protected StringWriter              buffer;
-  protected InputStream               importData;
-  protected ODatabaseDocumentInternal database;
+  protected static final String[]                  NAMES = { "POST|import/*" };
+  protected              StringWriter              buffer;
+  protected              InputStream               importData;
+  protected              ODatabaseDocumentInternal database;
 
   @Override
   public boolean execute(final OHttpRequest iRequest, OHttpResponse iResponse) throws Exception {

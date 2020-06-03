@@ -154,7 +154,6 @@ public class OrientDBObject implements AutoCloseable {
    * @param name     of the database to open
    * @param user     the username allowed to open the database
    * @param password related to the specified username
-   *
    * @return the opened database
    */
   public ODatabaseObject open(String name, String user, String password) {
@@ -168,7 +167,6 @@ public class OrientDBObject implements AutoCloseable {
    * @param user     the username allowed to open the database
    * @param password related to the specified username
    * @param config   database specific configuration that override the orientDB global settings where needed.
-   *
    * @return the opened database
    */
   public ODatabaseObject open(String name, String user, String password, OrientDBConfig config) {
@@ -200,7 +198,6 @@ public class OrientDBObject implements AutoCloseable {
    * Check if a database exists
    *
    * @param name database name to check
-   *
    * @return boolean true if exist false otherwise.
    */
   public boolean exists(String name) {

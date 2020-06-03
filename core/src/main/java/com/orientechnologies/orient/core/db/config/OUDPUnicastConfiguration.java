@@ -7,7 +7,7 @@ public class OUDPUnicastConfiguration {
 
   public static class Address {
     private String address;
-    private int port;
+    private int    port;
 
     public Address(String address, int port) {
       this.address = address;
@@ -23,8 +23,8 @@ public class OUDPUnicastConfiguration {
     }
   }
 
-  private boolean enabled = true;
-  private int port = 4321;
+  private boolean       enabled            = true;
+  private int           port               = 4321;
   private List<Address> discoveryAddresses = new ArrayList<>();
 
   public boolean isEnabled() {

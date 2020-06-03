@@ -31,7 +31,8 @@ public class OCreateFunctionStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     ODatabase database = ctx.getDatabase();
     final OFunction f = database.getMetadata().getFunctionLibrary().createFunction(name.getStringValue());
     f.setCode(code);
@@ -52,7 +53,8 @@ public class OCreateFunctionStatement extends OSimpleExecStatement {
     return rs;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("CREATE FUNCTION ");
     name.toString(params, builder);
     builder.append(" ");
@@ -79,7 +81,8 @@ public class OCreateFunctionStatement extends OSimpleExecStatement {
     }
   }
 
-  @Override public OCreateFunctionStatement copy() {
+  @Override
+  public OCreateFunctionStatement copy() {
     OCreateFunctionStatement result = new OCreateFunctionStatement(-1);
     result.name = name == null ? null : name.copy();
     result.codeQuoted = codeQuoted;
@@ -90,7 +93,8 @@ public class OCreateFunctionStatement extends OSimpleExecStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -114,7 +118,8 @@ public class OCreateFunctionStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = name != null ? name.hashCode() : 0;
     result = 31 * result + (codeQuoted != null ? codeQuoted.hashCode() : 0);
     result = 31 * result + (code != null ? code.hashCode() : 0);

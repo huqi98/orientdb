@@ -21,9 +21,8 @@ package com.orientechnologies.orient.core.metadata.security;
 
 /**
  * Enum containing the restricted security (Record Level Security) permissions.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public enum ORestrictedOperation {
   /**

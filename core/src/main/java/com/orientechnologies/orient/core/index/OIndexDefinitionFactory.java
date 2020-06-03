@@ -54,7 +54,6 @@ public class OIndexDefinitionFactory {
    * @param collates
    * @param indexKind
    * @param algorithm
-   *
    * @return index definition instance
    */
   public static OIndexDefinition createIndexDefinition(final OClass oClass, final List<String> fieldNames, final List<OType> types,
@@ -72,7 +71,6 @@ public class OIndexDefinitionFactory {
    * Extract field name from '<property> [by key|value]' field format.
    *
    * @param fieldDefinition definition of field
-   *
    * @return extracted property name
    */
   public static String extractFieldName(final String fieldDefinition) {

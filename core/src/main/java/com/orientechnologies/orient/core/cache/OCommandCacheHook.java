@@ -27,7 +27,7 @@ import com.orientechnologies.orient.core.record.ORecord;
 
 /**
  * Hook that takes care to invalidate query cache as soon any change happen on database.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OCommandCacheHook extends ORecordHookAbstract {

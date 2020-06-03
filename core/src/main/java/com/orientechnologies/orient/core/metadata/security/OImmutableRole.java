@@ -14,11 +14,11 @@ import java.util.Set;
  * @since 03/11/14
  */
 public class OImmutableRole implements OSecurityRole {
-  private static final long                       serialVersionUID = 1L;
-  private final ALLOW_MODES                       mode;
-  private final OSecurityRole                     parentRole;
+  private static final long          serialVersionUID = 1L;
+  private final        ALLOW_MODES   mode;
+  private final        OSecurityRole parentRole;
 
-  private final Map<ORule.ResourceGeneric, ORule> rules            = new HashMap<ORule.ResourceGeneric, ORule>();
+  private final Map<ORule.ResourceGeneric, ORule> rules = new HashMap<ORule.ResourceGeneric, ORule>();
   private final String                            name;
   private final ORID                              rid;
   private final ORole                             role;

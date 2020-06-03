@@ -1,22 +1,22 @@
 /*
-  *
-  *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
-  *  *
-  *  *  Licensed under the Apache License, Version 2.0 (the "License");
-  *  *  you may not use this file except in compliance with the License.
-  *  *  You may obtain a copy of the License at
-  *  *
-  *  *       http://www.apache.org/licenses/LICENSE-2.0
-  *  *
-  *  *  Unless required by applicable law or agreed to in writing, software
-  *  *  distributed under the License is distributed on an "AS IS" BASIS,
-  *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  *  *  See the License for the specific language governing permissions and
-  *  *  limitations under the License.
-  *  *
-  *  * For more information: http://orientdb.com
-  *
-  */
+ *
+ *  *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ *
+ */
 package com.orientechnologies.common.parser;
 
 import java.util.ArrayList;
@@ -25,7 +25,6 @@ import java.util.ArrayList;
  * String parser utility class
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class OStringParser {
 
@@ -296,13 +295,10 @@ public class OStringParser {
 
   /**
    * Jump white spaces.
-   * 
-   * @param iText
-   *          String to analyze
-   * @param iCurrentPosition
-   *          Current position in text
-   * @param iMaxPosition
-   *          TODO
+   *
+   * @param iText            String to analyze
+   * @param iCurrentPosition Current position in text
+   * @param iMaxPosition     TODO
    * @return The new offset inside the string analyzed
    */
   public static int jumpWhiteSpaces(final CharSequence iText, final int iCurrentPosition, final int iMaxPosition) {
@@ -311,15 +307,11 @@ public class OStringParser {
 
   /**
    * Jump some characters reading from an offset of a String.
-   * 
-   * @param iText
-   *          String to analyze
-   * @param iCurrentPosition
-   *          Current position in text
-   * @param iMaxPosition
-   *          Maximum position to read
-   * @param iJumpChars
-   *          String as char array of chars to jump
+   *
+   * @param iText            String to analyze
+   * @param iCurrentPosition Current position in text
+   * @param iMaxPosition     Maximum position to read
+   * @param iJumpChars       String as char array of chars to jump
    * @return The new offset inside the string analyzed
    */
   public static int jump(final CharSequence iText, int iCurrentPosition, final int iMaxPosition, final String iJumpChars) {

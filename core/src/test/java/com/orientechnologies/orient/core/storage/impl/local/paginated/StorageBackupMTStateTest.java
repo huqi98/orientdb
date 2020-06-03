@@ -44,10 +44,10 @@ public class StorageBackupMTStateTest {
 
   private final AtomicInteger classCounter = new AtomicInteger();
 
-  private final String CLASS_PREFIX = "StorageBackupMTStateTest";
-  private String dbURL;
-  private File   backupDir;
-  private volatile boolean stop = false;
+  private final    String  CLASS_PREFIX = "StorageBackupMTStateTest";
+  private          String  dbURL;
+  private          File    backupDir;
+  private volatile boolean stop         = false;
 
   private volatile OPartitionedDatabasePool pool;
 

@@ -36,9 +36,8 @@ import com.tinkerpop.blueprints.impls.orient.OrientVertex;
 
 /**
  * Hi-level function that return the label for both edges and vertices. The label could be bound to the class name.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFunctionLabel extends OSQLFunctionConfigurableAbstract {
   public static final String NAME = "label";

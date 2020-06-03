@@ -21,7 +21,7 @@ public class OAlterRoleStatement extends OSimpleExecStatement {
 
   static class Op {
 
-    protected static int TYPE_ADD = 0;
+    protected static int TYPE_ADD    = 0;
     protected static int TYPE_REMOVE = 1;
 
     Op(int type, OSecurityResourceSegment resource, OIdentifier policyName) {
@@ -30,13 +30,13 @@ public class OAlterRoleStatement extends OSimpleExecStatement {
       this.policyName = policyName;
     }
 
-    protected final int type;
+    protected final int                      type;
     protected final OSecurityResourceSegment resource;
-    protected final OIdentifier policyName;
+    protected final OIdentifier              policyName;
   }
 
   protected OIdentifier name;
-  protected List<Op> operations = new ArrayList<>();
+  protected List<Op>    operations = new ArrayList<>();
 
   public OAlterRoleStatement(int id) {
     super(id);
@@ -46,13 +46,11 @@ public class OAlterRoleStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-
   @Override
   public OResultSet executeSimple(OCommandContext ctx) {
     OInternalResultSet rs = new OInternalResultSet();
     ODatabaseSession db = (ODatabaseSession) ctx.getDatabase();
     OSecurityInternal security = ((ODatabaseInternal) db).getSharedContext().getSecurity();
-
 
     ORole role = db.getMetadata().getSecurity().getRole(name.getStringValue());
     if (role == null) {

@@ -35,25 +35,25 @@ import com.orientechnologies.orient.server.config.OServerParameterConfiguration;
 
 public class OServerSSLSocketFactory extends OServerSocketFactory {
 
-  public static final String     PARAM_NETWORK_SSL_CLIENT_AUTH         = "network.ssl.clientAuth";
-  public static final String     PARAM_NETWORK_SSL_KEYSTORE            = "network.ssl.keyStore";
-  public static final String     PARAM_NETWORK_SSL_KEYSTORE_TYPE       = "network.ssl.keyStoreType";
-  public static final String     PARAM_NETWORK_SSL_KEYSTORE_PASSWORD   = "network.ssl.keyStorePassword";
-  public static final String     PARAM_NETWORK_SSL_TRUSTSTORE          = "network.ssl.trustStore";
-  public static final String     PARAM_NETWORK_SSL_TRUSTSTORE_TYPE     = "network.ssl.trustStoreType";
-  public static final String     PARAM_NETWORK_SSL_TRUSTSTORE_PASSWORD = "network.ssl.trustStorePassword";
+  public static final String PARAM_NETWORK_SSL_CLIENT_AUTH         = "network.ssl.clientAuth";
+  public static final String PARAM_NETWORK_SSL_KEYSTORE            = "network.ssl.keyStore";
+  public static final String PARAM_NETWORK_SSL_KEYSTORE_TYPE       = "network.ssl.keyStoreType";
+  public static final String PARAM_NETWORK_SSL_KEYSTORE_PASSWORD   = "network.ssl.keyStorePassword";
+  public static final String PARAM_NETWORK_SSL_TRUSTSTORE          = "network.ssl.trustStore";
+  public static final String PARAM_NETWORK_SSL_TRUSTSTORE_TYPE     = "network.ssl.trustStoreType";
+  public static final String PARAM_NETWORK_SSL_TRUSTSTORE_PASSWORD = "network.ssl.trustStorePassword";
 
-  private SSLServerSocketFactory sslServerSocketFactory                = null;
+  private SSLServerSocketFactory sslServerSocketFactory = null;
 
-  private String                 keyStorePath                          = null;
-  private File                   keyStoreFile                          = null;
-  private String                 keyStorePassword                      = null;
-  private String                 keyStoreType                          = KeyStore.getDefaultType();
-  private String                 trustStorePath                        = null;
-  private File                   trustStoreFile                        = null;
-  private String                 trustStorePassword                    = null;
-  private String                 trustStoreType                        = KeyStore.getDefaultType();
-  private boolean                clientAuth                            = false;
+  private String  keyStorePath       = null;
+  private File    keyStoreFile       = null;
+  private String  keyStorePassword   = null;
+  private String  keyStoreType       = KeyStore.getDefaultType();
+  private String  trustStorePath     = null;
+  private File    trustStoreFile     = null;
+  private String  trustStorePassword = null;
+  private String  trustStoreType     = KeyStore.getDefaultType();
+  private boolean clientAuth         = false;
 
   public OServerSSLSocketFactory() {
   }

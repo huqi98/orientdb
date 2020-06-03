@@ -32,9 +32,9 @@ import java.util.Set;
  * @since 4/24/14
  */
 public abstract class OIndexAbstractCursor implements OIndexCursor {
-  protected int                            prefetchSize = -1;
-  private Map.Entry<Object, OIdentifiable> nextEntry;
-  private boolean                          firstTime    = true;
+  protected int                              prefetchSize = -1;
+  private   Map.Entry<Object, OIdentifiable> nextEntry;
+  private   boolean                          firstTime    = true;
 
   @Override
   public Set<OIdentifiable> toValues() {

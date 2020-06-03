@@ -38,9 +38,9 @@ public class ComparatorBenchmark {
   final OByteArrayComparator       arrayComparator     = new OByteArrayComparator();
   final OUnsafeByteArrayComparator byteArrayComparator = new OUnsafeByteArrayComparator();
 
-  byte[]                           negative;
-  byte[]                           zero;
-  byte[]                           positive;
+  byte[] negative;
+  byte[] zero;
+  byte[] positive;
 
   @Setup(Level.Iteration)
   public void setup() {

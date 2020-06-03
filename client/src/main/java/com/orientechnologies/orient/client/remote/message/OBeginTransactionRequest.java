@@ -106,7 +106,7 @@ public class OBeginTransactionRequest implements OBinaryRequest<OBeginTransactio
 
       // RECEIVE MANUAL INDEX CHANGES
       this.indexChanges = OMessageHelper.readTransactionIndexChanges(channel, (ORecordSerializerNetworkV37) serializer);
-    } else  {
+    } else {
       this.indexChanges = new ArrayList<>();
     }
   }

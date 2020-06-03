@@ -46,7 +46,6 @@ import java.util.*;
  * SQL Helper class
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLHelper {
   public static final String NAME = "sql";
@@ -78,7 +77,6 @@ public class OSQLHelper {
    * Convert fields from text to real value. Supports: String, RID, Boolean, Float, Integer and NULL.
    *
    * @param iValue Value to convert.
-   *
    * @return The value converted if recognized, otherwise VALUE_NOT_PARSED
    */
   public static Object parseValue(String iValue, final OCommandContext iContext) {

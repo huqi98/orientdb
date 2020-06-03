@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 package com.orientechnologies.orient.test.database.auto;
 
@@ -34,8 +34,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @Test
 public class ConcurrentSchemaTest extends DocumentDBBaseTest {
-  private final static int THREADS                  = 10;
-  private final static int CYCLES                   = 50;
+  private final static int THREADS = 10;
+  private final static int CYCLES  = 50;
 
   private final AtomicLong createClassThreadCounter = new AtomicLong();
   private final AtomicLong dropClassThreadCounter   = new AtomicLong();

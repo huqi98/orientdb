@@ -16,15 +16,13 @@ import static org.junit.Assert.assertEquals;
  */
 public class OBatchOperationsTest {
 
-
   @Test
-  public  void testBatchOperationsNoTx() throws IOException {
+  public void testBatchOperationsNoTx() throws IOException {
     List<ORecordOperation> operations = new ArrayList<>();
     operations.add(new ORecordOperation(new ODocument(), ORecordOperation.CREATED));
 
     MockChannel channel = new MockChannel();
-    OBatchOperationsRequest request = new OBatchOperationsRequest(-1,operations);
-
+    OBatchOperationsRequest request = new OBatchOperationsRequest(-1, operations);
 
     request.write(channel, null);
 
@@ -32,7 +30,7 @@ public class OBatchOperationsTest {
 
     request = new OBatchOperationsRequest();
 
-    request.read(channel,0, ORecordSerializerNetworkFactory.INSTANCE.current());
+    request.read(channel, 0, ORecordSerializerNetworkFactory.INSTANCE.current());
 
     assertEquals(request.getOperations().size(), 1);
     assertEquals(request.getTxId(), -1);

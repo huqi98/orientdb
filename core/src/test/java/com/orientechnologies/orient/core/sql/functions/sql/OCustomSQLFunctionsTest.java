@@ -43,19 +43,19 @@ public class OCustomSQLFunctionsTest {
   @Test
   public void testAbsInt() {
     List<ODocument> result = db.query(new OSQLSynchQuery<ODocument>("select math_abs(-5) as abs"));
-    assertTrue((Integer)result.get(0).field("abs") == 5);
+    assertTrue((Integer) result.get(0).field("abs") == 5);
   }
 
   @Test
   public void testAbsDouble() {
     List<ODocument> result = db.query(new OSQLSynchQuery<ODocument>("select math_abs(-5.0d) as abs"));
-    assertTrue((Double)result.get(0).field("abs") == 5.0);
+    assertTrue((Double) result.get(0).field("abs") == 5.0);
   }
 
   @Test
   public void testAbsFloat() {
     List<ODocument> result = db.query(new OSQLSynchQuery<ODocument>("select math_abs(-5.0f) as abs"));
-    assertTrue((Float)result.get(0).field("abs") == 5.0);
+    assertTrue((Float) result.get(0).field("abs") == 5.0);
   }
 
   @Test(expected = OQueryParsingException.class)

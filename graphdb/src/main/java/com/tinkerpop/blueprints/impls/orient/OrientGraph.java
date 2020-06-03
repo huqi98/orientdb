@@ -34,19 +34,18 @@ import org.apache.commons.configuration.Configuration;
 
 /**
  * A Blueprints implementation of the graph database OrientDB (http://orientdb.com)
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (http://orientdb.com)
  */
 public class OrientGraph extends OrientTransactionalGraph {
-  private boolean          featuresInitialized = false;
+  private boolean featuresInitialized = false;
 
   protected final Features features = new Features();
 
   /**
    * Creates a new Transactional Graph using an existent database instance. User and password are passed in case of re-open.
    *
-   * @param iDatabase
-   *          Underlying database object to attach
+   * @param iDatabase Underlying database object to attach
    */
   public OrientGraph(final ODatabaseDocumentInternal iDatabase, final String iUserName, final String iUserPasswd) {
     super(iDatabase, true, iUserName, iUserPasswd);
@@ -56,10 +55,8 @@ public class OrientGraph extends OrientTransactionalGraph {
    * Creates a new Transactional Graph using an existent database instance and the auto-start setting to determine if auto start a
    * transaction.
    *
-   * @param iDatabase
-   *          Underlying database object to attach
-   * @param iAutoStartTx
-   *          True to auto start a transaction at the beginning and after each commit/rollback
+   * @param iDatabase    Underlying database object to attach
+   * @param iAutoStartTx True to auto start a transaction at the beginning and after each commit/rollback
    */
   public OrientGraph(final ODatabaseDocumentInternal iDatabase, final boolean iAutoStartTx) {
     super(iDatabase, iAutoStartTx, null, null);
@@ -68,8 +65,7 @@ public class OrientGraph extends OrientTransactionalGraph {
   /**
    * Creates a new Transactional Graph from an URL using default user (admin) and password (admin).
    *
-   * @param url
-   *          OrientDB URL
+   * @param url OrientDB URL
    */
   public OrientGraph(final String url) {
     super(url, ADMIN, ADMIN);
@@ -79,10 +75,8 @@ public class OrientGraph extends OrientTransactionalGraph {
    * Creates a new Transactional Graph from an URL using default user (admin) and password (admin). It receives also the auto-start
    * setting to determine if auto start a transaction.
    *
-   * @param url
-   *          OrientDB URL
-   * @param iAutoStartTx
-   *          True to auto start a transaction at the beginning and after each commit/rollback
+   * @param url          OrientDB URL
+   * @param iAutoStartTx True to auto start a transaction at the beginning and after each commit/rollback
    */
   public OrientGraph(final String url, final boolean iAutoStartTx) {
     super(url, ADMIN, ADMIN, iAutoStartTx);
@@ -91,30 +85,22 @@ public class OrientGraph extends OrientTransactionalGraph {
   /**
    * Creates a new Transactional Graph from an URL using a username and a password.
    *
-   * @param url
-   *          OrientDB URL
-   * @param username
-   *          Database user name
-   * @param password
-   *          Database user password
+   * @param url      OrientDB URL
+   * @param username Database user name
+   * @param password Database user password
    */
   public OrientGraph(final String url, final String username, final String password) {
     super(url, username, password);
   }
 
   /**
-   *
    * Creates a new Transactional Graph from an URL using a username and a password. It receives also the auto-start setting to
    * determine if auto start a transaction.
    *
-   * @param url
-   *          OrientDB URL
-   * @param username
-   *          Database user name
-   * @param password
-   *          Database user password
-   * @param iAutoStartTx
-   *          True to auto start a transaction at the beginning and after each commit/rollback
+   * @param url          OrientDB URL
+   * @param username     Database user name
+   * @param password     Database user password
+   * @param iAutoStartTx True to auto start a transaction at the beginning and after each commit/rollback
    */
   public OrientGraph(final String url, final String username, final String password, final boolean iAutoStartTx) {
     super(url, username, password, iAutoStartTx);
@@ -123,8 +109,7 @@ public class OrientGraph extends OrientTransactionalGraph {
   /**
    * Creates a new Transactional Graph from a pool.
    *
-   * @param pool
-   *          Database pool where to acquire a database instance
+   * @param pool Database pool where to acquire a database instance
    */
   public OrientGraph(final OPartitionedDatabasePool pool) {
     super(pool);
@@ -197,8 +182,7 @@ public class OrientGraph extends OrientTransactionalGraph {
    * </tr>
    * </table>
    *
-   * @param iConfiguration
-   *          graph settings see the details above.
+   * @param iConfiguration graph settings see the details above.
    */
   public OrientGraph(final Configuration iConfiguration) {
     super(iConfiguration);
@@ -207,8 +191,7 @@ public class OrientGraph extends OrientTransactionalGraph {
   /**
    * Creates a new Transactional Graph using an existent database instance.
    *
-   * @param iDatabase
-   *          Underlying database object to attach
+   * @param iDatabase Underlying database object to attach
    */
   public OrientGraph(final ODatabaseDocumentInternal iDatabase) {
     super(iDatabase);
@@ -217,8 +200,7 @@ public class OrientGraph extends OrientTransactionalGraph {
   /**
    * Creates a new Transactional Graph using an existent database instance.
    *
-   * @param iDatabase
-   *          Underlying database object to attach
+   * @param iDatabase Underlying database object to attach
    */
   public OrientGraph(final ODatabaseDocumentInternal iDatabase, final String iUser, final String iPassword,
       final Settings iConfiguration) {
@@ -320,8 +302,8 @@ public class OrientGraph extends OrientTransactionalGraph {
         label = edgeType.getName();
     }
 
-    final String outFieldName = currentVertex.getConnectionFieldName(Direction.OUT, label,
-        settings.isUseVertexFieldsForEdgeLabels());
+    final String outFieldName = currentVertex
+        .getConnectionFieldName(Direction.OUT, label, settings.isUseVertexFieldsForEdgeLabels());
     final String inFieldName = currentVertex.getConnectionFieldName(Direction.IN, label, settings.isUseVertexFieldsForEdgeLabels());
 
     // since the label for the edge can potentially get re-assigned
@@ -337,9 +319,9 @@ public class OrientGraph extends OrientTransactionalGraph {
       to = inDocument;
       if (edge == null) {
         if (settings.isKeepInMemoryReferences())
-          edge = getEdgeInstance( from.getIdentity(), to.getIdentity(), label);
+          edge = getEdgeInstance(from.getIdentity(), to.getIdentity(), label);
         else
-          edge = getEdgeInstance( from, to, label);
+          edge = getEdgeInstance(from, to, label);
       }
     } else {
       if (edge == null) {
@@ -347,11 +329,12 @@ public class OrientGraph extends OrientTransactionalGraph {
         edge = getEdgeInstance(label, fields);
 
         if (settings.isKeepInMemoryReferences())
-          edge.getRecord().fields(OrientBaseGraph.CONNECTION_OUT, currentVertex.rawElement.getIdentity(),
-              OrientBaseGraph.CONNECTION_IN, inDocument.getIdentity());
+          edge.getRecord()
+              .fields(OrientBaseGraph.CONNECTION_OUT, currentVertex.rawElement.getIdentity(), OrientBaseGraph.CONNECTION_IN,
+                  inDocument.getIdentity());
         else
-          edge.getRecord().fields(OrientBaseGraph.CONNECTION_OUT, currentVertex.rawElement, OrientBaseGraph.CONNECTION_IN,
-              inDocument);
+          edge.getRecord()
+              .fields(OrientBaseGraph.CONNECTION_OUT, currentVertex.rawElement, OrientBaseGraph.CONNECTION_IN, inDocument);
       }
 
       from = edge.getRecord();
@@ -396,8 +379,8 @@ public class OrientGraph extends OrientTransactionalGraph {
       outVertexRecord = outVertex.getRecord();
       if (outVertexRecord != null) {
         final String outFieldName = OrientVertex.getConnectionFieldName(Direction.OUT, edgeClassName, useVertexFieldsForEdgeLabels);
-        outVertexChanged = edge.dropEdgeFromVertex(inVertexEdge, outVertexRecord, outFieldName,
-            outVertexRecord.field(outFieldName));
+        outVertexChanged = edge
+            .dropEdgeFromVertex(inVertexEdge, outVertexRecord, outFieldName, outVertexRecord.field(outFieldName));
       }
     }
 

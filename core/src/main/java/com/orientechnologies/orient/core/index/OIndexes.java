@@ -135,9 +135,7 @@ public final class OIndexes {
   /**
    * @param storage   TODO
    * @param indexType index type
-   *
    * @return OIndexInternal
-   *
    * @throws OConfigurationException if index creation failed
    * @throws OIndexException         if index type does not exist
    */

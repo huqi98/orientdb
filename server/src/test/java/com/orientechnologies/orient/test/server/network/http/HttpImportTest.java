@@ -31,8 +31,8 @@ public class HttpImportTest extends BaseHttpDatabaseTest {
 
     try {
       String line;
-      while((line = r.readLine()) != null) {
-          out.add(line);
+      while ((line = r.readLine()) != null) {
+        out.add(line);
       }
 
       System.out.println(out);
@@ -45,6 +45,5 @@ public class HttpImportTest extends BaseHttpDatabaseTest {
   protected String getDatabaseName() {
     return this.getClass().getSimpleName();
   }
-
 
 }

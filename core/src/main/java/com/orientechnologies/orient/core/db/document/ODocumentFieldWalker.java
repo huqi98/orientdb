@@ -31,17 +31,17 @@ import java.util.*;
 
 /**
  * This class allows to walk through all fields of single document using instance of {@link ODocumentFieldVisitor} class.
- * 
+ * <p>
  * Only current document and embedded documents will be walked. Which means that all embedded collections will be visited too and
  * all embedded documents which are contained in this collections also will be visited.
- * 
+ * <p>
  * Fields values can be updated/converted too. If method {@link ODocumentFieldVisitor#visitField(OType, OType, Object)} will return
  * new value original value will be updated but returned result will not be visited by {@link ODocumentFieldVisitor} instance.
- * 
- * If currently processed value is collection or map of embedded documents or embedded document itself then method
- * {@link ODocumentFieldVisitor#goDeeper(OType, OType, Object)} is called, if it returns false then this collection will not be
- * visited by {@link ODocumentFieldVisitor} instance.
- * 
+ * <p>
+ * If currently processed value is collection or map of embedded documents or embedded document itself then method {@link
+ * ODocumentFieldVisitor#goDeeper(OType, OType, Object)} is called, if it returns false then this collection will not be visited by
+ * {@link ODocumentFieldVisitor} instance.
+ * <p>
  * Fields will be visited till method {@link ODocumentFieldVisitor#goFurther(OType, OType, Object, Object)} returns true.
  */
 public class ODocumentFieldWalker {
@@ -89,10 +89,8 @@ public class ODocumentFieldWalker {
       // 1. value was updated.
       // 2. we use link types.
       // 3. document is not not embedded.
-      if (!updated
-          && fieldValue != null
-          && !(OType.LINK.equals(fieldType) || OType.LINKBAG.equals(fieldType) || OType.LINKLIST.equals(fieldType)
-              || OType.LINKSET.equals(fieldType) || (fieldValue instanceof ORecordLazyMultiValue))) {
+      if (!updated && fieldValue != null && !(OType.LINK.equals(fieldType) || OType.LINKBAG.equals(fieldType) || OType.LINKLIST
+          .equals(fieldType) || OType.LINKSET.equals(fieldType) || (fieldValue instanceof ORecordLazyMultiValue))) {
         if (fieldWalker.goDeeper(fieldType, linkedType, fieldValue)) {
           if (fieldValue instanceof Map)
             walkMap((Map) fieldValue, fieldType, fieldWalker, walked);

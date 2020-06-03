@@ -28,10 +28,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class OCommandExecutorSQLDropPropertyTest {
-  static ODatabaseDocumentTx db;
-  private static String DB_STORAGE = "memory";
-  private static String DB_NAME    = "OCommandExecutorSQLDropPropertyTest";
-  private int ORDER_SKIP_LIMIT_ITEMS = 100 * 1000;
+  static         ODatabaseDocumentTx db;
+  private static String              DB_STORAGE             = "memory";
+  private static String              DB_NAME                = "OCommandExecutorSQLDropPropertyTest";
+  private        int                 ORDER_SKIP_LIMIT_ITEMS = 100 * 1000;
 
   @BeforeClass
   public static void beforeClass() throws Exception {
@@ -70,7 +70,8 @@ public class OCommandExecutorSQLDropPropertyTest {
     Assert.assertFalse(schema.getClass("Foo").existsProperty("name"));
   }
 
-  @Test public void testIfExists() {
+  @Test
+  public void testIfExists() {
     OSchema schema = db.getMetadata().getSchema();
     OClass testIfExistsClass = schema.createClass("testIfExists");
 

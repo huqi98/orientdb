@@ -38,7 +38,7 @@ public class ODocumentSchemalessBinarySerializationTest {
     //first we want to run tests for all registreted serializers, and then for two network serializers
     //testig for each serializer type has its own index
     for (byte i = 0; i < ORecordSerializerBinary.INSTANCE.getNumberOfSupportedVersions() + 3; i++) {
-      params.add(new Object[]{i});
+      params.add(new Object[] { i });
     }
     return params;
   }

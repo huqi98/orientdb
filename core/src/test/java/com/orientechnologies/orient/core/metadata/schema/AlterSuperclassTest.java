@@ -76,8 +76,7 @@ public class AlterSuperclassTest {
   }
 
   /**
-   * This tests fixes a problem created in Issue #5586.
-   * It should not throw ArrayIndexOutOfBoundsException
+   * This tests fixes a problem created in Issue #5586. It should not throw ArrayIndexOutOfBoundsException
    */
   @Test
   public void testBrokenDbAlteringSuperClass() {

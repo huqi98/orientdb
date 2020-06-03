@@ -37,9 +37,9 @@ import java.io.UnsupportedEncodingException;
 @SuppressWarnings({ "unchecked" })
 @Deprecated
 public class ORecordFlat extends ORecordAbstract implements ORecordStringable {
-  private static final long serialVersionUID = 1L;
-  public static final  byte RECORD_TYPE      = 'f';
-  protected String value;
+  private static final long   serialVersionUID = 1L;
+  public static final  byte   RECORD_TYPE      = 'f';
+  protected            String value;
 
   public ORecordFlat(ODatabaseDocumentInternal iDatabase) {
     this();

@@ -21,19 +21,23 @@ public class ONearOperator extends SimpleNode implements OBinaryCompareOperator 
     return "NEAR";
   }
 
-  @Override public boolean supportsBasicCalculation() {
+  @Override
+  public boolean supportsBasicCalculation() {
     return false;
   }
 
-  @Override public ONearOperator copy() {
+  @Override
+  public ONearOperator copy() {
     return this;
   }
 
-  @Override public boolean equals(Object obj) {
+  @Override
+  public boolean equals(Object obj) {
     return obj != null && obj.getClass().equals(this.getClass());
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     return getClass().hashCode();
   }
 }

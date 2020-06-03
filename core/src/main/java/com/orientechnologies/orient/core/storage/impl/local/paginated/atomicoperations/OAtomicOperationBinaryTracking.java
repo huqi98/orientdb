@@ -172,7 +172,6 @@ final class OAtomicOperationBinaryTracking implements OAtomicOperation {
    * be overwritten.
    *
    * @param metadata Metadata to add.
-   *
    * @see OAtomicOperationMetadata
    */
   @Override
@@ -182,7 +181,6 @@ final class OAtomicOperationBinaryTracking implements OAtomicOperation {
 
   /**
    * @param key Key of metadata which is looking for.
-   *
    * @return Metadata by associated key or <code>null</code> if such metadata is absent.
    */
   @Override
@@ -288,7 +286,6 @@ final class OAtomicOperationBinaryTracking implements OAtomicOperation {
    *
    * @param changesContainer changes container to check
    * @param pageIndex        limit to check against the changes
-   *
    * @return true if there are no changes or pageIndex still fit, false if the pageIndex do not fit anymore
    */
   private static boolean checkChangesFilledUpTo(final FileChanges changesContainer, final long pageIndex) {

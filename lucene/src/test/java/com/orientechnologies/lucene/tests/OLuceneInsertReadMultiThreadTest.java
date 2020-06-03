@@ -13,7 +13,7 @@
  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  * See the License for the specific language governing permissions and
  *  * limitations under the License.
- *  
+ *
  */
 
 package com.orientechnologies.lucene.tests;
@@ -62,14 +62,10 @@ public class OLuceneInsertReadMultiThreadTest extends OLuceneBaseTest {
   public void testConcurrentInsertWithIndex() throws Exception {
 
     List<CompletableFuture<Void>> futures = IntStream.range(0, THREADS).boxed()
-        .map(i -> CompletableFuture.runAsync(new LuceneInsert(pool, CYCLE)))
-        .collect(Collectors.toList());
+        .map(i -> CompletableFuture.runAsync(new LuceneInsert(pool, CYCLE))).collect(Collectors.toList());
 
-    futures.addAll(
-        IntStream.range(0, 1).boxed()
-            .map(i -> CompletableFuture.runAsync(new LuceneReader(pool, CYCLE)))
-            .collect(Collectors.toList())
-    );
+    futures.addAll(IntStream.range(0, 1).boxed().map(i -> CompletableFuture.runAsync(new LuceneReader(pool, CYCLE)))
+        .collect(Collectors.toList()));
 
     futures.forEach(cf -> cf.join());
 

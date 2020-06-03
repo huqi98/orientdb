@@ -45,8 +45,8 @@ import java.util.Map;
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OFunction extends ODocumentWrapper {
-  public static final String                     CLASS_NAME = "OFunction";
-  private OCallable<Object, Map<Object, Object>> callback;
+  public static final String                                 CLASS_NAME = "OFunction";
+  private             OCallable<Object, Map<Object, Object>> callback;
 
   /**
    * Creates a new function.
@@ -59,8 +59,7 @@ public class OFunction extends ODocumentWrapper {
   /**
    * Creates a new function wrapping the saved document.
    *
-   * @param iDocument
-   *          Document to assign
+   * @param iDocument Document to assign
    */
   public OFunction(final ODocument iDocument) {
     super(iDocument);
@@ -69,8 +68,7 @@ public class OFunction extends ODocumentWrapper {
   /**
    * Loads a function.
    *
-   * @param iRid
-   *          RID of the function to load
+   * @param iRid RID of the function to load
    */
   public OFunction(final ORecordId iRid) {
     super(iRid);
@@ -211,8 +209,9 @@ public class OFunction extends ODocumentWrapper {
     }
 
     if (Orient.instance().getProfiler().isRecording())
-      Orient.instance().getProfiler().stopChrono("db." + ODatabaseRecordThreadLocal.instance().get().getName() + ".function.execute",
-          "Time to execute a function", start, "db.*.function.execute");
+      Orient.instance().getProfiler()
+          .stopChrono("db." + ODatabaseRecordThreadLocal.instance().get().getName() + ".function.execute",
+              "Time to execute a function", start, "db.*.function.execute");
 
     return result;
   }

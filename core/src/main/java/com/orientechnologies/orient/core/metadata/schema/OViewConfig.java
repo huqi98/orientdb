@@ -14,9 +14,9 @@ public class OViewConfig {
 
   public static class OViewIndexConfig {
 
-    protected final String type;
-    protected final String engine;
-    protected List<OPair<String, OType>> props = new ArrayList<>();
+    protected final String                     type;
+    protected final String                     engine;
+    protected       List<OPair<String, OType>> props = new ArrayList<>();
 
     OViewIndexConfig(String type, String engine) {
       this.type = type;
@@ -40,9 +40,9 @@ public class OViewConfig {
     }
   }
 
-  protected String  name;
-  protected String  query;
-  protected boolean updatable;
+  protected String                 name;
+  protected String                 query;
+  protected boolean                updatable;
   protected List<OViewIndexConfig> indexes               = new ArrayList<>();
   protected String                 updateStrategy        = UPDATE_STRATEGY_BATCH;
   protected List<String>           watchClasses          = new ArrayList<>();

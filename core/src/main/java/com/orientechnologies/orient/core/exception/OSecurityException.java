@@ -25,9 +25,8 @@ import com.orientechnologies.orient.core.storage.impl.local.paginated.base.ODura
 
 /**
  * Generic Security exception. Used in cryptography.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 @SuppressWarnings("serial")
 public class OSecurityException extends OCoreException implements OHighLevelException {

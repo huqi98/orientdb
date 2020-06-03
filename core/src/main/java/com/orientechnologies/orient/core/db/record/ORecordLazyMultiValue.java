@@ -28,7 +28,7 @@ public interface ORecordLazyMultiValue extends OAutoConvertToRecord, ODetachable
 
   /**
    * Browse all the set to convert all the items into records.
-   * 
+   * <p>
    * It converts only items that already loaded into memory from storage. To convert records that will be fetched from disk later
    * use {@link #setAutoConvertToRecord(boolean)}
    */
@@ -36,7 +36,7 @@ public interface ORecordLazyMultiValue extends OAutoConvertToRecord, ODetachable
 
   /**
    * Browse all the set to convert all the items into links.
-   * 
+   *
    * @return
    */
   boolean convertRecords2Links();

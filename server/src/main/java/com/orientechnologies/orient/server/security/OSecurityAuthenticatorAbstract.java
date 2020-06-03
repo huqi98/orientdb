@@ -28,9 +28,8 @@ import javax.security.auth.Subject;
 
 /**
  * Provides an abstract implementation of OSecurityAuthenticator.
- * 
+ *
  * @author S. Colin Leister
- * 
  */
 public abstract class OSecurityAuthenticatorAbstract implements OSecurityAuthenticator {
   private String                      name          = "";

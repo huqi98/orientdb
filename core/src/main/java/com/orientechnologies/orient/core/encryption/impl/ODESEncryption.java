@@ -16,21 +16,21 @@ import java.util.Base64;
  * Stateful compression implementation that encrypt the content using DES algorithm
  * (https://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html). Issue
  * https://github.com/orientechnologies/orientdb/issues/89.
- * 
+ *
  * @author giastfader
  * This implementation uses DES and ECB mode and is thus not secure. See https://github.com/orientechnologies/orientdb/issues/8207.
  */
 public class ODESEncryption extends OAbstractEncryption {
   // @see https://docs.oracle.com/javase/7/docs/technotes/guides/security/SunProviders.html#SunJCEProvider
-  private static final String       TRANSFORMATION = "DES/ECB/PKCS5Padding"; // //we use ECB because we cannot
-  private static final String       ALGORITHM_NAME = "DES";
+  private static final String TRANSFORMATION = "DES/ECB/PKCS5Padding"; // //we use ECB because we cannot
+  private static final String ALGORITHM_NAME = "DES";
 
-  private SecretKey          theKey;
-  private Cipher             cipher;
+  private SecretKey theKey;
+  private Cipher    cipher;
 
-  private boolean            initialized    = false;
+  private boolean initialized = false;
 
-  public static final String NAME           = "des";
+  public static final String NAME = "des";
 
   @Override
   public String name() {
@@ -49,7 +49,7 @@ public class ODESEncryption extends OAbstractEncryption {
               + OGlobalConfiguration.STORAGE_ENCRYPTION_KEY.getKey() + "'");
 
     try {
-      final byte[] key =  Base64.getDecoder().decode(iOptions);
+      final byte[] key = Base64.getDecoder().decode(iOptions);
 
       final DESKeySpec desKeySpec = new DESKeySpec(key);
       final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM_NAME);

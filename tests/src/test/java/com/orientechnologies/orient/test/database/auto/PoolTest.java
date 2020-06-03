@@ -19,10 +19,10 @@ import java.util.concurrent.*;
  */
 @Test
 public class PoolTest extends DocumentDBBaseTest {
-  private int                  counter = 0;
-  private final Object         lock    = new Object();
+  private       int    counter = 0;
+  private final Object lock    = new Object();
 
-  private final CountDownLatch latch   = new CountDownLatch(1);
+  private final CountDownLatch latch = new CountDownLatch(1);
 
   @Parameters(value = "url")
   public PoolTest(@Optional String url) {

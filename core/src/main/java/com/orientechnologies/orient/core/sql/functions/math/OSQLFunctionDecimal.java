@@ -28,13 +28,12 @@ import java.util.List;
 
 /**
  * Evaluates a complex expression.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public class OSQLFunctionDecimal extends OSQLFunctionMathAbstract {
   public static final String NAME = "decimal";
-  private Object             result;
+  private             Object result;
 
   public OSQLFunctionDecimal() {
     super(NAME, 1, 1);

@@ -1,6 +1,7 @@
 package com.orientechnologies.orient.core.sql.parser;
 
 import org.junit.Test;
+
 public class OCreateClusterStatementTest extends OParserTestAbstract {
 
   @Test
@@ -14,7 +15,6 @@ public class OCreateClusterStatementTest extends OParserTestAbstract {
 
     checkRightSyntax("create blob cluster Foo IF NOT EXISTS");
     checkRightSyntax("create blob cluster Foo IF NOT EXISTS id 14");
-
 
     checkWrongSyntax("CREATE Cluster");
     checkWrongSyntax("CREATE Cluster foo bar");

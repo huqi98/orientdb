@@ -49,7 +49,7 @@ public class OCommandExecutorSQLAlterClass extends OCommandExecutorSQLAbstract i
   private String     className;
   private ATTRIBUTES attribute;
   private String     value;
-  private boolean unsafe = false;
+  private boolean    unsafe = false;
 
   public OCommandExecutorSQLAlterClass parse(final OCommandRequest iRequest) {
     final OCommandRequestText textRequest = (OCommandRequestText) iRequest;

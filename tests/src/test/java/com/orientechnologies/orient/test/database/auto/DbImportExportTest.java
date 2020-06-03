@@ -38,9 +38,9 @@ public class DbImportExportTest extends DocumentDBBaseTest implements OCommandOu
   public static final String NEW_DB_PATH      = "target/test-import";
   public static final String NEW_DB_URL       = "target/test-import";
 
-  private String             testPath;
-  private String             exportFilePath;
-  private boolean            dumpMode         = false;
+  private String  testPath;
+  private String  exportFilePath;
+  private boolean dumpMode = false;
 
   @Parameters(value = { "url", "testPath" })
   public DbImportExportTest(@Optional String url, String testPath) {

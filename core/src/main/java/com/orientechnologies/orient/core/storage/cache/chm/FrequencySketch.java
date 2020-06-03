@@ -3,9 +3,8 @@ package com.orientechnologies.orient.core.storage.cache.chm;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * A probabilistic multiset for estimating the popularity of an element within a time window. The
- * maximum frequency of an element is limited to 15 (4-bits) and an aging process periodically
- * halves the popularity of all elements.
+ * A probabilistic multiset for estimating the popularity of an element within a time window. The maximum frequency of an element is
+ * limited to 15 (4-bits) and an aging process periodically halves the popularity of all elements.
  *
  * @author ben.manes@gmail.com (Ben Manes)
  */
@@ -53,8 +52,8 @@ public final class FrequencySketch implements Admittor {
   private int    size;
 
   /**
-   * Creates a lazily initialized frequency sketch, requiring {@link #ensureCapacity} be called
-   * when the maximum size of the cache has been determined.
+   * Creates a lazily initialized frequency sketch, requiring {@link #ensureCapacity} be called when the maximum size of the cache
+   * has been determined.
    */
   @SuppressWarnings("NullAway.Init")
   FrequencySketch() {
@@ -63,9 +62,9 @@ public final class FrequencySketch implements Admittor {
   }
 
   /**
-   * Initializes and increases the capacity of this <tt>FrequencySketch</tt> instance, if necessary,
-   * to ensure that it can accurately estimate the popularity of elements given the maximum size of
-   * the cache. This operation forgets all previous counts when resizing.
+   * Initializes and increases the capacity of this <tt>FrequencySketch</tt> instance, if necessary, to ensure that it can
+   * accurately estimate the popularity of elements given the maximum size of the cache. This operation forgets all previous counts
+   * when resizing.
    *
    * @param maximumSize the maximum size of the cache
    */
@@ -88,7 +87,6 @@ public final class FrequencySketch implements Admittor {
    * Returns the estimated number of occurrences of an element, up to the maximum (15).
    *
    * @param hash the hash code of element to count occurrences of
-   *
    * @return the estimated number of occurrences of the element; possibly zero but never negative
    */
   @Override
@@ -105,9 +103,9 @@ public final class FrequencySketch implements Admittor {
   }
 
   /**
-   * Increments the popularity of the element if it does not exceed the maximum (15). The popularity
-   * of all elements will be periodically down sampled when the observed events exceeds a threshold.
-   * This process provides a frequency aging to allow expired long term entries to fade away.
+   * Increments the popularity of the element if it does not exceed the maximum (15). The popularity of all elements will be
+   * periodically down sampled when the observed events exceeds a threshold. This process provides a frequency aging to allow
+   * expired long term entries to fade away.
    *
    * @param hash the hash code of element
    */
@@ -137,7 +135,6 @@ public final class FrequencySketch implements Admittor {
    *
    * @param i the table index (16 counters)
    * @param j the counter to increment
-   *
    * @return if incremented
    */
   private boolean incrementAt(final int i, final int j) {
@@ -167,7 +164,6 @@ public final class FrequencySketch implements Admittor {
    *
    * @param item the element's hash
    * @param i    the counter depth
-   *
    * @return the table index
    */
   private int indexOf(final int item, final int i) {
@@ -177,8 +173,7 @@ public final class FrequencySketch implements Admittor {
   }
 
   /**
-   * Applies a supplemental hash function to a given hashCode, which defends against poor quality
-   * hash functions.
+   * Applies a supplemental hash function to a given hashCode, which defends against poor quality hash functions.
    */
   private int spread(int x) {
     x = ((x >>> 16) ^ x) * 0x45d9f3b;

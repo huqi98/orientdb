@@ -28,7 +28,7 @@ public class ORecordNotFoundException extends OCoreException implements OHighLev
 
   private static final long serialVersionUID = -265573123216968L;
 
-  private ORID              rid;
+  private ORID rid;
 
   public ORecordNotFoundException(final ORecordNotFoundException exception) {
     super(exception);

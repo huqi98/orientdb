@@ -40,8 +40,8 @@ import java.util.Iterator;
  * @since 06/11/14
  */
 public class OPartitionedDatabasePoolFactory extends OOrientListenerAbstract {
-  private volatile int                                                          maxPoolSize      = 64;
-  private boolean                                                               closed           = false;
+  private volatile int     maxPoolSize = 64;
+  private          boolean closed      = false;
 
   private final ConcurrentLinkedHashMap<PoolIdentity, OPartitionedDatabasePool> poolStore;
 

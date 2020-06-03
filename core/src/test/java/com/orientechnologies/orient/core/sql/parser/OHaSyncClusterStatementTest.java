@@ -15,5 +15,4 @@ public class OHaSyncClusterStatementTest extends OParserTestAbstract {
     checkWrongSyntax("HA SYNC CLUSTER");
   }
 
-
 }

@@ -29,7 +29,7 @@ public class LocalPaginatedStorageRestoreFromWAL {
   private static File                buildDir;
   private        ODatabaseDocumentTx testDocumentTx;
   private        ODatabaseDocumentTx baseDocumentTx;
-  private ExecutorService executorService = Executors.newCachedThreadPool();
+  private        ExecutorService     executorService = Executors.newCachedThreadPool();
 
   private static void copyFile(String from, String to) throws IOException {
     final File fromFile = new File(from);

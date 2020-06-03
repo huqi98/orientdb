@@ -79,8 +79,8 @@ public class SplitBrainNetwork2DynamicServersIT extends AbstractHARemoveNode {
       executeMultipleTest();
     } catch (AssertionError e) {
       final String message = e.getMessage();
-      Assert.assertTrue(message,
-          message.contains("Server 1 count is not what was expected expected:<" + expected + "> but was:<" + (currentRecords) + ">"));
+      Assert.assertTrue(message, message
+          .contains("Server 1 count is not what was expected expected:<" + expected + "> but was:<" + (currentRecords) + ">"));
     }
 
     banner("TEST WITH THE ISOLATED NODE FINISHED, REJOIN THE SERVER " + (SERVERS - 1) + "...");
@@ -115,7 +115,7 @@ public class SplitBrainNetwork2DynamicServersIT extends AbstractHARemoveNode {
 
     checkInsertedEntries(executeTestsOnServers);
     checkIndexedEntries(executeTestsOnServers);
-    
+
     banner("RESTARTING TESTS WITH SERVER " + (SERVERS - 1) + " CONNECTED...");
 
     count = 10;

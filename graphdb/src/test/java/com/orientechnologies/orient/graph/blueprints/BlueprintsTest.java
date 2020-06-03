@@ -14,7 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BlueprintsTest {
-  private static String DB_URL = "memory:" + BlueprintsTest.class.getSimpleName();
+  private static String      DB_URL = "memory:" + BlueprintsTest.class.getSimpleName();
   private static OrientGraph graph;
 
   public BlueprintsTest() {
@@ -151,7 +151,8 @@ public class BlueprintsTest {
   @Test
   public void testInvalidEdgeRID() {
     try {
-      OrientEdge e = graph.addEdge(null, new OrientVertex(graph,new ORecordId("9:9999")), new OrientVertex(graph,new ORecordId("9:99999")), "E");
+      OrientEdge e = graph
+          .addEdge(null, new OrientVertex(graph, new ORecordId("9:9999")), new OrientVertex(graph, new ORecordId("9:99999")), "E");
       Assert.assertTrue(false);
     } catch (IllegalArgumentException e) {
       Assert.assertTrue(true);

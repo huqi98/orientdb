@@ -27,8 +27,6 @@ public final class SBTreeNullBucketV1RemoveValuePO extends PageOperationRecord {
     return value;
   }
 
-
-
   public OBinarySerializer getValueSerializer() {
     return valueSerializer;
   }

@@ -36,8 +36,9 @@ public class OrientBenchmarkTestSuite extends TestSuite {
     // graph = new OrientBatchGraph((ODatabaseDocumentTx) ((OrientGraph) graph).getRawGraph());
     // GraphMLReader.inputGraph(graph, GraphMLReader.class.getResourceAsStream("graph-example-2.xml"));
     GraphMLReader.inputGraph(graph, new FileInputStream("/Users/luca/Downloads/graph-example-2.xml"));
-    System.out.println("V: " + ((OrientBaseGraph) graph).getRawGraph().countClass("V") + " E: "
-        + ((OrientBaseGraph) graph).getRawGraph().countClass("E"));
+    System.out.println(
+        "V: " + ((OrientBaseGraph) graph).getRawGraph().countClass("V") + " E: " + ((OrientBaseGraph) graph).getRawGraph()
+            .countClass("E"));
     graph.shutdown();
 
     for (int i = 0; i < TOTAL_RUNS; i++) {

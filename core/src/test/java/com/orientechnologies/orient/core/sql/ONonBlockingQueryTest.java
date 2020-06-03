@@ -20,8 +20,8 @@ public class ONonBlockingQueryTest {
   static class MyResultListener implements OCommandResultListener {
 
     private CountDownLatch latch;
-    public int     numResults = 0;
-    public boolean finished   = false;
+    public  int            numResults = 0;
+    public  boolean        finished   = false;
 
     MyResultListener(CountDownLatch latch) {
       this.latch = latch;
@@ -65,14 +65,16 @@ public class ONonBlockingQueryTest {
         listener.latch.await(1, TimeUnit.MINUTES);
       } catch (InterruptedException e) {
         e.printStackTrace();
-      } Assert.assertEquals(listener.finished, true);
+      }
+      Assert.assertEquals(listener.finished, true);
 
       listener = new MyResultListener(new CountDownLatch(2));
       db.query(new OSQLNonBlockingQuery<Object>("select from test", listener));
 
     } finally {
       db.close();
-    } try {
+    }
+    try {
       assertTrue(listener.latch.await(1, TimeUnit.MINUTES));
     } catch (InterruptedException e) {
       e.printStackTrace();

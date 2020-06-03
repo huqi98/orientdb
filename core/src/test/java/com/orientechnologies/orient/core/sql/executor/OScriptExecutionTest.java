@@ -131,12 +131,12 @@ public class OScriptExecutionTest {
 
   @Test
   public void testCommitRetry() {
-    String className  = "testCommitRetry";
+    String className = "testCommitRetry";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "IF($retries < 5) {";
     script += "  SELECT throwCME(#-1:-1, 1, 1, 1);";
@@ -147,25 +147,26 @@ public class OScriptExecutionTest {
     OResultSet result = db.query("select from " + className);
     Assert.assertTrue(result.hasNext());
     OResult item = result.next();
-    Assert.assertEquals(4, (int)item.getProperty("attempt"));
+    Assert.assertEquals(4, (int) item.getProperty("attempt"));
     Assert.assertFalse(result.hasNext());
     result.close();
   }
 
   @Test
   public void testCommitRetryWithFailure() {
-    String className  = "testCommitRetryWithFailure";
+    String className = "testCommitRetryWithFailure";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "SELECT throwCME(#-1:-1, 1, 1, 1);";
     script += "COMMIT RETRY 10;";
     try {
       db.execute("SQL", script);
-    }catch (OConcurrentModificationException x){}
+    } catch (OConcurrentModificationException x) {
+    }
 
     OResultSet result = db.query("select from " + className);
     Assert.assertFalse(result.hasNext());
@@ -174,16 +175,16 @@ public class OScriptExecutionTest {
 
   @Test
   public void testCommitRetryWithFailureAndContinue() {
-    String className  = "testCommitRetryWithFailureAndContinue";
+    String className = "testCommitRetryWithFailureAndContinue";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "SELECT throwCME(#-1:-1, 1, 1, 1);";
     script += "COMMIT RETRY 10 ELSE CONTINUE;";
-    script += "INSERT INTO "+className+" set name = 'foo';";
+    script += "INSERT INTO " + className + " set name = 'foo';";
 
     db.execute("SQL", script);
 
@@ -197,16 +198,16 @@ public class OScriptExecutionTest {
 
   @Test
   public void testCommitRetryWithFailureScriptAndContinue() {
-    String className  = "testCommitRetryWithFailureScriptAndContinue";
+    String className = "testCommitRetryWithFailureScriptAndContinue";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "SELECT throwCME(#-1:-1, 1, 1, 1);";
     script += "COMMIT RETRY 10 ELSE {";
-    script += "INSERT INTO "+className+" set name = 'foo';";
+    script += "INSERT INTO " + className + " set name = 'foo';";
     script += "} AND CONTINUE;";
 
     db.execute("SQL", script);
@@ -221,22 +222,22 @@ public class OScriptExecutionTest {
 
   @Test
   public void testCommitRetryWithFailureScriptAndFail() {
-    String className  = "testCommitRetryWithFailureScriptAndFail";
+    String className = "testCommitRetryWithFailureScriptAndFail";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "SELECT throwCME(#-1:-1, 1, 1, 1);";
     script += "COMMIT RETRY 10 ELSE {";
-    script += "INSERT INTO "+className+" set name = 'foo';";
+    script += "INSERT INTO " + className + " set name = 'foo';";
     script += "} AND FAIL;";
 
     try {
       db.execute("SQL", script);
       Assert.fail();
-    }catch (OConcurrentModificationException e){
+    } catch (OConcurrentModificationException e) {
 
     }
 
@@ -250,22 +251,22 @@ public class OScriptExecutionTest {
 
   @Test
   public void testCommitRetryWithFailureScriptAndFail2() {
-    String className  = "testCommitRetryWithFailureScriptAndFail2";
+    String className = "testCommitRetryWithFailureScriptAndFail2";
     db.createClass(className);
     String script = "";
     script += "LET $retries = 0;";
     script += "BEGIN;";
-    script += "INSERT INTO "+className+" set attempt = $retries;";
+    script += "INSERT INTO " + className + " set attempt = $retries;";
     script += "LET $retries = $retries + 1;";
     script += "SELECT throwCME(#-1:-1, 1, 1, 1);";
     script += "COMMIT RETRY 10 ELSE {";
-    script += "INSERT INTO "+className+" set name = 'foo';";
+    script += "INSERT INTO " + className + " set name = 'foo';";
     script += "}";
 
     try {
       db.execute("SQL", script);
       Assert.fail();
-    }catch (OConcurrentModificationException e){
+    } catch (OConcurrentModificationException e) {
 
     }
 
@@ -285,12 +286,11 @@ public class OScriptExecutionTest {
     try {
       db.command(script);
       Assert.fail();
-    }catch (OCommandSQLParsingException e){
+    } catch (OCommandSQLParsingException e) {
 
     }
 
-
-    OResultSet rs =  db.execute("SQL", script);
+    OResultSet rs = db.execute("SQL", script);
     Assert.assertTrue(rs.hasNext());
     OResult item = rs.next();
     Assert.assertTrue(item.getProperty("result") instanceof BigDecimal);

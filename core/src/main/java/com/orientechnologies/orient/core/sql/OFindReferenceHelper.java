@@ -38,10 +38,9 @@ import java.util.Map.Entry;
 
 /**
  * Helper class to find reference in records.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @author Luca Molino
- * 
  */
 public class OFindReferenceHelper {
 
@@ -98,7 +97,7 @@ public class OFindReferenceHelper {
 
   private static void browseClass(final ODatabaseDocument db, Set<ORID> iSourceRIDs, final Map<ORID, Set<ORID>> map,
       final String iClassName) {
-    final OClass clazz = ((OMetadataInternal)db.getMetadata()).getImmutableSchemaSnapshot().getClass(iClassName);
+    final OClass clazz = ((OMetadataInternal) db.getMetadata()).getImmutableSchemaSnapshot().getClass(iClassName);
 
     if (clazz == null)
       throw new OCommandExecutionException("Class '" + iClassName + "' was not found");

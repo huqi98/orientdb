@@ -10,7 +10,8 @@ import org.testng.annotations.Test;
  * Created by luigidellaquila on 09/11/16.
  */
 public class SQLDropClassTest {
-  @Test public void testSimpleDrop() {
+  @Test
+  public void testSimpleDrop() {
     ODatabaseDocument db = new ODatabaseDocumentTx("memory:" + SQLDropClassTest.class.getName());
     db.create();
     try {
@@ -24,7 +25,8 @@ public class SQLDropClassTest {
     }
   }
 
-  @Test public void testIfExists() {
+  @Test
+  public void testIfExists() {
     ODatabaseDocument db = new ODatabaseDocumentTx("memory:" + SQLDropClassTest.class.getName() + "_ifNotExists");
     db.create();
     try {

@@ -21,10 +21,9 @@ import java.util.Set;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class PersonTest {
-  private String      firstname;
+  private String firstname;
 
   private Set<PersonTest> friends = new HashSet<PersonTest>();
 

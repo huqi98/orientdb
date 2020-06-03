@@ -34,17 +34,12 @@ import java.util.concurrent.Future;
 import static org.junit.Assert.assertEquals;
 
 /**
-  @author Andrea Iacono (a.iacono--at--orientdb.com)
- * Checks for consistency on the cluster with these steps:
- * - 2 server (quorum=2)
- * - record1 is inserted on server1
- * - record1 (version 1) is propagated to the other server
- * - introduce a delay after record locking for the two servers (different for each one)
- * - the two clients at the same time update the same record on different servers
- * - the server1 immediately commits the transaction and tries to update the record to server2, which has the record locked
- * - meanwhile (while server1 is retrying) server2 commits and starts to try to update server1 as well
- * - since server1 has started first, it's the one which finishes first and rollback
- * - server2 can now successfully update the record on server1
+ * @author Andrea Iacono (a.iacono--at--orientdb.com) Checks for consistency on the cluster with these steps: - 2 server (quorum=2)
+ * - record1 is inserted on server1 - record1 (version 1) is propagated to the other server - introduce a delay after record locking
+ * for the two servers (different for each one) - the two clients at the same time update the same record on different servers - the
+ * server1 immediately commits the transaction and tries to update the record to server2, which has the record locked - meanwhile
+ * (while server1 is retrying) server2 commits and starts to try to update server1 as well - since server1 has started first, it's
+ * the one which finishes first and rollback - server2 can now successfully update the record on server1
  */
 
 // TODO Temporary Ignored
@@ -92,11 +87,12 @@ public class TwoClientsRecordUpdateDuringRetryWithTransactionsOnMultipleServersS
 
     ODatabaseDocument dbServer1 = getDatabase(0);
 
-
     // sets a delay for operations on distributed storage of server1 and server2
     // so that server1 will start to commit after server2 has started the transaction
-    ((ODistributedStorage) ((ODatabaseDocumentInternal)dbServer2).getStorage()).setEventListener(new AfterRecordLockDelayer("server2", 1000));
-    ((ODistributedStorage) ((ODatabaseDocumentInternal)dbServer1).getStorage()).setEventListener(new AfterRecordLockDelayer("server1", 250));
+    ((ODistributedStorage) ((ODatabaseDocumentInternal) dbServer2).getStorage())
+        .setEventListener(new AfterRecordLockDelayer("server2", 1000));
+    ((ODistributedStorage) ((ODatabaseDocumentInternal) dbServer1).getStorage())
+        .setEventListener(new AfterRecordLockDelayer("server1", 250));
 
     // updates the same record from two different clients, each calling a different node
     ODocument record1Server2 = retrieveRecord(serverInstance.get(1), RECORD_ID);

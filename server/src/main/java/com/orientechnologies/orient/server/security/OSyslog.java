@@ -21,9 +21,8 @@ package com.orientechnologies.orient.server.security;
 
 /**
  * Provides an interface to syslog (and other such event logging systems).
- * 
+ *
  * @author S. Colin Leister
- * 
  */
 public interface OSyslog {
   void log(final String operation, final String message);

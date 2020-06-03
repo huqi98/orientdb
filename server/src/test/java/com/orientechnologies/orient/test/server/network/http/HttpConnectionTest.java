@@ -10,7 +10,7 @@ import java.util.Collection;
 
 /**
  * Tests HTTP "connect" command.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com) (l.garulli--at-orientdb.com)
  */
 public class HttpConnectionTest extends BaseHttpDatabaseTest {
@@ -84,8 +84,9 @@ public class HttpConnectionTest extends BaseHttpDatabaseTest {
 
     Collection<ODocument> conns = null;
     for (int i = 0; i < 20; ++i) {
-      Assert.assertEquals(get("server").setKeepAlive(false).setUserName("root").setUserPassword("root").getResponse()
-          .getStatusLine().getStatusCode(), 200);
+      Assert.assertEquals(
+          get("server").setKeepAlive(false).setUserName("root").setUserPassword("root").getResponse().getStatusLine()
+              .getStatusCode(), 200);
 
       final ODocument serverStatus = new ODocument().fromJSON(getResponse().getEntity().getContent());
       conns = serverStatus.field("connections");

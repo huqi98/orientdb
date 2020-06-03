@@ -432,7 +432,6 @@ public final class OPaginatedClusterV1 extends OPaginatedCluster {
 
   }
 
-
   private static int getEntryContentLength(final int grownContentSize) {
 
     return grownContentSize + 2 * OByteSerializer.BYTE_SIZE + OIntegerSerializer.INT_SIZE + OLongSerializer.LONG_SIZE;

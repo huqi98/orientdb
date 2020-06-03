@@ -27,8 +27,8 @@ import java.util.Iterator;
 
 public class OTraverseMultiValueProcess extends OTraverseAbstractProcess<Iterator<Object>> {
   private final OTraversePath parentPath;
-  protected Object            value;
-  protected int               index = -1;
+  protected     Object        value;
+  protected     int           index = -1;
 
   public OTraverseMultiValueProcess(final OTraverse iCommand, final Iterator<Object> iTarget, OTraversePath parentPath) {
     super(iCommand, iTarget);

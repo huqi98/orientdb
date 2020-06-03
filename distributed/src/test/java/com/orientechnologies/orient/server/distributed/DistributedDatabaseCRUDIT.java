@@ -45,7 +45,7 @@ public final class DistributedDatabaseCRUDIT {
     if (!orientDB.exists(dbName)) {
       orientDb.create(dbName, ODatabaseType.PLOCAL);
     }
-    ODatabaseSession orientGraph = orientDb.open(dbName,"admin","admin");
+    ODatabaseSession orientGraph = orientDb.open(dbName, "admin", "admin");
     createVertexTypeWithUniqueIndex(orientGraph, "Test", "property1", "property2");
     for (int i = 1; i <= totalClassCount; i++) {
       createVertexType(orientGraph, "Test" + i, "property1", "property2");
@@ -537,7 +537,6 @@ public final class DistributedDatabaseCRUDIT {
    *
    * @param threadName
    * @param poolSize
-   *
    * @return
    */
   public static ExecutorService newFixedThreadPool(String threadName, int poolSize) {

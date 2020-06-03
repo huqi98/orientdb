@@ -29,7 +29,8 @@ public class OCreateVertexStatement extends OStatement {
     super(p, id);
   }
 
-  @Override public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -46,7 +47,8 @@ public class OCreateVertexStatement extends OStatement {
     return new OLocalResultSet(executionPlan);
   }
 
-  @Override public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -69,7 +71,8 @@ public class OCreateVertexStatement extends OStatement {
     return new OLocalResultSet(executionPlan);
   }
 
-  @Override public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx, boolean enableProfiling) {
+  @Override
+  public OInternalExecutionPlan createExecutionPlan(OCommandContext ctx, boolean enableProfiling) {
     OCreateVertexExecutionPlanner planner = new OCreateVertexExecutionPlanner(this);
     OInternalExecutionPlan result = planner.createExecutionPlan(ctx, enableProfiling);
     result.setStatement(this.originalStatement);
@@ -101,7 +104,8 @@ public class OCreateVertexStatement extends OStatement {
     }
   }
 
-  @Override public OCreateVertexStatement copy() {
+  @Override
+  public OCreateVertexStatement copy() {
     OCreateVertexStatement result = null;
     try {
       result = getClass().getConstructor(Integer.TYPE).newInstance(-1);
@@ -116,7 +120,8 @@ public class OCreateVertexStatement extends OStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -138,7 +143,8 @@ public class OCreateVertexStatement extends OStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = targetClass != null ? targetClass.hashCode() : 0;
     result = 31 * result + (targetClusterName != null ? targetClusterName.hashCode() : 0);
     result = 31 * result + (targetCluster != null ? targetCluster.hashCode() : 0);

@@ -22,7 +22,7 @@ import com.orientechnologies.orient.server.OServer;
 
 public class OLiveQueryShotdownTest {
 
-  private OServer             server;
+  private OServer server;
 
   public void bootServer() throws Exception {
     server = new OServer(false);

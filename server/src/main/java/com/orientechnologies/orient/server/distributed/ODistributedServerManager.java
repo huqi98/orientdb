@@ -117,7 +117,6 @@ public interface ODistributedServerManager {
    * @param iNodeName     Node name
    * @param iDatabaseName Database name
    * @param statuses      vararg of statuses
-   *
    * @return true if the node's status is equals to one of the passed statuses, otherwise false
    */
   boolean isNodeStatusEqualsTo(String iNodeName, String iDatabaseName, DB_STATUS... statuses);
@@ -235,7 +234,6 @@ public interface ODistributedServerManager {
    * @param localResult        It's the result of the request executed locally
    * @param iAfterSentCallback
    * @param endCallback
-   *
    * @return
    */
   ODistributedResponse sendRequest(String iDatabaseName, Collection<String> iClusterNames, Collection<String> iTargetNodeNames,

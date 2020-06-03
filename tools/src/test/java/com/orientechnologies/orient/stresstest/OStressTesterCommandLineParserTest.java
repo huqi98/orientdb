@@ -8,7 +8,8 @@ import static org.junit.Assert.*;
 
 public class OStressTesterCommandLineParserTest {
 
-  @Test public void testCommandLineArgs() throws Exception {
+  @Test
+  public void testCommandLineArgs() throws Exception {
     try {
       OStressTesterCommandLineParser.getStressTester(new String[] { "" });
       fail();
@@ -20,7 +21,8 @@ public class OStressTesterCommandLineParserTest {
       OStressTesterCommandLineParser.getStressTester(new String[] { "-i foo" });
       fail();
     } catch (Exception ex) {
-      assertTrue(ex.getMessage().contains(String.format(OStressTesterCommandLineParser.COMMAND_LINE_PARSER_EXPECTED_VALUE, "-i foo")));
+      assertTrue(
+          ex.getMessage().contains(String.format(OStressTesterCommandLineParser.COMMAND_LINE_PARSER_EXPECTED_VALUE, "-i foo")));
     }
 
     try {

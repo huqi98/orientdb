@@ -17,7 +17,6 @@ package com.orientechnologies.orient.test.java.collection;
 
 import java.util.ArrayList;
 
-
 public class ArrayListSpeedTest extends CollectionBaseAbstractSpeedTest {
   private ArrayList<String> arrayList;
 

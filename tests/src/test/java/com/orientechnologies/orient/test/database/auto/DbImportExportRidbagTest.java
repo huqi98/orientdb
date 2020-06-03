@@ -32,17 +32,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@Test(groups = {"db", "import-export"})
+@Test(groups = { "db", "import-export" })
 public class DbImportExportRidbagTest extends DocumentDBBaseTest implements OCommandOutputListener {
   public static final String EXPORT_FILE_PATH = "target/db.export-ridbag.gz";
-  public static final String NEW_DB_PATH = "target/test-import-ridbag";
-  public static final String NEW_DB_URL = "target/test-import-ridbag";
+  public static final String NEW_DB_PATH      = "target/test-import-ridbag";
+  public static final String NEW_DB_URL       = "target/test-import-ridbag";
 
-  private String testPath;
-  private String exportFilePath;
+  private String  testPath;
+  private String  exportFilePath;
   private boolean dumpMode = false;
 
-  @Parameters(value = {"url", "testPath"})
+  @Parameters(value = { "url", "testPath" })
   public DbImportExportRidbagTest(@Optional String url, String testPath) {
     super(url);
     this.testPath = testPath;
@@ -112,8 +112,8 @@ public class DbImportExportRidbagTest extends DocumentDBBaseTest implements OCom
 
     String urlPrefix = getStorageType() + ":";
 
-    final ODatabaseCompare databaseCompare = new ODatabaseCompare(url, urlPrefix + testPath + "/" + DbImportExportRidbagTest.NEW_DB_URL,
-            "admin", "admin", this);
+    final ODatabaseCompare databaseCompare = new ODatabaseCompare(url,
+        urlPrefix + testPath + "/" + DbImportExportRidbagTest.NEW_DB_URL, "admin", "admin", this);
     databaseCompare.setCompareEntriesForAutomaticIndexes(true);
     databaseCompare.setCompareIndexMetadata(true);
     Assert.assertTrue(databaseCompare.compare());

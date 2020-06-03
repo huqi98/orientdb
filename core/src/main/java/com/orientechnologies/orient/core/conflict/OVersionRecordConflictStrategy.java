@@ -15,7 +15,7 @@
  *  *  limitations under the License.
  *  *
  *  * For more information: http://orientdb.com
- *  
+ *
  */
 
 package com.orientechnologies.orient.core.conflict;
@@ -31,15 +31,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Default strategy that checks the record version number: if the current update has a version different than stored one, then a
  * OConcurrentModificationException is thrown.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OVersionRecordConflictStrategy implements ORecordConflictStrategy {
   public static final String NAME = "version";
 
   @Override
-  public byte[] onUpdate(OStorage storage, final byte iRecordType, final ORecordId rid,
-      final int iRecordVersion, final byte[] iRecordContent, final AtomicInteger iDatabaseVersion) {
+  public byte[] onUpdate(OStorage storage, final byte iRecordType, final ORecordId rid, final int iRecordVersion,
+      final byte[] iRecordContent, final AtomicInteger iDatabaseVersion) {
     checkVersions(rid, iRecordVersion, iDatabaseVersion.get());
     return null;
   }

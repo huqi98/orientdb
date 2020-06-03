@@ -41,7 +41,6 @@ public enum PersistenceXml {
    * Case ignorance, null safe method
    *
    * @param aName
-   *
    * @return true if tag equals to enum item
    */
   public boolean equals(String aName) {
@@ -52,7 +51,6 @@ public enum PersistenceXml {
    * Try to parse tag to enum item
    *
    * @param aName
-   *
    * @return TAG_UNKNOWN$ if failed to parse
    */
   public static PersistenceXml parse(String aName) {

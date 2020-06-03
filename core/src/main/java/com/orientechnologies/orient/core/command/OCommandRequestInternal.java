@@ -25,9 +25,8 @@ import com.orientechnologies.common.listener.OProgressListener;
 
 /**
  * Internal specialization of generic OCommand interface.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- * 
  */
 public interface OCommandRequestInternal extends OCommandRequest {
 

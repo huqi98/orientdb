@@ -189,7 +189,8 @@ public class OSchemaProxyObject implements OSchemaObject {
     return underlying.createView(viewName, statement);
   }
 
-  public OView createView(ODatabaseDocumentInternal database, final String viewName, String statement, Map<String, Object> metadata) {
+  public OView createView(ODatabaseDocumentInternal database, final String viewName, String statement,
+      Map<String, Object> metadata) {
     return underlying.createView(database, viewName, statement, metadata);
   }
 

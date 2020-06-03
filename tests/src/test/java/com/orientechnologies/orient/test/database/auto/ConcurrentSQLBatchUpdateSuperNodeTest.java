@@ -36,14 +36,14 @@ import java.util.concurrent.atomic.AtomicLong;
 @Test
 public class ConcurrentSQLBatchUpdateSuperNodeTest extends DocumentDBBaseTest {
 
-  private final static int OPTIMISTIC_CYCLES  = 30;
-  private final static int PESSIMISTIC_CYCLES = 30;
-  private final static int THREADS            = 256;
-  private final static int MAX_RETRIES        = 100;
-  private final AtomicLong counter            = new AtomicLong();
-  private boolean          mvccEnabled;
-  private long             startedOn;
-  private AtomicLong       totalRetries       = new AtomicLong();
+  private final static int        OPTIMISTIC_CYCLES  = 30;
+  private final static int        PESSIMISTIC_CYCLES = 30;
+  private final static int        THREADS            = 256;
+  private final static int        MAX_RETRIES        = 100;
+  private final        AtomicLong counter            = new AtomicLong();
+  private              boolean    mvccEnabled;
+  private              long       startedOn;
+  private              AtomicLong totalRetries       = new AtomicLong();
 
   @Parameters(value = "url")
   public ConcurrentSQLBatchUpdateSuperNodeTest(@Optional String url) {

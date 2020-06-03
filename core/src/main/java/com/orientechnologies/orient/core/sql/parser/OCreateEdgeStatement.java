@@ -51,9 +51,9 @@ public class OCreateEdgeStatement extends OStatement {
     }
     ctx.setInputParameters(params);
     OInsertExecutionPlan executionPlan;
-    if(usePlanCache) {
+    if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
-    }else{
+    } else {
       executionPlan = createExecutionPlanNoCache(ctx, false);
     }
     executionPlan.executeInternal();
@@ -69,9 +69,9 @@ public class OCreateEdgeStatement extends OStatement {
     ctx.setDatabase(db);
     ctx.setInputParameters(params);
     OInsertExecutionPlan executionPlan;
-    if(usePlanCache) {
+    if (usePlanCache) {
       executionPlan = createExecutionPlan(ctx, false);
-    }else{
+    } else {
       executionPlan = createExecutionPlanNoCache(ctx, false);
     }
     executionPlan.executeInternal();

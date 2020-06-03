@@ -25,7 +25,6 @@ import com.orientechnologies.orient.core.metadata.sequence.OSequence;
 import com.orientechnologies.orient.core.sql.OCommandSQLParsingException;
 import com.orientechnologies.orient.core.sql.method.misc.OAbstractSQLMethod;
 
-
 /**
  * Returns the current number of a sequence.
  *

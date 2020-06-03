@@ -50,7 +50,7 @@ public class OLuceneQueryContext {
   }
 
   public OLuceneQueryContext(final OCommandContext context, final IndexSearcher searcher, final Query query,
-                             final List<SortField> sortFields) {
+      final List<SortField> sortFields) {
     this.context = context;
     this.searcher = searcher;
     this.query = query;
@@ -94,8 +94,7 @@ public class OLuceneQueryContext {
   }
 
   public IndexSearcher getSearcher() {
-    return changes.map(c -> new IndexSearcher(multiReader(c)))
-        .orElse(searcher);
+    return changes.map(c -> new IndexSearcher(multiReader(c))).orElse(searcher);
   }
 
   private MultiReader multiReader(final OLuceneTxChanges luceneTxChanges) {

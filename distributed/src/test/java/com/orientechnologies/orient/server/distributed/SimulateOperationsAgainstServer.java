@@ -34,18 +34,17 @@ import java.util.concurrent.atomic.AtomicLong;
  * Executes random operations against multiple servers
  */
 public class SimulateOperationsAgainstServer {
-  protected static final int                    delay           = 0;
-  private static final int                      MAX_RETRY       = 30;
-  protected final AtomicLong                    totalOperations = new AtomicLong();
-  protected int                                 count           = 1000;
-  protected int                                 threads         = 20;
-  protected String[]                            urls            = new String[] { "remote:localhost:2424/test",
-      "remote:localhost:2425/test"                             };
-  protected String                              className       = "Customer";
-  protected String                              userName        = "admin";
-  protected String                              userPassword    = "admin";
+  protected static final int        delay           = 0;
+  private static final   int        MAX_RETRY       = 30;
+  protected final        AtomicLong totalOperations = new AtomicLong();
+  protected              int        count           = 1000;
+  protected              int        threads         = 20;
+  protected              String[]   urls            = new String[] { "remote:localhost:2424/test", "remote:localhost:2425/test" };
+  protected              String     className       = "Customer";
+  protected              String     userName        = "admin";
+  protected              String     userPassword    = "admin";
 
-  private final OPartitionedDatabasePoolFactory poolFactory     = new OPartitionedDatabasePoolFactory();
+  private final OPartitionedDatabasePoolFactory poolFactory = new OPartitionedDatabasePoolFactory();
 
   public static void main(String[] args) {
     new SimulateOperationsAgainstServer().randomExecute();
@@ -162,8 +161,8 @@ public class SimulateOperationsAgainstServer {
         break;
 
       } catch (OConcurrentModificationException e) {
-        log(threadId, iCycle, dbUrl, " concurrent update against record " + doc + ", reload it and retry " + retry + "/"
-            + MAX_RETRY + "...");
+        log(threadId, iCycle, dbUrl,
+            " concurrent update against record " + doc + ", reload it and retry " + retry + "/" + MAX_RETRY + "...");
         if (doc != null)
           doc.reload(null, true);
 
@@ -194,8 +193,8 @@ public class SimulateOperationsAgainstServer {
         }
         break;
       } catch (OConcurrentModificationException e) {
-        log(threadId, iCycle, dbUrl, " concurrent delete against record " + doc + ", reload it and retry " + retry + "/"
-            + MAX_RETRY + "...");
+        log(threadId, iCycle, dbUrl,
+            " concurrent delete against record " + doc + ", reload it and retry " + retry + "/" + MAX_RETRY + "...");
         if (doc != null)
           doc.reload(null, true);
       } catch (ORecordNotFoundException e) {

@@ -42,18 +42,17 @@ import java.util.Set;
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
-public class OMultiCollectionIterator<T> implements Iterator<T>, Iterable<T>, OResettable, OSizeable, OSupportsContains,
-    OAutoConvertToRecord {
+public class OMultiCollectionIterator<T>
+    implements Iterator<T>, Iterable<T>, OResettable, OSizeable, OSupportsContains, OAutoConvertToRecord {
   private List<Object> sources;
   private Iterator<?>  sourcesIterator;
   private Iterator<T>  partialIterator;
 
-  private int          browsed            = 0;
-  private int          skip               = -1;
-  private int          limit              = -1;
-  private boolean      embedded           = false;
-  private boolean      autoConvert2Record = true;
-
+  private int     browsed            = 0;
+  private int     skip               = -1;
+  private int     limit              = -1;
+  private boolean embedded           = false;
+  private boolean autoConvert2Record = true;
 
   private int skipped = 0;
 

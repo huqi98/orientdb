@@ -226,7 +226,6 @@ public class ViewManager {
    *
    * @param name view name
    * @param db   db instance
-   *
    * @return true if there are no watch rules for this view; true if there are watch rules and some of them happened since last
    * update; true if the view was never updated; false otherwise.
    */

@@ -25,13 +25,12 @@ public class OAlterSecurityPolicyStatement extends OSimpleExecStatement {
   protected OBooleanExpression delete;
   protected OBooleanExpression execute;
 
-
-  protected boolean removeCreate = false;
-  protected boolean removeRead = false;
+  protected boolean removeCreate       = false;
+  protected boolean removeRead         = false;
   protected boolean removeBeforeUpdate = false;
-  protected boolean removeAfterUpdate = false;
-  protected boolean removeDelete = false;
-  protected boolean removeExecute = false;
+  protected boolean removeAfterUpdate  = false;
+  protected boolean removeDelete       = false;
+  protected boolean removeExecute      = false;
 
   public OAlterSecurityPolicyStatement(int id) {
     super(id);
@@ -40,7 +39,6 @@ public class OAlterSecurityPolicyStatement extends OSimpleExecStatement {
   public OAlterSecurityPolicyStatement(OrientSql p, int id) {
     super(p, id);
   }
-
 
   @Override
   public OResultSet executeSimple(OCommandContext ctx) {
@@ -89,7 +87,6 @@ public class OAlterSecurityPolicyStatement extends OSimpleExecStatement {
       policy.setExecuteRule(null);
     }
     security.saveSecurityPolicy(db, policy);
-
 
     OResultInternal result = new OResultInternal();
     result.setProperty("operation", "alter security policy");
@@ -174,7 +171,6 @@ public class OAlterSecurityPolicyStatement extends OSimpleExecStatement {
       builder.append(")");
       firstSet = false;
     }
-
 
     boolean firstRemove = true;
     if (removeCreate) {

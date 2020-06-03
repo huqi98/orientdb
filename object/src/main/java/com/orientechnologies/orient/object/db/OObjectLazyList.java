@@ -21,6 +21,7 @@ package com.orientechnologies.orient.object.db;
 
 import java.io.Serializable;
 import java.util.*;
+
 import javassist.util.proxy.Proxy;
 import javassist.util.proxy.ProxyObject;
 
@@ -37,15 +38,15 @@ import com.orientechnologies.orient.object.enhancement.OObjectEntitySerializer;
 import com.orientechnologies.orient.object.enhancement.OObjectProxyMethodHandler;
 
 @SuppressWarnings({ "unchecked" })
-public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjectListInterface<TYPE>,
-    OObjectLazyMultivalueElement<List<TYPE>>, Serializable {
-  private static final long         serialVersionUID = -1665952780303555865L;
-  private ProxyObject               sourceRecord;
-  private final List<OIdentifiable> recordList;
-  private String                    fetchPlan;
-  private boolean                   converted        = false;
-  private boolean                   convertToRecord  = true;
-  private final boolean             orphanRemoval;
+public class OObjectLazyList<TYPE> extends ArrayList<TYPE>
+    implements OLazyObjectListInterface<TYPE>, OObjectLazyMultivalueElement<List<TYPE>>, Serializable {
+  private static final long                serialVersionUID = -1665952780303555865L;
+  private              ProxyObject         sourceRecord;
+  private final        List<OIdentifiable> recordList;
+  private              String              fetchPlan;
+  private              boolean             converted        = false;
+  private              boolean             convertToRecord  = true;
+  private final        boolean             orphanRemoval;
 
   public OObjectLazyList(final Object iSourceRecord, final List<OIdentifiable> iRecordList, final boolean orphanRemoval) {
     this.sourceRecord = iSourceRecord instanceof ProxyObject ? (ProxyObject) iSourceRecord : null;
@@ -145,14 +146,13 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
     if (o == null) {
       OIdentifiable record = (OIdentifiable) recordList.get(index);
       if (record == null || record.getRecord() == null) {
-        OLogManager.instance().warn(
-            this,
-            "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
-                + " references a deleted instance");
+        OLogManager.instance().warn(this, "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
+            + " references a deleted instance");
         return null;
       }
-      o = (TYPE) OObjectEntityEnhancer.getInstance().getProxiedInstance(((ODocument) record.getRecord()).getClassName(),
-          getDatabase().getEntityManager(), (ODocument) record.getRecord(), sourceRecord);
+      o = (TYPE) OObjectEntityEnhancer.getInstance()
+          .getProxiedInstance(((ODocument) record.getRecord()).getClassName(), getDatabase().getEntityManager(),
+              (ODocument) record.getRecord(), sourceRecord);
       super.set(index, o);
     }
     return o;
@@ -313,8 +313,9 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
     } else {
       if (orphanRemoval && record != null && sourceRecord != null)
         ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getOrphans().add(record.getIdentity());
-      element = (TYPE) OObjectEntityEnhancer.getInstance().getProxiedInstance(((ODocument) record.getRecord()).getClassName(),
-          getDatabase().getEntityManager(), (ODocument) record.getRecord(), sourceRecord);
+      element = (TYPE) OObjectEntityEnhancer.getInstance()
+          .getProxiedInstance(((ODocument) record.getRecord()).getClassName(), getDatabase().getEntityManager(),
+              (ODocument) record.getRecord(), sourceRecord);
     }
     setDirty();
     return element;
@@ -391,8 +392,7 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
   /**
    * Convert the item requested.
    *
-   * @param iIndex
-   *          Position of the item to convert
+   * @param iIndex Position of the item to convert
    */
   private void convert(final int iIndex) {
     if (converted || !convertToRecord)
@@ -411,16 +411,12 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
         doc = (ODocument) o;
       }
       if (o == null) {
-        OLogManager.instance().warn(
-            this,
-            "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
-                + " references a deleted instance");
+        OLogManager.instance().warn(this, "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
+            + " references a deleted instance");
         return;
       }
-      super.set(
-          iIndex,
-          (TYPE) OObjectEntityEnhancer.getInstance().getProxiedInstance(doc.getClassName(), getDatabase().getEntityManager(), doc,
-              sourceRecord));
+      super.set(iIndex, (TYPE) OObjectEntityEnhancer.getInstance()
+          .getProxiedInstance(doc.getClassName(), getDatabase().getEntityManager(), doc, sourceRecord));
     }
   }
 
@@ -428,7 +424,8 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
     convertAndDetachAll(nonProxiedInstance, alreadyDetached, lazyObjects);
   }
 
-  protected void convertAndDetachAll(boolean nonProxiedInstance, Map<Object, Object> alreadyDetached, Map<Object, Object> lazyObjects) {
+  protected void convertAndDetachAll(boolean nonProxiedInstance, Map<Object, Object> alreadyDetached,
+      Map<Object, Object> lazyObjects) {
     if (converted || !convertToRecord)
       return;
 
@@ -438,7 +435,8 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
     converted = true;
   }
 
-  private void convertAndDetachAll(final int iIndex, boolean nonProxiedInstance, Map<Object, Object> alreadyDetached, Map<Object, Object> lazyObjects) {
+  private void convertAndDetachAll(final int iIndex, boolean nonProxiedInstance, Map<Object, Object> alreadyDetached,
+      Map<Object, Object> lazyObjects) {
     if (converted || !convertToRecord)
       return;
 
@@ -455,14 +453,12 @@ public class OObjectLazyList<TYPE> extends ArrayList<TYPE> implements OLazyObjec
         doc = (ODocument) o;
       }
       if (o == null) {
-        OLogManager.instance().warn(
-            this,
-            "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
-                + " references a deleted instance");
+        OLogManager.instance().warn(this, "Record " + ((OObjectProxyMethodHandler) sourceRecord.getHandler()).getDoc().getIdentity()
+            + " references a deleted instance");
         return;
       }
-      o = OObjectEntityEnhancer.getInstance().getProxiedInstance(doc.getClassName(), getDatabase().getEntityManager(), doc,
-          sourceRecord);
+      o = OObjectEntityEnhancer.getInstance()
+          .getProxiedInstance(doc.getClassName(), getDatabase().getEntityManager(), doc, sourceRecord);
       o = ((OObjectDatabaseTx) getDatabase()).detachAll(o, nonProxiedInstance, alreadyDetached, lazyObjects);
       super.set(iIndex, (TYPE) o);
     }

@@ -39,7 +39,6 @@ import java.util.Stack;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OJSONFetchContext implements OFetchContext {
 
@@ -61,8 +60,9 @@ public class OJSONFetchContext implements OFetchContext {
     StringBuilder buffer = typesStack.pop();
     if (settings.keepTypes && buffer.length() > 0)
       try {
-        jsonWriter.writeAttribute(settings.indentLevel > -1 ? settings.indentLevel : 1, true,
-            ORecordSerializerJSON.ATTRIBUTE_FIELD_TYPES, buffer.toString());
+        jsonWriter
+            .writeAttribute(settings.indentLevel > -1 ? settings.indentLevel : 1, true, ORecordSerializerJSON.ATTRIBUTE_FIELD_TYPES,
+                buffer.toString());
       } catch (IOException e) {
         throw OException.wrapException(new OFetchException("Error writing field types"), e);
       }
@@ -113,8 +113,9 @@ public class OJSONFetchContext implements OFetchContext {
         collectionStack.add(new ODocument()); // <-- sorry for this... fixes #2845 but this mess should be rewritten...
       }
     } catch (IOException e) {
-      throw OException.wrapException(
-          new OFetchException("Error writing map field " + iFieldName + " of record " + iRootRecord.getIdentity()), e);
+      throw OException
+          .wrapException(new OFetchException("Error writing map field " + iFieldName + " of record " + iRootRecord.getIdentity()),
+              e);
     }
   }
 
@@ -125,8 +126,9 @@ public class OJSONFetchContext implements OFetchContext {
         collectionStack.pop();
       }
     } catch (IOException e) {
-      throw OException.wrapException(
-          new OFetchException("Error writing map field " + iFieldName + " of record " + iRootRecord.getIdentity()), e);
+      throw OException
+          .wrapException(new OFetchException("Error writing map field " + iFieldName + " of record " + iRootRecord.getIdentity()),
+              e);
     }
   }
 
@@ -141,8 +143,9 @@ public class OJSONFetchContext implements OFetchContext {
       jsonWriter.beginObject(++settings.indentLevel, true, fieldName);
       writeSignature(jsonWriter, iDocument);
     } catch (IOException e) {
-      throw OException.wrapException(
-          new OFetchException("Error writing link field " + iFieldName + " of record " + iRootRecord.getIdentity()), e);
+      throw OException
+          .wrapException(new OFetchException("Error writing link field " + iFieldName + " of record " + iRootRecord.getIdentity()),
+              e);
     }
   }
 
@@ -151,8 +154,9 @@ public class OJSONFetchContext implements OFetchContext {
     try {
       jsonWriter.endObject(settings.indentLevel--, true);
     } catch (IOException e) {
-      throw OException.wrapException(
-          new OFetchException("Error writing link field " + iFieldName + " of record " + iRootRecord.getIdentity()), e);
+      throw OException
+          .wrapException(new OFetchException("Error writing link field " + iFieldName + " of record " + iRootRecord.getIdentity()),
+              e);
     }
   }
 

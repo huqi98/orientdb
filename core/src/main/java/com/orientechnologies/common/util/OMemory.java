@@ -31,7 +31,6 @@ import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 public class OMemory {
   /**
    * @param unlimitedCap the upper limit on reported memory, if JVM reports unlimited memory.
-   *
    * @return same as {@link Runtime#maxMemory()} except that {@code unlimitedCap} limit is applied if JVM reports {@link
    * Long#MAX_VALUE unlimited memory}.
    */

@@ -92,9 +92,7 @@ public class OLuceneIndexEngineUtils {
     List<Map<String, Object>> sortConf = Optional.ofNullable(metadata.<List<Map<String, Object>>>getProperty("sort"))
         .orElse(Collections.emptyList());
 
-    final List<SortField> fields = sortConf.stream()
-        .map(d -> buildSortField(d))
-        .collect(Collectors.toList());
+    final List<SortField> fields = sortConf.stream().map(d -> buildSortField(d)).collect(Collectors.toList());
 
     return fields;
   }
@@ -103,7 +101,6 @@ public class OLuceneIndexEngineUtils {
    * Builds {@link SortField} from a configuration {@link ODocument}
    *
    * @param conf
-   *
    * @return
    */
   public static SortField buildSortField(ODocument conf) {
@@ -116,7 +113,6 @@ public class OLuceneIndexEngineUtils {
    * (true/false) and type {@link SortField.Type}.
    *
    * @param conf
-   *
    * @return
    */
   public static SortField buildSortField(Map<String, Object> conf) {

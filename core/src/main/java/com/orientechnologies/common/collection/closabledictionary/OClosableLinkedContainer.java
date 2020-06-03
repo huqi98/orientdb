@@ -247,7 +247,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    * Removes item associated with passed in key.
    *
    * @param key Key associated with item to remove.
-   *
    * @return Removed item.
    */
   public V remove(K key) {
@@ -272,7 +271,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    * will be exceeded and container will close rarely used items.
    *
    * @param key Key associated with item
-   *
    * @return Acquired item if key exists into container or <code>null</code> if there is no item associated with given container
    */
   public OClosableEntry<K, V> acquire(K key) throws InterruptedException {
@@ -398,7 +396,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    * Returns item without acquiring it. State of item is not guarantied in such case.
    *
    * @param key Key associated with required item.
-   *
    * @return Item associated with given key.
    */
   public V get(K key) {
@@ -442,7 +439,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    * Closes item related to passed in key. Item will be closed if it exists and is not acquired.
    *
    * @param key Key related to item that has going to be closed.
-   *
    * @return <code>true</code> if item was closed and <code>false</code> otherwise.
    */
   public boolean close(K key) {
@@ -668,7 +664,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    *
    * @param entry       LRU entry to add.
    * @param bufferIndex Index of buffer
-   *
    * @return Amount of writes to the buffer since creation of this container.
    */
   private long putEntryInReadBuffer(OClosableEntry<K, V> entry, int bufferIndex) {
@@ -783,7 +778,6 @@ public class OClosableLinkedContainer<K, V extends OClosableItem> {
    * the smallest number of iterations possible and then increment result value by 1.
    *
    * @param value Integer the most significant power of 2 should be found.
-   *
    * @return The most significant power of 2.
    */
   private static int closestPowerOfTwo(int value) {

@@ -41,7 +41,8 @@ public class TestNewDistributedResponseManager {
     assertFalse(responseManager.collectResponse(new OTransactionPhase1TaskResult(new OTxSuccess()), "one"));
     assertFalse(responseManager
         .collectResponse(new OTransactionPhase1TaskResult(new OTxConcurrentModification(new ORecordId(1, 1), 1)), "two"));
-    assertTrue(responseManager.collectResponse(new OTransactionPhase1TaskResult(new OTxRecordLockTimeout("s", new ORecordId(10,10))), "two"));
+    assertTrue(responseManager
+        .collectResponse(new OTransactionPhase1TaskResult(new OTxRecordLockTimeout("s", new ORecordId(10, 10))), "two"));
     assertFalse(responseManager.isQuorumReached());
   }
 
@@ -115,7 +116,8 @@ public class TestNewDistributedResponseManager {
     });
     startedWaiting.await();
     assertFalse(future.isDone());
-    assertTrue(responseManager.collectResponse(new OTransactionPhase1TaskResult(new OTxRecordLockTimeout("s", new ORecordId(10,10))), "one"));
+    assertTrue(responseManager
+        .collectResponse(new OTransactionPhase1TaskResult(new OTxRecordLockTimeout("s", new ORecordId(10, 10))), "one"));
     assertFalse(future.get());
     assertFalse(responseManager.isQuorumReached());
   }

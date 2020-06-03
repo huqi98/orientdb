@@ -59,8 +59,8 @@ public class SQLSelectGroupByTest extends DocumentDBBaseTest {
 
   @Test
   public void queryGroupByLimit() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select location from Account group by location limit 2")).execute();
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select location from Account group by location limit 2")).execute();
 
     Assert.assertEquals(result.size(), 2);
   }
@@ -75,8 +75,8 @@ public class SQLSelectGroupByTest extends DocumentDBBaseTest {
 
   @Test
   public void queryGroupByAndOrderBy() {
-    List<ODocument> result = database.command(
-        new OSQLSynchQuery<ODocument>("select location from Account group by location order by location")).execute();
+    List<ODocument> result = database
+        .command(new OSQLSynchQuery<ODocument>("select location from Account group by location order by location")).execute();
 
     Assert.assertTrue(result.size() > 1);
     String last = null;
@@ -86,14 +86,14 @@ public class SQLSelectGroupByTest extends DocumentDBBaseTest {
       last = d.field("location");
     }
 
-    result = database.command(
-        new OSQLSynchQuery<ODocument>("select location from Account group by location order by location desc")).execute();
+    result = database
+        .command(new OSQLSynchQuery<ODocument>("select location from Account group by location order by location desc")).execute();
 
     Assert.assertTrue(result.size() > 1);
     last = null;
     for (ODocument d : result) {
       Object current = d.field("location");
-      if(current!=null) {
+      if (current != null) {
         if (last != null)
           Assert.assertTrue(last.compareTo((String) current) > 0);
       }
@@ -111,8 +111,8 @@ public class SQLSelectGroupByTest extends DocumentDBBaseTest {
       database.command(new OCommandSQL("insert into GroupByTest set location = 'Austin'")).execute();
       database.command(new OCommandSQL("insert into GroupByTest set location = 'Austin'")).execute();
 
-      final List<ODocument> result = database.command(
-          new OSQLSynchQuery<ODocument>("select location, count(*) from GroupByTest group by location")).execute();
+      final List<ODocument> result = database
+          .command(new OSQLSynchQuery<ODocument>("select location, count(*) from GroupByTest group by location")).execute();
 
       Assert.assertEquals(result.size(), 3);
 
@@ -139,8 +139,8 @@ public class SQLSelectGroupByTest extends DocumentDBBaseTest {
       database.command(new OCommandSQL("insert into GroupByTest set location = 'Austin'")).execute();
       database.command(new OCommandSQL("insert into GroupByTest set location = 'Austin'")).execute();
 
-      final List<ODocument> result = database.command(
-          new OSQLSynchQuery<ODocument>("select location, count(*) from GroupByTest group by location")).execute();
+      final List<ODocument> result = database
+          .command(new OSQLSynchQuery<ODocument>("select location, count(*) from GroupByTest group by location")).execute();
 
       Assert.assertEquals(result.size(), 2);
 

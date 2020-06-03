@@ -259,8 +259,8 @@ public class ODirectMemoryAllocator implements ODirectMemoryAllocatorMXBean {
    */
   private static class TrackedPointerReference extends WeakReference<OPointer> {
 
-    public final int       id;
-    private final        Exception stackTrace;
+    public final  int       id;
+    private final Exception stackTrace;
 
     TrackedPointerReference(OPointer referent, ReferenceQueue<? super OPointer> q) {
       super(referent, q);

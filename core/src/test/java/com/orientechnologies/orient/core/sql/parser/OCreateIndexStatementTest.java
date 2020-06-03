@@ -1,6 +1,7 @@
 package com.orientechnologies.orient.core.sql.parser;
 
 import org.junit.Test;
+
 public class OCreateIndexStatementTest extends OParserTestAbstract {
 
   @Test
@@ -26,7 +27,6 @@ public class OCreateIndexStatementTest extends OParserTestAbstract {
     checkRightSyntax("CREATE INDEX test unique string,string");
     checkRightSyntax("create index OUser.name UNIQUE ENGINE SBTREE STRING");
     checkRightSyntax("create index OUser.name UNIQUE engine SBTREE STRING");
-
 
     checkRightSyntax("CREATE INDEX Foo.bar IF NOT EXISTS on Foo (bar) UNIQUE");
 

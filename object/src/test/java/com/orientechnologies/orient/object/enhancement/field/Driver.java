@@ -20,7 +20,7 @@ import javax.persistence.Lob;
 
 /**
  * Dummy entity class created for test purposes.
- * 
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class Driver {

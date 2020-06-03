@@ -23,7 +23,7 @@ import com.orientechnologies.orient.core.record.ORecord;
 
 /**
  * Hook abstract class that calls separate methods for each hook defined.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see ORecordHook
  */
@@ -37,9 +37,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just before to create the new iRecord.
-   * 
-   * @param iRecord
-   *          The iRecord to create
+   *
+   * @param iRecord The iRecord to create
    * @return True if the iRecord has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeCreate(final ORecord iRecord) {
@@ -48,9 +47,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just after the iRecord is created.
-   * 
-   * @param iRecord
-   *          The iRecord just created
+   *
+   * @param iRecord The iRecord just created
    */
   public void onRecordAfterCreate(final ORecord iRecord) {
   }
@@ -63,9 +61,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just before to read the iRecord.
-   * 
-   * @param iRecord
-   *          The iRecord to read
+   *
+   * @param iRecord The iRecord to read
    * @return
    */
   public RESULT onRecordBeforeRead(final ORecord iRecord) {
@@ -74,9 +71,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just after the iRecord is read.
-   * 
-   * @param iRecord
-   *          The iRecord just read
+   *
+   * @param iRecord The iRecord just read
    */
   public void onRecordAfterRead(final ORecord iRecord) {
   }
@@ -89,9 +85,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just before to update the iRecord.
-   * 
-   * @param iRecord
-   *          The iRecord to update
+   *
+   * @param iRecord The iRecord to update
    * @return True if the iRecord has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeUpdate(final ORecord iRecord) {
@@ -100,9 +95,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just after the iRecord is updated.
-   * 
-   * @param iRecord
-   *          The iRecord just updated
+   *
+   * @param iRecord The iRecord just updated
    */
   public void onRecordAfterUpdate(final ORecord iRecord) {
   }
@@ -115,9 +109,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just before to delete the iRecord.
-   * 
-   * @param iRecord
-   *          The iRecord to delete
+   *
+   * @param iRecord The iRecord to delete
    * @return True if the iRecord has been modified and a new marshalling is required, otherwise false
    */
   public RESULT onRecordBeforeDelete(final ORecord iRecord) {
@@ -126,9 +119,8 @@ public abstract class ORecordHookAbstract implements ORecordHook {
 
   /**
    * It's called just after the iRecord is deleted.
-   * 
-   * @param iRecord
-   *          The iRecord just deleted
+   *
+   * @param iRecord The iRecord just deleted
    */
   public void onRecordAfterDelete(final ORecord iRecord) {
   }

@@ -38,16 +38,16 @@ import java.util.stream.Stream;
  * Executes a command.
  */
 public class OETLCommandTransformer extends OETLAbstractTransformer {
-  private String language = "sql";
+  private String  language       = "sql";
   private boolean newSqlExecutor = false;
-  private String command;
-  private boolean returnInput = false;
+  private String  command;
+  private boolean returnInput    = false;
 
   @Override
   public ODocument getConfiguration() {
     return new ODocument().fromJSON("{parameters:[" + getCommonConfigurationParameters() + ","
-            + "{language:{optional:true,description:'Command language, SQL by default'}},"
-            + "{command:{optional:false,description:'Command to execute'}}]," + "input:['ODocument'],output:'ODocument'}");
+        + "{language:{optional:true,description:'Command language, SQL by default'}},"
+        + "{command:{optional:false,description:'Command to execute'}}]," + "input:['ODocument'],output:'ODocument'}");
   }
 
   @Override

@@ -25,7 +25,6 @@ import com.orientechnologies.common.exception.OSystemException;
  * Exception thrown during distributed operation between cluster nodes.
  *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  */
 public class ODistributedException extends OSystemException {
   private static final long serialVersionUID = 1L;

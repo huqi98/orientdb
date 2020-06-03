@@ -41,7 +41,7 @@ public interface ODatabaseInternal<T> extends ODatabase<T> {
    * @see OStorage
    */
   OStorage getStorage();
-  
+
   OStorageInfo getStorageInfo();
 
   /**

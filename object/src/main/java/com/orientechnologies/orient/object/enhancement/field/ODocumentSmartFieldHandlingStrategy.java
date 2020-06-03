@@ -21,9 +21,9 @@ import com.orientechnologies.orient.core.metadata.schema.OType;
 import com.orientechnologies.orient.core.record.impl.ODocument;
 
 /**
- * {@link ODocumentFieldHandlingStrategy} that deals with fields (depending on their type) in a smarter way than a
- * {@link ODocumentSimpleFieldHandlingStrategy}.
- * 
+ * {@link ODocumentFieldHandlingStrategy} that deals with fields (depending on their type) in a smarter way than a {@link
+ * ODocumentSimpleFieldHandlingStrategy}.
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class ODocumentSmartFieldHandlingStrategy extends ODocumentSimpleFieldHandlingStrategy {
@@ -32,7 +32,7 @@ public class ODocumentSmartFieldHandlingStrategy extends ODocumentSimpleFieldHan
 
   /**
    * Constructor
-   * 
+   *
    * @param typeHandlers
    */
   public ODocumentSmartFieldHandlingStrategy(Map<OType, ODocumentFieldOTypeHandlingStrategy> typeHandlers) {

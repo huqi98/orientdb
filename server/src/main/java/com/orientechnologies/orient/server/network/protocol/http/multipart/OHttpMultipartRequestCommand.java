@@ -27,7 +27,6 @@ import java.util.LinkedHashMap;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public abstract class OHttpMultipartRequestCommand<B, F> extends OServerCommandAuthenticatedDbAbstract {
 
@@ -195,9 +194,8 @@ public abstract class OHttpMultipartRequestCommand<B, F> extends OServerCommandA
       in = iRequest.getMultipartStream().read();
       currChar = (char) in;
       if (currChar != ' ') {
-        iResponse.send(OHttpUtils.STATUS_INVALIDMETHOD_CODE,
-            "Wrong request part header: Expected ' ' (header: " + headerName + ")", OHttpUtils.CONTENT_TEXT_PLAIN,
-            "Wrong request part header: Expected ' ' (header: " + headerName + ")", null);
+        iResponse.send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "Wrong request part header: Expected ' ' (header: " + headerName + ")",
+            OHttpUtils.CONTENT_TEXT_PLAIN, "Wrong request part header: Expected ' ' (header: " + headerName + ")", null);
       }
     } else if (currChar != '=') {
       iResponse.send(OHttpUtils.STATUS_INVALIDMETHOD_CODE, "Wrong request part header: Expected ':' (header: " + headerName + ")",

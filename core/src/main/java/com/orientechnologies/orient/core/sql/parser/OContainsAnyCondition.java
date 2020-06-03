@@ -37,7 +37,8 @@ public class OContainsAnyCondition extends OBooleanExpression {
           if (((Collection) left).contains(next)) {
             return true;
           }
-          if (next instanceof OResult && ((OResult) next).isElement() && ((Collection) left).contains(((OResult) next).toElement())) {
+          if (next instanceof OResult && ((OResult) next).isElement() && ((Collection) left)
+              .contains(((OResult) next).toElement())) {
             return true;
           }
         }
@@ -62,8 +63,11 @@ public class OContainsAnyCondition extends OBooleanExpression {
           if (leftItem != null && leftItem.equals(rightItem)) {
             return true;
           }
-          Object leftElem = leftItem instanceof OResult && ((OResult) leftItem).isElement() ? ((OResult) leftItem).getElement().get() : rightItem;
-          Object rightElem = rightItem instanceof OResult && ((OResult) rightItem).isElement() ? ((OResult) rightItem).getElement().get() : rightItem;
+          Object leftElem =
+              leftItem instanceof OResult && ((OResult) leftItem).isElement() ? ((OResult) leftItem).getElement().get() : rightItem;
+          Object rightElem = rightItem instanceof OResult && ((OResult) rightItem).isElement() ?
+              ((OResult) rightItem).getElement().get() :
+              rightItem;
           if (leftElem != null && leftElem.equals(rightElem)) {
             return true;
           }

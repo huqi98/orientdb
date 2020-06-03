@@ -1,18 +1,15 @@
 /**
  * Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- * 	http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ * <p>
  * For more information: http://orientdb.com
  */
 package com.orientechnologies.orient.jdbc;
@@ -41,17 +38,14 @@ public class OrientJdbcBlobTest extends OrientJdbcDbPerClassTemplateTest {
 
     PreparedStatement statement = conn.prepareStatement("INSERT INTO Blobs (uuid,attachment) VALUES (?,?)");
 
-    statement.setInt(1,1);
+    statement.setInt(1, 1);
     statement.setBinaryStream(2, ClassLoader.getSystemResourceAsStream("file.pdf"));
 
     int rowsInserted = statement.executeUpdate();
 
     assertThat(rowsInserted).isEqualTo(1);
 
-
     //verify the blob
-
-
 
     PreparedStatement stmt = conn.prepareStatement("SELECT FROM Blobs WHERE uuid = 1 ");
 
@@ -80,7 +74,6 @@ public class OrientJdbcBlobTest extends OrientJdbcDbPerClassTemplateTest {
   @Test
   public void shouldLoadBlob() throws SQLException, IOException, NoSuchAlgorithmException {
 
-
     PreparedStatement stmt = conn.prepareStatement("SELECT FROM Article WHERE uuid = 1 ");
 
     ResultSet rs = stmt.executeQuery();
@@ -95,7 +88,6 @@ public class OrientJdbcBlobTest extends OrientJdbcDbPerClassTemplateTest {
 
   @Test
   public void shouldLoadChuckedBlob() throws SQLException, IOException, NoSuchAlgorithmException {
-
 
     PreparedStatement stmt = conn.prepareStatement("SELECT FROM Article WHERE uuid = 2 ");
 

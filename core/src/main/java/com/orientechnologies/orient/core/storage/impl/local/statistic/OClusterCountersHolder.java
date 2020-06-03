@@ -277,29 +277,29 @@ public class OClusterCountersHolder extends OSessionStoragePerformanceStatistic.
   public ODocument toDocument() {
     final ODocument document = super.toDocument();
 
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordCreationTime", getRecordCreationTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordCreationPages", getRecordCreationPages());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordCreationHitRate", getRecordCreationHitRate());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordCreationPageTime", getRecordCreationPageTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordCreationFilePageTime", getRecordCreationFilePageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordCreationTime", getRecordCreationTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordCreationPages", getRecordCreationPages());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordCreationHitRate", getRecordCreationHitRate());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordCreationPageTime", getRecordCreationPageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordCreationFilePageTime", getRecordCreationFilePageTime());
 
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordDeletionTime", getRecordDeletionTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordDeletionPages", getRecordDeletionPages());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordDeletionHitRate", getRecordDeletionHitRate());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordDeletionPageTime", getRecordDeletionPageTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordDeletionFilePageTime", getRecordDeletionFilePageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordDeletionTime", getRecordDeletionTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordDeletionPages", getRecordDeletionPages());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordDeletionHitRate", getRecordDeletionHitRate());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordDeletionPageTime", getRecordDeletionPageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordDeletionFilePageTime", getRecordDeletionFilePageTime());
 
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordUpdateTime", getRecordUpdateTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordUpdatePages", getRecordUpdatePages());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordUpdateHitRate", getRecordUpdateHitRate());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordUpdatePageTime", getRecordUpdatePageTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordUpdateFilePageTime", getRecordUpdateFilePageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordUpdateTime", getRecordUpdateTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordUpdatePages", getRecordUpdatePages());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordUpdateHitRate", getRecordUpdateHitRate());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordUpdatePageTime", getRecordUpdatePageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordUpdateFilePageTime", getRecordUpdateFilePageTime());
 
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordReadTime", getRecordReadTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordReadPages", getRecordReadPages());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordReadHitRate", getRecordReadHitRate());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordReadPageTime", getRecordReadPageTime());
-    OSessionStoragePerformanceStatistic.writeMetric(document,"recordReadFilePageTime", getRecordReadFilePageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordReadTime", getRecordReadTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordReadPages", getRecordReadPages());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordReadHitRate", getRecordReadHitRate());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordReadPageTime", getRecordReadPageTime());
+    OSessionStoragePerformanceStatistic.writeMetric(document, "recordReadFilePageTime", getRecordReadFilePageTime());
 
     return document;
   }

@@ -40,7 +40,7 @@ public class OrientVertexWithEmbeddedListTest {
       Assert.assertEquals(v.getProperty("name"), "test");
 
       Iterable<ODocument> ds = v.getProperty("docs");
-      
+
       int counter = 0;
       for (ODocument d : ds) {
         Assert.assertNotNull(d.field("f"));

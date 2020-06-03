@@ -28,7 +28,7 @@ import com.orientechnologies.orient.core.exception.OCommandExecutionException;
 
 /**
  * Acts as a delegate to the real command inserting the execution of the command inside a new transaction if not yet begun.
- * 
+ *
  * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  */
 public class OCommandExecutorSQLTransactional extends OCommandExecutorSQLDelegate {

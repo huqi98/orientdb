@@ -20,7 +20,8 @@
 package com.orientechnologies.orient.core.sql.parser.operators;
 
 import com.orientechnologies.orient.core.sql.parser.OInOperator;
-import org.junit.Assert; import org.junit.Test;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;

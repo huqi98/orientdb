@@ -32,7 +32,6 @@ import org.testng.annotations.Test;
 
 import java.util.Date;
 
-
 public class LocalCreateDocumentMultiThreadIndexedSpeedTest extends OrientMultiThreadTest {
   private ODatabaseDocument database;
   private long              foundObjects;

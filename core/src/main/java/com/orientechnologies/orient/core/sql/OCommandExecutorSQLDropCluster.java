@@ -40,7 +40,7 @@ public class OCommandExecutorSQLDropCluster extends OCommandExecutorSQLAbstract 
   public static final String KEYWORD_DROP    = "DROP";
   public static final String KEYWORD_CLUSTER = "CLUSTER";
 
-  private String             clusterName;
+  private String clusterName;
 
   public OCommandExecutorSQLDropCluster parse(final OCommandRequest iRequest) {
     final OCommandRequestText textRequest = (OCommandRequestText) iRequest;

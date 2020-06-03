@@ -92,7 +92,6 @@ public class OCommandExecutorSQLDeleteVertexTest {
     }
   }
 
-
   @Test
   public void testDeleteVertexFromSubquery() throws Exception {
     // for issue #4523
@@ -120,6 +119,5 @@ public class OCommandExecutorSQLDeleteVertexTest {
     Assert.assertEquals(result.size(), 99);
 
   }
-
 
 }

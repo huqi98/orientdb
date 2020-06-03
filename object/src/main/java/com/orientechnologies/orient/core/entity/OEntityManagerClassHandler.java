@@ -26,7 +26,6 @@ import java.util.Set;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public class OEntityManagerClassHandler {
 
@@ -34,9 +33,8 @@ public class OEntityManagerClassHandler {
 
   /**
    * Returns the Java class by its name
-   * 
-   * @param iClassName
-   *          Simple class name without the package
+   *
+   * @param iClassName Simple class name without the package
    * @return Returns the Java class by its name
    */
   public synchronized Class<?> getEntityClass(final String iClassName) {
@@ -79,8 +77,8 @@ public class OEntityManagerClassHandler {
     return entityClasses.containsKey(iClass.getSimpleName());
   }
 
-  public synchronized Object createInstance(final Class<?> iClass) throws InstantiationException, IllegalAccessException,
-      InvocationTargetException {
+  public synchronized Object createInstance(final Class<?> iClass)
+      throws InstantiationException, IllegalAccessException, InvocationTargetException {
     Constructor<?> defaultConstructor = null;
     for (Constructor<?> c : iClass.getConstructors()) {
       if (c.getParameterTypes().length == 0) {

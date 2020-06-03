@@ -76,7 +76,8 @@ public class ODeleteVertexExecutionPlanner {
     plan.chain(new CastToVertexStep(ctx, profilingEnabled));
   }
 
-  private void handleTarget(OUpdateExecutionPlan result, OCommandContext ctx, OFromClause target, OWhereClause whereClause, boolean profilingEnabled) {
+  private void handleTarget(OUpdateExecutionPlan result, OCommandContext ctx, OFromClause target, OWhereClause whereClause,
+      boolean profilingEnabled) {
     OSelectStatement sourceStatement = new OSelectStatement(-1);
     sourceStatement.setTarget(target);
     sourceStatement.setWhereClause(whereClause);

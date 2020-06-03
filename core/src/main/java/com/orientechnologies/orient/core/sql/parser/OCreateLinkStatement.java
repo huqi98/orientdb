@@ -34,7 +34,7 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
   protected OIdentifier      destClass;
   protected OIdentifier      destField;
   protected ORecordAttribute destRecordAttr;
-  protected boolean inverse = false;
+  protected boolean          inverse = false;
 
   boolean breakExec = false;//for timeout
 
@@ -46,7 +46,8 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeSimple(OCommandContext ctx) {
+  @Override
+  public OResultSet executeSimple(OCommandContext ctx) {
     execute(ctx);
     OInternalResultSet rs = new OInternalResultSet();
     OResultInternal result = new OResultInternal();
@@ -233,7 +234,8 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
     return result;
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("CREATE LINK ");
     name.toString(params, builder);
     builder.append(" TYPE ");
@@ -259,7 +261,8 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
     }
   }
 
-  @Override public OCreateLinkStatement copy() {
+  @Override
+  public OCreateLinkStatement copy() {
     OCreateLinkStatement result = new OCreateLinkStatement(-1);
     result.name = name == null ? null : name.copy();
     result.type = type == null ? null : type.copy();
@@ -273,7 +276,8 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -303,7 +307,8 @@ public class OCreateLinkStatement extends OSimpleExecStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = name != null ? name.hashCode() : 0;
     result = 31 * result + (type != null ? type.hashCode() : 0);
     result = 31 * result + (sourceClass != null ? sourceClass.hashCode() : 0);

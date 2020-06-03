@@ -20,8 +20,8 @@ public class OCreatePropertyStatement extends ODDLStatement {
   public OIdentifier className;
   public OIdentifier propertyName;
   boolean ifNotExists = false;
-  public OIdentifier propertyType;
-  public OIdentifier linkedType;
+  public OIdentifier                             propertyType;
+  public OIdentifier                             linkedType;
   public boolean                                 unsafe     = false;
   public List<OCreatePropertyAttributeStatement> attributes = new ArrayList<OCreatePropertyAttributeStatement>();
 
@@ -33,7 +33,8 @@ public class OCreatePropertyStatement extends ODDLStatement {
     super(p, id);
   }
 
-  @Override public OResultSet executeDDL(OCommandContext ctx) {
+  @Override
+  public OResultSet executeDDL(OCommandContext ctx) {
     OResultInternal result = new OResultInternal();
     result.setProperty("operation", "create property");
     result.setProperty("className", className.getStringValue());
@@ -72,14 +73,16 @@ public class OCreatePropertyStatement extends ODDLStatement {
         linkedType = OType.valueOf(linked.toUpperCase(Locale.ENGLISH));
     }
     // CREATE IT LOCALLY
-    OPropertyImpl internalProp = (OPropertyImpl) clazz.addProperty(propertyName.getStringValue(), type, linkedType, linkedClass, unsafe);
+    OPropertyImpl internalProp = (OPropertyImpl) clazz
+        .addProperty(propertyName.getStringValue(), type, linkedType, linkedClass, unsafe);
     for (OCreatePropertyAttributeStatement attr : attributes) {
       Object val = attr.setOnProperty(internalProp, ctx);
       result.setProperty(attr.settingName.getStringValue(), val);
     }
   }
 
-  @Override public void toString(Map<Object, Object> params, StringBuilder builder) {
+  @Override
+  public void toString(Map<Object, Object> params, StringBuilder builder) {
     builder.append("CREATE PROPERTY ");
     className.toString(params, builder);
     builder.append(".");
@@ -112,7 +115,8 @@ public class OCreatePropertyStatement extends ODDLStatement {
     }
   }
 
-  @Override public OCreatePropertyStatement copy() {
+  @Override
+  public OCreatePropertyStatement copy() {
     OCreatePropertyStatement result = new OCreatePropertyStatement(-1);
     result.className = className == null ? null : className.copy();
     result.propertyName = propertyName == null ? null : propertyName.copy();
@@ -124,7 +128,8 @@ public class OCreatePropertyStatement extends ODDLStatement {
     return result;
   }
 
-  @Override public boolean equals(Object o) {
+  @Override
+  public boolean equals(Object o) {
     if (this == o)
       return true;
     if (o == null || getClass() != o.getClass())
@@ -151,7 +156,8 @@ public class OCreatePropertyStatement extends ODDLStatement {
     return true;
   }
 
-  @Override public int hashCode() {
+  @Override
+  public int hashCode() {
     int result = className != null ? className.hashCode() : 0;
     result = 31 * result + (propertyName != null ? propertyName.hashCode() : 0);
     result = 31 * result + (propertyType != null ? propertyType.hashCode() : 0);

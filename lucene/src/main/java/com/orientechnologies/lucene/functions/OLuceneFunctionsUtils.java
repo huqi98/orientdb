@@ -24,7 +24,8 @@ public class OLuceneFunctionsUtils {
     documentDatabase.activateOnCurrentThread();
     final OMetadataInternal metadata = documentDatabase.getMetadata();
 
-    final OLuceneFullTextIndex index = (OLuceneFullTextIndex) metadata.getIndexManagerInternal().getIndex(documentDatabase, indexName);
+    final OLuceneFullTextIndex index = (OLuceneFullTextIndex) metadata.getIndexManagerInternal()
+        .getIndex(documentDatabase, indexName);
     if (!(index instanceof OLuceneFullTextIndex)) {
       throw new IllegalArgumentException("Not a valid Lucene index:: " + indexName);
     }

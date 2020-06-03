@@ -68,9 +68,8 @@ public class OETLJsonRandomExtractorIT extends OETLBaseTest {
   public void shouldLoadMultipleThreadsInParallel() {
 
     configure(
-        "{extractor : { random: {items: " + TOTAL + ", fields: 10, delay: 0} }, "
-            + "loader: { orientdb: { dbURL: 'plocal:./target/" + name.getMethodName()
-            + "', dbType:'graph', class: 'Person', useLightweightEdges:false, "
+        "{extractor : { random: {items: " + TOTAL + ", fields: 10, delay: 0} }, " + "loader: { orientdb: { dbURL: 'plocal:./target/"
+            + name.getMethodName() + "', dbType:'graph', class: 'Person', useLightweightEdges:false, "
             + "classes: [{name: 'Person', extends: 'V', clusters: 8  }] } } }",
         new OETLContext().setVariable("parallel", Boolean.TRUE).setVariable("dumpEveryMs", 1000));
 

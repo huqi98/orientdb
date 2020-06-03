@@ -70,7 +70,7 @@ public class ConcurrentIndexDefinitionIT {
     assertFalse(session1.getMetadata().getSchema().getClass("Test1").getIndexes().isEmpty());
     session1.close();
     remote1.close();
-    
+
     OrientDB remote2 = new OrientDB("remote:localhost:2426", "root", "test", OrientDBConfig.defaultConfig());
     //Make sure the created database is propagated
     ODatabaseSession session2 = remote2.open("test", "admin", "admin");

@@ -45,9 +45,9 @@ import java.util.*;
 
 @Test(groups = { "crud", "object" })
 public class CRUDObjectPhysicalTest extends ObjectDBBaseTest {
-  protected static final int TOT_RECORDS = 100;
-  protected long startRecordNumber;
-  private City rome = new City(new Country("Italy"), "Rome");
+  protected static final int  TOT_RECORDS = 100;
+  protected              long startRecordNumber;
+  private                City rome        = new City(new Country("Italy"), "Rome");
 
   @Parameters(value = "url")
   public CRUDObjectPhysicalTest(@Optional String url) {
@@ -2513,7 +2513,7 @@ public class CRUDObjectPhysicalTest extends ObjectDBBaseTest {
       Assert.assertTrue(result1.get(0) instanceof Profile);
       Profile profile = result1.get(0);
       Assert.assertEquals(profile.getNick(), "foo");
-    }finally {
+    } finally {
       db.drop();
     }
   }

@@ -44,8 +44,8 @@ public class RestrictedTest extends DocumentDBBaseTest {
   private ODocument writerRecord;
   private OUser     readUser;
 
-  private OUser     readerUser = null;
-  private ORole     readerRole = null;
+  private OUser readerUser = null;
+  private ORole readerRole = null;
 
   @Parameters(value = "url")
   public RestrictedTest(@Optional String url) {

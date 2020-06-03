@@ -30,9 +30,8 @@ import com.orientechnologies.orient.core.config.OGlobalConfiguration;
 
 /**
  * Test class for OLockManager
- * 
+ *
  * @author Sylvain Spinelli
- * 
  */
 public class LockManagerTest {
 
@@ -40,13 +39,13 @@ public class LockManagerTest {
   public static       int                                     cyclesByProcess = 10000000;
   public static       boolean                                 verbose         = false;
   public static       OOneEntryPerKeyLockManager<Callable<?>> lockMgr         = new OOneEntryPerKeyLockManager<Callable<?>>(
-                                                                        OGlobalConfiguration.ENVIRONMENT_CONCURRENT
-                                                                            .getValueAsBoolean(),
-                                                                        5000, 10000);
+      OGlobalConfiguration.ENVIRONMENT_CONCURRENT.getValueAsBoolean(), 5000, 10000);
   protected           List<Callable<?>>                       resources       = new ArrayList<Callable<?>>();
-  protected           List<Thread>                            processes       = Collections.synchronizedList(new ArrayList<Thread>());
-  protected List<Throwable>                         exceptions      = Collections.synchronizedList(new ArrayList<Throwable>());
-  protected AtomicInteger                           counter         = new AtomicInteger();
+  protected           List<Thread>                            processes       = Collections
+      .synchronizedList(new ArrayList<Thread>());
+  protected           List<Throwable>                         exceptions      = Collections
+      .synchronizedList(new ArrayList<Throwable>());
+  protected           AtomicInteger                           counter         = new AtomicInteger();
 
   public static class ResourceRead implements Callable<Void> {
     AtomicInteger countRead = new AtomicInteger(0);
@@ -95,8 +94,8 @@ public class LockManagerTest {
   }
 
   public static class ResourceReadWrite implements Callable<Void> {
-    AtomicInteger    countRead  = new AtomicInteger(0);
-    AtomicInteger    countWrite = new AtomicInteger(0);
+    AtomicInteger countRead  = new AtomicInteger(0);
+    AtomicInteger countWrite = new AtomicInteger(0);
     volatile boolean lastWasRead;
 
     @Override
@@ -282,8 +281,8 @@ public class LockManagerTest {
       processes.get(i).join();
     }
 
-    System.out.println("\nOk, all threads back : " + counter.get() + " in: " + ((System.currentTimeMillis() - start) / 1000f)
-        + " secs");
+    System.out
+        .println("\nOk, all threads back : " + counter.get() + " in: " + ((System.currentTimeMillis() - start) / 1000f) + " secs");
 
     // Pulish exceptions.
     if (exceptions.size() > 0) {

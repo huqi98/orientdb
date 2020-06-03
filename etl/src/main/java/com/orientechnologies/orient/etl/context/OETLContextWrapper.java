@@ -33,9 +33,10 @@ import com.orientechnologies.orient.output.OPluginMessageHandler;
 public class OETLContextWrapper {
 
   private static OETLContextWrapper instance = null;
-  private OCommandContext context;
+  private        OCommandContext    context;
 
-  public OETLContextWrapper() {}
+  public OETLContextWrapper() {
+  }
 
   public static OETLContextWrapper getInstance() {
     return instance;
@@ -55,10 +56,10 @@ public class OETLContextWrapper {
   }
 
   public OPluginMessageHandler getMessageHandler() {
-    return ((OETLContext)this.context).getMessageHandler();
+    return ((OETLContext) this.context).getMessageHandler();
   }
 
   public void setMessageHandler(OPluginMessageHandler messageHandler) {
-    ((OETLContext)this.context).setMessageHandler(messageHandler);
+    ((OETLContext) this.context).setMessageHandler(messageHandler);
   }
 }

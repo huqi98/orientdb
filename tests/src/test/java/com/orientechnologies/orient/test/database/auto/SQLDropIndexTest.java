@@ -95,8 +95,7 @@ public class SQLDropIndexTest {
         .execute();
     database.getMetadata().getIndexManagerInternal().reload();
 
-    OIndex index = database.getMetadata().getSchema().getClass("SQLDropIndexTestClass")
-        .getClassIndex("SQLDropIndexCompositeIndex");
+    OIndex index = database.getMetadata().getSchema().getClass("SQLDropIndexTestClass").getClassIndex("SQLDropIndexCompositeIndex");
     Assert.assertNotNull(index);
 
     database.command(new OCommandSQL("DROP INDEX SQLDropIndexCompositeIndex")).execute();

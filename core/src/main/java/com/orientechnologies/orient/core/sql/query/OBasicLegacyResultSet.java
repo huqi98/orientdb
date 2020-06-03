@@ -35,17 +35,16 @@ import com.orientechnologies.orient.core.record.ORecord;
 /**
  * ResultSet class that implements List interface for retro compatibility.
  *
- * @author Luca Garulli (l.garulli--(at)--orientdb.com)
- *
  * @param <T>
+ * @author Luca Garulli (l.garulli--(at)--orientdb.com)
  * @see OSQLAsynchQuery
  */
 public class OBasicLegacyResultSet<T> implements OLegacyResultSet<T> {
-  protected List<T>       underlying;
-  protected transient int limit = -1;
+  protected           List<T>       underlying;
+  protected transient int           limit = -1;
   // Reference to temporary record for avoid garbace collection
-  private List<ORecord> temporaryRecordCache;
-  
+  private             List<ORecord> temporaryRecordCache;
+
   public OBasicLegacyResultSet() {
     underlying = Collections.synchronizedList(new ArrayList<T>());
   }
@@ -99,8 +98,8 @@ public class OBasicLegacyResultSet<T> implements OLegacyResultSet<T> {
       @Override
       public T next() {
         if (index > size() || size() == 0)
-          throw new NoSuchElementException("Error on browsing at element " + index + " while the resultset contains only " + size()
-              + " items");
+          throw new NoSuchElementException(
+              "Error on browsing at element " + index + " while the resultset contains only " + size() + " items");
 
         return underlying.get(index++);
 
@@ -246,5 +245,5 @@ public class OBasicLegacyResultSet<T> implements OLegacyResultSet<T> {
   public void setTemporaryRecordCache(List<ORecord> temporaryRecordCache) {
     this.temporaryRecordCache = temporaryRecordCache;
   }
-  
+
 }

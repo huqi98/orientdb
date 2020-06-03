@@ -82,8 +82,8 @@ public class OTraverseRecordProcess extends OTraverseAbstractProcess<OIdentifiab
       for (Object cfgFieldObject : command.getFields()) {
         String cfgField = cfgFieldObject.toString();
 
-        if ("*".equals(cfgField) || OSQLFilterItemFieldAll.FULL_NAME.equalsIgnoreCase(cfgField)
-            || OSQLFilterItemFieldAny.FULL_NAME.equalsIgnoreCase(cfgField)) {
+        if ("*".equals(cfgField) || OSQLFilterItemFieldAll.FULL_NAME.equalsIgnoreCase(cfgField) || OSQLFilterItemFieldAny.FULL_NAME
+            .equalsIgnoreCase(cfgField)) {
 
           // ADD ALL THE DOCUMENT FIELD
           Collections.addAll(fields, targetDoc.fieldNames());
@@ -91,8 +91,9 @@ public class OTraverseRecordProcess extends OTraverseAbstractProcess<OIdentifiab
 
         } else {
           // SINGLE FIELD
-          final int pos = OStringSerializerHelper
-              .parse(cfgField, new StringBuilder(), 0, -1, new char[] { '.' }, true, true, true, 0, true) - 1;
+          final int pos =
+              OStringSerializerHelper.parse(cfgField, new StringBuilder(), 0, -1, new char[] { '.' }, true, true, true, 0, true)
+                  - 1;
           if (pos > -1) {
             // FOUND <CLASS>.<FIELD>
             final OClass cls = ODocumentInternal.getImmutableSchemaClass(targetDoc);
@@ -150,8 +151,8 @@ public class OTraverseRecordProcess extends OTraverseAbstractProcess<OIdentifiab
 
           subProcess = new OTraverseMultiValueProcess(command, (Iterator<Object>) coll, getPath().appendField(field.toString()));
         } else if (fieldValue instanceof OIdentifiable && ((OIdentifiable) fieldValue).getRecord() instanceof ODocument) {
-          subProcess = new OTraverseRecordProcess(command, (ODocument) ((OIdentifiable) fieldValue).getRecord(), getPath()
-              .appendField(field.toString()));
+          subProcess = new OTraverseRecordProcess(command, (ODocument) ((OIdentifiable) fieldValue).getRecord(),
+              getPath().appendField(field.toString()));
         } else
           continue;
 

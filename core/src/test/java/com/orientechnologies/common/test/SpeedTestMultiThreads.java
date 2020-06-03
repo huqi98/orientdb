@@ -1,12 +1,13 @@
 package com.orientechnologies.common.test;
 
 import org.junit.Test;
+
 import java.lang.reflect.Constructor;
 
 public abstract class SpeedTestMultiThreads extends SpeedTestAbstract {
   protected final Class<? extends SpeedTestThread> threadClass;
   protected final int                              threads;
-  protected long                                   threadCycles;
+  protected       long                             threadCycles;
 
   protected SpeedTestMultiThreads(long iCycles, int iThreads, Class<? extends SpeedTestThread> iThreadClass) {
     super(1);

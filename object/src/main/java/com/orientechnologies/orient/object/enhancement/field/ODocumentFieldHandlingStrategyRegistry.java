@@ -20,14 +20,14 @@ import java.util.Optional;
 
 /**
  * {@link ODocumentFieldHandlingStrategy} registry.
- * 
+ *
  * @author diegomtassis <a href="mailto:dta@compart.com">Diego Martin Tassis</a>
  */
 public class ODocumentFieldHandlingStrategyRegistry {
 
-  private static final ODocumentFieldHandlingStrategyRegistry INSTANCE   = new ODocumentFieldHandlingStrategyRegistry();
+  private static final ODocumentFieldHandlingStrategyRegistry INSTANCE = new ODocumentFieldHandlingStrategyRegistry();
 
-  private Map<Integer, ODocumentFieldHandlingStrategy>        strategies = new HashMap<Integer, ODocumentFieldHandlingStrategy>();
+  private Map<Integer, ODocumentFieldHandlingStrategy> strategies = new HashMap<Integer, ODocumentFieldHandlingStrategy>();
 
   private ODocumentFieldHandlingStrategyRegistry() {
     // Hidden
@@ -42,7 +42,7 @@ public class ODocumentFieldHandlingStrategyRegistry {
 
   /**
    * Gets a registered strategy
-   * 
+   *
    * @param strategy
    * @return registered strategy
    */
@@ -52,7 +52,7 @@ public class ODocumentFieldHandlingStrategyRegistry {
 
   /**
    * Registers a strategy
-   * 
+   *
    * @param strategy
    * @param strategyInstance
    */

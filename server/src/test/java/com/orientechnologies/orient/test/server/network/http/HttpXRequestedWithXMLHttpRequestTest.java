@@ -9,7 +9,6 @@ import org.junit.Test;
 import java.io.IOException;
 
 /**
- *
  * @author Enrico Risa
  */
 
@@ -20,9 +19,7 @@ public class HttpXRequestedWithXMLHttpRequestTest extends BaseHttpDatabaseTest {
 
   @Test
   public void sendXMLHttpRequest() throws IOException {
-    Header[] headers = {
-        new BasicHeader("X-Requested-With", "XMLHttpRequest")
-    };
+    Header[] headers = { new BasicHeader("X-Requested-With", "XMLHttpRequest") };
 
     HttpResponse response = get("class/" + getDatabaseName() + "/OUser", headers).getResponse();
 

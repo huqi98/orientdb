@@ -28,8 +28,8 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 /**
- * OETLContext extends OBasicCommandContext, in order to handle the following additional elements:
- * - message handler for application messages
+ * OETLContext extends OBasicCommandContext, in order to handle the following additional elements: - message handler for application
+ * messages
  *
  * @author Gabriele Ponzi
  * @email gabriele.ponzi--at--gmail.com
@@ -40,10 +40,8 @@ public class OETLContext extends OBasicCommandContext {
   private OPluginMessageHandler messageHandler;
 
   /**
-   * By default the OETLContext in initialized with a message handler with:
-   * - verbosity level: 0 (NONE) --> nothing will be printed out
-   * - output stream: null
-   * - logging: OLogManager
+   * By default the OETLContext in initialized with a message handler with: - verbosity level: 0 (NONE) --> nothing will be printed
+   * out - output stream: null - logging: OLogManager
    */
   public OETLContext() {
     this.messageHandler = new OETLMessageHandler(0);
@@ -58,14 +56,12 @@ public class OETLContext extends OBasicCommandContext {
   }
 
   /**
-   * Prints the error message for a caught exception according to a level passed as argument. It's composed of:
-   * - defined error message
-   * - exception message
+   * Prints the error message for a caught exception according to a level passed as argument. It's composed of: - defined error
+   * message - exception message
    *
    * @param e
    * @param message
    * @param level
-   *
    * @return printedMessage
    */
   public String printExceptionMessage(Exception e, String message, String level) {
@@ -98,7 +94,6 @@ public class OETLContext extends OBasicCommandContext {
    *
    * @param e
    * @param level
-   *
    * @return printedMessage
    */
   public String printExceptionStackTrace(Exception e, String level) {

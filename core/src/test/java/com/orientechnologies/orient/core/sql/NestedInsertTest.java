@@ -30,9 +30,8 @@ public class NestedInsertTest {
     OSchema schm = db.getMetadata().getSchema();
     schm.createClass("myClass");
 
-    final ODocument res = db
-        .command(new OCommandSQL(
-            "insert into myClass (name,meta) values (\"claudio\",{\"@type\":\"d\",\"country\":\"italy\", \"date\":\"2013-01-01\",\"@fieldTypes\":\"date=a\"}) return @this"))
+    final ODocument res = db.command(new OCommandSQL(
+        "insert into myClass (name,meta) values (\"claudio\",{\"@type\":\"d\",\"country\":\"italy\", \"date\":\"2013-01-01\",\"@fieldTypes\":\"date=a\"}) return @this"))
         .execute();
 
     final ODocument embedded = res.field("meta");

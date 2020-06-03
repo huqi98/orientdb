@@ -872,9 +872,7 @@ public abstract class OClassImpl implements OClass {
    * Check if the current instance extends specified schema class.
    *
    * @param iClassName of class that should be checked
-   *
    * @return Returns true if the current instance extends the passed schema class (iClass)
-   *
    * @see #isSuperClassOf(OClass)
    */
   public boolean isSubClassOf(final String iClassName) {
@@ -899,9 +897,7 @@ public abstract class OClassImpl implements OClass {
    * Check if the current instance extends specified schema class.
    *
    * @param clazz to check
-   *
    * @return true if the current instance extends the passed schema class (iClass)
-   *
    * @see #isSuperClassOf(OClass)
    */
   public boolean isSubClassOf(final OClass clazz) {
@@ -925,9 +921,7 @@ public abstract class OClassImpl implements OClass {
    * Returns true if the passed schema class (iClass) extends the current instance.
    *
    * @param clazz to check
-   *
    * @return Returns true if the passed schema class extends the current instance
-   *
    * @see #isSubClassOf(OClass)
    */
   public boolean isSuperClassOf(final OClass clazz) {
@@ -1083,8 +1077,7 @@ public abstract class OClassImpl implements OClass {
     return createIndex(iName, iType.name(), iProgressListener, null, fields);
   }
 
-  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata,
-      String... fields) {
+  public OIndex createIndex(String iName, String iType, OProgressListener iProgressListener, ODocument metadata, String... fields) {
     return createIndex(iName, iType, iProgressListener, metadata, null, fields);
   }
 

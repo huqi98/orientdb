@@ -18,10 +18,9 @@ package com.orientechnologies.orient.test.domain.base;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface JavaTestInterface {
 
-	public int getNumber();
+  public int getNumber();
 
 }

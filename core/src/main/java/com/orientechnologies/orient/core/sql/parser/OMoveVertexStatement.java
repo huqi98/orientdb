@@ -27,8 +27,8 @@ public class OMoveVertexStatement extends OStatement {
     super(p, id);
   }
 
-
-  @Override public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Object[] args, OCommandContext parentCtx, boolean usePlanCache) {
     Map<Object, Object> params = new HashMap<>();
     if (args != null) {
       for (int i = 0; i < args.length; i++) {
@@ -38,7 +38,8 @@ public class OMoveVertexStatement extends OStatement {
     return execute(db, params, parentCtx, usePlanCache);
   }
 
-  @Override public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
+  @Override
+  public OResultSet execute(ODatabase db, Map params, OCommandContext parentCtx, boolean usePlanCache) {
     OBasicCommandContext ctx = new OBasicCommandContext();
     if (parentCtx != null) {
       ctx.setParentWithoutOverridingChild(parentCtx);
@@ -47,7 +48,7 @@ public class OMoveVertexStatement extends OStatement {
     ctx.setInputParameters(params);
     OUpdateExecutionPlan executionPlan;
     if (usePlanCache) {
-      executionPlan =  createExecutionPlan(ctx, false);
+      executionPlan = createExecutionPlan(ctx, false);
     } else {
       executionPlan = (OUpdateExecutionPlan) createExecutionPlanNoCache(ctx, false);
     }

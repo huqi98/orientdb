@@ -20,7 +20,6 @@ import java.util.Iterator;
 
 /**
  * @author Luca Molino (molino.luca--at--gmail.com)
- * 
  */
 public interface OObjectIteratorClassInterface<T> extends Iterator<T>, Iterable<T> {
 

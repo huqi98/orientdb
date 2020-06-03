@@ -19,8 +19,8 @@ import java.util.List;
 public class OTraverseTest {
 
   private ODatabaseDocument db;
-  private ODocument           rootDocument;
-  private OTraverse           traverse;
+  private ODocument         rootDocument;
+  private OTraverse         traverse;
 
   @Before
   public void setUp() throws Exception {
