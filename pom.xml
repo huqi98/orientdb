@@ -569,7 +569,15 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+	</plugin>
+	<plugin>
+		<groupId>net.revelc.code.formatter</groupId>
+		<artifactId>formatter-maven-plugin</artifactId>
+		<version>2.11.0</version>
+		<configuration>
+			<configFile>${project.rootdir}/_base/ide/eclipse-formatter.xml</configFile>
+		</configuration>
+	</plugin>
 
         </plugins>
     </build>
