@@ -561,14 +561,6 @@
                     <excludes>com/orientechnologies/orient/core/sql/parser/*.java</excludes>
                     <configLocation>${project.rootdir}/_base/orient_checks.xml</configLocation>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
 	</plugin>
 	<plugin>
 		<groupId>net.revelc.code.formatter</groupId>
